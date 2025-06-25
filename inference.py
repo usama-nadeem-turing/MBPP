@@ -46,11 +46,21 @@ class MBPPInference:
             problems = dataset[split]
             logger.info(f"Loaded {len(problems)} problems from MBPP {split} split")
             
+            # Debug: Check the type of problems
+            logger.debug(f"Problems type: {type(problems)}")
+            logger.debug(f"Problems is list: {isinstance(problems, list)}")
+            
+            # Convert to list if it's not already
+            if not isinstance(problems, list):
+                logger.warning(f"Problems is not a list, converting from {type(problems)}")
+                problems = list(problems)
+            
             # Inspect the structure of the first problem
             if len(problems) > 0:
                 first_problem = problems[0]
                 logger.info(f"First problem structure - Keys: {list(first_problem.keys())}")
                 logger.info(f"Sample problem: {first_problem}")
+                logger.debug(f"First problem type: {type(first_problem)}")
             
             return problems
             
@@ -170,15 +180,28 @@ Function signature: {function_signature}"""
             max_problems = 4
             logger.info("Running in DEMO mode - processing 4 problems only")
         
+        # Debug: Check the type and structure of problems
+        logger.debug(f"Problems type: {type(problems)}")
+        logger.debug(f"Problems length: {len(problems)}")
+        if len(problems) > 0:
+            logger.debug(f"First problem type: {type(problems[0])}")
+            logger.debug(f"First problem: {problems[0]}")
+        
         # Apply max_problems limit by slicing the problems list
         if max_problems:
             problems = problems[:max_problems]
             logger.info(f"Limited to {len(problems)} problems")
+            logger.debug(f"After slicing - First problem type: {type(problems[0]) if problems else 'No problems'}")
             
         results = []
         
         for i, problem in enumerate(problems):
-            logger.info(f"Processing problem {i+1}/{len(problems)}: Task {problem['task_id']}")
+            # Debug: Check if problem is a dictionary
+            if not isinstance(problem, dict):
+                logger.error(f"Problem {i} is not a dictionary: {type(problem)} - {problem}")
+                continue
+                
+            logger.info(f"Processing problem {i+1}/{len(problems)}: Task {problem.get('task_id', 'unknown')}")
             
             # Create prompt
             prompt = self.create_prompt(problem)
@@ -188,7 +211,7 @@ Function signature: {function_signature}"""
             
             # Store result with MBPP ID
             result = {
-                "mbpp_id": problem['task_id'],
+                "mbpp_id": problem.get('task_id', f'unknown_{i}'),
                 "problem": problem,
                 "prompt": prompt,
                 "model_response": model_response,
