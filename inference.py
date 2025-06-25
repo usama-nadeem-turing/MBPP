@@ -6,6 +6,7 @@ import argparse
 from typing import List, Dict, Any
 from datasets import load_dataset
 import logging
+from datetime import datetime
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -24,6 +25,12 @@ class MBPPInference:
         self.model_url = model_url
         self.model_name = model_name
         self.session = requests.Session()
+        
+        # Create results directory with timestamp
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.results_dir = f"results_{self.timestamp}"
+        os.makedirs(self.results_dir, exist_ok=True)
+        logger.info(f"Created results directory: {self.results_dir}")
         
     def load_mbpp_dataset(self, split: str = "test") -> List[Dict[str, Any]]:
         """
@@ -234,22 +241,23 @@ Please provide a complete Python function that solves this problem. Write only t
     
     def save_results(self, results: List[Dict[str, Any]], filename: str):
         """
-        Save results to a JSON file.
+        Save results to a JSON file in the results directory.
         
         Args:
             results: List of result dictionaries
             filename: Output filename
         """
         try:
-            with open(filename, 'w', encoding='utf-8') as f:
+            filepath = os.path.join(self.results_dir, filename)
+            with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(results, f, indent=2, ensure_ascii=False)
-            logger.info(f"Results saved to {filename}")
+            logger.info(f"Results saved to {filepath}")
         except Exception as e:
             logger.error(f"Error saving results: {e}")
     
     def save_individual_result(self, result: Dict[str, Any], demo_mode: bool = False):
         """
-        Save individual task result to a separate file.
+        Save individual task result to a separate file in the results directory.
         
         Args:
             result: Single result dictionary
@@ -262,11 +270,69 @@ Please provide a complete Python function that solves this problem. Write only t
             else:
                 filename = f"mbpp_task_{mbpp_id}.json"
             
-            with open(filename, 'w', encoding='utf-8') as f:
+            filepath = os.path.join(self.results_dir, filename)
+            with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(result, f, indent=2, ensure_ascii=False)
-            logger.debug(f"Individual result saved to {filename}")
+            logger.debug(f"Individual result saved to {filepath}")
         except Exception as e:
             logger.error(f"Error saving individual result: {e}")
+    
+    def save_run_metadata(self, args, problems_count: int, demo_mode: bool = False):
+        """
+        Save run metadata and configuration to the results directory.
+        
+        Args:
+            args: Command line arguments
+            problems_count: Number of problems to be processed
+            demo_mode: Whether running in demo mode
+        """
+        try:
+            metadata = {
+                "timestamp": self.timestamp,
+                "run_config": {
+                    "demo_mode": demo_mode,
+                    "split": args.split,
+                    "max_problems": args.max_problems,
+                    "model_url": args.model_url,
+                    "model_name": args.model_name,
+                    "temperature": args.temperature,
+                    "max_tokens": args.max_tokens,
+                    "debug": args.debug
+                },
+                "dataset_info": {
+                    "total_problems_loaded": problems_count,
+                    "problems_to_process": min(problems_count, args.max_problems or problems_count) if not demo_mode else 4
+                },
+                "results_directory": self.results_dir
+            }
+            
+            filepath = os.path.join(self.results_dir, "run_metadata.json")
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(metadata, f, indent=2, ensure_ascii=False)
+            logger.info(f"Run metadata saved to {filepath}")
+        except Exception as e:
+            logger.error(f"Error saving run metadata: {e}")
+    
+    def save_analysis(self, analysis: Dict[str, Any], demo_mode: bool = False):
+        """
+        Save analysis results to the results directory.
+        
+        Args:
+            analysis: Analysis dictionary
+            demo_mode: Whether running in demo mode
+        """
+        try:
+            if demo_mode:
+                filename = "analysis_demo.json"
+            else:
+                filename = "analysis_final.json"
+            
+            filepath = os.path.join(self.results_dir, filename)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(analysis, f, indent=2, ensure_ascii=False)
+            logger.info(f"Analysis saved to {filepath}")
+        except Exception as e:
+            logger.error(f"Error saving analysis: {e}")
     
     def analyze_results(self, results: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -364,8 +430,14 @@ def main():
                 demo_mode=False
             )
         
+        # Save run metadata
+        inference.save_run_metadata(args, len(problems), args.demo)
+        
         # Analyze results
         analysis = inference.analyze_results(results)
+        
+        # Save analysis
+        inference.save_analysis(analysis, args.demo)
         
         # Print analysis
         logger.info("=== ANALYSIS RESULTS ===")

@@ -131,21 +131,26 @@ You can modify the model settings via command line or in the `MBPPInference` cla
 
 ## Output Files
 
-The script generates different output files based on the mode:
+The script creates a timestamped results folder for each run: `results_YYYYMMDD_HHMMSS/`
 
 ### Demo Mode
-- `mbpp_demo_results.json`: Complete results for 4 demo problems (updated incrementally)
-- `mbpp_demo_task_X.json`: Individual task results (one file per task)
+- `results_20241225_143052/mbpp_demo_results.json`: Complete results for 4 demo problems (updated incrementally)
+- `results_20241225_143052/mbpp_demo_task_X.json`: Individual task results (one file per task)
+- `results_20241225_143052/analysis_demo.json`: Analysis statistics
+- `results_20241225_143052/run_metadata.json`: Run configuration and metadata
 
 ### Full Mode
-- `mbpp_results_final.json`: Complete results for all processed problems (updated incrementally)
-- `mbpp_task_X.json`: Individual task results (one file per task)
+- `results_20241225_143052/mbpp_results_final.json`: Complete results for all processed problems (updated incrementally)
+- `results_20241225_143052/mbpp_task_X.json`: Individual task results (one file per task)
+- `results_20241225_143052/analysis_final.json`: Analysis statistics
+- `results_20241225_143052/run_metadata.json`: Run configuration and metadata
 
 ### Incremental Saving
 The script saves results **after each task** to prevent data loss:
 - If the process is interrupted, you can resume from where you left off
 - Each task result is saved individually for easy access
 - The main results file is updated incrementally with all completed tasks
+- All files are organized in timestamped folders to prevent overwriting
 
 ## Output Format
 
