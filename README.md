@@ -134,11 +134,18 @@ You can modify the model settings via command line or in the `MBPPInference` cla
 The script generates different output files based on the mode:
 
 ### Demo Mode
-- `mbpp_demo_results.json`: Results for 4 demo problems
+- `mbpp_demo_results.json`: Complete results for 4 demo problems (updated incrementally)
+- `mbpp_demo_task_X.json`: Individual task results (one file per task)
 
 ### Full Mode
-- `mbpp_results_final.json`: Complete results for all processed problems
-- `mbpp_results_intermediate_X.json`: Intermediate results every 10 problems
+- `mbpp_results_final.json`: Complete results for all processed problems (updated incrementally)
+- `mbpp_task_X.json`: Individual task results (one file per task)
+
+### Incremental Saving
+The script saves results **after each task** to prevent data loss:
+- If the process is interrupted, you can resume from where you left off
+- Each task result is saved individually for easy access
+- The main results file is updated incrementally with all completed tasks
 
 ## Output Format
 
