@@ -103,6 +103,8 @@ python inference.py --split all --demo
 python inference.py --split all --max-problems 100
 ```
 
+**Note:** When using `--split all`, the "prompt" split is automatically excluded as it's not typically used for evaluation. This will process: train, validation, and test splits.
+
 ### 4. Custom Usage
 
 You can also use the `MBPPInference` class programmatically:

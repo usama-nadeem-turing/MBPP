@@ -426,8 +426,9 @@ def main():
         
         # Determine which splits to process
         if args.split.lower() == 'all':
-            splits_to_process = available_splits
-            logger.info(f"Processing all splits: {splits_to_process}")
+            # Exclude 'prompt' split as it's not typically used for evaluation
+            splits_to_process = [split for split in available_splits if split != 'prompt']
+            logger.info(f"Processing all splits (excluding 'prompt'): {splits_to_process}")
         else:
             if args.split not in available_splits:
                 logger.error(f"Split '{args.split}' not found. Available splits: {available_splits}")
