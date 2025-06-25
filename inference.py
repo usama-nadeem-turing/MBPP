@@ -169,8 +169,11 @@ Function signature: {function_signature}"""
         if demo_mode:
             max_problems = 4
             logger.info("Running in DEMO mode - processing 4 problems only")
-        elif max_problems:
+        
+        # Apply max_problems limit by slicing the problems list
+        if max_problems:
             problems = problems[:max_problems]
+            logger.info(f"Limited to {len(problems)} problems")
             
         results = []
         
@@ -310,7 +313,6 @@ def main():
             logger.info("Starting DEMO mode - processing 4 problems...")
             results = inference.process_problems(
                 problems, 
-                max_problems=4, 
                 save_results=True,
                 demo_mode=True
             )
