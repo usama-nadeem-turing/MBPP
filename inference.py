@@ -46,9 +46,16 @@ class MBPPInference:
             logger.info(f"Loading MBPP dataset with split: {split}")
             dataset = load_dataset("mbpp")
             
+            # Log available splits
+            available_splits = list(dataset.keys())
+            logger.info(f"Available splits in MBPP dataset: {available_splits}")
+            
             if split not in dataset:
-                logger.warning(f"Split '{split}' not found. Available splits: {list(dataset.keys())}")
-                split = list(dataset.keys())[0]  # Use first available split
+                logger.warning(f"Split '{split}' not found. Available splits: {available_splits}")
+                split = available_splits[0]  # Use first available split
+                logger.info(f"Using fallback split: {split}")
+            else:
+                logger.info(f"Successfully using requested split: {split}")
                 
             problems = dataset[split]
             logger.info(f"Loaded {len(problems)} problems from MBPP {split} split")
@@ -164,7 +171,8 @@ Please provide a complete Python function that solves this problem. Write only t
     def process_problems(self, problems: List[Dict[str, Any]], 
                         max_problems: int = None, 
                         save_results: bool = True,
-                        demo_mode: bool = False) -> List[Dict[str, Any]]:
+                        demo_mode: bool = False,
+                        split_name: str = "") -> List[Dict[str, Any]]:
         """
         Process all problems and get model responses.
         
@@ -173,13 +181,14 @@ Please provide a complete Python function that solves this problem. Write only t
             max_problems: Maximum number of problems to process (None for all)
             save_results: Whether to save results to file
             demo_mode: If True, process only 3-4 problems for demo
+            split_name: Name of the split being processed
             
         Returns:
             List of results with problems and model responses
         """
         if demo_mode:
             max_problems = 4
-            logger.info("Running in DEMO mode - processing 4 problems only")
+            logger.info(f"Running in DEMO mode - processing 4 problems only for split: {split_name}")
         
         # Debug: Check the type and structure of problems
         logger.debug(f"Problems type: {type(problems)}")
@@ -191,7 +200,7 @@ Please provide a complete Python function that solves this problem. Write only t
         # Apply max_problems limit by slicing the problems list
         if max_problems:
             problems = problems[:max_problems]
-            logger.info(f"Limited to {len(problems)} problems")
+            logger.info(f"Limited to {len(problems)} problems for split: {split_name}")
             logger.debug(f"After slicing - First problem type: {type(problems[0]) if problems else 'No problems'}")
             
         results = []
@@ -202,7 +211,7 @@ Please provide a complete Python function that solves this problem. Write only t
                 logger.error(f"Problem {i} is not a dictionary: {type(problem)} - {problem}")
                 continue
                 
-            logger.info(f"Processing problem {i+1}/{len(problems)}: Task {problem.get('task_id', 'unknown')}")
+            logger.info(f"Processing problem {i+1}/{len(problems)}: Task {problem.get('task_id', 'unknown')} for split: {split_name}")
             
             # Create prompt
             prompt = self.create_prompt(problem)
@@ -224,9 +233,9 @@ Please provide a complete Python function that solves this problem. Write only t
             # Save result incrementally after each task
             if save_results:
                 if demo_mode:
-                    filename = "mbpp_demo_results.json"
+                    filename = f"mbpp_demo_results_{split_name}.json"
                 else:
-                    filename = "mbpp_results_final.json"
+                    filename = f"mbpp_results_final_{split_name}.json"
                 self.save_results(results, filename)
                 logger.info(f"Saved incremental results after task {i+1} to {filename}")
             
@@ -236,7 +245,7 @@ Please provide a complete Python function that solves this problem. Write only t
             # Add delay to avoid overwhelming the server
             time.sleep(0.5)
             
-        logger.info(f"Completed processing {len(results)} problems")
+        logger.info(f"Completed processing {len(results)} problems for split: {split_name}")
         return results
     
     def save_results(self, results: List[Dict[str, Any]], filename: str):
@@ -266,9 +275,9 @@ Please provide a complete Python function that solves this problem. Write only t
         try:
             mbpp_id = result.get('mbpp_id', 'unknown')
             if demo_mode:
-                filename = f"mbpp_demo_task_{mbpp_id}.json"
+                filename = f"mbpp_demo_task_{mbpp_id}_{self.timestamp}.json"
             else:
-                filename = f"mbpp_task_{mbpp_id}.json"
+                filename = f"mbpp_task_{mbpp_id}_{self.timestamp}.json"
             
             filepath = os.path.join(self.results_dir, filename)
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -277,7 +286,7 @@ Please provide a complete Python function that solves this problem. Write only t
         except Exception as e:
             logger.error(f"Error saving individual result: {e}")
     
-    def save_run_metadata(self, args, problems_count: int, demo_mode: bool = False):
+    def save_run_metadata(self, args, problems_count: int, demo_mode: bool = False, split: str = ""):
         """
         Save run metadata and configuration to the results directory.
         
@@ -285,13 +294,14 @@ Please provide a complete Python function that solves this problem. Write only t
             args: Command line arguments
             problems_count: Number of problems to be processed
             demo_mode: Whether running in demo mode
+            split: Name of the split being processed
         """
         try:
             metadata = {
                 "timestamp": self.timestamp,
                 "run_config": {
                     "demo_mode": demo_mode,
-                    "split": args.split,
+                    "split": split,
                     "max_problems": args.max_problems,
                     "model_url": args.model_url,
                     "model_name": args.model_name,
@@ -306,26 +316,27 @@ Please provide a complete Python function that solves this problem. Write only t
                 "results_directory": self.results_dir
             }
             
-            filepath = os.path.join(self.results_dir, "run_metadata.json")
+            filepath = os.path.join(self.results_dir, f"run_metadata_{split}.json")
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(metadata, f, indent=2, ensure_ascii=False)
             logger.info(f"Run metadata saved to {filepath}")
         except Exception as e:
             logger.error(f"Error saving run metadata: {e}")
     
-    def save_analysis(self, analysis: Dict[str, Any], demo_mode: bool = False):
+    def save_analysis(self, analysis: Dict[str, Any], demo_mode: bool = False, split: str = ""):
         """
         Save analysis results to the results directory.
         
         Args:
             analysis: Analysis dictionary
             demo_mode: Whether running in demo mode
+            split: Name of the split being processed
         """
         try:
             if demo_mode:
-                filename = "analysis_demo.json"
+                filename = f"analysis_demo_{split}.json"
             else:
-                filename = "analysis_final.json"
+                filename = f"analysis_final_{split}.json"
             
             filepath = os.path.join(self.results_dir, filename)
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -377,7 +388,7 @@ def main():
     parser.add_argument('--demo', action='store_true', 
                        help='Run in demo mode with only 3-4 problems')
     parser.add_argument('--split', type=str, default='test',
-                       help='Dataset split to use (train, validation, test)')
+                       help='Dataset split to use (train, validation, test). Use "all" to process all splits.')
     parser.add_argument('--max-problems', type=int, default=None,
                        help='Maximum number of problems to process')
     parser.add_argument('--model-url', type=str, 
@@ -407,54 +418,101 @@ def main():
     )
     
     try:
-        # Load MBPP dataset
-        problems = inference.load_mbpp_dataset(split=args.split)
+        # Load MBPP dataset to get available splits
+        logger.info("Loading MBPP dataset to check available splits...")
+        temp_dataset = load_dataset("mbpp")
+        available_splits = list(temp_dataset.keys())
+        logger.info(f"Available splits in MBPP dataset: {available_splits}")
         
-        # Inspect dataset structure
-        inference.inspect_dataset_structure(problems)
-        
-        # Process problems
-        if args.demo:
-            logger.info("Starting DEMO mode - processing 4 problems...")
-            results = inference.process_problems(
-                problems, 
-                save_results=True,
-                demo_mode=True
-            )
+        # Determine which splits to process
+        if args.split.lower() == 'all':
+            splits_to_process = available_splits
+            logger.info(f"Processing all splits: {splits_to_process}")
         else:
-            logger.info("Starting to process problems...")
-            results = inference.process_problems(
-                problems, 
-                max_problems=args.max_problems, 
-                save_results=True,
-                demo_mode=False
-            )
+            if args.split not in available_splits:
+                logger.error(f"Split '{args.split}' not found. Available splits: {available_splits}")
+                return
+            splits_to_process = [args.split]
+            logger.info(f"Processing specific split: {args.split}")
         
-        # Save run metadata
-        inference.save_run_metadata(args, len(problems), args.demo)
+        all_results = {}
+        all_analyses = {}
         
-        # Analyze results
-        analysis = inference.analyze_results(results)
-        
-        # Save analysis
-        inference.save_analysis(analysis, args.demo)
-        
-        # Print analysis
-        logger.info("=== ANALYSIS RESULTS ===")
-        for key, value in analysis.items():
-            logger.info(f"{key}: {value}")
-        
-        # Print results as examples
-        logger.info("\n=== SAMPLE RESULTS ===")
-        for i, result in enumerate(results[:3]):
-            logger.info(f"\nProblem {i+1} (MBPP ID: {result['mbpp_id']}):")
-            logger.info(f"Prompt: {result['prompt'][:200]}...")
+        # Process each split
+        for split in splits_to_process:
+            logger.info(f"\n{'='*50}")
+            logger.info(f"Processing split: {split}")
+            logger.info(f"{'='*50}")
             
-            if "error" in result["model_response"]:
-                logger.info(f"Error: {result['model_response']['error']}")
+            # Load problems for this split
+            problems = inference.load_mbpp_dataset(split=split)
+            
+            # Inspect dataset structure
+            inference.inspect_dataset_structure(problems)
+            
+            # Save run metadata for this split
+            inference.save_run_metadata(args, len(problems), args.demo, split)
+            
+            # Process problems
+            if args.demo:
+                logger.info(f"Starting DEMO mode for split {split} - processing 4 problems...")
+                results = inference.process_problems(
+                    problems, 
+                    save_results=True,
+                    demo_mode=True,
+                    split_name=split
+                )
             else:
-                response_content = result["model_response"].get("choices", [{}])[0].get("message", {}).get("content", "")
-                logger.info(f"Response: {response_content[:200]}...")
+                logger.info(f"Starting to process problems for split {split}...")
+                results = inference.process_problems(
+                    problems, 
+                    max_problems=args.max_problems, 
+                    save_results=True,
+                    demo_mode=False,
+                    split_name=split
+                )
+            
+            # Analyze results for this split
+            analysis = inference.analyze_results(results)
+            all_results[split] = results
+            all_analyses[split] = analysis
+            
+            # Save analysis for this split
+            inference.save_analysis(analysis, args.demo, split)
+            
+            # Print analysis for this split
+            logger.info(f"\n=== ANALYSIS RESULTS FOR SPLIT: {split} ===")
+            for key, value in analysis.items():
+                logger.info(f"{key}: {value}")
+            
+            # Print sample results for this split
+            logger.info(f"\n=== SAMPLE RESULTS FOR SPLIT: {split} ===")
+            for i, result in enumerate(results[:3]):
+                logger.info(f"\nProblem {i+1} (MBPP ID: {result['mbpp_id']}):")
+                logger.info(f"Prompt: {result['prompt'][:200]}...")
+                
+                if "error" in result["model_response"]:
+                    logger.info(f"Error: {result['model_response']['error']}")
+                else:
+                    response_content = result["model_response"].get("choices", [{}])[0].get("message", {}).get("content", "")
+                    logger.info(f"Response: {response_content[:200]}...")
+        
+        # Print overall summary if processing multiple splits
+        if len(splits_to_process) > 1:
+            logger.info(f"\n{'='*50}")
+            logger.info("OVERALL SUMMARY")
+            logger.info(f"{'='*50}")
+            total_problems = sum(len(results) for results in all_results.values())
+            total_successful = sum(analysis['successful_responses'] for analysis in all_analyses.values())
+            overall_success_rate = total_successful / total_problems if total_problems > 0 else 0
+            
+            logger.info(f"Total problems processed: {total_problems}")
+            logger.info(f"Total successful responses: {total_successful}")
+            logger.info(f"Overall success rate: {overall_success_rate:.2%}")
+            
+            for split in splits_to_process:
+                analysis = all_analyses[split]
+                logger.info(f"{split}: {analysis['successful_responses']}/{analysis['total_problems']} successful ({analysis['success_rate']:.2%})")
         
     except Exception as e:
         logger.error(f"Error in main execution: {e}")

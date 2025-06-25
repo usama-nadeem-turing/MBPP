@@ -78,7 +78,7 @@ python inference.py [OPTIONS]
 
 Options:
   --demo              Run in demo mode with only 3-4 problems
-  --split TEXT        Dataset split to use (train, validation, test) [default: test]
+  --split TEXT        Dataset split to use (train, validation, test, or "all" for all splits) [default: test]
   --max-problems INT  Maximum number of problems to process
   --model-url TEXT    URL of the model server [default: http://localhost:18000/v1/chat/completions]
   --model-name TEXT   Name of the model to use [default: Qwen/Qwen2.5-1.5B-Instruct]
@@ -86,6 +86,21 @@ Options:
   --max-tokens INT    Maximum tokens to generate [default: 512]
   --debug             Enable debug logging to see dataset structure
   --help              Show this message and exit
+```
+
+### 4. Split Processing Examples
+
+#### Process specific split:
+```bash
+python inference.py --split test --demo
+python inference.py --split train --max-problems 50
+python inference.py --split validation
+```
+
+#### Process all splits:
+```bash
+python inference.py --split all --demo
+python inference.py --split all --max-problems 100
 ```
 
 ### 4. Custom Usage
@@ -134,16 +149,28 @@ You can modify the model settings via command line or in the `MBPPInference` cla
 The script creates a timestamped results folder for each run: `results_YYYYMMDD_HHMMSS/`
 
 ### Demo Mode
-- `results_20241225_143052/mbpp_demo_results.json`: Complete results for 4 demo problems (updated incrementally)
-- `results_20241225_143052/mbpp_demo_task_X.json`: Individual task results (one file per task)
-- `results_20241225_143052/analysis_demo.json`: Analysis statistics
-- `results_20241225_143052/run_metadata.json`: Run configuration and metadata
+- `results_20241225_143052/mbpp_demo_results_test.json`: Complete results for test split (updated incrementally)
+- `results_20241225_143052/mbpp_demo_results_train.json`: Complete results for train split (updated incrementally)
+- `results_20241225_143052/mbpp_demo_results_validation.json`: Complete results for validation split (updated incrementally)
+- `results_20241225_143052/mbpp_demo_task_X_timestamp.json`: Individual task results (one file per task)
+- `results_20241225_143052/analysis_demo_test.json`: Analysis statistics for test split
+- `results_20241225_143052/analysis_demo_train.json`: Analysis statistics for train split
+- `results_20241225_143052/analysis_demo_validation.json`: Analysis statistics for validation split
+- `results_20241225_143052/run_metadata_test.json`: Run configuration and metadata for test split
+- `results_20241225_143052/run_metadata_train.json`: Run configuration and metadata for train split
+- `results_20241225_143052/run_metadata_validation.json`: Run configuration and metadata for validation split
 
 ### Full Mode
-- `results_20241225_143052/mbpp_results_final.json`: Complete results for all processed problems (updated incrementally)
-- `results_20241225_143052/mbpp_task_X.json`: Individual task results (one file per task)
-- `results_20241225_143052/analysis_final.json`: Analysis statistics
-- `results_20241225_143052/run_metadata.json`: Run configuration and metadata
+- `results_20241225_143052/mbpp_results_final_test.json`: Complete results for test split (updated incrementally)
+- `results_20241225_143052/mbpp_results_final_train.json`: Complete results for train split (updated incrementally)
+- `results_20241225_143052/mbpp_results_final_validation.json`: Complete results for validation split (updated incrementally)
+- `results_20241225_143052/mbpp_task_X_timestamp.json`: Individual task results (one file per task)
+- `results_20241225_143052/analysis_final_test.json`: Analysis statistics for test split
+- `results_20241225_143052/analysis_final_train.json`: Analysis statistics for train split
+- `results_20241225_143052/analysis_final_validation.json`: Analysis statistics for validation split
+- `results_20241225_143052/run_metadata_test.json`: Run configuration and metadata for test split
+- `results_20241225_143052/run_metadata_train.json`: Run configuration and metadata for train split
+- `results_20241225_143052/run_metadata_validation.json`: Run configuration and metadata for validation split
 
 ### Incremental Saving
 The script saves results **after each task** to prevent data loss:
