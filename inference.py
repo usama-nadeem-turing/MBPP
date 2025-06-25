@@ -101,11 +101,20 @@ class MBPPInference:
         # Debug: Print available keys to understand the structure
         logger.debug(f"Available keys in problem: {list(problem.keys())}")
         
+        # Get test cases if available
+        test_cases = ""
+        if 'test_list' in problem and problem['test_list']:
+            test_cases = "\n\nExpected behavior (test cases):\n"
+            for i, test in enumerate(problem['test_list'], 1):
+                # Clean up the assert statement to show the expected behavior
+                test_clean = test.replace("assert ", "").replace(" == ", " should return ")
+                test_cases += f"{i}. {test_clean}\n"
+        
         prompt = f"""Please solve the following Python programming problem:
 
 Problem: {problem['text']}
 
-Task ID: {problem['task_id']}
+Task ID: {problem['task_id']}{test_cases}
 
 Please provide a complete Python function that solves this problem. Write only the function code without any explanations or comments."""
         
