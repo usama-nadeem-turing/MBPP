@@ -289,6 +289,9 @@ After running inference, you can evaluate if the generated code passes the test 
 # Evaluate most recent results (all splits)
 python evaluation_pass.py
 
+# Evaluate specific file
+python evaluation_pass.py --file-path "Results # 1/mbpp_results_final_test.json"
+
 # Evaluate specific split
 python evaluation_pass.py --split test
 python evaluation_pass.py --split train

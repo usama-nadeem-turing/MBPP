@@ -13,15 +13,22 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class MBPPEvaluator:
-    def __init__(self, results_dir: str = None):
+    def __init__(self, results_dir: str = None, file_path: str = None):
         """
         Initialize the MBPP evaluator.
         
         Args:
             results_dir: Directory containing results files. If None, uses most recent results directory.
+            file_path: Specific file path to evaluate. If provided, overrides results_dir.
         """
-        self.results_dir = results_dir or self._find_latest_results_dir()
-        logger.info(f"Using results directory: {self.results_dir}")
+        self.file_path = file_path
+        if file_path:
+            # Extract results directory from file path
+            self.results_dir = os.path.dirname(file_path)
+            logger.info(f"Using specific file: {file_path}")
+        else:
+            self.results_dir = results_dir or self._find_latest_results_dir()
+            logger.info(f"Using results directory: {self.results_dir}")
         
     def _find_latest_results_dir(self) -> str:
         """
@@ -38,16 +45,40 @@ class MBPPEvaluator:
         results_dirs.sort(reverse=True)
         return results_dirs[0]
     
-    def load_results(self, split: str = None) -> List[Dict[str, Any]]:
+    def load_results_from_file(self, file_path: str) -> List[Dict[str, Any]]:
         """
-        Load results from the results directory.
+        Load results from a specific file.
         
         Args:
-            split: Specific split to load (test, train, validation). If None, loads all splits.
+            file_path: Path to the results file
             
         Returns:
             List of result dictionaries
         """
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                results = json.load(f)
+            logger.info(f"Loaded {len(results)} results from {file_path}")
+            return results
+        except Exception as e:
+            logger.error(f"Error loading file {file_path}: {e}")
+            return []
+    
+    def load_results(self, split: str = None) -> List[Dict[str, Any]]:
+        """
+        Load results from the results directory or specific file.
+        
+        Args:
+            split: Specific split to load (test, train, validation). If None, loads all splits.
+                  Ignored if file_path is provided.
+            
+        Returns:
+            List of result dictionaries
+        """
+        # If specific file path is provided, load from that file
+        if self.file_path:
+            return self.load_results_from_file(self.file_path)
+        
         results = []
         
         if split:
@@ -343,6 +374,8 @@ def main():
     parser = argparse.ArgumentParser(description='Evaluate MBPP results by checking test case passes')
     parser.add_argument('--results-dir', type=str, default=None,
                        help='Results directory to evaluate (default: most recent)')
+    parser.add_argument('--file-path', type=str, default=None,
+                       help='Specific file path to evaluate (overrides results-dir)')
     parser.add_argument('--split', type=str, default=None,
                        help='Specific split to evaluate (test, train, validation). If None, evaluates all splits.')
     parser.add_argument('--mbpp-id', type=str, default=None,
@@ -359,7 +392,7 @@ def main():
     
     try:
         # Initialize evaluator
-        evaluator = MBPPEvaluator(args.results_dir)
+        evaluator = MBPPEvaluator(args.results_dir, args.file_path)
         
         # Load results
         results = evaluator.load_results(args.split)
