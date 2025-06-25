@@ -84,6 +84,7 @@ Options:
   --model-name TEXT   Name of the model to use [default: Qwen/Qwen2.5-1.5B-Instruct]
   --temperature FLOAT Sampling temperature [default: 0.2]
   --max-tokens INT    Maximum tokens to generate [default: 512]
+  --debug             Enable debug logging to see dataset structure
   --help              Show this message and exit
 ```
 
@@ -193,6 +194,11 @@ All errors are logged with timestamps and appropriate error messages.
 2. **Dataset Loading Error**: Check your internet connection and Hugging Face access
 3. **Memory Issues**: Use `--demo` mode or reduce `--max-problems` parameter
 4. **Slow Processing**: The script includes delays to avoid overwhelming the server
+5. **Dataset Structure Issues**: If you encounter KeyError for missing fields, run with `--debug` to inspect the dataset structure:
+   ```bash
+   python inference.py --demo --debug
+   ```
+   This will show you the actual structure of the MBPP dataset and help identify the correct field names.
 
 ## Model Server Examples
 

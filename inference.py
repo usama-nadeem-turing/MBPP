@@ -45,11 +45,38 @@ class MBPPInference:
                 
             problems = dataset[split]
             logger.info(f"Loaded {len(problems)} problems from MBPP {split} split")
+            
+            # Inspect the structure of the first problem
+            if len(problems) > 0:
+                first_problem = problems[0]
+                logger.info(f"First problem structure - Keys: {list(first_problem.keys())}")
+                logger.info(f"Sample problem: {first_problem}")
+            
             return problems
             
         except Exception as e:
             logger.error(f"Error loading MBPP dataset: {e}")
             raise
+    
+    def inspect_dataset_structure(self, problems: List[Dict[str, Any]], num_samples: int = 3):
+        """
+        Inspect the structure of the dataset to understand available fields.
+        
+        Args:
+            problems: List of problem dictionaries
+            num_samples: Number of sample problems to inspect
+        """
+        logger.info("=== DATASET STRUCTURE INSPECTION ===")
+        for i in range(min(num_samples, len(problems))):
+            problem = problems[i]
+            logger.info(f"\nProblem {i+1} (Task ID: {problem.get('task_id', 'N/A')}):")
+            logger.info(f"Keys: {list(problem.keys())}")
+            for key, value in problem.items():
+                if isinstance(value, str) and len(value) > 100:
+                    logger.info(f"{key}: {value[:100]}...")
+                else:
+                    logger.info(f"{key}: {value}")
+        logger.info("=== END INSPECTION ===\n")
     
     def create_prompt(self, problem: Dict[str, Any]) -> str:
         """
@@ -61,6 +88,22 @@ class MBPPInference:
         Returns:
             Formatted prompt string
         """
+        # Debug: Print available keys to understand the structure
+        logger.debug(f"Available keys in problem: {list(problem.keys())}")
+        
+        # Handle different possible field names for the function signature
+        function_signature = None
+        if 'prompt' in problem:
+            function_signature = problem['prompt']
+        elif 'code' in problem:
+            function_signature = problem['code']
+        elif 'signature' in problem:
+            function_signature = problem['signature']
+        else:
+            # If no function signature found, create a generic one
+            function_signature = "def solution_function():"
+            logger.warning(f"No function signature found for task {problem.get('task_id', 'unknown')}")
+        
         prompt = f"""Please solve the following Python programming problem:
 
 Problem: {problem['text']}
@@ -69,7 +112,7 @@ Task: {problem['task_id']}
 
 Please provide a complete Python function that solves this problem. Include only the function code without any explanations or comments.
 
-Function signature: {problem['prompt']}"""
+Function signature: {function_signature}"""
         
         return prompt
     
@@ -239,8 +282,15 @@ def main():
                        help='Sampling temperature')
     parser.add_argument('--max-tokens', type=int, default=512,
                        help='Maximum tokens to generate')
+    parser.add_argument('--debug', action='store_true',
+                       help='Enable debug logging')
     
     args = parser.parse_args()
+    
+    # Set debug logging if requested
+    if args.debug:
+        logging.getLogger().setLevel(logging.DEBUG)
+        logger.setLevel(logging.DEBUG)
     
     # Initialize the inference class
     inference = MBPPInference(
@@ -251,6 +301,9 @@ def main():
     try:
         # Load MBPP dataset
         problems = inference.load_mbpp_dataset(split=args.split)
+        
+        # Inspect dataset structure
+        inference.inspect_dataset_structure(problems)
         
         # Process problems
         if args.demo:
