@@ -278,3 +278,66 @@ vllm serve "meta-llama/CodeLlama-7b-Python-hf" \
 ## License
 
 This project is open source and available under the MIT License.
+
+## Evaluation
+
+After running inference, you can evaluate if the generated code passes the test cases using the `evaluation_pass.py` script.
+
+### Basic Usage
+
+```bash
+# Evaluate most recent results (all splits)
+python evaluation_pass.py
+
+# Evaluate specific split
+python evaluation_pass.py --split test
+python evaluation_pass.py --split train
+python evaluation_pass.py --split validation
+
+# Evaluate specific results directory
+python evaluation_pass.py --results-dir results_20241225_143052
+
+# Evaluate specific MBPP ID
+python evaluation_pass.py --mbpp-id 11
+
+# Enable debug logging
+python evaluation_pass.py --debug
+```
+
+### What the Evaluation Does
+
+1. **Extracts Code**: Parses the model response to extract Python code
+2. **Creates Test Script**: Combines generated code with original test cases
+3. **Runs Tests**: Executes the test script and checks if all tests pass
+4. **Analyzes Results**: Provides pass/fail statistics and detailed analysis
+
+### Evaluation Output
+
+The script creates evaluation files in the results directory:
+- `evaluation_results_test_timestamp.json` - Test split evaluation
+- `evaluation_results_train_timestamp.json` - Train split evaluation
+- `evaluation_results_validation_timestamp.json` - Validation split evaluation
+- `evaluation_results_all_timestamp.json` - All splits evaluation
+
+### Sample Output
+
+```
+==================================================
+EVALUATION RESULTS
+==================================================
+Total problems: 12
+Passed: 8
+Failed: 4
+Pass rate: 66.67%
+No code generated: 1
+Test failures: 3
+Passed MBPP IDs: ['11', '12', '13', '14', '15', '16', '17', '18']
+Failed MBPP IDs: ['19', '20', '21', '22']
+
+Sample failed evaluations:
+
+MBPP ID 19:
+Test outputs: ['Test 1: FAIL - NameError: name count_common is not defined', 'Test 2: FAIL - NameError: name count_common is not defined']
+```
+
+## Troubleshooting
