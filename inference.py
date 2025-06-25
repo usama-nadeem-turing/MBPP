@@ -101,28 +101,13 @@ class MBPPInference:
         # Debug: Print available keys to understand the structure
         logger.debug(f"Available keys in problem: {list(problem.keys())}")
         
-        # Handle different possible field names for the function signature
-        function_signature = None
-        if 'prompt' in problem:
-            function_signature = problem['prompt']
-        elif 'code' in problem:
-            function_signature = problem['code']
-        elif 'signature' in problem:
-            function_signature = problem['signature']
-        else:
-            # If no function signature found, create a generic one
-            function_signature = "def solution_function():"
-            logger.warning(f"No function signature found for task {problem.get('task_id', 'unknown')}")
-        
         prompt = f"""Please solve the following Python programming problem:
 
 Problem: {problem['text']}
 
-Task: {problem['task_id']}
+Task ID: {problem['task_id']}
 
-Please provide a complete Python function that solves this problem. Include only the function code without any explanations or comments.
-
-Function signature: {function_signature}"""
+Please provide a complete Python function that solves this problem. Write only the function code without any explanations or comments."""
         
         return prompt
     
