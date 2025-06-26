@@ -21,6 +21,7 @@ MBPP/
 ├── inference.py                 # Main inference script
 ├── evaluation_pass_xlsx.py      # Evaluation script with Excel export
 ├── eval_converter.py           # JSON to Excel converter
+├── run_multiple_inference.py   # Run inference 9 times with different configs
 ├── test_inference.py           # Model server connection test
 ├── host model.py               # Model hosting utilities
 ├── requirements.txt            # Python dependencies
@@ -194,6 +195,65 @@ Options:
   --help               Show this message and exit
 ```
 
+### 7. Run Multiple Inference Experiments
+
+Run systematic experiments with different configurations:
+
+```bash
+# Run all 9 configurations automatically
+python run_multiple_inference.py
+```
+
+#### What This Does
+
+The script runs `inference.py` 9 times with different configurations:
+
+1. **Demo Test Low Temp** - Demo mode, test split, temperature 0.1
+2. **Demo Test High Temp** - Demo mode, test split, temperature 0.8
+3. **Demo Train Low Temp** - Demo mode, train split, temperature 0.1
+4. **Demo Train High Temp** - Demo mode, train split, temperature 0.8
+5. **Demo Validation Low Temp** - Demo mode, validation split, temperature 0.1
+6. **Demo Validation High Temp** - Demo mode, validation split, temperature 0.8
+7. **Full Test Medium Temp** - Full mode, test split, 10 problems, temperature 0.5
+8. **Full Train Medium Temp** - Full mode, train split, 10 problems, temperature 0.5
+9. **Full Validation Medium Temp** - Full mode, validation split, 10 problems, temperature 0.5
+
+#### Features
+
+- ✅ **Systematic Testing**: Tests different temperatures, splits, and modes
+- ✅ **Progress Tracking**: Saves progress after each run
+- ✅ **Error Handling**: Handles timeouts, crashes, and failures gracefully
+- ✅ **Comprehensive Logging**: Shows progress, success/failure, and timing
+- ✅ **Safe Execution**: 30-minute timeout per run, 10-second delays between runs
+- ✅ **Detailed Results**: Saves all outputs, errors, and timing data
+
+#### Output
+
+Creates a master directory: `multiple_inference_YYYYMMDD_HHMMSS/`
+
+```
+multiple_inference_20241225_143052/
+├── progress.json          # Progress after each run
+├── all_results.json       # Detailed results from all runs
+├── summary.json          # JSON summary
+└── summary.txt           # Human-readable summary
+```
+
+#### Sample Output
+
+```
+============================================================
+RUN 1/9: demo_test_low_temp
+Description: Demo mode, test split, low temperature (0.1)
+Args: --demo --split test --temperature 0.1
+============================================================
+Executing: python inference.py --demo --split test --temperature 0.1
+✅ RUN 1 COMPLETED SUCCESSFULLY in 45.23 seconds
+Progress saved: 1/9 runs completed
+
+Waiting 10 seconds before next run...
+```
+
 ## 📊 Output Files
 
 The scripts create timestamped results folders for each run:
@@ -209,6 +269,10 @@ The scripts create timestamped results folders for each run:
 ### Excel Converter (`eval_converter.py`)
 - **Folder**: `conversion_results_YYYYMMDD_HHMMSS/`
 - **Contents**: Converted Excel files
+
+### Multiple Inference Runner (`run_multiple_inference.py`)
+- **Folder**: `multiple_inference_YYYYMMDD_HHMMSS/`
+- **Contents**: Master results from all 9 inference runs
 
 ### Inference Output Files
 
@@ -400,6 +464,12 @@ python evaluation_pass_xlsx.py --split test
 python eval_converter.py "evaluation_results_20241225_144530/evaluation_results_test.json"
 ```
 *Creates: `conversion_results_20241225_145000/`*
+
+6. **Run Multiple Experiments** (Optional):
+```bash
+python run_multiple_inference.py
+```
+*Creates: `multiple_inference_20241225_150000/` with 9 different configurations*
 
 ## 📝 License
 
