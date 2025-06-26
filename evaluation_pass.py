@@ -197,13 +197,16 @@ class MBPPEvaluator:
 """
         
         for i, test_case in enumerate(test_cases, 1):
-            # Clean up the test case (remove 'assert ' and add print)
+            # Clean up the test case (remove 'assert ' and add proper checking)
             test_clean = test_case.replace("assert ", "")
             script += f"""
 # Test case {i}
 try:
     result = {test_clean}
-    print(f"Test {i}: PASS")
+    if result:
+        print(f"Test {i}: PASS - All Clear")
+    else:
+        print(f"Test {i}: FAIL - Result does not match expected output")
 except Exception as e:
     print(f"Test {i}: FAIL - {{e}}")
 """
