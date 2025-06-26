@@ -1,24 +1,45 @@
-# MBPP Dataset Inference
+# MBPP Dataset Inference and Evaluation Pipeline
 
-This project provides a comprehensive solution to load the MBPP (Mostly Basic Python Problems) dataset and get model responses for each problem using a local model server.
+This project provides a comprehensive solution to load the MBPP (Mostly Basic Python Problems) dataset, get model responses for each problem using a local model server, and evaluate the generated code against test cases.
 
-## Features
+## 🚀 Features
 
-- Load MBPP dataset from Hugging Face
-- Send problems to local model server (vLLM)
-- Save results to JSON files with MBPP IDs
-- Analyze response statistics
-- Robust error handling and logging
-- Configurable parameters (temperature, max_tokens, etc.)
-- **Demo mode** for quick testing with 3-4 problems
-- Command-line interface with multiple options
+- **Dataset Loading**: Load MBPP dataset from Hugging Face with flexible split handling
+- **Model Inference**: Send problems to local model server (vLLM) with configurable parameters
+- **Code Evaluation**: Test generated code against original MBPP test cases
+- **Excel Export**: Convert evaluation results to formatted Excel files for analysis
+- **Incremental Saving**: Save results after each task to prevent data loss
+- **Multi-split Processing**: Process train, validation, and test splits individually or all at once
+- **Demo Mode**: Quick testing with 3-4 problems
+- **Comprehensive Logging**: Detailed logging with debug mode support
+- **Robust Error Handling**: Handle connection errors, API failures, and dataset issues
 
-## Prerequisites
+## 📁 Project Structure
+
+```
+MBPP/
+├── inference.py                 # Main inference script
+├── evaluation_pass_xlsx.py      # Evaluation script with Excel export
+├── eval_converter.py           # JSON to Excel converter
+├── test_inference.py           # Model server connection test
+├── host model.py               # Model hosting utilities
+├── requirements.txt            # Python dependencies
+├── README.md                   # This file
+└── Results_no_1/              # Example results directory
+    ├── Evaluation/
+    │   └── evaluation_results_test_split.json
+    ├── mbpp_results_final_test.json
+    ├── mbpp_results_final_train.json
+    └── mbpp_results_final_validation.json
+```
+
+## 📋 Prerequisites
 
 1. **Model Server**: Make sure your vLLM model server is running on `localhost:18000`
 2. **Python Dependencies**: Install required packages
+3. **Dataset Access**: Access to MBPP dataset via Hugging Face
 
-## Installation
+## 🛠️ Installation
 
 1. Install dependencies:
 ```bash
@@ -35,7 +56,7 @@ vllm serve "Qwen/Qwen2.5-1.5B-Instruct" \
     --swap-space 0
 ```
 
-## Usage
+## 🚀 Usage
 
 ### 1. Test Model Connection
 
@@ -56,7 +77,7 @@ python inference.py --demo
 
 This will:
 - Process only 4 problems
-- Save results to `mbpp_demo_results.json`
+- Save results to timestamped folders
 - Show quick analysis
 
 #### Full Run
@@ -71,7 +92,7 @@ python inference.py
 python inference.py --split test --max-problems 20 --temperature 0.1 --max-tokens 256
 ```
 
-### 3. Command Line Options
+### 3. Command Line Options for Inference
 
 ```bash
 python inference.py [OPTIONS]
@@ -103,94 +124,133 @@ python inference.py --split all --demo
 python inference.py --split all --max-problems 100
 ```
 
-**Note:** When using `--split all`, the "prompt" split is automatically excluded as it's not typically used for evaluation. This will process: train, validation, and test splits.
+**Note:** When using `--split all`, the "prompt" split is automatically excluded as it's not typically used for evaluation.
 
-### 4. Custom Usage
+### 5. Evaluate Generated Code
 
-You can also use the `MBPPInference` class programmatically:
+After running inference, evaluate if the generated code passes the test cases:
 
-```python
-from inference import MBPPInference
+#### Basic Evaluation
+```bash
+# Evaluate most recent results (all splits)
+python evaluation_pass_xlsx.py
 
-# Initialize with custom settings
-inference = MBPPInference(
-    model_url="http://localhost:18000/v1/chat/completions",
-    model_name="Qwen/Qwen2.5-1.5B-Instruct"
-)
+# Evaluate specific file
+python evaluation_pass_xlsx.py --file-path "Results_no_1/mbpp_results_final_test.json"
 
-# Load dataset
-problems = inference.load_mbpp_dataset(split="test")
+# Evaluate specific split
+python evaluation_pass_xlsx.py --split test
+python evaluation_pass_xlsx.py --split train
+python evaluation_pass_xlsx.py --split validation
 
-# Process problems in demo mode
-results = inference.process_problems(problems, demo_mode=True)
+# Evaluate specific results directory
+python evaluation_pass_xlsx.py --results-dir results_20241225_143052
 
-# Analyze results
-analysis = inference.analyze_results(results)
-print(analysis)
+# Evaluate specific MBPP ID
+python evaluation_pass_xlsx.py --mbpp-id 11
+
+# Enable debug logging
+python evaluation_pass_xlsx.py --debug
 ```
 
-## Configuration
+#### Command Line Options for Evaluation
+```bash
+python evaluation_pass_xlsx.py [OPTIONS]
 
-### Model Settings
+Options:
+  --results-dir TEXT  Results directory to evaluate (default: most recent)
+  --file-path TEXT    Specific file path to evaluate (overrides results-dir)
+  --split TEXT        Specific split to evaluate (test, train, validation)
+  --mbpp-id TEXT      Evaluate specific MBPP ID only
+  --debug             Enable debug logging
+  --help              Show this message and exit
+```
 
-You can modify the model settings via command line or in the `MBPPInference` class:
+### 6. Convert Results to Excel
 
-- `model_url`: URL of your model server
-- `model_name`: Name of the model
-- `temperature`: Sampling temperature (default: 0.2)
-- `max_tokens`: Maximum tokens to generate (default: 512)
+Convert evaluation results to Excel format for easy analysis:
 
-### Dataset Settings
+```bash
+# Convert evaluation results to Excel
+python eval_converter.py "Results_no_1/Evaluation/evaluation_results_test_split.json"
 
-- `split`: Dataset split to use ('train', 'validation', 'test')
-- `max_problems`: Limit number of problems to process
-- `demo_mode`: Process only 4 problems for quick testing
+# Specify output file
+python eval_converter.py "Results_no_1/Evaluation/evaluation_results_test_split.json" --output "my_results.xlsx"
 
-## Output Files
+# Enable debug logging
+python eval_converter.py "Results_no_1/Evaluation/evaluation_results_test_split.json" --debug
+```
 
-The script creates a timestamped results folder for each run: `results_YYYYMMDD_HHMMSS/`
+#### Command Line Options for Excel Converter
+```bash
+python eval_converter.py [OPTIONS] FILE_PATH
 
-### Demo Mode
-- `results_20241225_143052/mbpp_demo_results_test.json`: Complete results for test split (updated incrementally)
-- `results_20241225_143052/mbpp_demo_results_train.json`: Complete results for train split (updated incrementally)
-- `results_20241225_143052/mbpp_demo_results_validation.json`: Complete results for validation split (updated incrementally)
-- `results_20241225_143052/mbpp_demo_task_X_timestamp.json`: Individual task results (one file per task)
-- `results_20241225_143052/analysis_demo_test.json`: Analysis statistics for test split
-- `results_20241225_143052/analysis_demo_train.json`: Analysis statistics for train split
-- `results_20241225_143052/analysis_demo_validation.json`: Analysis statistics for validation split
-- `results_20241225_143052/run_metadata_test.json`: Run configuration and metadata for test split
-- `results_20241225_143052/run_metadata_train.json`: Run configuration and metadata for train split
-- `results_20241225_143052/run_metadata_validation.json`: Run configuration and metadata for validation split
+Arguments:
+  FILE_PATH            Path to the evaluation results JSON file
 
-### Full Mode
-- `results_20241225_143052/mbpp_results_final_test.json`: Complete results for test split (updated incrementally)
-- `results_20241225_143052/mbpp_results_final_train.json`: Complete results for train split (updated incrementally)
-- `results_20241225_143052/mbpp_results_final_validation.json`: Complete results for validation split (updated incrementally)
-- `results_20241225_143052/mbpp_task_X_timestamp.json`: Individual task results (one file per task)
-- `results_20241225_143052/analysis_final_test.json`: Analysis statistics for test split
-- `results_20241225_143052/analysis_final_train.json`: Analysis statistics for train split
-- `results_20241225_143052/analysis_final_validation.json`: Analysis statistics for validation split
-- `results_20241225_143052/run_metadata_test.json`: Run configuration and metadata for test split
-- `results_20241225_143052/run_metadata_train.json`: Run configuration and metadata for train split
-- `results_20241225_143052/run_metadata_validation.json`: Run configuration and metadata for validation split
+Options:
+  --output TEXT        Output Excel file path (optional)
+  --debug              Enable debug logging
+  --help               Show this message and exit
+```
 
-### Incremental Saving
-The script saves results **after each task** to prevent data loss:
-- If the process is interrupted, you can resume from where you left off
-- Each task result is saved individually for easy access
-- The main results file is updated incrementally with all completed tasks
-- All files are organized in timestamped folders to prevent overwriting
+## 📊 Output Files
 
-## Output Format
+The scripts create timestamped results folders for each run:
 
-Each result contains:
+### Inference Script (`inference.py`)
+- **Folder**: `results_YYYYMMDD_HHMMSS/`
+- **Contents**: All inference results and analysis files
 
+### Evaluation Script (`evaluation_pass_xlsx.py`)
+- **Folder**: `evaluation_results_YYYYMMDD_HHMMSS/`
+- **Contents**: Evaluation results in JSON and Excel formats
+
+### Excel Converter (`eval_converter.py`)
+- **Folder**: `conversion_results_YYYYMMDD_HHMMSS/`
+- **Contents**: Converted Excel files
+
+### Inference Output Files
+
+#### Demo Mode
+- `mbpp_demo_results_{split}.json`: Complete results for each split
+- `mbpp_demo_task_{id}.json`: Individual task results
+- `analysis_demo_{split}.json`: Analysis statistics
+- `run_metadata_{split}.json`: Run configuration and metadata
+
+#### Full Mode
+- `mbpp_results_final_{split}.json`: Complete results for each split
+- `mbpp_task_{id}.json`: Individual task results
+- `analysis_final_{split}.json`: Analysis statistics
+- `run_metadata_{split}.json`: Run configuration and metadata
+
+### Evaluation Output Files
+
+#### JSON Results
+- `evaluation_results_{split}.json`: Evaluation results in JSON format
+- `evaluation_results_all.json`: All splits evaluation
+
+#### Excel Results
+- `evaluation_results_{split}.xlsx`: Evaluation results in Excel format
+- `evaluation_results_all.xlsx`: All splits evaluation in Excel
+
+### Excel Format
+
+The Excel files contain the following columns:
+- **mbpp_id**: The MBPP problem ID
+- **test_case_statement**: The assert statement from the test case
+- **test_output**: PASS or FAIL status
+- **reason**: The reason (e.g., "All Clear", "Result does not match expected output")
+
+## 📈 Data Formats
+
+### Inference Result Format
 ```json
 {
   "mbpp_id": "problem_id",
   "problem": {
     "text": "problem_description",
-    "prompt": "function_signature",
+    "test_list": ["assert function(1) == 2", ...],
     "task_id": "task_id"
   },
   "prompt": "formatted_prompt_sent_to_model",
@@ -202,10 +262,27 @@ Each result contains:
 }
 ```
 
-## Analysis Results
+### Evaluation Result Format
+```json
+{
+  "mbpp_id": 11,
+  "passed": true,
+  "error": null,
+  "test_outputs": [
+    "Test 1: PASS - All Clear",
+    "Test 2: PASS - All Clear",
+    "Test 3: PASS - All Clear"
+  ],
+  "generated_code": "def remove_Occ(s, ch):\n    # ...",
+  "test_cases": [
+    "assert remove_Occ(\"hello\",\"l\") == \"heo\"",
+    "assert remove_Occ(\"abcda\",\"a\") == \"bcd\"",
+    "assert remove_Occ(\"PHP\",\"P\") == \"H\""
+  ]
+}
+```
 
-The analysis includes:
-
+### Analysis Results
 ```json
 {
   "total_problems": 4,
@@ -218,30 +295,37 @@ The analysis includes:
 }
 ```
 
-## Error Handling
+## 🔧 Configuration
 
-The script includes comprehensive error handling:
+### Model Settings
+- `model_url`: URL of your model server
+- `model_name`: Name of the model
+- `temperature`: Sampling temperature (default: 0.2)
+- `max_tokens`: Maximum tokens to generate (default: 512)
 
-- Connection errors to model server
-- Dataset loading errors
-- API response errors
-- File saving errors
+### Dataset Settings
+- `split`: Dataset split to use ('train', 'validation', 'test')
+- `max_problems`: Limit number of problems to process
+- `demo_mode`: Process only 4 problems for quick testing
 
-All errors are logged with timestamps and appropriate error messages.
+## 🐛 Troubleshooting
 
-## Troubleshooting
+### Common Issues
 
 1. **Connection Error**: Make sure your model server is running on the correct port
 2. **Dataset Loading Error**: Check your internet connection and Hugging Face access
 3. **Memory Issues**: Use `--demo` mode or reduce `--max-problems` parameter
 4. **Slow Processing**: The script includes delays to avoid overwhelming the server
-5. **Dataset Structure Issues**: If you encounter KeyError for missing fields, run with `--debug` to inspect the dataset structure:
-   ```bash
-   python inference.py --demo --debug
-   ```
-   This will show you the actual structure of the MBPP dataset and help identify the correct field names.
+5. **ModuleNotFoundError**: Install missing dependencies with `pip install -r requirements.txt`
 
-## Model Server Examples
+### Debug Mode
+Run with `--debug` to inspect dataset structure and troubleshoot issues:
+```bash
+python inference.py --demo --debug
+python evaluation_pass_xlsx.py --debug
+```
+
+## 🖥️ Model Server Examples
 
 ### Qwen2.5-1.5B-Instruct
 ```bash
@@ -275,72 +359,52 @@ vllm serve "meta-llama/CodeLlama-7b-Python-hf" \
     --swap-space 0
 ```
 
-## License
+## 📋 Dependencies
+
+```
+requests>=2.25.1
+datasets>=2.0.0
+huggingface-hub>=0.16.0
+numpy>=1.21.0
+tqdm>=4.62.0
+pandas>=1.3.0
+openpyxl>=3.0.0
+```
+
+## 🔄 Complete Workflow Example
+
+1. **Start Model Server**:
+```bash
+vllm serve "Qwen/Qwen2.5-1.5B-Instruct" --port 18000
+```
+
+2. **Test Connection**:
+```bash
+python test_inference.py
+```
+
+3. **Run Demo Inference**:
+```bash
+python inference.py --demo --split test
+```
+*Creates: `results_20241225_143052/`*
+
+4. **Evaluate Results**:
+```bash
+python evaluation_pass_xlsx.py --split test
+```
+*Creates: `evaluation_results_20241225_144530/`*
+
+5. **Convert to Excel**:
+```bash
+python eval_converter.py "evaluation_results_20241225_144530/evaluation_results_test.json"
+```
+*Creates: `conversion_results_20241225_145000/`*
+
+## 📝 License
 
 This project is open source and available under the MIT License.
 
-## Evaluation
+## 🤝 Contributing
 
-After running inference, you can evaluate if the generated code passes the test cases using the `evaluation_pass.py` script.
-
-### Basic Usage
-
-```bash
-# Evaluate most recent results (all splits)
-python evaluation_pass.py
-
-# Evaluate specific file
-python evaluation_pass.py --file-path "Results # 1/mbpp_results_final_test.json"
-
-# Evaluate specific split
-python evaluation_pass.py --split test
-python evaluation_pass.py --split train
-python evaluation_pass.py --split validation
-
-# Evaluate specific results directory
-python evaluation_pass.py --results-dir results_20241225_143052
-
-# Evaluate specific MBPP ID
-python evaluation_pass.py --mbpp-id 11
-
-# Enable debug logging
-python evaluation_pass.py --debug
-```
-
-### What the Evaluation Does
-
-1. **Extracts Code**: Parses the model response to extract Python code
-2. **Creates Test Script**: Combines generated code with original test cases
-3. **Runs Tests**: Executes the test script and checks if all tests pass
-4. **Analyzes Results**: Provides pass/fail statistics and detailed analysis
-
-### Evaluation Output
-
-The script creates evaluation files in the results directory:
-- `evaluation_results_test_timestamp.json` - Test split evaluation
-- `evaluation_results_train_timestamp.json` - Train split evaluation
-- `evaluation_results_validation_timestamp.json` - Validation split evaluation
-- `evaluation_results_all_timestamp.json` - All splits evaluation
-
-### Sample Output
-
-```
-==================================================
-EVALUATION RESULTS
-==================================================
-Total problems: 12
-Passed: 8
-Failed: 4
-Pass rate: 66.67%
-No code generated: 1
-Test failures: 3
-Passed MBPP IDs: ['11', '12', '13', '14', '15', '16', '17', '18']
-Failed MBPP IDs: ['19', '20', '21', '22']
-
-Sample failed evaluations:
-
-MBPP ID 19:
-Test outputs: ['Test 1: FAIL - NameError: name count_common is not defined', 'Test 2: FAIL - NameError: name count_common is not defined']
-```
-
-## Troubleshooting
+Feel free to submit issues and enhancement requests!

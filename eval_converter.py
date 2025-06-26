@@ -19,6 +19,13 @@ class EvalConverter:
             file_path: Path to the evaluation results JSON file
         """
         self.file_path = file_path
+        
+        # Create conversion results directory with timestamp
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.conversion_results_dir = f"conversion_results_{self.timestamp}"
+        os.makedirs(self.conversion_results_dir, exist_ok=True)
+        logger.info(f"Created conversion results directory: {self.conversion_results_dir}")
+        
         logger.info(f"Initializing converter with file: {file_path}")
     
     def load_evaluation_results(self) -> List[Dict[str, Any]]:
@@ -131,8 +138,10 @@ class EvalConverter:
         if output_path is None:
             # Generate output path based on input file
             base_name = os.path.splitext(os.path.basename(self.file_path))[0]
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_path = f"{base_name}_converted_{timestamp}.xlsx"
+            output_path = f"{base_name}_converted.xlsx"
+        
+        # Save in the conversion results directory
+        output_path = os.path.join(self.conversion_results_dir, output_path)
         
         try:
             # Create Excel writer with formatting

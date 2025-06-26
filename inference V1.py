@@ -172,9 +172,7 @@ Please provide a complete Python function that solves this problem. Write only t
                         max_problems: int = None, 
                         save_results: bool = True,
                         demo_mode: bool = False,
-                        split_name: str = "",
-                        temperature: float = 0.2,
-                        max_tokens: int = 512) -> List[Dict[str, Any]]:
+                        split_name: str = "") -> List[Dict[str, Any]]:
         """
         Process all problems and get model responses.
         
@@ -184,8 +182,6 @@ Please provide a complete Python function that solves this problem. Write only t
             save_results: Whether to save results to file
             demo_mode: If True, process only 3-4 problems for demo
             split_name: Name of the split being processed
-            temperature: Sampling temperature for model generation
-            max_tokens: Maximum tokens to generate
             
         Returns:
             List of results with problems and model responses
@@ -220,8 +216,8 @@ Please provide a complete Python function that solves this problem. Write only t
             # Create prompt
             prompt = self.create_prompt(problem)
             
-            # Get model response with temperature and max_tokens
-            model_response = self.get_model_response(prompt, temperature=temperature, max_tokens=max_tokens)
+            # Get model response
+            model_response = self.get_model_response(prompt)
             
             # Store result with MBPP ID
             result = {
@@ -279,9 +275,9 @@ Please provide a complete Python function that solves this problem. Write only t
         try:
             mbpp_id = result.get('mbpp_id', 'unknown')
             if demo_mode:
-                filename = f"mbpp_demo_task_{mbpp_id}.json"
+                filename = f"mbpp_demo_task_{mbpp_id}_{self.timestamp}.json"
             else:
-                filename = f"mbpp_task_{mbpp_id}.json"
+                filename = f"mbpp_task_{mbpp_id}_{self.timestamp}.json"
             
             filepath = os.path.join(self.results_dir, filename)
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -401,7 +397,7 @@ def main():
     parser.add_argument('--model-name', type=str, 
                        default='Qwen/Qwen2.5-1.5B-Instruct',
                        help='Name of the model to use')
-    parser.add_argument('--temperature', type=float, default=1.0,
+    parser.add_argument('--temperature', type=float, default=0.2,
                        help='Sampling temperature')
     parser.add_argument('--max-tokens', type=int, default=512,
                        help='Maximum tokens to generate')
@@ -465,9 +461,7 @@ def main():
                     problems, 
                     save_results=True,
                     demo_mode=True,
-                    split_name=split,
-                    temperature=args.temperature,
-                    max_tokens=args.max_tokens
+                    split_name=split
                 )
             else:
                 logger.info(f"Starting to process problems for split {split}...")
@@ -476,9 +470,7 @@ def main():
                     max_problems=args.max_problems, 
                     save_results=True,
                     demo_mode=False,
-                    split_name=split,
-                    temperature=args.temperature,
-                    max_tokens=args.max_tokens
+                    split_name=split
                 )
             
             # Analyze results for this split

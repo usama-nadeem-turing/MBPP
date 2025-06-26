@@ -23,6 +23,13 @@ class MBPPEvaluator:
             file_path: Specific file path to evaluate. If provided, overrides results_dir.
         """
         self.file_path = file_path
+        
+        # Create evaluation results directory with timestamp
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.eval_results_dir = f"evaluation_results_{self.timestamp}"
+        os.makedirs(self.eval_results_dir, exist_ok=True)
+        logger.info(f"Created evaluation results directory: {self.eval_results_dir}")
+        
         if file_path:
             # Extract results directory from file path
             self.results_dir = os.path.dirname(file_path)
@@ -471,23 +478,21 @@ except Exception as e:
             evaluations: List of evaluation results
             split: Split name for filename
         """
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
         if split:
-            json_filename = f"evaluation_results_{split}_{timestamp}.json"
-            excel_filename = f"evaluation_results_{split}_{timestamp}.xlsx"
+            json_filename = f"evaluation_results_{split}.json"
+            excel_filename = f"evaluation_results_{split}.xlsx"
         else:
-            json_filename = f"evaluation_results_all_{timestamp}.json"
-            excel_filename = f"evaluation_results_all_{timestamp}.xlsx"
+            json_filename = f"evaluation_results_all.json"
+            excel_filename = f"evaluation_results_all.xlsx"
         
         # Save JSON
-        json_filepath = os.path.join(self.results_dir, json_filename)
+        json_filepath = os.path.join(self.eval_results_dir, json_filename)
         with open(json_filepath, 'w', encoding='utf-8') as f:
             json.dump(evaluations, f, indent=2, ensure_ascii=False)
         logger.info(f"Evaluation results (JSON) saved to {json_filepath}")
         
         # Save Excel
-        excel_filepath = os.path.join(self.results_dir, excel_filename)
+        excel_filepath = os.path.join(self.eval_results_dir, excel_filename)
         df = self.convert_evaluations_to_dataframe(evaluations)
         self.save_to_excel(df, excel_filepath)
         logger.info(f"Evaluation results (Excel) saved to {excel_filepath}")
