@@ -195,64 +195,69 @@ Options:
   --help               Show this message and exit
 ```
 
-### 7. Run Multiple Inference Experiments
+### 7. Run Multiple Experiments (Optional)
 
-Run systematic experiments with different configurations:
+Run the same inference configuration 9 times for consistency testing:
 
 ```bash
-# Run all 9 configurations automatically
+# Run the same configuration 9 times
 python run_multiple_inference.py
 ```
 
 #### What This Does
 
-The script runs `inference.py` 9 times with different configurations:
+The script runs `inference.py` 9 times with the **same configuration**:
 
-1. **Demo Test Low Temp** - Demo mode, test split, temperature 0.1
-2. **Demo Test High Temp** - Demo mode, test split, temperature 0.8
-3. **Demo Train Low Temp** - Demo mode, train split, temperature 0.1
-4. **Demo Train High Temp** - Demo mode, train split, temperature 0.8
-5. **Demo Validation Low Temp** - Demo mode, validation split, temperature 0.1
-6. **Demo Validation High Temp** - Demo mode, validation split, temperature 0.8
-7. **Full Test Medium Temp** - Full mode, test split, 10 problems, temperature 0.5
-8. **Full Train Medium Temp** - Full mode, train split, 10 problems, temperature 0.5
-9. **Full Validation Medium Temp** - Full mode, validation split, 10 problems, temperature 0.5
+- **Demo mode**: Process only 4 problems per run
+- **Test split**: Use the test split of the dataset
+- **Temperature**: 0.5 (medium temperature)
+- **Max tokens**: 512
 
 #### Features
 
-- ✅ **Systematic Testing**: Tests different temperatures, splits, and modes
-- ✅ **Progress Tracking**: Saves progress after each run
+- ✅ **Consistency Testing**: Runs the same configuration 9 times to test reproducibility
+- ✅ **Progress Tracking**: Shows which run is currently executing (1/9, 2/9, etc.)
 - ✅ **Error Handling**: Handles timeouts, crashes, and failures gracefully
-- ✅ **Comprehensive Logging**: Shows progress, success/failure, and timing
-- ✅ **Safe Execution**: 30-minute timeout per run, 10-second delays between runs
+- ✅ **Comprehensive Logging**: Shows progress, success/failure, and timing for each run
+- ✅ **Safe Execution**: 1-hour timeout per run, 5-second delays between runs
 - ✅ **Detailed Results**: Saves all outputs, errors, and timing data
 
 #### Output
 
-Creates a master directory: `multiple_inference_YYYYMMDD_HHMMSS/`
+Creates a summary directory: `multiple_inference_run_YYYYMMDD_HHMMSS/`
 
 ```
-multiple_inference_20241225_143052/
-├── progress.json          # Progress after each run
-├── all_results.json       # Detailed results from all runs
-├── summary.json          # JSON summary
-└── summary.txt           # Human-readable summary
+multiple_inference_run_20241225_143052/
+└── run_summary.json          # Summary of all 9 runs
 ```
+
+Each individual run creates its own timestamped folder: `results_YYYYMMDD_HHMMSS/`
 
 #### Sample Output
 
 ```
 ============================================================
-RUN 1/9: demo_test_low_temp
-Description: Demo mode, test split, low temperature (0.1)
-Args: --demo --split test --temperature 0.1
+🔄 Running inference 1/9
 ============================================================
-Executing: python inference.py --demo --split test --temperature 0.1
-✅ RUN 1 COMPLETED SUCCESSFULLY in 45.23 seconds
-Progress saved: 1/9 runs completed
+Running command: python inference.py --demo --split test --temperature 0.5 --max-tokens 512
+✅ Run 1/9 completed successfully
+✅ Run 1 completed in 45.23 seconds
+⏳ Waiting 5 seconds before next run...
 
-Waiting 10 seconds before next run...
+============================================================
+🔄 Running inference 2/9
+============================================================
+Running command: python inference.py --demo --split test --temperature 0.5 --max-tokens 512
+✅ Run 2/9 completed successfully
+✅ Run 2 completed in 42.18 seconds
 ```
+
+#### Use Cases
+
+- **Reproducibility Testing**: Verify that the same configuration produces consistent results
+- **Performance Analysis**: Compare execution times across multiple runs
+- **Stability Testing**: Check if the model server and inference pipeline are stable
+- **Data Collection**: Gather multiple samples for statistical analysis
 
 ## 📊 Output Files
 
@@ -271,8 +276,8 @@ The scripts create timestamped results folders for each run:
 - **Contents**: Converted Excel files
 
 ### Multiple Inference Runner (`run_multiple_inference.py`)
-- **Folder**: `multiple_inference_YYYYMMDD_HHMMSS/`
-- **Contents**: Master results from all 9 inference runs
+- **Folder**: `multiple_inference_run_YYYYMMDD_HHMMSS/`
+- **Contents**: Summary of all 9 runs
 
 ### Inference Output Files
 
@@ -469,7 +474,7 @@ python eval_converter.py "evaluation_results_20241225_144530/evaluation_results_
 ```bash
 python run_multiple_inference.py
 ```
-*Creates: `multiple_inference_20241225_150000/` with 9 different configurations*
+*Creates: `multiple_inference_run_20241225_150000/` with 9 runs of the same configuration*
 
 ## 📝 License
 
