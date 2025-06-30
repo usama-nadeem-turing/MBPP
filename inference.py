@@ -243,9 +243,6 @@ Please provide a complete Python function that solves this problem. Write only t
                 self.save_results(results, filename)
                 logger.info(f"Saved incremental results after task {i+1} to {filename}")
             
-            # Save individual result
-            self.save_individual_result(result, demo_mode)
-            
             # Add delay to avoid overwhelming the server
             time.sleep(0.5)
             
@@ -267,28 +264,6 @@ Please provide a complete Python function that solves this problem. Write only t
             logger.info(f"Results saved to {filepath}")
         except Exception as e:
             logger.error(f"Error saving results: {e}")
-    
-    def save_individual_result(self, result: Dict[str, Any], demo_mode: bool = False):
-        """
-        Save individual task result to a separate file in the results directory.
-        
-        Args:
-            result: Single result dictionary
-            demo_mode: Whether running in demo mode
-        """
-        try:
-            mbpp_id = result.get('mbpp_id', 'unknown')
-            if demo_mode:
-                filename = f"mbpp_demo_task_{mbpp_id}.json"
-            else:
-                filename = f"mbpp_task_{mbpp_id}.json"
-            
-            filepath = os.path.join(self.results_dir, filename)
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(result, f, indent=2, ensure_ascii=False)
-            logger.debug(f"Individual result saved to {filepath}")
-        except Exception as e:
-            logger.error(f"Error saving individual result: {e}")
     
     def save_run_metadata(self, args, problems_count: int, demo_mode: bool = False, split: str = ""):
         """
