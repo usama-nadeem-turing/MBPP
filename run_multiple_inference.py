@@ -23,10 +23,7 @@ def run_inference(run_number):
         # Build the command with the same configuration for all runs
         cmd = [
             sys.executable, "inference.py",
-            "--demo",  # Demo mode
-            "--split", "test",  # Test split
-            "--temperature", "1.0",  # Medium temperature
-            "--max-tokens", "512"
+            "--split", "all"  # Process all splits
         ]
         
         # Log the command being executed
@@ -59,10 +56,7 @@ def main():
     """
     # Configuration used for all runs
     config = {
-        'demo': True,
-        'split': 'test',
-        'temperature': 1.0,
-        'max_tokens': 512
+        'split': 'all'
     }
     
     # Create a summary directory for this run
@@ -72,7 +66,7 @@ def main():
     
     logger.info(f"🚀 Starting multiple inference run - 9 times with same configuration")
     logger.info(f"📁 Summary directory: {summary_dir}")
-    logger.info(f"⚙️  Configuration: Demo mode, Test split, Temperature=1.0, Max tokens=512")
+    logger.info(f"⚙️  Configuration: Split=all (process all splits)")
     
     # Track results
     results = []

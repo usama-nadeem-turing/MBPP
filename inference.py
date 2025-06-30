@@ -134,7 +134,7 @@ Please provide a complete Python function that solves this problem. Write only t
         
         return prompt
     
-    def get_model_response(self, prompt: str, temperature: float = 0.2, 
+    def get_model_response(self, prompt: str, temperature: float = 1.0, 
                           max_tokens: int = 512) -> Dict[str, Any]:
         """
         Get response from the local model server.
@@ -173,7 +173,7 @@ Please provide a complete Python function that solves this problem. Write only t
                         save_results: bool = True,
                         demo_mode: bool = False,
                         split_name: str = "",
-                        temperature: float = 0.2,
+                        temperature: float = 1.0,
                         max_tokens: int = 512) -> List[Dict[str, Any]]:
         """
         Process all problems and get model responses.

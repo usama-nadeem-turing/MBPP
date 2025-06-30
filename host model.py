@@ -84,7 +84,7 @@ curl http://localhost:18000/v1/chat/completions \
 ## for smaller machines
 # --- start vLLM -------------------------------------------------
 
-vllm serve "Qwen/Qwen2.5-0.5B" \
+vllm serve "Qwen/Qwen2.5-1.5B-Instruct" \
     --dtype float16 \
     --port 18000 \
     --host 0.0.0.0 \
@@ -99,7 +99,7 @@ vllm serve "Qwen/Qwen2.5-0.5B" \
 
 curl http://localhost:18000/v1/chat/completions \
      -H "Content-Type: application/json" \
-     -d '{"model":"Qwen/Qwen2.5-0.5B",
+     -d '{"model":"Qwen/Qwen2.5-1.5B-Instruct",
           "messages":[{"role":"user","content":"Give me a one-line Python lambda that reverses a string."}],
           "temperature":0.2,"max_tokens":64}'
 
