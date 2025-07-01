@@ -595,11 +595,17 @@ def main():
         
         # Filter by specific MBPP ID if requested
         if args.mbpp_id:
-            results = [r for r in results if r.get('mbpp_id') == args.mbpp_id]
-            if not results:
-                logger.error(f"No results found for MBPP ID: {args.mbpp_id}")
+            # Convert mbpp_id to int for comparison since it's stored as int in the data
+            try:
+                target_mbpp_id = int(args.mbpp_id)
+                results = [r for r in results if r.get('mbpp_id') == target_mbpp_id]
+                if not results:
+                    logger.error(f"No results found for MBPP ID: {args.mbpp_id}")
+                    return
+                logger.info(f"Filtered to {len(results)} results for MBPP ID: {args.mbpp_id}")
+            except ValueError:
+                logger.error(f"Invalid MBPP ID format: {args.mbpp_id}. Please provide a valid integer.")
                 return
-            logger.info(f"Filtered to {len(results)} results for MBPP ID: {args.mbpp_id}")
         
         # Evaluate results
         logger.info("Starting evaluation...")
