@@ -24,6 +24,12 @@ class MBPPEvaluator:
         """
         self.file_path = file_path
         
+        # Create evaluation results directory with timestamp
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.eval_results_dir = f"evaluation_results_{self.timestamp}"
+        os.makedirs(self.eval_results_dir, exist_ok=True)
+        logger.info(f"Created evaluation results directory: {self.eval_results_dir}")
+        
         if file_path:
             # Extract results directory from file path
             self.results_dir = os.path.dirname(file_path)
@@ -31,18 +37,6 @@ class MBPPEvaluator:
         else:
             self.results_dir = results_dir or self._find_latest_results_dir()
             logger.info(f"Using results directory: {self.results_dir}")
-        
-        # Create evaluation results directory
-        if self.results_dir:
-            # Create evaluations subdirectory within the results directory
-            self.eval_results_dir = os.path.join(self.results_dir, "evaluations")
-        else:
-            # Fallback to timestamped directory in current directory
-            self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            self.eval_results_dir = f"evaluation_results_"
-        
-        os.makedirs(self.eval_results_dir, exist_ok=True)
-        logger.info(f"Created evaluation results directory: {self.eval_results_dir}")
         
     def _find_latest_results_dir(self) -> str:
         """
