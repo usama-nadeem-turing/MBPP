@@ -1,0 +1,48 @@
+{
+  "mbpp_id": 20,
+  "problem": {
+    "task_id": 20,
+    "text": "Write a function to check if the given number is woodball or not.",
+    "code": "def is_woodall(x): \r\n\tif (x % 2 == 0): \r\n\t\treturn False\r\n\tif (x == 1): \r\n\t\treturn True\r\n\tx = x + 1 \r\n\tp = 0\r\n\twhile (x % 2 == 0): \r\n\t\tx = x/2\r\n\t\tp = p + 1\r\n\t\tif (p == x): \r\n\t\t\treturn True\r\n\treturn False",
+    "test_list": [
+      "assert is_woodall(383) == True",
+      "assert is_woodall(254) == False",
+      "assert is_woodall(200) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert is_woodall(32212254719) == True",
+      "assert is_woodall(32212254718) == False",
+      "assert is_woodall(159) == True"
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given number is woodball or not.\n\nTask ID: 20\n\nExpected behavior (test cases):\n1. is_woodall(383) should return True\n2. is_woodall(254) should return False\n3. is_woodall(200) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-34dc153cfb98496f93a609a5e81a937b",
+    "object": "chat.completion",
+    "created": 1750868631,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_woodall(n):\n    # Check if n can be expressed as 6k + 1 for some integer k\n    return (n - 1) % 6 == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 181,
+      "completion_tokens": 47,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868632.7202888
+}

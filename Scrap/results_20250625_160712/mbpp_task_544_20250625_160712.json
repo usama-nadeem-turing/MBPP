@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 544,
+  "problem": {
+    "task_id": 544,
+    "text": "Write a function to flatten the tuple list to a string.",
+    "code": "def flatten_tuple(test_list):\r\n  res = ' '.join([idx for tup in test_list for idx in tup])\r\n  return (res) ",
+    "test_list": [
+      "assert flatten_tuple([('1', '4', '6'), ('5', '8'), ('2', '9'), ('1', '10')]) == '1 4 6 5 8 2 9 1 10'",
+      "assert flatten_tuple([('2', '3', '4'), ('6', '9'), ('3', '2'), ('2', '11')]) == '2 3 4 6 9 3 2 2 11'",
+      "assert flatten_tuple([('14', '21', '9'), ('24', '19'), ('12', '29'), ('23', '17')]) == '14 21 9 24 19 12 29 23 17'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to flatten the tuple list to a string.\n\nTask ID: 544\n\nExpected behavior (test cases):\n1. flatten_tuple([('1', '4', '6'), ('5', '8'), ('2', '9'), ('1', '10')]) should return '1 4 6 5 8 2 9 1 10'\n2. flatten_tuple([('2', '3', '4'), ('6', '9'), ('3', '2'), ('2', '11')]) should return '2 3 4 6 9 3 2 2 11'\n3. flatten_tuple([('14', '21', '9'), ('24', '19'), ('12', '29'), ('23', '17')]) should return '14 21 9 24 19 12 29 23 17'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6595b9d0af194ec1bf016d9743865571",
+    "object": "chat.completion",
+    "created": 1750869965,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef flatten_tuple(tup_list):\n    # Flatten the tuple list into a single string separated by spaces\n    result = ''.join(str(item) for sublist in tup_list for item in sublist)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 266,
+      "total_tokens": 314,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869966.0984697
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 664,
+  "problem": {
+    "task_id": 664,
+    "text": "Write a python function to find the average of even numbers till a given even number.",
+    "code": "def average_Even(n) : \r\n    if (n% 2!= 0) : \r\n        return (\"Invalid Input\") \r\n        return -1  \r\n    sm = 0\r\n    count = 0\r\n    while (n>= 2) : \r\n        count = count+1\r\n        sm = sm+n \r\n        n = n-2\r\n    return sm // count ",
+    "test_list": [
+      "assert average_Even(2) == 2",
+      "assert average_Even(4) == 3",
+      "assert average_Even(100) == 51"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the average of even numbers till a given even number.\n\nTask ID: 664\n\nExpected behavior (test cases):\n1. average_Even(2) should return 2\n2. average_Even(4) should return 3\n3. average_Even(100) should return 51\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-362040fda45247bfb1e907054811b465",
+    "object": "chat.completion",
+    "created": 1750867803,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef average_Even(n):\n    sum_even = 0\n    count = 0\n    for i in range(2, n + 1, 2):  # Iterate through all even numbers from 2 up to n\n        sum_even += i\n        count += 1\n    if count == 0:\n        return 0  # Return 0 if no even numbers were found\n    else:\n        return sum_even / count\n```\n\nThis solution iterates through all even numbers from 2 up to `n`, sums them up, and then calculates the average by dividing the sum by the count of even numbers encountered. If there are no even numbers between 2 and `n` (inclusive), it returns 0.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 292,
+      "completion_tokens": 158,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867805.8967948
+}

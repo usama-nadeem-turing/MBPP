@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 261,
+  "problem": {
+    "task_id": 261,
+    "text": "Write a function to perform mathematical division operation across the given tuples.",
+    "code": "def division_elements(test_tup1, test_tup2):\r\n  res = tuple(ele1 // ele2 for ele1, ele2 in zip(test_tup1, test_tup2))\r\n  return (res) ",
+    "test_list": [
+      "assert division_elements((10, 4, 6, 9),(5, 2, 3, 3)) == (2, 2, 2, 3)",
+      "assert division_elements((12, 6, 8, 16),(6, 3, 4, 4)) == (2, 2, 2, 4)",
+      "assert division_elements((20, 14, 36, 18),(5, 7, 6, 9)) == (4, 2, 6, 2)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to perform mathematical division operation across the given tuples.\n\nTask ID: 261\n\nExpected behavior (test cases):\n1. division_elements((10, 4, 6, 9),(5, 2, 3, 3)) should return (2, 2, 2, 3)\n2. division_elements((12, 6, 8, 16),(6, 3, 4, 4)) should return (2, 2, 2, 4)\n3. division_elements((20, 14, 36, 18),(5, 7, 6, 9)) should return (4, 2, 6, 2)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1983e9fda43c4590a041cabb92836478",
+    "object": "chat.completion",
+    "created": 1750869260,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef division_elements(tup1, tup2):\n    # Check if both input tuples have the same length\n    if len(tup1) != len(tup2):\n        raise ValueError(\"Input tuples must be of equal length\")\n    \n    # Perform element-wise division and return as a tuple\n    result = tuple([a / b for a, b in zip(tup1, tup2)])\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 218,
+      "total_tokens": 308,
+      "completion_tokens": 90,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869261.7287602
+}

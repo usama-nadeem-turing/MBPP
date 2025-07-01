@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 587,
+  "problem": {
+    "task_id": 587,
+    "text": "Write a function to convert a list to a tuple.",
+    "code": "def list_tuple(listx):\r\n  tuplex = tuple(listx)\r\n  return tuplex",
+    "test_list": [
+      "assert list_tuple([5, 10, 7, 4, 15, 3])==(5, 10, 7, 4, 15, 3)",
+      "assert list_tuple([2, 4, 5, 6, 2, 3, 4, 4, 7])==(2, 4, 5, 6, 2, 3, 4, 4, 7)",
+      "assert list_tuple([58,44,56])==(58,44,56)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert a list to a tuple.\n\nTask ID: 587\n\nExpected behavior (test cases):\n1. list_tuple([5, 10, 7, 4, 15, 3])==(5, 10, 7, 4, 15, 3)\n2. list_tuple([2, 4, 5, 6, 2, 3, 4, 4, 7])==(2, 4, 5, 6, 2, 3, 4, 4, 7)\n3. list_tuple([58,44,56])==(58,44,56)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9bb769ff4c9240c49b5aba3d48dbdb99",
+    "object": "chat.completion",
+    "created": 1750870075,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef list_tuple(lst):\n    return tuple(lst)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 212,
+      "total_tokens": 227,
+      "completion_tokens": 15,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870076.217195
+}

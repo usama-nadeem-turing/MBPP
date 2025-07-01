@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 860,
+  "problem": {
+    "task_id": 860,
+    "text": "Write a function to check whether the given string is ending with only alphanumeric characters or not using regex.",
+    "code": "import re \r\nregex = '[a-zA-z0-9]$'\r\ndef check_alphanumeric(string): \r\n\tif(re.search(regex, string)): \r\n\t\treturn (\"Accept\") \r\n\telse: \r\n\t\treturn (\"Discard\") ",
+    "test_list": [
+      "assert check_alphanumeric(\"dawood@\") == 'Discard'",
+      "assert check_alphanumeric(\"skdmsam326\") == 'Accept'",
+      "assert check_alphanumeric(\"cooltricks@\") == 'Discard'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given string is ending with only alphanumeric characters or not using regex.\n\nTask ID: 860\n\nExpected behavior (test cases):\n1. check_alphanumeric(\"dawood@\") should return 'Discard'\n2. check_alphanumeric(\"skdmsam326\") should return 'Accept'\n3. check_alphanumeric(\"cooltricks@\") should return 'Discard'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-21dab672d4954898b9e03851e0ac6437",
+    "object": "chat.completion",
+    "created": 1750868313,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_alphanumeric(s):\n    # Check if the last character of the string is an alphanumeric character\n    return bool(re.match(\"[a-zA-Z0-9]$\", s))\n\n# Test cases\nprint(check_alphanumeric(\"dawood@\"))  # Expected output: 'Discard'\nprint(check_alphanumeric(\"skdmsam326\"))  # Expected output: 'Accept'\nprint(check_alphanumeric(\"cooltricks@\"))  # Expected output: 'Discard'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "total_tokens": 256,
+      "completion_tokens": 108,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868315.4499385
+}

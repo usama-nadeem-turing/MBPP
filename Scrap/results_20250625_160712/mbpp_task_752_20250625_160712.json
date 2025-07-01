@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 752,
+  "problem": {
+    "task_id": 752,
+    "text": "Write a function to find the nth jacobsthal number.",
+    "code": "def jacobsthal_num(n): \r\n\tdp = [0] * (n + 1) \r\n\tdp[0] = 0\r\n\tdp[1] = 1\r\n\tfor i in range(2, n+1): \r\n\t\tdp[i] = dp[i - 1] + 2 * dp[i - 2] \r\n\treturn dp[n]",
+    "test_list": [
+      "assert jacobsthal_num(5) == 11",
+      "assert jacobsthal_num(2) == 1",
+      "assert jacobsthal_num(4) == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the nth jacobsthal number.\n\nTask ID: 752\n\nExpected behavior (test cases):\n1. jacobsthal_num(5) should return 11\n2. jacobsthal_num(2) should return 1\n3. jacobsthal_num(4) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-96bf839901474926820e090c1eb2b4a5",
+    "object": "chat.completion",
+    "created": 1750868027,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef jacobsthal_num(n):\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, 2 * b + a\n        return b\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 216,
+      "completion_tokens": 82,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868028.4094248
+}

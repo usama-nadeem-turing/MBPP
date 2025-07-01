@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 738,
+  "problem": {
+    "task_id": 738,
+    "text": "Write a function to calculate the geometric sum of n-1.",
+    "code": "def geometric_sum(n):\r\n  if n < 0:\r\n    return 0\r\n  else:\r\n    return 1 / (pow(2, n)) + geometric_sum(n - 1)",
+    "test_list": [
+      "assert geometric_sum(7) == 1.9921875",
+      "assert geometric_sum(4) == 1.9375",
+      "assert geometric_sum(8) == 1.99609375"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the geometric sum of n-1.\n\nTask ID: 738\n\nExpected behavior (test cases):\n1. geometric_sum(7) should return 1.9921875\n2. geometric_sum(4) should return 1.9375\n3. geometric_sum(8) should return 1.99609375\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d598fcf632bb4b7382b7d7319c07e2f3",
+    "object": "chat.completion",
+    "created": 1750867987,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef geometric_sum(n):\n    \"\"\"\n    Calculate the geometric sum of n-1.\n    \n    Args:\n    n (int): The number of terms in the series minus one.\n    \n    Returns:\n    float: The geometric sum of n-1.\n    \"\"\"\n    if n == 0:\n        return 1\n    else:\n        return 1 / (n + 1) + geometric_sum(n - 1)\n```\nThis solution defines a recursive function `geometric_sum` that calculates the geometric sum of n-1 based on the given task requirements and test cases.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 269,
+      "completion_tokens": 123,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867989.1966052
+}

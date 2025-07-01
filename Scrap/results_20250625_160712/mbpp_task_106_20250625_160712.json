@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 106,
+  "problem": {
+    "task_id": 106,
+    "text": "Write a function to add the given list to the given tuples.",
+    "code": "def add_lists(test_list, test_tup):\r\n  res = tuple(list(test_tup) + test_list)\r\n  return (res) ",
+    "test_list": [
+      "assert add_lists([5, 6, 7], (9, 10)) == (9, 10, 5, 6, 7)",
+      "assert add_lists([6, 7, 8], (10, 11)) == (10, 11, 6, 7, 8)",
+      "assert add_lists([7, 8, 9], (11, 12)) == (11, 12, 7, 8, 9)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to add the given list to the given tuples.\n\nTask ID: 106\n\nExpected behavior (test cases):\n1. add_lists([5, 6, 7], (9, 10)) should return (9, 10, 5, 6, 7)\n2. add_lists([6, 7, 8], (10, 11)) should return (10, 11, 6, 7, 8)\n3. add_lists([7, 8, 9], (11, 12)) should return (11, 12, 7, 8, 9)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7ddda0b47fc844ea95fef2b128d8e325",
+    "object": "chat.completion",
+    "created": 1750868846,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef add_lists(list1, tuple1):\n    # Convert the first argument into a tuple if it's not already one\n    if not isinstance(tuple1, tuple):\n        tuple1 = tuple1\n    \n    # Append each element of the list to the tuple\n    for item in list1:\n        tuple1 += (item,)\n    \n    return tuple1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 206,
+      "total_tokens": 284,
+      "completion_tokens": 78,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868847.324643
+}

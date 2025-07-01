@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 329,
+  "problem": {
+    "task_id": 329,
+    "text": "Write a python function to count negative numbers in a list.",
+    "code": "def neg_count(list):\r\n  neg_count= 0\r\n  for num in list: \r\n    if num <= 0: \r\n      neg_count += 1\r\n  return neg_count ",
+    "test_list": [
+      "assert neg_count([-1,-2,3,-4,-5]) == 4",
+      "assert neg_count([1,2,3]) == 0",
+      "assert neg_count([1,2,-3,-10,20]) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count negative numbers in a list.\n\nTask ID: 329\n\nExpected behavior (test cases):\n1. neg_count([-1,-2,3,-4,-5]) should return 4\n2. neg_count([1,2,3]) should return 0\n3. neg_count([1,2,-3,-10,20]) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e151097c7f2d4c2fba4a1b01859c47b5",
+    "object": "chat.completion",
+    "created": 1750869439,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef neg_count(nums):\n    # Initialize counter for negative numbers\n    count = 0\n    \n    # Iterate through each number in the list\n    for num in nums:\n        # If the number is less than zero, increment the counter\n        if num < 0:\n            count += 1\n            \n    # Return the total count of negative numbers\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 226,
+      "completion_tokens": 81,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869440.9436855
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 815,
+  "problem": {
+    "task_id": 815,
+    "text": "Write a function to sort the given array without using any sorting algorithm. the given array consists of only 0, 1, and 2.",
+    "code": "def sort_by_dnf(arr, n):\r\n  low=0\r\n  mid=0\r\n  high=n-1\r\n  while mid <= high:\r\n    if arr[mid] == 0:\r\n      arr[low], arr[mid] = arr[mid], arr[low]\r\n      low = low + 1\r\n      mid = mid + 1\r\n    elif arr[mid] == 1:\r\n      mid = mid + 1\r\n    else:\r\n      arr[mid], arr[high] = arr[high], arr[mid]\r\n      high = high - 1\r\n  return arr",
+    "test_list": [
+      "assert sort_by_dnf([1,2,0,1,0,1,2,1,1], 9) == [0, 0, 1, 1, 1, 1, 1, 2, 2]",
+      "assert sort_by_dnf([1,0,0,1,2,1,2,2,1,0], 10) == [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]",
+      "assert sort_by_dnf([2,2,1,0,0,0,1,1,2,1], 10) == [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort the given array without using any sorting algorithm. the given array consists of only 0, 1, and 2.\n\nTask ID: 815\n\nExpected behavior (test cases):\n1. sort_by_dnf([1,2,0,1,0,1,2,1,1], 9) should return [0, 0, 1, 1, 1, 1, 1, 2, 2]\n2. sort_by_dnf([1,0,0,1,2,1,2,2,1,0], 10) should return [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]\n3. sort_by_dnf([2,2,1,0,0,0,1,1,2,1], 10) should return [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-eaac1fe3eaba4f3d91f4f4cb78fcc20d",
+    "object": "chat.completion",
+    "created": 1750868182,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_by_dnf(arr):\n    # Separate elements into three lists based on their values\n    zero = []\n    one = []\n    two = []\n\n    for num in arr:\n        if num == 0:\n            zero.append(num)\n        elif num == 1:\n            one.append(num)\n        else:\n            two.append(num)\n\n    # Concatenate the lists back together\n    result = zero + one + two\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 288,
+      "total_tokens": 384,
+      "completion_tokens": 96,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868184.0132325
+}

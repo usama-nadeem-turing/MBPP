@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 640,
+  "problem": {
+    "task_id": 640,
+    "text": "Write a function to remove the parenthesis area in a string.",
+    "code": "import re\r\ndef remove_parenthesis(items):\r\n for item in items:\r\n    return (re.sub(r\" ?\\([^)]+\\)\", \"\", item))",
+    "test_list": [
+      "assert remove_parenthesis([\"python (chrome)\"])==(\"python\")",
+      "assert remove_parenthesis([\"string(.abc)\"])==(\"string\")",
+      "assert remove_parenthesis([\"alpha(num)\"])==(\"alpha\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove the parenthesis area in a string.\n\nTask ID: 640\n\nExpected behavior (test cases):\n1. remove_parenthesis([\"python (chrome)\"])==(\"python\")\n2. remove_parenthesis([\"string(.abc)\"])==(\"string\")\n3. remove_parenthesis([\"alpha(num)\"])==(\"alpha\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0c0f684ab1a846909f3b3f453ae4eaf6",
+    "object": "chat.completion",
+    "created": 1750867745,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_parenthesis(s):\n    # Split the string into words based on parentheses\n    return ''.join(word for word in s.split('(') if not word.endswith(')'))\n\n# Test cases\nprint(remove_parenthesis([\"python (chrome)\"]))  # Expected output: \"python\"\nprint(remove_parenthesis([\"string(.abc)\"]))     # Expected output: \"string\"\nprint(remove_parenthesis([\"alpha(num)\"]))       # Expected output: \"alpha\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 236,
+      "completion_tokens": 102,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867747.3112545
+}

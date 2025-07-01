@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 598,
+  "problem": {
+    "task_id": 598,
+    "text": "Write a function to check whether the given number is armstrong or not.",
+    "code": "def armstrong_number(number):\r\n sum = 0\r\n times = 0\r\n temp = number\r\n while temp > 0:\r\n           times = times + 1\r\n           temp = temp // 10\r\n temp = number\r\n while temp > 0:\r\n           reminder = temp % 10\r\n           sum = sum + (reminder ** times)\r\n           temp //= 10\r\n if number == sum:\r\n           return True\r\n else:\r\n           return False",
+    "test_list": [
+      "assert armstrong_number(153)==True",
+      "assert armstrong_number(259)==False",
+      "assert armstrong_number(4458)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given number is armstrong or not.\n\nTask ID: 598\n\nExpected behavior (test cases):\n1. armstrong_number(153)==True\n2. armstrong_number(259)==False\n3. armstrong_number(4458)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f3f1dcdad90946da9c6de6145bd89ff2",
+    "object": "chat.completion",
+    "created": 1750870105,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef armstrong_number(num):\n    # Convert the number to string to easily iterate over each digit\n    num_str = str(num)\n    \n    # Calculate the length of the number\n    n = len(num_str)\n    \n    # Initialize sum\n    sum = 0\n    \n    # Iterate through each digit in the number\n    for digit in num_str:\n        # Add the digit raised to the power of the number of digits to the sum\n        sum += int(digit) ** n\n    \n    # Check if the calculated sum is equal to the original number\n    return sum == num\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 253,
+      "completion_tokens": 126,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870107.2086377
+}

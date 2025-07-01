@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 774,
+  "problem": {
+    "task_id": 774,
+    "text": "Write a function to check if the string is a valid email address or not using regex.",
+    "code": "import re \r\nregex = '^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$'\r\ndef check_email(email): \r\n\tif(re.search(regex,email)): \r\n\t\treturn (\"Valid Email\") \r\n\telse: \r\n\t\treturn (\"Invalid Email\") ",
+    "test_list": [
+      "assert check_email(\"ankitrai326@gmail.com\") == 'Valid Email'",
+      "assert check_email(\"my.ownsite@ourearth.org\") == 'Valid Email'",
+      "assert check_email(\"ankitaoie326.com\") == 'Invalid Email'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the string is a valid email address or not using regex.\n\nTask ID: 774\n\nExpected behavior (test cases):\n1. check_email(\"ankitrai326@gmail.com\") should return 'Valid Email'\n2. check_email(\"my.ownsite@ourearth.org\") should return 'Valid Email'\n3. check_email(\"ankitaoie326.com\") should return 'Invalid Email'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1dc4888c3f62484d96b1aae359f43142",
+    "object": "chat.completion",
+    "created": 1750868079,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_email(email):\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    if re.match(pattern, email):\n        return 'Valid Email'\n    else:\n        return 'Invalid Email'\n\n# Test cases\nprint(check_email(\"ankitrai326@gmail.com\"))  # Expected output: Valid Email\nprint(check_email(\"my.ownsite@ourearth.org\"))  # Expected output: Valid Email\nprint(check_email(\"ankitaoie326.com\"))  # Expected output: Invalid Email\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "total_tokens": 290,
+      "completion_tokens": 137,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868081.6423147
+}

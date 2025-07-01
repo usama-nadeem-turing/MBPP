@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 186,
+  "problem": {
+    "task_id": 186,
+    "text": "Write a function to search some literals strings in a string by using regex.",
+    "code": "import re\r\ndef check_literals(text, patterns):\r\n  for pattern in patterns:\r\n    if re.search(pattern,  text):\r\n        return ('Matched!')\r\n    else:\r\n        return ('Not Matched!')",
+    "test_list": [
+      "assert check_literals('The quick brown fox jumps over the lazy dog.',['fox']) == 'Matched!'",
+      "assert check_literals('The quick brown fox jumps over the lazy dog.',['horse']) == 'Not Matched!'",
+      "assert check_literals('The quick brown fox jumps over the lazy dog.',['lazy']) == 'Matched!'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to search some literals strings in a string by using regex.\n\nTask ID: 186\n\nExpected behavior (test cases):\n1. check_literals('The quick brown fox jumps over the lazy dog.',['fox']) should return 'Matched!'\n2. check_literals('The quick brown fox jumps over the lazy dog.',['horse']) should return 'Not Matched!'\n3. check_literals('The quick brown fox jumps over the lazy dog.',['lazy']) should return 'Matched!'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0681a02a04384cf99e31bb9a8983803e",
+    "object": "chat.completion",
+    "created": 1750869065,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_literals(text, patterns):\n    for pattern in patterns:\n        if re.search(pattern, text):\n            return \"Matched!\"\n    return \"Not Matched!\"\n\n# Test cases\nprint(check_literals('The quick brown fox jumps over the lazy dog.', ['fox', 'dog']))\nprint(check_literals('The quick brown fox jumps over the lazy dog.', ['horse', 'cat']))\nprint(check_literals('The quick brown fox jumps over the lazy dog.', ['lazy', 'quick']))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 164,
+      "total_tokens": 270,
+      "completion_tokens": 106,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869067.7673442
+}

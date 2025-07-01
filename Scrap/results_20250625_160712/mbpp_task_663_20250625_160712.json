@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 663,
+  "problem": {
+    "task_id": 663,
+    "text": "Write a function to find the largest possible value of k such that k modulo x is y.",
+    "code": "import sys \r\ndef find_max_val(n, x, y): \r\n\tans = -sys.maxsize \r\n\tfor k in range(n + 1): \r\n\t\tif (k % x == y): \r\n\t\t\tans = max(ans, k) \r\n\treturn (ans if (ans >= 0 and\r\n\t\t\t\t\tans <= n) else -1) ",
+    "test_list": [
+      "assert find_max_val(15, 10, 5) == 15",
+      "assert find_max_val(187, 10, 5) == 185",
+      "assert find_max_val(16, 11, 1) == 12"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest possible value of k such that k modulo x is y.\n\nTask ID: 663\n\nExpected behavior (test cases):\n1. find_max_val(15, 10, 5) should return 15\n2. find_max_val(187, 10, 5) should return 185\n3. find_max_val(16, 11, 1) should return 12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6fa8c597eb1048918cbdf3a9ad9ab010",
+    "object": "chat.completion",
+    "created": 1750867801,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_max_val(x, y, z):\n    # Calculate the maximum value of k using the formula k = x * y + z\n    max_k = x * y + z\n    return max_k\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "total_tokens": 211,
+      "completion_tokens": 49,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867802.717358
+}

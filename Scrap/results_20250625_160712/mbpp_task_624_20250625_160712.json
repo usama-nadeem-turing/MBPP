@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 624,
+  "problem": {
+    "task_id": 624,
+    "text": "Write a python function to convert the given string to upper case.",
+    "code": "def is_upper(string):\r\n  return (string.upper())",
+    "test_list": [
+      "assert is_upper(\"person\") ==\"PERSON\"",
+      "assert is_upper(\"final\") == \"FINAL\"",
+      "assert is_upper(\"Valid\") == \"VALID\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert the given string to upper case.\n\nTask ID: 624\n\nExpected behavior (test cases):\n1. is_upper(\"person\") ==\"PERSON\"\n2. is_upper(\"final\") should return \"FINAL\"\n3. is_upper(\"Valid\") should return \"VALID\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-486311f193bc4f8e904238bca11855b3",
+    "object": "chat.completion",
+    "created": 1750867699,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_upper(s):\n    \"\"\"\n    Convert the input string 's' to uppercase.\n    \n    Parameters:\n    s (str): The input string to be converted to uppercase.\n    \n    Returns:\n    str: The uppercase version of the input string.\n    \"\"\"\n    return s.upper()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "total_tokens": 185,
+      "completion_tokens": 63,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867701.0406744
+}

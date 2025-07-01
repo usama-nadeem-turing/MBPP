@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 395,
+  "problem": {
+    "task_id": 395,
+    "text": "Write a python function to find the first non-repeated character in a given string.",
+    "code": "def first_non_repeating_character(str1):\r\n  char_order = []\r\n  ctr = {}\r\n  for c in str1:\r\n    if c in ctr:\r\n      ctr[c] += 1\r\n    else:\r\n      ctr[c] = 1 \r\n      char_order.append(c)\r\n  for c in char_order:\r\n    if ctr[c] == 1:\r\n      return c\r\n  return None",
+    "test_list": [
+      "assert first_non_repeating_character(\"abcabc\") == None",
+      "assert first_non_repeating_character(\"abc\") == \"a\"",
+      "assert first_non_repeating_character(\"ababc\") == \"c\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first non-repeated character in a given string.\n\nTask ID: 395\n\nExpected behavior (test cases):\n1. first_non_repeating_character(\"abcabc\") should return None\n2. first_non_repeating_character(\"abc\") should return \"a\"\n3. first_non_repeating_character(\"ababc\") should return \"c\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fd2a1595efde4edb89d34124bfa45d38",
+    "object": "chat.completion",
+    "created": 1750869596,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef first_non_repeating_character(s):\n    char_count = {}\n    \n    # Count occurrences of each character\n    for char in s:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    \n    # Find the first non-repeating character\n    for char in s:\n        if char_count[char] == 1:\n            return char\n    \n    return None\n```\n\nThis solution uses a dictionary to count the occurrences of each character in the input string `s`. It then iterates through the string again to find and return the first character with a count of one, which is the first non-repeating character. If no such character exists, it returns `None`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 294,
+      "completion_tokens": 156,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869599.5228372
+}

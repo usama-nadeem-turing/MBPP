@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 780,
+  "problem": {
+    "task_id": 780,
+    "text": "Write a function to find the combinations of sums with tuples in the given tuple list.",
+    "code": "from itertools import combinations \r\ndef find_combinations(test_list):\r\n  res = [(b1 + a1, b2 + a2) for (a1, a2), (b1, b2) in combinations(test_list, 2)]\r\n  return (res) ",
+    "test_list": [
+      "assert find_combinations([(2, 4), (6, 7), (5, 1), (6, 10)]) == [(8, 11), (7, 5), (8, 14), (11, 8), (12, 17), (11, 11)]",
+      "assert find_combinations([(3, 5), (7, 8), (6, 2), (7, 11)]) == [(10, 13), (9, 7), (10, 16), (13, 10), (14, 19), (13, 13)]",
+      "assert find_combinations([(4, 6), (8, 9), (7, 3), (8, 12)]) == [(12, 15), (11, 9), (12, 18), (15, 12), (16, 21), (15, 15)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the combinations of sums with tuples in the given tuple list.\n\nTask ID: 780\n\nExpected behavior (test cases):\n1. find_combinations([(2, 4), (6, 7), (5, 1), (6, 10)]) should return [(8, 11), (7, 5), (8, 14), (11, 8), (12, 17), (11, 11)]\n2. find_combinations([(3, 5), (7, 8), (6, 2), (7, 11)]) should return [(10, 13), (9, 7), (10, 16), (13, 10), (14, 19), (13, 13)]\n3. find_combinations([(4, 6), (8, 9), (7, 3), (8, 12)]) should return [(12, 15), (11, 9), (12, 18), (15, 12), (16, 21), (15, 15)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b9b4e592e2534873baf72de3ab1a77ca",
+    "object": "chat.completion",
+    "created": 1750868101,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_combinations(tuples_list):\n    result = []\n    for i in range(len(tuples_list)):\n        for j in range(i + 1, len(tuples_list)):\n            sum1 = tuples_list[i][0] + tuples_list[j][0]\n            sum2 = tuples_list[i][1] + tuples_list[j][1]\n            if sum1 not in [sum2]:\n                result.append((sum1, sum2))\n    return result\n```\n\nThis solution iterates through all possible pairs of tuples and calculates their sums. If the first sum is not equal to the second sum, it adds the pair as a new combination to the result list.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 325,
+      "total_tokens": 466,
+      "completion_tokens": 141,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868103.430377
+}

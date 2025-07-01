@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 525,
+  "problem": {
+    "task_id": 525,
+    "text": "Write a python function to check whether two given lines are parallel or not.",
+    "code": "def parallel_lines(line1, line2):\r\n  return line1[0]/line1[1] == line2[0]/line2[1]",
+    "test_list": [
+      "assert parallel_lines([2,3,4], [2,3,8]) == True",
+      "assert parallel_lines([2,3,4], [4,-3,8]) == False",
+      "assert parallel_lines([3,3],[5,5]) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether two given lines are parallel or not.\n\nTask ID: 525\n\nExpected behavior (test cases):\n1. parallel_lines([2,3,4], [2,3,8]) should return True\n2. parallel_lines([2,3,4], [4,-3,8]) should return False\n3. parallel_lines([3,3],[5,5]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bddd1fcc8cec4a7aa9bc64c92ebca217",
+    "object": "chat.completion",
+    "created": 1750869920,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_parallel(line1, line2):\n    # Extract coefficients from each line equation ax + by = c\n    a1, b1, c1 = line1[0], line1[1], line1[2]\n    a2, b2, c2 = line2[0], line2[1], line2[2]\n\n    # Check if the slopes of both lines are equal\n    return a1 * b2 == a2 * b1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "total_tokens": 255,
+      "completion_tokens": 104,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869922.3981888
+}

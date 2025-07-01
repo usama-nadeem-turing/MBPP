@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 577,
+  "problem": {
+    "task_id": 577,
+    "text": "Write a python function to find the last digit in factorial of a given number.",
+    "code": "def last_Digit_Factorial(n): \r\n    if (n == 0): return 1\r\n    elif (n <= 2): return n  \r\n    elif (n == 3): return 6\r\n    elif (n == 4): return 4 \r\n    else: \r\n      return 0",
+    "test_list": [
+      "assert last_Digit_Factorial(4) == 4",
+      "assert last_Digit_Factorial(21) == 0",
+      "assert last_Digit_Factorial(30) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the last digit in factorial of a given number.\n\nTask ID: 577\n\nExpected behavior (test cases):\n1. last_Digit_Factorial(4) should return 4\n2. last_Digit_Factorial(21) should return 0\n3. last_Digit_Factorial(30) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bb396cc4f10242f49a4f63a854632000",
+    "object": "chat.completion",
+    "created": 1750870047,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef last_Digit_Factorial(n):\n    # Calculate n! and then get its last digit\n    factorial = 1\n    for i in range(1, n + 1):\n        factorial *= i\n    return factorial % 10\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 199,
+      "completion_tokens": 58,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870048.5745134
+}

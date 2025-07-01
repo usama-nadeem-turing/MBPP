@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 711,
+  "problem": {
+    "task_id": 711,
+    "text": "Write a python function to check whether the product of digits of a number at even and odd places is equal or not.",
+    "code": "def product_Equal(n): \r\n    if n < 10: \r\n        return False\r\n    prodOdd = 1; prodEven = 1\r\n    while n > 0: \r\n        digit = n % 10\r\n        prodOdd *= digit \r\n        n = n//10\r\n        if n == 0: \r\n            break; \r\n        digit = n % 10\r\n        prodEven *= digit \r\n        n = n//10\r\n    if prodOdd == prodEven: \r\n        return True\r\n    return False",
+    "test_list": [
+      "assert product_Equal(2841) == True",
+      "assert product_Equal(1234) == False",
+      "assert product_Equal(1212) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the product of digits of a number at even and odd places is equal or not.\n\nTask ID: 711\n\nExpected behavior (test cases):\n1. product_Equal(2841) should return True\n2. product_Equal(1234) should return False\n3. product_Equal(1212) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1b62b8c5af894ac0b53bb148e49d2a28",
+    "object": "chat.completion",
+    "created": 1750867913,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef product_Equal(num):\n    # Convert the number to string to easily access each digit\n    num_str = str(num)\n    \n    # Initialize variables to store the sum of products for even and odd positions\n    even_product = 1\n    odd_product = 1\n    \n    # Iterate through each character in the string representation of the number\n    for i in range(len(num_str)):\n        # Check if the index is even or odd\n        if i % 2 == 0:\n            # Multiply the current digit with the even_product variable\n            even_product *= int(num_str[i])\n        else:\n            # Multiply the current digit with the odd_product variable\n            odd_product *= int(num_str[i])\n    \n    # Compare the sums of products for even and odd positions\n    return even_product == odd_product\n```\n\nThis solution defines a function `product_Equal` that takes an integer as input and returns a boolean value indicating whether the product of digits at even and odd places within the number is equal. The function converts the given number into its string form to facilitate easy traversal of individual digits. It then iterates over these digits, calculating the product for both even and odd indexed positions separately. Finally, it compares these two products and returns the result accordingly.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 407,
+      "completion_tokens": 263,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867918.2304492
+}

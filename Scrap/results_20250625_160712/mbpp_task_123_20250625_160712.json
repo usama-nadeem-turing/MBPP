@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 123,
+  "problem": {
+    "task_id": 123,
+    "text": "Write a function to sum all amicable numbers from 1 to a specified number.",
+    "code": "def amicable_numbers_sum(limit):\r\n    if not isinstance(limit, int):\r\n        return \"Input is not an integer!\"\r\n    if limit < 1:\r\n        return \"Input must be bigger than 0!\"\r\n    amicables = set()\r\n    for num in range(2, limit+1):\r\n        if num in amicables:\r\n            continue\r\n        sum_fact = sum([fact for fact in range(1, num) if num % fact == 0])\r\n        sum_fact2 = sum([fact for fact in range(1, sum_fact) if sum_fact % fact == 0])\r\n        if num == sum_fact2 and num != sum_fact:\r\n            amicables.add(num)\r\n            amicables.add(sum_fact2)\r\n    return sum(amicables)",
+    "test_list": [
+      "assert amicable_numbers_sum(999)==504",
+      "assert amicable_numbers_sum(9999)==31626",
+      "assert amicable_numbers_sum(99)==0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sum all amicable numbers from 1 to a specified number.\n\nTask ID: 123\n\nExpected behavior (test cases):\n1. amicable_numbers_sum(999)==504\n2. amicable_numbers_sum(9999)==31626\n3. amicable_numbers_sum(99)==0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1be0275b48b640f2bb3bbe688a2fa3e9",
+    "object": "chat.completion",
+    "created": 1750868895,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_amicable(n):\n    \"\"\"\n    Check if two numbers are amicable.\n    \n    Args:\n    n (int): The first number.\n    \n    Returns:\n    bool: True if the numbers are amicable, False otherwise.\n    \"\"\"\n    def find_divisors(num):\n        divisors = set()\n        for i in range(1, int(num**0.5) + 1):\n            if num % i == 0:\n                divisors.add(i)\n                divisors.add(num // i)\n        return divisors\n    \n    d1 = sum(find_divisors(n))\n    d2 = sum(find_divisors(d1))\n    return d1 == n and d2 != n and d2 != d1\n\ndef amicable_numbers_sum(limit):\n    \"\"\"\n    Sum all amicable numbers between 1 and limit.\n    \n    Args:\n    limit (int): The upper limit of the range.\n    \n    Returns:\n    int: The sum of all amicable numbers within the given range.\n    \"\"\"\n    total_sum = 0\n    for num in range(1, limit+1):\n        if is_amicable(num):\n            total_sum += num\n    return total_sum\n```\n\nThis solution defines a helper function `is_amicable` to check if two numbers are amicable based on their proper divisors' sums. It then uses this helper function in the main function `amicable_numbers_sum` to calculate the sum of all amicable numbers up to the specified limit.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 449,
+      "completion_tokens": 312,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868901.130168
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 629,
+  "problem": {
+    "task_id": 629,
+    "text": "Write a python function to find even numbers from a mixed list.",
+    "code": "def Split(list): \r\n    ev_li = [] \r\n    for i in list: \r\n        if (i % 2 == 0): \r\n            ev_li.append(i)  \r\n    return ev_li",
+    "test_list": [
+      "assert Split([1,2,3,4,5]) == [2,4]",
+      "assert Split([4,5,6,7,8,0,1]) == [4,6,8,0]",
+      "assert Split ([8,12,15,19]) == [8,12]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find even numbers from a mixed list.\n\nTask ID: 629\n\nExpected behavior (test cases):\n1. Split([1,2,3,4,5]) should return [2,4]\n2. Split([4,5,6,7,8,0,1]) should return [4,6,8,0]\n3. Split ([8,12,15,19]) should return [8,12]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4bdc102423774cbd98ca3f78fedc8d26",
+    "object": "chat.completion",
+    "created": 1750867709,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef split(lst):\n    \"\"\"\n    This function takes a mixed list as input and returns a new list containing only the even numbers from the original list.\n    \n    Parameters:\n    lst (list): A mixed list of integers\n    \n    Returns:\n    list: A list containing only the even numbers from the input list\n    \"\"\"\n    # Filter out odd numbers and keep only even ones in a new list\n    even_numbers = [num for num in lst if num % 2 == 0]\n    return even_numbers\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "total_tokens": 271,
+      "completion_tokens": 110,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867711.1920376
+}

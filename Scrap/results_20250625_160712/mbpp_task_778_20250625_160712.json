@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 778,
+  "problem": {
+    "task_id": 778,
+    "text": "Write a function to pack consecutive duplicates of a given list elements into sublists.",
+    "code": "from itertools import groupby\r\ndef pack_consecutive_duplicates(list1):\r\n    return [list(group) for key, group in groupby(list1)]",
+    "test_list": [
+      "assert pack_consecutive_duplicates([0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4])==[[0, 0], [1], [2], [3], [4, 4], [5], [6, 6, 6], [7], [8], [9], [4, 4]]",
+      "assert pack_consecutive_duplicates([10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10])==[[10, 10], [15], [19], [18, 18], [17], [26, 26], [17], [18], [10]]",
+      "assert pack_consecutive_duplicates(['a', 'a', 'b', 'c', 'd', 'd'])==[['a', 'a'], ['b'], ['c'], ['d', 'd']]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to pack consecutive duplicates of a given list elements into sublists.\n\nTask ID: 778\n\nExpected behavior (test cases):\n1. pack_consecutive_duplicates([0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4])==[[0, 0], [1], [2], [3], [4, 4], [5], [6, 6, 6], [7], [8], [9], [4, 4]]\n2. pack_consecutive_duplicates([10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10])==[[10, 10], [15], [19], [18, 18], [17], [26, 26], [17], [18], [10]]\n3. pack_consecutive_duplicates(['a', 'a', 'b', 'c', 'd', 'd'])==[['a', 'a'], ['b'], ['c'], ['d', 'd']]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-01a1a90c8e0c44edbf0826a4ddca3c5f",
+    "object": "chat.completion",
+    "created": 1750868093,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef pack_consecutive_duplicates(lst):\n    result = []\n    i = 0\n    while i < len(lst):\n        count = 1\n        while i + 1 < len(lst) and lst[i] == lst[i + 1]:\n            i += 1\n            count += 1\n        if count > 1:\n            result.append(lst[i:i+count])\n        else:\n            result.append([lst[i]])\n        i += 1\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 339,
+      "total_tokens": 443,
+      "completion_tokens": 104,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868095.07708
+}

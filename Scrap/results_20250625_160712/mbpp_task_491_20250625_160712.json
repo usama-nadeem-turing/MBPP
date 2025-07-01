@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 491,
+  "problem": {
+    "task_id": 491,
+    "text": "Write a function to find the sum of geometric progression series.",
+    "code": "import math\r\ndef sum_gp(a,n,r):\r\n total = (a * (1 - math.pow(r, n ))) / (1- r)\r\n return total",
+    "test_list": [
+      "assert sum_gp(1,5,2)==31",
+      "assert sum_gp(1,5,4)==341",
+      "assert sum_gp(2,6,3)==728"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the sum of geometric progression series.\n\nTask ID: 491\n\nExpected behavior (test cases):\n1. sum_gp(1,5,2)==31\n2. sum_gp(1,5,4)==341\n3. sum_gp(2,6,3)==728\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6a81226315864d08bdfc093ec24b0fb0",
+    "object": "chat.completion",
+    "created": 1750869832,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_gp(a, r, n):\n    return int((a * ((r ** n) - 1)) / (r - 1))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 167,
+      "completion_tokens": 36,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869833.4338775
+}

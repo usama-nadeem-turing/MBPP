@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 281,
+  "problem": {
+    "task_id": 281,
+    "text": "Write a python function to check if the elements of a given list are unique or not.",
+    "code": "def all_unique(test_list):\r\n    if len(test_list) > len(set(test_list)):\r\n        return False\r\n    return True",
+    "test_list": [
+      "assert all_unique([1,2,3]) == True",
+      "assert all_unique([1,2,1,2]) == False",
+      "assert all_unique([1,2,3,4,5]) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check if the elements of a given list are unique or not.\n\nTask ID: 281\n\nExpected behavior (test cases):\n1. all_unique([1,2,3]) should return True\n2. all_unique([1,2,1,2]) should return False\n3. all_unique([1,2,3,4,5]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8002e657ea384e5e91e0b6518787d8a9",
+    "object": "chat.completion",
+    "created": 1750869307,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef all_unique(lst):\n    # Check if the length of the list is equal to the length of set(lst)\n    return len(lst) == len(set(lst))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 182,
+      "completion_tokens": 38,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869307.8722808
+}

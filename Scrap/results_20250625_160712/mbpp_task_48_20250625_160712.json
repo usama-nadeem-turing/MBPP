@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 48,
+  "problem": {
+    "task_id": 48,
+    "text": "Write a python function to set all odd bits of a given number.",
+    "code": "def odd_bit_set_number(n):\r\n    count = 0;res = 0;temp = n\r\n    while temp > 0:\r\n        if count % 2 == 0:\r\n            res |= (1 << count)\r\n        count += 1\r\n        temp >>= 1\r\n    return (n | res)",
+    "test_list": [
+      "assert odd_bit_set_number(10) == 15",
+      "assert odd_bit_set_number(20) == 21",
+      "assert odd_bit_set_number(30) == 31"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to set all odd bits of a given number.\n\nTask ID: 48\n\nExpected behavior (test cases):\n1. odd_bit_set_number(10) should return 15\n2. odd_bit_set_number(20) should return 21\n3. odd_bit_set_number(30) should return 31\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-126a76b5609a4f899d1e7566d76691cf",
+    "object": "chat.completion",
+    "created": 1750868700,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef odd_bit_set_number(n):\n    # Initialize result as 0\n    result = 0\n    \n    # Loop until n becomes 0\n    while n != 0:\n        # If the least significant bit is 1 and the loop counter is odd\n        if n & 1 == 1 and result % 2 != 0:\n            # Set the corresponding bit in result\n            result |= 1 << (result.bit_length() - 1)\n        \n        # Right shift n by 1\n        n >>= 1\n    \n    return result\n```\n\nThis solution works by iterating through each bit of the input number `n`. For each bit, it checks if it's an odd position (i.e., its parity is 1). If so, it sets the corresponding bit in the result using bitwise operations. The process continues until all bits have been processed.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 320,
+      "completion_tokens": 184,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868703.8756852
+}

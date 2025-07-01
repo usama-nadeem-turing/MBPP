@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 251,
+  "problem": {
+    "task_id": 251,
+    "text": "Write a function to insert an element before each element of a list.",
+    "code": "def insert_element(list,element):\r\n list = [v for elt in list for v in (element, elt)]\r\n return list",
+    "test_list": [
+      "assert insert_element(['Red', 'Green', 'Black'] ,'c')==['c', 'Red', 'c', 'Green', 'c', 'Black'] ",
+      "assert insert_element(['python', 'java'] ,'program')==['program', 'python', 'program', 'java'] ",
+      "assert insert_element(['happy', 'sad'] ,'laugh')==['laugh', 'happy', 'laugh', 'sad'] "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to insert an element before each element of a list.\n\nTask ID: 251\n\nExpected behavior (test cases):\n1. insert_element(['Red', 'Green', 'Black'] ,'c')==['c', 'Red', 'c', 'Green', 'c', 'Black'] \n2. insert_element(['python', 'java'] ,'program')==['program', 'python', 'program', 'java'] \n3. insert_element(['happy', 'sad'] ,'laugh')==['laugh', 'happy', 'laugh', 'sad'] \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-55f4d70788ed419e9d19c9d6c2103aba",
+    "object": "chat.completion",
+    "created": 1750869236,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef insert_element(lst, elem):\n    return [elem] + lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 179,
+      "total_tokens": 199,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869236.9112737
+}

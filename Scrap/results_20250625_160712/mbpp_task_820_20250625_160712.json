@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 820,
+  "problem": {
+    "task_id": 820,
+    "text": "Write a function to check whether the given month number contains 28 days or not.",
+    "code": "def check_monthnum_number(monthnum1):\r\n  if monthnum1 == 2:\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert check_monthnum_number(2)==True",
+      "assert check_monthnum_number(1)==False",
+      "assert check_monthnum_number(3)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given month number contains 28 days or not.\n\nTask ID: 820\n\nExpected behavior (test cases):\n1. check_monthnum_number(2)==True\n2. check_monthnum_number(1)==False\n3. check_monthnum_number(3)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-54cfea34fddd429ba118522f74884219",
+    "object": "chat.completion",
+    "created": 1750868196,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_monthnum_number(month_num):\n    # Check if the month number is February and it has 28 days\n    return month_num == 2 and 28 <= 28\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 126,
+      "total_tokens": 172,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868197.740018
+}

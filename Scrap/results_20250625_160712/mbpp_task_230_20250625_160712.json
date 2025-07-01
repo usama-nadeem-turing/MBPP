@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 230,
+  "problem": {
+    "task_id": 230,
+    "text": "Write a function to replace blank spaces with any character in a string.",
+    "code": "def replace_blank(str1,char):\r\n str2 = str1.replace(' ', char)\r\n return str2",
+    "test_list": [
+      "assert replace_blank(\"hello people\",'@')==(\"hello@people\")",
+      "assert replace_blank(\"python program language\",'$')==(\"python$program$language\")",
+      "assert replace_blank(\"blank space\",\"-\")==(\"blank-space\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace blank spaces with any character in a string.\n\nTask ID: 230\n\nExpected behavior (test cases):\n1. replace_blank(\"hello people\",'@')==(\"hello@people\")\n2. replace_blank(\"python program language\",'$')==(\"python$program$language\")\n3. replace_blank(\"blank space\",\"-\")==(\"blank-space\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c48821f7f3644ee0814c6e569027d4ee",
+    "object": "chat.completion",
+    "created": 1750869179,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef replace_blank(s, c):\n    return s.replace(' ', c)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 156,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869179.7519572
+}

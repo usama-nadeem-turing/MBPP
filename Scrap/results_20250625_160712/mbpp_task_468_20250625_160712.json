@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 468,
+  "problem": {
+    "task_id": 468,
+    "text": "Write a function to find the maximum product formed by multiplying numbers of an increasing subsequence of that array.",
+    "code": "def max_product(arr, n ): \r\n\tmpis =[0] * (n) \r\n\tfor i in range(n): \r\n\t\tmpis[i] = arr[i] \r\n\tfor i in range(1, n): \r\n\t\tfor j in range(i): \r\n\t\t\tif (arr[i] > arr[j] and\r\n\t\t\t\t\tmpis[i] < (mpis[j] * arr[i])): \r\n\t\t\t\t\t\tmpis[i] = mpis[j] * arr[i] \r\n\treturn max(mpis)",
+    "test_list": [
+      "assert max_product([3, 100, 4, 5, 150, 6], 6) == 45000 ",
+      "assert max_product([4, 42, 55, 68, 80], 5) == 50265600",
+      "assert max_product([10, 22, 9, 33, 21, 50, 41, 60], 8) == 21780000 "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum product formed by multiplying numbers of an increasing subsequence of that array.\n\nTask ID: 468\n\nExpected behavior (test cases):\n1. max_product([3, 100, 4, 5, 150, 6], 6) should return 45000 \n2. max_product([4, 42, 55, 68, 80], 5) should return 50265600\n3. max_product([10, 22, 9, 33, 21, 50, 41, 60], 8) should return 21780000 \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e89882ab47524e9e892a5104396499d3",
+    "object": "chat.completion",
+    "created": 1750869766,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_product(nums, k):\n    # Sort the list in descending order\n    nums.sort(reverse=True)\n    \n    # Initialize variables for the current number and its index\n    curr_num = nums[0]\n    idx = 0\n    \n    # Calculate the product of the first 'k' elements\n    prod = 1\n    for i in range(k):\n        prod *= nums[idx]\n        idx += 1\n    \n    # Check if we have enough elements to form a valid subsequence\n    if len(nums) < k:\n        return -1\n    \n    # Iterate through the sorted list starting from the second element\n    for num in nums[k:]:\n        # If the current number is greater than the last calculated product,\n        # update the product with the new number multiplied by the last calculated product\n        if num > prod:\n            prod *= num\n            \n    return prod\n```\n\nThis solution works as follows:\n\n1. It sorts the input list `nums` in descending order.\n2. It initializes `curr_num` with the largest number in the sorted list and `idx` at 0.\n3. It calculates the initial product of the first `k` elements using these values.\n4. It checks if there are enough elements left in the list to potentially form a valid subsequence.\n5. It iterates through the sorted list starting from the second element, checking each number against the current product.\n6. If it finds a number larger than the current product, it updates the product accordingly.\n7. Finally, it returns the updated product after processing all necessary elements.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 222,
+      "total_tokens": 548,
+      "completion_tokens": 326,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869771.962405
+}

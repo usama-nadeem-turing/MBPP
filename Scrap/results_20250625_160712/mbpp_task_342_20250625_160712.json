@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 342,
+  "problem": {
+    "task_id": 342,
+    "text": "Write a function to find the smallest range that includes at-least one element from each of the given arrays.",
+    "code": "from heapq import heappop, heappush\r\nclass Node:\r\n    def __init__(self, value, list_num, index):\r\n        self.value = value\r\n        self.list_num = list_num\r\n        self.index = index\r\n    def __lt__(self, other):\r\n        return self.value < other.value\r\ndef find_minimum_range(list):\r\n    high = float('-inf')\r\n    p = (0, float('inf'))\r\n    pq = []\r\n    for i in range(len(list)):\r\n        heappush(pq, Node(list[i][0], i, 0))\r\n        high = max(high, list[i][0])\r\n    while True:\r\n        top = heappop(pq)\r\n        low = top.value\r\n        i = top.list_num\r\n        j = top.index\r\n        if high - low < p[1] - p[0]:\r\n            p = (low, high)\r\n        if j == len(list[i]) - 1:\r\n            return p\r\n        heappush(pq, Node(list[i][j + 1], i, j + 1))\r\n        high = max(high, list[i][j + 1])",
+    "test_list": [
+      "assert find_minimum_range([[3, 6, 8, 10, 15], [1, 5, 12], [4, 8, 15, 16], [2, 6]]) == (4, 6)",
+      "assert find_minimum_range([[ 2, 3, 4, 8, 10, 15 ], [1, 5, 12], [7, 8, 15, 16], [3, 6]]) == (4, 7)",
+      "assert find_minimum_range([[4, 7, 9, 11, 16], [2, 6, 13], [5, 9, 16, 17], [3, 7]]) == (5, 7)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the smallest range that includes at-least one element from each of the given arrays.\n\nTask ID: 342\n\nExpected behavior (test cases):\n1. find_minimum_range([[3, 6, 8, 10, 15], [1, 5, 12], [4, 8, 15, 16], [2, 6]]) should return (4, 6)\n2. find_minimum_range([[ 2, 3, 4, 8, 10, 15 ], [1, 5, 12], [7, 8, 15, 16], [3, 6]]) should return (4, 7)\n3. find_minimum_range([[4, 7, 9, 11, 16], [2, 6, 13], [5, 9, 16, 17], [3, 7]]) should return (5, 7)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e2c08b4341d042c7a41778a28984d91e",
+    "object": "chat.completion",
+    "created": 1750869467,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_minimum_range(arrays):\n    # Initialize variables for sorting and finding minimum range\n    min_val = float('inf')\n    max_val = -float('inf')\n    start = 0\n    end = 0\n    \n    # Sort all elements in ascending order\n    sorted_arrays = sorted([sorted(array) for array in arrays])\n    \n    while True:\n        # Calculate current range\n        current_min = sorted_arrays[start][start]\n        current_max = sorted_arrays[end][-end]\n        \n        if current_max < current_min:\n            break\n        \n        # Update minimum value found so far\n        min_val = min(min_val, current_min)\n        \n        # Move to next element\n        if len(sorted_arrays[start]) == 1:\n            start += 1\n        else:\n            start += 1\n        if len(sorted_arrays[end]) == 1:\n            end -= 1\n        else:\n            end -= 1\n            \n    return (min_val, current_min)\n\n# Test cases\nprint(find_minimum_range([[3, 6, 8, 10, 15], [1, 5, 12], [4, 8, 15, 16], [2, 6]]))  # Expected output: (4, 6)\nprint(find_minimum_range([[ 2, 3, 4, 8, 10, 15 ], [1, 5, 12], [7, 8, 15, 16], [3, 6]]))  # Expected output: (4, 7)\nprint(find_minimum_range([[4, 7, 9, 11, 16], [2, 6, 13], [5, 9, 16, 17], [3, 7]]))  # Expected output: (5, 7)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 281,
+      "total_tokens": 685,
+      "completion_tokens": 404,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869474.6125565
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 701,
+  "problem": {
+    "task_id": 701,
+    "text": "Write a function to find the equilibrium index of the given array.",
+    "code": "def equilibrium_index(arr):\r\n  total_sum = sum(arr)\r\n  left_sum=0\r\n  for i, num in enumerate(arr):\r\n    total_sum -= num\r\n    if left_sum == total_sum:\r\n      return i\r\n    left_sum += num\r\n  return -1",
+    "test_list": [
+      "assert equilibrium_index([1, 2, 3, 4, 1, 2, 3]) == 3",
+      "assert equilibrium_index([-7, 1, 5, 2, -4, 3, 0]) == 3",
+      "assert equilibrium_index([1, 2, 3]) == -1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the equilibrium index of the given array.\n\nTask ID: 701\n\nExpected behavior (test cases):\n1. equilibrium_index([1, 2, 3, 4, 1, 2, 3]) should return 3\n2. equilibrium_index([-7, 1, 5, 2, -4, 3, 0]) should return 3\n3. equilibrium_index([1, 2, 3]) should return -1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b802e3ce4378455281750cc472fd1ec1",
+    "object": "chat.completion",
+    "created": 1750867887,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef equilibrium_index(arr):\n    total_sum = sum(arr)\n    left_sum = 0\n    for i in range(len(arr)):\n        if left_sum == (total_sum - left_sum - arr[i]):\n            return i\n        left_sum += arr[i]\n    return -1\n\n# Test cases\nprint(equilibrium_index([1, 2, 3, 4, 1, 2, 3]))  # Output: 3\nprint(equilibrium_index([-7, 1, 5, 2, -4, 3, 0]))  # Output: 3\nprint(equilibrium_index([1, 2, 3]))  # Output: -1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 320,
+      "completion_tokens": 154,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867890.4102416
+}

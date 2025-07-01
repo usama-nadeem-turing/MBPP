@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 841,
+  "problem": {
+    "task_id": 841,
+    "text": "Write a function to count the number of inversions in the given array.",
+    "code": "def get_inv_count(arr, n): \r\n\tinv_count = 0\r\n\tfor i in range(n): \r\n\t\tfor j in range(i + 1, n): \r\n\t\t\tif (arr[i] > arr[j]): \r\n\t\t\t\tinv_count += 1\r\n\treturn inv_count ",
+    "test_list": [
+      "assert get_inv_count([1, 20, 6, 4, 5], 5) == 5",
+      "assert get_inv_count([8, 4, 2, 1], 4) == 6",
+      "assert get_inv_count([3, 1, 2], 3) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the number of inversions in the given array.\n\nTask ID: 841\n\nExpected behavior (test cases):\n1. get_inv_count([1, 20, 6, 4, 5], 5) should return 5\n2. get_inv_count([8, 4, 2, 1], 4) should return 6\n3. get_inv_count([3, 1, 2], 3) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b85d2116730245d9b9684f6788fbff4b",
+    "object": "chat.completion",
+    "created": 1750868254,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_inv_count(arr, n):\n    # Initialize inversion count\n    inv_count = 0\n    \n    # Iterate through each element in the array\n    for i in range(n-1):\n        # Compare current element with all elements after it\n        for j in range(i+1, n):\n            if arr[i] > arr[j]:\n                # If an inversion is found, increment the count\n                inv_count += 1\n                \n    return inv_count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 266,
+      "completion_tokens": 100,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868256.1389744
+}

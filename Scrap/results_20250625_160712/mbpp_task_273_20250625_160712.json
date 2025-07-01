@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 273,
+  "problem": {
+    "task_id": 273,
+    "text": "Write a function to substract the contents of one tuple with corresponding index of other tuple.",
+    "code": "def substract_elements(test_tup1, test_tup2):\r\n  res = tuple(map(lambda i, j: i - j, test_tup1, test_tup2))\r\n  return (res) ",
+    "test_list": [
+      "assert substract_elements((10, 4, 5), (2, 5, 18)) == (8, -1, -13)",
+      "assert substract_elements((11, 2, 3), (24, 45 ,16)) == (-13, -43, -13)",
+      "assert substract_elements((7, 18, 9), (10, 11, 12)) == (-3, 7, -3)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to substract the contents of one tuple with corresponding index of other tuple.\n\nTask ID: 273\n\nExpected behavior (test cases):\n1. substract_elements((10, 4, 5), (2, 5, 18)) should return (8, -1, -13)\n2. substract_elements((11, 2, 3), (24, 45 ,16)) should return (-13, -43, -13)\n3. substract_elements((7, 18, 9), (10, 11, 12)) should return (-3, 7, -3)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1d27ddf222e947fea4bfc9b6f64fc1ef",
+    "object": "chat.completion",
+    "created": 1750869281,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef substract_elements(tuple1, tuple2):\n    result = []\n    for i in range(len(tuple1)):\n        result.append(tuple1[i] - tuple2[i])\n    return tuple(result)\n\n# Test cases\nprint(substract_elements((10, 4, 5), (2, 5, 18))) # Expected output: (8, -1, -13)\nprint(substract_elements((11, 2, 3), (24, 45 ,16))) # Expected output: (-13, -43, -13)\nprint(substract_elements((7, 18, 9), (10, 11, 12))) # Expected output: (-3, 7, -3)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 208,
+      "total_tokens": 375,
+      "completion_tokens": 167,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869284.766532
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 289,
+  "problem": {
+    "task_id": 289,
+    "text": "Write a python function to calculate the number of odd days in a given year.",
+    "code": "def odd_Days(N): \r\n    hund1 = N // 100\r\n    hund4 = N // 400\r\n    leap = N >> 2\r\n    ordd = N - leap \r\n    if (hund1): \r\n        ordd += hund1 \r\n        leap -= hund1 \r\n    if (hund4): \r\n        ordd -= hund4 \r\n        leap += hund4 \r\n    days = ordd + leap * 2\r\n    odd = days % 7\r\n    return odd ",
+    "test_list": [
+      "assert odd_Days(100) == 5",
+      "assert odd_Days(50) ==6",
+      "assert odd_Days(75) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to calculate the number of odd days in a given year.\n\nTask ID: 289\n\nExpected behavior (test cases):\n1. odd_Days(100) should return 5\n2. odd_Days(50) ==6\n3. odd_Days(75) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-87f497969f0b4b548d0de627386e149a",
+    "object": "chat.completion",
+    "created": 1750869325,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef odd_Days(year):\n    # Calculate the number of odd days in the given year\n    odd_days = year % 4 * 3 + year % 100 * 2 + year % 400 % 4 - year // 400 * 2\n    if odd_days < 0:\n        odd_days += 7\n    return odd_days\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 218,
+      "completion_tokens": 86,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869327.07688
+}

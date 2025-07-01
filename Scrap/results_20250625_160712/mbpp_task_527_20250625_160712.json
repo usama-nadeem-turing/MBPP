@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 527,
+  "problem": {
+    "task_id": 527,
+    "text": "Write a function to find all pairs in an integer array whose sum is equal to a given number.",
+    "code": "def get_pairs_count(arr, n, sum):\r\n    count = 0 \r\n    for i in range(0, n):\r\n        for j in range(i + 1, n):\r\n            if arr[i] + arr[j] == sum:\r\n                count += 1\r\n    return count",
+    "test_list": [
+      "assert get_pairs_count([1, 5, 7, -1, 5], 5, 6) == 3",
+      "assert get_pairs_count([1, 5, 7, -1], 4, 6) == 2",
+      "assert get_pairs_count([1, 1, 1, 1], 4, 2) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find all pairs in an integer array whose sum is equal to a given number.\n\nTask ID: 527\n\nExpected behavior (test cases):\n1. get_pairs_count([1, 5, 7, -1, 5], 5, 6) should return 3\n2. get_pairs_count([1, 5, 7, -1], 4, 6) should return 2\n3. get_pairs_count([1, 1, 1, 1], 4, 2) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-82000ec9fcb3407e92a358a924efc2cf",
+    "object": "chat.completion",
+    "created": 1750869925,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_pairs_count(arr, target_sum, count=0):\n    arr.sort()\n    left = 0\n    right = len(arr) - 1\n    while left < right:\n        current_sum = arr[left] + arr[right]\n        if current_sum == target_sum:\n            count += 1\n            left += 1\n            right -= 1\n        elif current_sum < target_sum:\n            left += 1\n        else:\n            right -= 1\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "total_tokens": 290,
+      "completion_tokens": 108,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869927.0650504
+}

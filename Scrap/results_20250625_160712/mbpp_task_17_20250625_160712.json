@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 17,
+  "problem": {
+    "task_id": 17,
+    "text": "Write a function to find the perimeter of a square.",
+    "code": "def square_perimeter(a):\r\n  perimeter=4*a\r\n  return perimeter",
+    "test_list": [
+      "assert square_perimeter(10)==40",
+      "assert square_perimeter(5)==20",
+      "assert square_perimeter(4)==16"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the perimeter of a square.\n\nTask ID: 17\n\nExpected behavior (test cases):\n1. square_perimeter(10)==40\n2. square_perimeter(5)==20\n3. square_perimeter(4)==16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-990c9e9830be4e2caeef0b234a092a39",
+    "object": "chat.completion",
+    "created": 1750868627,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef square_perimeter(side_length):\n    return side_length * 4\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "total_tokens": 139,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868627.6114204
+}

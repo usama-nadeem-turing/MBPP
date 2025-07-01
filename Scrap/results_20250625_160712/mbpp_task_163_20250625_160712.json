@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 163,
+  "problem": {
+    "task_id": 163,
+    "text": "Write a function to calculate the area of a regular polygon.",
+    "code": "from math import tan, pi\r\ndef area_polygon(s,l):\r\n  area = s * (l ** 2) / (4 * tan(pi / s))\r\n  return area",
+    "test_list": [
+      "assert area_polygon(4,20)==400.00000000000006",
+      "assert area_polygon(10,15)==1731.1969896610804",
+      "assert area_polygon(9,7)==302.90938549487214"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the area of a regular polygon.\n\nTask ID: 163\n\nExpected behavior (test cases):\n1. area_polygon(4,20)==400.00000000000006\n2. area_polygon(10,15)==1731.1969896610804\n3. area_polygon(9,7)==302.90938549487214\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b5b60bcda46e4bc7a1d7d9d0163164c9",
+    "object": "chat.completion",
+    "created": 1750869009,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef area_polygon(sides, length):\n    \"\"\"\n    Calculate the area of a regular polygon.\n    \n    Parameters:\n    sides (int): The number of sides of the polygon.\n    length (float): The length of each side of the polygon.\n    \n    Returns:\n    float: The area of the polygon.\n    \"\"\"\n    return (sides * length ** 2) / (4 * math.tan(math.pi / sides))\n\n# Test cases\nprint(area_polygon(4, 20)) # Expected output: 400.00000000000006\nprint(area_polygon(10, 15)) # Expected output: 1731.1969896610804\nprint(area_polygon(9, 7))   # Expected output: 302.90938549487214\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 174,
+      "total_tokens": 377,
+      "completion_tokens": 203,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869012.728498
+}

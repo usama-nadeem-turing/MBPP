@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 407,
+  "problem": {
+    "task_id": 407,
+    "text": "Write a function to create the next bigger number by rearranging the digits of a given number.",
+    "code": "def rearrange_bigger(n):\r\n    nums = list(str(n))\r\n    for i in range(len(nums)-2,-1,-1):\r\n        if nums[i] < nums[i+1]:\r\n            z = nums[i:]\r\n            y = min(filter(lambda x: x > z[0], z))\r\n            z.remove(y)\r\n            z.sort()\r\n            nums[i:] = [y] + z\r\n            return int(\"\".join(nums))\r\n    return False",
+    "test_list": [
+      "assert rearrange_bigger(12)==21",
+      "assert rearrange_bigger(10)==False",
+      "assert rearrange_bigger(102)==120"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to create the next bigger number by rearranging the digits of a given number.\n\nTask ID: 407\n\nExpected behavior (test cases):\n1. rearrange_bigger(12)==21\n2. rearrange_bigger(10)==False\n3. rearrange_bigger(102)==120\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3afcf224888c4ddd8a6bdc21e7df67b8",
+    "object": "chat.completion",
+    "created": 1750869624,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef rearrange_bigger(n):\n    \"\"\"\n    Rearranges the digits of n to form the largest possible number.\n    \n    Parameters:\n    - n (int): The original number\n    \n    Returns:\n    int: The next biggest number formed by the digits of n, or False if no such number exists.\n    \"\"\"\n    # Convert the number to a list of its digits\n    digits = [int(d) for d in str(n)]\n    # Sort the digits in descending order\n    sorted_digits = sorted(digits, reverse=True)\n    # Check if sorting is necessary and return None if not\n    if sorted_digits == digits:\n        return False\n    else:\n        # Reconstruct the number from the sorted digits\n        result = ''.join(map(str, sorted_digits))\n        # Convert back to integer and return\n        return int(result)\n\n# Test cases\nprint(rearrange_bigger(12))   # Expected output: 21\nprint(rearrange_bigger(10))   # Expected output: False\nprint(rearrange_bigger(102))  # Expected output: 120\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 371,
+      "completion_tokens": 237,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869628.0910199
+}

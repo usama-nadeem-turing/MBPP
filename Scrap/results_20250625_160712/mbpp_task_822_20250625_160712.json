@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 822,
+  "problem": {
+    "task_id": 822,
+    "text": "Write a function to return true if the password is valid.",
+    "code": "import re\r\ndef pass_validity(p):\r\n x = True\r\n while x:  \r\n    if (len(p)<6 or len(p)>12):\r\n        break\r\n    elif not re.search(\"[a-z]\",p):\r\n        break\r\n    elif not re.search(\"[0-9]\",p):\r\n        break\r\n    elif not re.search(\"[A-Z]\",p):\r\n        break\r\n    elif not re.search(\"[$#@]\",p):\r\n        break\r\n    elif re.search(\"\\s\",p):\r\n        break\r\n    else:\r\n        return True\r\n        x=False\r\n        break\r\n\r\n if x:\r\n    return False",
+    "test_list": [
+      "assert pass_validity(\"password\")==False",
+      "assert pass_validity(\"Password@10\")==True",
+      "assert pass_validity(\"password@10\")==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to return true if the password is valid.\n\nTask ID: 822\n\nExpected behavior (test cases):\n1. pass_validity(\"password\")==False\n2. pass_validity(\"Password@10\")==True\n3. pass_validity(\"password@10\")==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4abd73c9204444aea49c2b1f8c1d7e6e",
+    "object": "chat.completion",
+    "created": 1750868199,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef pass_validity(password):\n    # Regular expression pattern for validating passwords\n    pattern = r\"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$\"\n    \n    # Check if the password matches the pattern\n    if re.match(pattern, password):\n        return True\n    else:\n        return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "total_tokens": 220,
+      "completion_tokens": 97,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868200.8982632
+}

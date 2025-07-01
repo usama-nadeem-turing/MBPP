@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 171,
+  "problem": {
+    "task_id": 171,
+    "text": "Write a function to find the perimeter of a pentagon.",
+    "code": "import math\r\ndef perimeter_pentagon(a):\r\n  perimeter=(5*a)\r\n  return perimeter",
+    "test_list": [
+      "assert perimeter_pentagon(5)==25",
+      "assert perimeter_pentagon(10)==50",
+      "assert perimeter_pentagon(15)==75"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the perimeter of a pentagon.\n\nTask ID: 171\n\nExpected behavior (test cases):\n1. perimeter_pentagon(5)==25\n2. perimeter_pentagon(10)==50\n3. perimeter_pentagon(15)==75\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ea27774d5fda4c6781f6b6c906898dc9",
+    "object": "chat.completion",
+    "created": 1750869027,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef perimeter_pentagon(side_length):\n    return side_length * 5\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "total_tokens": 146,
+      "completion_tokens": 21,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869027.92733
+}

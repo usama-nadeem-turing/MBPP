@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 627,
+  "problem": {
+    "task_id": 627,
+    "text": "Write a python function to find the smallest missing number from the given array.",
+    "code": "def find_First_Missing(array,start,end): \r\n    if (start > end): \r\n        return end + 1\r\n    if (start != array[start]): \r\n        return start; \r\n    mid = int((start + end) / 2) \r\n    if (array[mid] == mid): \r\n        return find_First_Missing(array,mid+1,end) \r\n    return find_First_Missing(array,start,mid) ",
+    "test_list": [
+      "assert find_First_Missing([0,1,2,3],0,3) == 4",
+      "assert find_First_Missing([0,1,2,6,9],0,4) == 3",
+      "assert find_First_Missing([2,3,5,8,9],0,4) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the smallest missing number from the given array.\n\nTask ID: 627\n\nExpected behavior (test cases):\n1. find_First_Missing([0,1,2,3],0,3) should return 4\n2. find_First_Missing([0,1,2,6,9],0,4) should return 3\n3. find_First_Missing([2,3,5,8,9],0,4) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0ac63c26aab94ca8a34757992d6f88ac",
+    "object": "chat.completion",
+    "created": 1750867705,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_First_Missing(arr, start, end):\n    for i in range(start, end):\n        if arr[i] != i:\n            return i\n    return end\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 207,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867706.0566351
+}

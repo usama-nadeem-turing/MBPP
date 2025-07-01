@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 91,
+  "problem": {
+    "task_id": 91,
+    "text": "Write a function to check if a substring is present in a given list of string values.",
+    "code": "def find_substring(str1, sub_str):\r\n   if any(sub_str in s for s in str1):\r\n       return True\r\n   return False",
+    "test_list": [
+      "assert find_substring([\"red\", \"black\", \"white\", \"green\", \"orange\"],\"ack\")==True",
+      "assert find_substring([\"red\", \"black\", \"white\", \"green\", \"orange\"],\"abc\")==False",
+      "assert find_substring([\"red\", \"black\", \"white\", \"green\", \"orange\"],\"ange\")==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a substring is present in a given list of string values.\n\nTask ID: 91\n\nExpected behavior (test cases):\n1. find_substring([\"red\", \"black\", \"white\", \"green\", \"orange\"],\"ack\")==True\n2. find_substring([\"red\", \"black\", \"white\", \"green\", \"orange\"],\"abc\")==False\n3. find_substring([\"red\", \"black\", \"white\", \"green\", \"orange\"],\"ange\")==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-788f6d9c57304dabb15b1804c7a366f1",
+    "object": "chat.completion",
+    "created": 1750868811,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_substring(lst, sub):\n    return sub in lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 164,
+      "total_tokens": 183,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868811.7332118
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 736,
+  "problem": {
+    "task_id": 736,
+    "text": "Write a function to locate the left insertion point for a specified value in sorted order.",
+    "code": "import bisect\r\ndef left_insertion(a, x):\r\n    i = bisect.bisect_left(a, x)\r\n    return i",
+    "test_list": [
+      "assert left_insertion([1,2,4,5],6)==4",
+      "assert left_insertion([1,2,4,5],3)==2",
+      "assert left_insertion([1,2,4,5],7)==4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to locate the left insertion point for a specified value in sorted order.\n\nTask ID: 736\n\nExpected behavior (test cases):\n1. left_insertion([1,2,4,5],6)==4\n2. left_insertion([1,2,4,5],3)==2\n3. left_insertion([1,2,4,5],7)==4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-edf1119a6296434c9995eaaba19d4522",
+    "object": "chat.completion",
+    "created": 1750867979,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef left_insertion(sorted_list, target):\n    low = 0\n    high = len(sorted_list) - 1\n    \n    while low <= high:\n        mid = (low + high) // 2\n        \n        if sorted_list[mid] == target:\n            return mid\n        elif sorted_list[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n            \n    # If not found, `high` is just one short of the correct position.\n    return high + 1\n```\n\nThis solution uses binary search to efficiently find the left insertion point for the given value within the sorted list. It iteratively narrows down the range based on comparisons between the middle element and the target until it finds the correct position or determines the value is out of bounds.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 316,
+      "completion_tokens": 170,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867982.8103924
+}

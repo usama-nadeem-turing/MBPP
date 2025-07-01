@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 52,
+  "problem": {
+    "task_id": 52,
+    "text": "Write a function to caluclate area of a parallelogram.",
+    "code": "def parallelogram_area(b,h):\r\n  area=b*h\r\n  return area",
+    "test_list": [
+      "assert parallelogram_area(10,20)==200",
+      "assert parallelogram_area(15,20)==300",
+      "assert parallelogram_area(8,9)==72"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to caluclate area of a parallelogram.\n\nTask ID: 52\n\nExpected behavior (test cases):\n1. parallelogram_area(10,20)==200\n2. parallelogram_area(15,20)==300\n3. parallelogram_area(8,9)==72\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6463e3aaed5442b48763b65e4b5c5613",
+    "object": "chat.completion",
+    "created": 1750868712,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef parallelogram_area(base, height):\n    return base * height\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 157,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868713.1688812
+}

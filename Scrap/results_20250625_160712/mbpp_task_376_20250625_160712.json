@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 376,
+  "problem": {
+    "task_id": 376,
+    "text": "Write a function to remove tuple elements that occur more than once and replace the duplicates with some custom value.",
+    "code": "def remove_replica(test_tup):\r\n  temp = set()\r\n  res = tuple(ele if ele not in temp and not temp.add(ele) \r\n\t\t\t\telse 'MSP' for ele in test_tup)\r\n  return (res)",
+    "test_list": [
+      "assert remove_replica((1, 1, 4, 4, 4, 5, 5, 6, 7, 7)) == (1, 'MSP', 4, 'MSP', 'MSP', 5, 'MSP', 6, 7, 'MSP')",
+      "assert remove_replica((2, 3, 4, 4, 5, 6, 6, 7, 8, 9, 9)) == (2, 3, 4, 'MSP', 5, 6, 'MSP', 7, 8, 9, 'MSP')",
+      "assert remove_replica((2, 2, 5, 4, 5, 7, 5, 6, 7, 7)) == (2, 'MSP', 5, 4, 'MSP', 7, 'MSP', 6, 'MSP', 'MSP')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove tuple elements that occur more than once and replace the duplicates with some custom value.\n\nTask ID: 376\n\nExpected behavior (test cases):\n1. remove_replica((1, 1, 4, 4, 4, 5, 5, 6, 7, 7)) should return (1, 'MSP', 4, 'MSP', 'MSP', 5, 'MSP', 6, 7, 'MSP')\n2. remove_replica((2, 3, 4, 4, 5, 6, 6, 7, 8, 9, 9)) should return (2, 3, 4, 'MSP', 5, 6, 'MSP', 7, 8, 9, 'MSP')\n3. remove_replica((2, 2, 5, 4, 5, 7, 5, 6, 7, 7)) should return (2, 'MSP', 5, 4, 'MSP', 7, 'MSP', 6, 'MSP', 'MSP')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f309b6fdd40f4d85abbf0d520df4c109",
+    "object": "chat.completion",
+    "created": 1750869551,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_replica(lst):\n    \"\"\"\n    Removes tuples from lst where the first element is repeated.\n    Replaces the duplicate first elements with 'MSP'.\n    \n    :param lst: List of tuples\n    :return: Modified list with unique first elements replaced by 'MSP'\n    \"\"\"\n    seen = set()\n    result = []\n    for item in lst:\n        if len(item) > 0 and item[0] not in seen:\n            seen.add(item[0])\n            result.append(item)\n        elif len(item) == 0:\n            result.append('MSP')\n    return result\n\n# Test cases\nprint(remove_replica([(1, 1), (4, 4, 4), (5, 5, 5)])) # Expected output: [(1, 'MSP'), ('MSP', 'MSP', 'MSP'), ('MSP', 'MSP', 'MSP')]\nprint(remove_replica([(2, 3), (4, 4, 4), (5, 6, 7)])) # Expected output: [(2, 3), ('MSP', 'MSP', 'MSP'), ('MSP', 'MSP', 'MSP')]\nprint(remove_replica([(2,), (5,), (7,)])) # Expected output: [2, 'MSP', 'MSP']\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 316,
+      "total_tokens": 606,
+      "completion_tokens": 290,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869555.949858
+}

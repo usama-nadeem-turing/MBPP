@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 642,
+  "problem": {
+    "task_id": 642,
+    "text": "Write a function to remove similar rows from the given tuple matrix.",
+    "code": "def remove_similar_row(test_list):\r\n  res = set(sorted([tuple(sorted(set(sub))) for sub in test_list]))\r\n  return (res) ",
+    "test_list": [
+      "assert remove_similar_row([[(4, 5), (3, 2)], [(2, 2), (4, 6)], [(3, 2), (4, 5)]] ) == {((2, 2), (4, 6)), ((3, 2), (4, 5))}",
+      "assert remove_similar_row([[(5, 6), (4, 3)], [(3, 3), (5, 7)], [(4, 3), (5, 6)]] ) == {((4, 3), (5, 6)), ((3, 3), (5, 7))}",
+      "assert remove_similar_row([[(6, 7), (5, 4)], [(4, 4), (6, 8)], [(5, 4), (6, 7)]] ) =={((4, 4), (6, 8)), ((5, 4), (6, 7))}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove similar rows from the given tuple matrix.\n\nTask ID: 642\n\nExpected behavior (test cases):\n1. remove_similar_row([[(4, 5), (3, 2)], [(2, 2), (4, 6)], [(3, 2), (4, 5)]] ) should return {((2, 2), (4, 6)), ((3, 2), (4, 5))}\n2. remove_similar_row([[(5, 6), (4, 3)], [(3, 3), (5, 7)], [(4, 3), (5, 6)]] ) should return {((4, 3), (5, 6)), ((3, 3), (5, 7))}\n3. remove_similar_row([[(6, 7), (5, 4)], [(4, 4), (6, 8)], [(5, 4), (6, 7)]] ) =={((4, 4), (6, 8)), ((5, 4), (6, 7))}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bc53e26d52c94ce5b587b70d259d9e88",
+    "object": "chat.completion",
+    "created": 1750867750,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_similar_row(matrix):\n    # Convert the list of tuples into a set for faster lookups and removal\n    unique_rows = set(tuple(row) for row in matrix)\n    \n    # Filter out duplicate rows based on their hash values\n    filtered_matrix = [row for row in matrix if tuple(row) not in unique_rows]\n    \n    # Return the filtered matrix as a dictionary with key-value pairs\n    return {(tuple(row[0]), tuple(row[1])): row for row in filtered_matrix}\n```\n\nThis solution first converts each row in the input matrix into a tuple and stores them in a set to ensure uniqueness. Then, it filters out any duplicates by checking against the set of unique tuples. Finally, it constructs a new dictionary where keys are tuples representing the unique rows and values are the original rows themselves.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 304,
+      "total_tokens": 477,
+      "completion_tokens": 173,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867753.492869
+}

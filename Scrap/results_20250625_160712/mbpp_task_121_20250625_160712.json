@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 121,
+  "problem": {
+    "task_id": 121,
+    "text": "Write a function to find the triplet with sum of the given array",
+    "code": "def check_triplet(A, n, sum, count):\r\n    if count == 3 and sum == 0:\r\n        return True\r\n    if count == 3 or n == 0 or sum < 0:\r\n        return False\r\n    return check_triplet(A, n - 1, sum - A[n - 1], count + 1) or\\\r\n           check_triplet(A, n - 1, sum, count)",
+    "test_list": [
+      "assert check_triplet([2, 7, 4, 0, 9, 5, 1, 3], 8, 6, 0) == True",
+      "assert check_triplet([1, 4, 5, 6, 7, 8, 5, 9], 8, 6, 0) == False",
+      "assert check_triplet([10, 4, 2, 3, 5], 5, 15, 0) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the triplet with sum of the given array\n\nTask ID: 121\n\nExpected behavior (test cases):\n1. check_triplet([2, 7, 4, 0, 9, 5, 1, 3], 8, 6, 0) should return True\n2. check_triplet([1, 4, 5, 6, 7, 8, 5, 9], 8, 6, 0) should return False\n3. check_triplet([10, 4, 2, 3, 5], 5, 15, 0) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6fe84c9a927f4ebcacb10e3cd0d60a90",
+    "object": "chat.completion",
+    "created": 1750868887,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_triplet(arr, target_sum, expected_sum):\n    arr.sort()\n    n = len(arr)\n    \n    for i in range(n-2):\n        left, right = i+1, n-1\n        \n        while left < right:\n            current_sum = arr[i] + arr[left] + arr[right]\n            \n            if current_sum == expected_sum:\n                return True\n            \n            elif current_sum < expected_sum:\n                left += 1\n                \n            else:\n                right -= 1\n    \n    return False\n\n# Test cases\nprint(check_triplet([2, 7, 4, 0, 9, 5, 1, 3], 8, 6))  # Expected output: True\nprint(check_triplet([1, 4, 5, 6, 7, 8, 5, 9], 8, 6))  # Expected output: False\nprint(check_triplet([10, 4, 2, 3, 5], 5, 15))         # Expected output: True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 208,
+      "total_tokens": 439,
+      "completion_tokens": 231,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868891.5441725
+}

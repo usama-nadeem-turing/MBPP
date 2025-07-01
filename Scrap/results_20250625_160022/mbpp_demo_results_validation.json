@@ -1,0 +1,178 @@
+[
+  {
+    "mbpp_id": 511,
+    "problem": {
+      "task_id": 511,
+      "text": "Write a python function to find minimum sum of factors of a given number.",
+      "code": "def find_Min_Sum(num): \r\n    sum = 0\r\n    i = 2\r\n    while(i * i <= num): \r\n        while(num % i == 0): \r\n            sum += i \r\n            num /= i \r\n        i += 1\r\n    sum += num \r\n    return sum",
+      "test_list": [
+        "assert find_Min_Sum(12) == 7",
+        "assert find_Min_Sum(105) == 15",
+        "assert find_Min_Sum(2) == 2"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find minimum sum of factors of a given number.\n\nTask ID: 511\n\nExpected behavior (test cases):\n1. find_Min_Sum(12) should return 7\n2. find_Min_Sum(105) should return 15\n3. find_Min_Sum(2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-f418b7ed78d24cf8a60d82bb2b068b98",
+      "object": "chat.completion",
+      "created": 1750867263,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_Min_Sum(n):\n    # Initialize the minimum sum with the largest possible value\n    min_sum = float('inf')\n    \n    # Iterate through all numbers from 1 to n-1\n    for i in range(1, n):\n        # Calculate the sum of factors of i and check if it's less than the current minimum sum\n        if sum(i // j for j in range(1, i)) < min_sum:\n            min_sum = sum(i // j for j in range(1, i))\n    \n    return min_sum\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 136,
+        "total_tokens": 256,
+        "completion_tokens": 120,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867265.324628
+  },
+  {
+    "mbpp_id": 512,
+    "problem": {
+      "task_id": 512,
+      "text": "Write a function to count the element frequency in the mixed nested tuple.",
+      "code": "def flatten(test_tuple): \r\n\tfor tup in test_tuple: \r\n\t\tif isinstance(tup, tuple): \r\n\t\t\tyield from flatten(tup) \r\n\t\telse: \r\n\t\t\tyield tup \r\ndef count_element_freq(test_tuple):\r\n  res = {}\r\n  for ele in flatten(test_tuple):\r\n    if ele not in res:\r\n      res[ele] = 0\r\n    res[ele] += 1\r\n  return (res) ",
+      "test_list": [
+        "assert count_element_freq((5, 6, (5, 6), 7, (8, 9), 9) ) == {5: 2, 6: 2, 7: 1, 8: 1, 9: 2}",
+        "assert count_element_freq((6, 7, (6, 7), 8, (9, 10), 10) ) == {6: 2, 7: 2, 8: 1, 9: 1, 10: 2}",
+        "assert count_element_freq((7, 8, (7, 8), 9, (10, 11), 11) ) == {7: 2, 8: 2, 9: 1, 10: 1, 11: 2}"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the element frequency in the mixed nested tuple.\n\nTask ID: 512\n\nExpected behavior (test cases):\n1. count_element_freq((5, 6, (5, 6), 7, (8, 9), 9) ) should return {5: 2, 6: 2, 7: 1, 8: 1, 9: 2}\n2. count_element_freq((6, 7, (6, 7), 8, (9, 10), 10) ) should return {6: 2, 7: 2, 8: 1, 9: 1, 10: 2}\n3. count_element_freq((7, 8, (7, 8), 9, (10, 11), 11) ) should return {7: 2, 8: 2, 9: 1, 10: 1, 11: 2}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-75a61695997f4d7aa7741b7eb929458d",
+      "object": "chat.completion",
+      "created": 1750867265,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef count_element_freq(tup):\n    freq_dict = {}\n    for item in tup:\n        if isinstance(item, tuple):\n            for sub_item in item:\n                if sub_item in freq_dict:\n                    freq_dict[sub_item] += 1\n                else:\n                    freq_dict[sub_item] = 1\n        elif item in freq_dict:\n            freq_dict[item] += 1\n        else:\n            freq_dict[item] = 1\n    return freq_dict\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 283,
+        "total_tokens": 384,
+        "completion_tokens": 101,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867267.570619
+  },
+  {
+    "mbpp_id": 513,
+    "problem": {
+      "task_id": 513,
+      "text": "Write a function to convert tuple into list by adding the given string after every element.",
+      "code": "def add_str(test_tup, K):\r\n  res = [ele for sub in test_tup for ele in (sub, K)]\r\n  return (res) ",
+      "test_list": [
+        "assert add_str((5, 6, 7, 4, 9) , \"FDF\") == [5, 'FDF', 6, 'FDF', 7, 'FDF', 4, 'FDF', 9, 'FDF']",
+        "assert add_str((7, 8, 9, 10) , \"PF\") == [7, 'PF', 8, 'PF', 9, 'PF', 10, 'PF']",
+        "assert add_str((11, 14, 12, 1, 4) , \"JH\") == [11, 'JH', 14, 'JH', 12, 'JH', 1, 'JH', 4, 'JH']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert tuple into list by adding the given string after every element.\n\nTask ID: 513\n\nExpected behavior (test cases):\n1. add_str((5, 6, 7, 4, 9) , \"FDF\") should return [5, 'FDF', 6, 'FDF', 7, 'FDF', 4, 'FDF', 9, 'FDF']\n2. add_str((7, 8, 9, 10) , \"PF\") should return [7, 'PF', 8, 'PF', 9, 'PF', 10, 'PF']\n3. add_str((11, 14, 12, 1, 4) , \"JH\") should return [11, 'JH', 14, 'JH', 12, 'JH', 1, 'JH', 4, 'JH']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-79b81b33193545f6a4624bb3ccd9f8bc",
+      "object": "chat.completion",
+      "created": 1750867268,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef add_str(tup, strng):\n    result = []\n    for item in tup:\n        result.append(item)\n        result.append(strng)\n    return result[:-1]  # Remove the last added empty string from the list\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 268,
+        "total_tokens": 321,
+        "completion_tokens": 53,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867269.0097144
+  },
+  {
+    "mbpp_id": 514,
+    "problem": {
+      "task_id": 514,
+      "text": "Write a function to find the summation of tuple elements in the given tuple list.",
+      "code": "def sum_elements(test_tup):\r\n  res = sum(list(test_tup))\r\n  return (res) ",
+      "test_list": [
+        "assert sum_elements((7, 8, 9, 1, 10, 7)) == 42",
+        "assert sum_elements((1, 2, 3, 4, 5, 6)) == 21",
+        "assert sum_elements((11, 12 ,13 ,45, 14)) == 95"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the summation of tuple elements in the given tuple list.\n\nTask ID: 514\n\nExpected behavior (test cases):\n1. sum_elements((7, 8, 9, 1, 10, 7)) should return 42\n2. sum_elements((1, 2, 3, 4, 5, 6)) should return 21\n3. sum_elements((11, 12 ,13 ,45, 14)) should return 95\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-a58254ff2f024253be8ffbb626d8b070",
+      "object": "chat.completion",
+      "created": 1750867269,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef sum_elements(tuples_list):\n    total_sum = 0\n    for tup in tuples_list:\n        for num in tup:\n            total_sum += num\n    return total_sum\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 177,
+        "total_tokens": 220,
+        "completion_tokens": 43,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867270.2566032
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 258,
+  "problem": {
+    "task_id": 258,
+    "text": "Write a function to find number of odd elements in the given list using lambda function.",
+    "code": "def count_odd(array_nums):\r\n   count_odd = len(list(filter(lambda x: (x%2 != 0) , array_nums)))\r\n   return count_odd",
+    "test_list": [
+      "assert count_odd([1, 2, 3, 5, 7, 8, 10])==4",
+      "assert count_odd([10,15,14,13,-18,12,-20])==2",
+      "assert count_odd([1, 2, 4, 8, 9])==2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find number of odd elements in the given list using lambda function.\n\nTask ID: 258\n\nExpected behavior (test cases):\n1. count_odd([1, 2, 3, 5, 7, 8, 10])==4\n2. count_odd([10,15,14,13,-18,12,-20])==2\n3. count_odd([1, 2, 4, 8, 9])==2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7243164e436e455eaf18a3127d4ff417",
+    "object": "chat.completion",
+    "created": 1750869252,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_odd(nums):\n    return len(list(filter(lambda x: x % 2 != 0, nums)))\n\n# Test cases\nprint(count_odd([1, 2, 3, 5, 7, 8, 10]))  # Expected output: 4\nprint(count_odd([10, 15, 14, 13, -18, 12, -20]))  # Expected output: 2\nprint(count_odd([1, 2, 4, 8, 9]))  # Expected output: 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "total_tokens": 299,
+      "completion_tokens": 130,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869254.348091
+}

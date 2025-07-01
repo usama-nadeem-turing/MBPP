@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 699,
+  "problem": {
+    "task_id": 699,
+    "text": "Write a python function to find the minimum number of swaps required to convert one binary string to another.",
+    "code": "def min_Swaps(str1,str2) : \r\n    count = 0\r\n    for i in range(len(str1)) : \r\n        if str1[i] != str2[i] : \r\n            count += 1\r\n    if count % 2 == 0 : \r\n        return (count // 2) \r\n    else : \r\n        return (\"Not Possible\") ",
+    "test_list": [
+      "assert min_Swaps(\"1101\",\"1110\") == 1",
+      "assert min_Swaps(\"1111\",\"0100\") == \"Not Possible\"",
+      "assert min_Swaps(\"1110000\",\"0001101\") == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum number of swaps required to convert one binary string to another.\n\nTask ID: 699\n\nExpected behavior (test cases):\n1. min_Swaps(\"1101\",\"1110\") should return 1\n2. min_Swaps(\"1111\",\"0100\") should return \"Not Possible\"\n3. min_Swaps(\"1110000\",\"0001101\") should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b656ac8b158d48ddbb30d7217e37238e",
+    "object": "chat.completion",
+    "created": 1750867885,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_Swaps(s1, s2):\n    if len(s1) != len(s2):\n        return \"Not Possible\"\n    \n    diff = sum(1 for i in range(len(s1)) if s1[i] != s2[i])\n    return diff // 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "total_tokens": 233,
+      "completion_tokens": 65,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867886.22635
+}

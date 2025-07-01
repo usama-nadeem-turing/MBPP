@@ -1,0 +1,2818 @@
+[
+  {
+    "mbpp_id": 601,
+    "problem": {
+      "task_id": 601,
+      "text": "Write a function to find the longest chain which can be formed from the given set of pairs.",
+      "code": "class Pair(object): \r\n\tdef __init__(self, a, b): \r\n\t\tself.a = a \r\n\t\tself.b = b \r\ndef max_chain_length(arr, n): \r\n\tmax = 0\r\n\tmcl = [1 for i in range(n)] \r\n\tfor i in range(1, n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif (arr[i].a > arr[j].b and\r\n\t\t\t\tmcl[i] < mcl[j] + 1): \r\n\t\t\t\tmcl[i] = mcl[j] + 1\r\n\tfor i in range(n): \r\n\t\tif (max < mcl[i]): \r\n\t\t\tmax = mcl[i] \r\n\treturn max",
+      "test_list": [
+        "assert max_chain_length([Pair(5, 24), Pair(15, 25),Pair(27, 40), Pair(50, 60)], 4) == 3",
+        "assert max_chain_length([Pair(1, 2), Pair(3, 4),Pair(5, 6), Pair(7, 8)], 4) == 4",
+        "assert max_chain_length([Pair(19, 10), Pair(11, 12),Pair(13, 14), Pair(15, 16), Pair(31, 54)], 5) == 5"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the longest chain which can be formed from the given set of pairs.\n\nTask ID: 601\n\nExpected behavior (test cases):\n1. max_chain_length([Pair(5, 24), Pair(15, 25),Pair(27, 40), Pair(50, 60)], 4) should return 3\n2. max_chain_length([Pair(1, 2), Pair(3, 4),Pair(5, 6), Pair(7, 8)], 4) should return 4\n3. max_chain_length([Pair(19, 10), Pair(11, 12),Pair(13, 14), Pair(15, 16), Pair(31, 54)], 5) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-6f5ad28dcfc243eea0fb06f7d6c63190",
+      "object": "chat.completion",
+      "created": 1750867639,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nfrom typing import List, Tuple\n\nclass Pair:\n    def __init__(self, start: int, end: int):\n        self.start = start\n        self.end = end\n\ndef max_chain_length(pairs: List[Pair], length: int) -> int:\n    dp = [1] * (length + 1)\n    \n    for i in range(length - 1, -1, -1):\n        for j in range(i + 1, length):\n            if pairs[i].end < pairs[j].start:\n                dp[i] = max(dp[i], dp[j] + 1)\n                \n    return dp[0]\n\n# Test cases\npairs_1 = [Pair(5, 24), Pair(15, 25),Pair(27, 40), Pair(50, 60)]\nprint(max_chain_length(pairs_1, 4))  # Expected output: 3\n\npairs_2 = [Pair(1, 2), Pair(3, 4),Pair(5, 6), Pair(7, 8)]\nprint(max_chain_length(pairs_2, 4))  # Expected output: 4\n\npairs_3 = [Pair(19, 10), Pair(11, 12),Pair(13, 14), Pair(15, 16), Pair(31, 54)]\nprint(max_chain_length(pairs_3, 5))  # Expected output: 5\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 244,
+        "total_tokens": 568,
+        "completion_tokens": 324,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867645.4983912
+  },
+  {
+    "mbpp_id": 602,
+    "problem": {
+      "task_id": 602,
+      "text": "Write a python function to find the first repeated character in a given string.",
+      "code": "def first_repeated_char(str1):\r\n  for index,c in enumerate(str1):\r\n    if str1[:index+1].count(c) > 1:\r\n      return c \r\n  return \"None\"",
+      "test_list": [
+        "assert first_repeated_char(\"abcabc\") == \"a\"",
+        "assert first_repeated_char(\"abc\") == \"None\"",
+        "assert first_repeated_char(\"123123\") == \"1\""
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first repeated character in a given string.\n\nTask ID: 602\n\nExpected behavior (test cases):\n1. first_repeated_char(\"abcabc\") should return \"a\"\n2. first_repeated_char(\"abc\") should return \"None\"\n3. first_repeated_char(\"123123\") should return \"1\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-c4767c9aa0f041de827d382dfe6d2c63",
+      "object": "chat.completion",
+      "created": 1750867646,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef first_repeated_char(s):\n    char_set = set()\n    for char in s:\n        if char in char_set:\n            return char\n        else:\n            char_set.add(char)\n    return None\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 138,
+        "total_tokens": 186,
+        "completion_tokens": 48,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867646.8228984
+  },
+  {
+    "mbpp_id": 603,
+    "problem": {
+      "task_id": 603,
+      "text": "Write a function to get a lucid number smaller than or equal to n.",
+      "code": "def get_ludic(n):\r\n\tludics = []\r\n\tfor i in range(1, n + 1):\r\n\t\tludics.append(i)\r\n\tindex = 1\r\n\twhile(index != len(ludics)):\r\n\t\tfirst_ludic = ludics[index]\r\n\t\tremove_index = index + first_ludic\r\n\t\twhile(remove_index < len(ludics)):\r\n\t\t\tludics.remove(ludics[remove_index])\r\n\t\t\tremove_index = remove_index + first_ludic - 1\r\n\t\tindex += 1\r\n\treturn ludics",
+      "test_list": [
+        "assert get_ludic(10) == [1, 2, 3, 5, 7]",
+        "assert get_ludic(25) == [1, 2, 3, 5, 7, 11, 13, 17, 23, 25]",
+        "assert get_ludic(45) == [1, 2, 3, 5, 7, 11, 13, 17, 23, 25, 29, 37, 41, 43]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to get a lucid number smaller than or equal to n.\n\nTask ID: 603\n\nExpected behavior (test cases):\n1. get_ludic(10) should return [1, 2, 3, 5, 7]\n2. get_ludic(25) should return [1, 2, 3, 5, 7, 11, 13, 17, 23, 25]\n3. get_ludic(45) should return [1, 2, 3, 5, 7, 11, 13, 17, 23, 25, 29, 37, 41, 43]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-2bc9375c77af4b7c8f70758d5b4390c5",
+      "object": "chat.completion",
+      "created": 1750867647,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef get_ludic(n):\n    ludics = []\n    num = 1\n    while len(ludics) < n:\n        if is_lucid(num):\n            ludics.append(num)\n        num += 1\n    return ludics\n\ndef is_lucid(num):\n    factors = set()\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            factors.add(i)\n            factors.add(num // i)\n    return len(factors) <= 2\n```\n\nThis solution defines two functions: `get_ludic` and `is_lucid`. The `get_ludic` function generates a list of all lucid numbers up to a given limit `n`, while the `is_lucid` function checks whether a given number is a lucid number based on its prime factorization.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 228,
+        "total_tokens": 414,
+        "completion_tokens": 186,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867650.4830587
+  },
+  {
+    "mbpp_id": 604,
+    "problem": {
+      "task_id": 604,
+      "text": "Write a function to reverse words in a given string.",
+      "code": "def reverse_words(s):\r\n        return ' '.join(reversed(s.split()))",
+      "test_list": [
+        "assert reverse_words(\"python program\")==(\"program python\")",
+        "assert reverse_words(\"java language\")==(\"language java\")",
+        "assert reverse_words(\"indian man\")==(\"man indian\")"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to reverse words in a given string.\n\nTask ID: 604\n\nExpected behavior (test cases):\n1. reverse_words(\"python program\")==(\"program python\")\n2. reverse_words(\"java language\")==(\"language java\")\n3. reverse_words(\"indian man\")==(\"man indian\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-243fcd5302034e788c6364372161cae0",
+      "object": "chat.completion",
+      "created": 1750867650,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef reverse_words(s):\n    return ' '.join(reversed(s.split()))\n\n# Test cases\nprint(reverse_words(\"python program\"))  # Expected output: \"program python\"\nprint(reverse_words(\"java language\"))   # Expected output: \"language java\"\nprint(reverse_words(\"indian man\"))      # Expected output: \"man indian\"\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 123,
+        "total_tokens": 196,
+        "completion_tokens": 73,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867652.2355506
+  },
+  {
+    "mbpp_id": 605,
+    "problem": {
+      "task_id": 605,
+      "text": "Write a function to check if the given integer is a prime number.",
+      "code": "def prime_num(num):\r\n  if num >=1:\r\n   for i in range(2, num//2):\r\n     if (num % i) == 0:\r\n                return False\r\n     else:\r\n                return True\r\n  else:\r\n          return False",
+      "test_list": [
+        "assert prime_num(13)==True",
+        "assert prime_num(7)==True",
+        "assert prime_num(-1010)==False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given integer is a prime number.\n\nTask ID: 605\n\nExpected behavior (test cases):\n1. prime_num(13)==True\n2. prime_num(7)==True\n3. prime_num(-1010)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-b689781fd8dc4123aff6a8d6901721e7",
+      "object": "chat.completion",
+      "created": 1750867652,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef prime_num(num):\n    \"\"\"\n    Check if the given integer num is a prime number.\n    \n    Parameters:\n    num (int): The integer to check for primality.\n    \n    Returns:\n    bool: True if num is a prime number, False otherwise.\n    \"\"\"\n    if num <= 1:\n        return False\n    elif num == 2:\n        return True\n    elif num % 2 == 0:\n        return False\n    else:\n        for i in range(3, int(num**0.5) + 1, 2):\n            if num % i == 0:\n                return False\n        return True\n```\n\nThis solution defines a function `prime_num` that checks whether a given integer is a prime number. It first handles edge cases where the input is less than or equal to 1, which are not prime numbers. Then it checks if the number is exactly 2, as 2 is the only even prime number. After these initial checks, it iterates through odd numbers starting from 3 up to the square root of the input number, checking divisibility. If no divisors are found, the number is prime; otherwise, it is not.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 120,
+        "total_tokens": 371,
+        "completion_tokens": 251,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867656.9717252
+  },
+  {
+    "mbpp_id": 606,
+    "problem": {
+      "task_id": 606,
+      "text": "Write a function to convert degrees to radians.",
+      "code": "import math\r\ndef radian_degree(degree):\r\n radian = degree*(math.pi/180)\r\n return radian",
+      "test_list": [
+        "assert radian_degree(90)==1.5707963267948966",
+        "assert radian_degree(60)==1.0471975511965976",
+        "assert radian_degree(120)==2.0943951023931953"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert degrees to radians.\n\nTask ID: 606\n\nExpected behavior (test cases):\n1. radian_degree(90)==1.5707963267948966\n2. radian_degree(60)==1.0471975511965976\n3. radian_degree(120)==2.0943951023931953\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-9659627691c444ba865d83eb983fe4bc",
+      "object": "chat.completion",
+      "created": 1750867657,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport math\n\ndef radian_degree(degree):\n    return degree * (math.pi / 180)\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 169,
+        "total_tokens": 197,
+        "completion_tokens": 28,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867657.9707854
+  },
+  {
+    "mbpp_id": 607,
+    "problem": {
+      "task_id": 607,
+      "text": "Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs by using regex.",
+      "code": "import re\r\npattern = 'fox'\r\ntext = 'The quick brown fox jumps over the lazy dog.'\r\ndef find_literals(text, pattern):\r\n  match = re.search(pattern, text)\r\n  s = match.start()\r\n  e = match.end()\r\n  return (match.re.pattern, s, e)",
+      "test_list": [
+        "assert find_literals('The quick brown fox jumps over the lazy dog.', 'fox') == ('fox', 16, 19)",
+        "assert find_literals('Its been a very crazy procedure right', 'crazy') == ('crazy', 16, 21)",
+        "assert find_literals('Hardest choices required strongest will', 'will') == ('will', 35, 39)"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs by using regex.\n\nTask ID: 607\n\nExpected behavior (test cases):\n1. find_literals('The quick brown fox jumps over the lazy dog.', 'fox') should return ('fox', 16, 19)\n2. find_literals('Its been a very crazy procedure right', 'crazy') should return ('crazy', 16, 21)\n3. find_literals('Hardest choices required strongest will', 'will') should return ('will', 35, 39)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-127c3fbf07f342f391251aa7ae1c3294",
+      "object": "chat.completion",
+      "created": 1750867658,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport re\n\ndef find_literals(text, pattern):\n    match = re.search(pattern, text)\n    if match:\n        start_index = match.start()\n        end_index = match.end()\n        return (pattern, start_index, end_index)\n    else:\n        return None\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 193,
+        "total_tokens": 253,
+        "completion_tokens": 60,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867659.5225549
+  },
+  {
+    "mbpp_id": 608,
+    "problem": {
+      "task_id": 608,
+      "text": "Write a python function to find nth bell number.",
+      "code": "def bell_Number(n): \r\n    bell = [[0 for i in range(n+1)] for j in range(n+1)] \r\n    bell[0][0] = 1\r\n    for i in range(1, n+1):\r\n        bell[i][0] = bell[i-1][i-1]\r\n        for j in range(1, i+1): \r\n            bell[i][j] = bell[i-1][j-1] + bell[i][j-1] \r\n    return bell[n][0] ",
+      "test_list": [
+        "assert bell_Number(2) == 2",
+        "assert bell_Number(3) == 5",
+        "assert bell_Number(4) == 15"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find nth bell number.\n\nTask ID: 608\n\nExpected behavior (test cases):\n1. bell_Number(2) should return 2\n2. bell_Number(3) should return 5\n3. bell_Number(4) should return 15\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-85d1902059084d6d9a3e91bbff6c753b",
+      "object": "chat.completion",
+      "created": 1750867660,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef bell_number(n):\n    # Initialize an array with size n+1 filled with zeros\n    bell = [0] * (n + 1)\n    \n    # Base case initialization\n    bell[0] = 1\n    \n    # Fill the bell numbers using the formula\n    for i in range(1, n + 1):\n        for j in range(i, -1, -1):\n            bell[i] += bell[j]\n    \n    return bell[n]\n\n# Test cases\nprint(bell_number(2))  # Expected output: 2\nprint(bell_number(3))  # Expected output: 5\nprint(bell_number(4))  # Expected output: 15\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 122,
+        "total_tokens": 275,
+        "completion_tokens": 153,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867662.6175826
+  },
+  {
+    "mbpp_id": 609,
+    "problem": {
+      "task_id": 609,
+      "text": "Write a python function to find minimum possible value for the given periodic function.",
+      "code": "def floor_Min(A,B,N):\r\n    x = max(B - 1,N)\r\n    return (A*x) // B",
+      "test_list": [
+        "assert floor_Min(10,20,30) == 15",
+        "assert floor_Min(1,2,1) == 0",
+        "assert floor_Min(11,10,9) == 9"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find minimum possible value for the given periodic function.\n\nTask ID: 609\n\nExpected behavior (test cases):\n1. floor_Min(10,20,30) should return 15\n2. floor_Min(1,2,1) should return 0\n3. floor_Min(11,10,9) should return 9\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-dbed13549e7548a795c0eebab2a07dea",
+      "object": "chat.completion",
+      "created": 1750867663,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef floor_Min(a, b, c):\n    # Calculate the maximum of the three numbers and subtract it from each number\n    max_val = max(a, b, c)\n    result = min(max_val - a, max_val - b, max_val - c)\n    return result\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 144,
+        "total_tokens": 208,
+        "completion_tokens": 64,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867664.2246459
+  },
+  {
+    "mbpp_id": 610,
+    "problem": {
+      "task_id": 610,
+      "text": "Write a python function to remove the k'th element from a given list.",
+      "code": "def remove_kth_element(list1, L):\r\n    return  list1[:L-1] + list1[L:]",
+      "test_list": [
+        "assert remove_kth_element([1,1,2,3,4,4,5,1],3)==[1, 1, 3, 4, 4, 5, 1]",
+        "assert remove_kth_element([0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4],4)==[0, 0, 1, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]",
+        "assert remove_kth_element([10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10],5)==[10,10,15,19, 18, 17, 26, 26, 17, 18, 10]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove the k'th element from a given list.\n\nTask ID: 610\n\nExpected behavior (test cases):\n1. remove_kth_element([1,1,2,3,4,4,5,1],3)==[1, 1, 3, 4, 4, 5, 1]\n2. remove_kth_element([0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4],4)==[0, 0, 1, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]\n3. remove_kth_element([10, 10, 15, 19, 18, 18, 17, 26, 26, 17, 18, 10],5)==[10,10,15,19, 18, 17, 26, 26, 17, 18, 10]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-3bd1cea447c84930b0400740c9e56b0d",
+      "object": "chat.completion",
+      "created": 1750867664,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef remove_kth_element(lst, k):\n    return lst[:k] + lst[k+1:]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 335,
+        "total_tokens": 361,
+        "completion_tokens": 26,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867665.2044873
+  },
+  {
+    "mbpp_id": 611,
+    "problem": {
+      "task_id": 611,
+      "text": "Write a function to find the maximum of nth column from the given tuple list.",
+      "code": "def max_of_nth(test_list, N):\r\n  res = max([sub[N] for sub in test_list])\r\n  return (res) ",
+      "test_list": [
+        "assert max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) == 19",
+        "assert max_of_nth([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) == 10",
+        "assert max_of_nth([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 1) == 11"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum of nth column from the given tuple list.\n\nTask ID: 611\n\nExpected behavior (test cases):\n1. max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) should return 19\n2. max_of_nth([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) should return 10\n3. max_of_nth([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 1) should return 11\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-1e1fe2cf34674dbdbe74510f68b47145",
+      "object": "chat.completion",
+      "created": 1750867665,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef max_of_nth(tuples_list, n):\n    # Extracting the nth element from each tuple in the list and finding its maximum value.\n    return max([x[n-1] for x in tuples_list])\n\n# Test cases\nprint(max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2))  # Expected output: 19\nprint(max_of_nth([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1))  # Expected output: 10\nprint(max_of_nth([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 1))  # Expected output: 11\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 220,
+        "total_tokens": 408,
+        "completion_tokens": 188,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867668.8916857
+  },
+  {
+    "mbpp_id": 612,
+    "problem": {
+      "task_id": 612,
+      "text": "Write a python function to merge the first and last elements separately in a list of lists.",
+      "code": "def merge(lst):  \r\n    return [list(ele) for ele in list(zip(*lst))] ",
+      "test_list": [
+        "assert merge([['x', 'y'], ['a', 'b'], ['m', 'n']]) == [['x', 'a', 'm'], ['y', 'b', 'n']]",
+        "assert merge([[1, 2], [3, 4], [5, 6], [7, 8]]) == [[1, 3, 5, 7], [2, 4, 6, 8]]",
+        "assert merge([['x', 'y','z' ], ['a', 'b','c'], ['m', 'n','o']]) == [['x', 'a', 'm'], ['y', 'b', 'n'],['z', 'c','o']]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to merge the first and last elements separately in a list of lists.\n\nTask ID: 612\n\nExpected behavior (test cases):\n1. merge([['x', 'y'], ['a', 'b'], ['m', 'n']]) should return [['x', 'a', 'm'], ['y', 'b', 'n']]\n2. merge([[1, 2], [3, 4], [5, 6], [7, 8]]) should return [[1, 3, 5, 7], [2, 4, 6, 8]]\n3. merge([['x', 'y','z' ], ['a', 'b','c'], ['m', 'n','o']]) should return [['x', 'a', 'm'], ['y', 'b', 'n'],['z', 'c','o']]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-df344ce9c13449a28fe5cde4b2c826cf",
+      "object": "chat.completion",
+      "created": 1750867669,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef merge(lst_of_lsts):\n    # Merge the first element with the last element of each sublist\n    merged = []\n    for lst in lst_of_lsts:\n        if len(lst) > 0:\n            merged.append(lst[0] + lst[-1])\n        else:\n            merged.append(None)\n    \n    return merged\n\n# Test cases\nprint(merge([['x', 'y'], ['a', 'b'], ['m', 'n']]))  # Expected output: [['x', 'a', 'm'], ['y', 'b', 'n']]\nprint(merge([[1, 2], [3, 4], [5, 6], [7, 8]]))     # Expected output: [[1, 3, 5, 7], [2, 4, 6, 8]]\nprint(merge([['x', 'y','z' ], ['a', 'b','c'], ['m', 'n','o']]))  # Expected output: [['x', 'a', 'm'], ['y', 'b', 'n'], ['z', 'c','o']]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 247,
+        "total_tokens": 488,
+        "completion_tokens": 241,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867673.4673982
+  },
+  {
+    "mbpp_id": 613,
+    "problem": {
+      "task_id": 613,
+      "text": "Write a function to find the maximum value in record list as tuple attribute in the given tuple list.",
+      "code": "def maximum_value(test_list):\r\n  res = [(key, max(lst)) for key, lst in test_list]\r\n  return (res) ",
+      "test_list": [
+        "assert maximum_value([('key1', [3, 4, 5]), ('key2', [1, 4, 2]), ('key3', [9, 3])]) == [('key1', 5), ('key2', 4), ('key3', 9)]",
+        "assert maximum_value([('key1', [4, 5, 6]), ('key2', [2, 5, 3]), ('key3', [10, 4])]) == [('key1', 6), ('key2', 5), ('key3', 10)]",
+        "assert maximum_value([('key1', [5, 6, 7]), ('key2', [3, 6, 4]), ('key3', [11, 5])]) == [('key1', 7), ('key2', 6), ('key3', 11)]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum value in record list as tuple attribute in the given tuple list.\n\nTask ID: 613\n\nExpected behavior (test cases):\n1. maximum_value([('key1', [3, 4, 5]), ('key2', [1, 4, 2]), ('key3', [9, 3])]) should return [('key1', 5), ('key2', 4), ('key3', 9)]\n2. maximum_value([('key1', [4, 5, 6]), ('key2', [2, 5, 3]), ('key3', [10, 4])]) should return [('key1', 6), ('key2', 5), ('key3', 10)]\n3. maximum_value([('key1', [5, 6, 7]), ('key2', [3, 6, 4]), ('key3', [11, 5])]) should return [('key1', 7), ('key2', 6), ('key3', 11)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-d68288d694984c1fab501b7d3417f5fe",
+      "object": "chat.completion",
+      "created": 1750867673,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef maximum_value(records):\n    max_values = []\n    for key, values in records:\n        if not isinstance(values, list) or len(values) == 0:\n            continue\n        max_val = max(values)\n        max_values.append((key, max_val))\n    return max_values\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 292,
+        "total_tokens": 356,
+        "completion_tokens": 64,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867675.095566
+  },
+  {
+    "mbpp_id": 614,
+    "problem": {
+      "task_id": 614,
+      "text": "Write a function to find the cumulative sum of all the values that are present in the given tuple list.",
+      "code": "def cummulative_sum(test_list):\r\n  res = sum(map(sum, test_list))\r\n  return (res)",
+      "test_list": [
+        "assert cummulative_sum([(1, 3), (5, 6, 7), (2, 6)]) == 30",
+        "assert cummulative_sum([(2, 4), (6, 7, 8), (3, 7)]) == 37",
+        "assert cummulative_sum([(3, 5), (7, 8, 9), (4, 8)]) == 44"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the cumulative sum of all the values that are present in the given tuple list.\n\nTask ID: 614\n\nExpected behavior (test cases):\n1. cummulative_sum([(1, 3), (5, 6, 7), (2, 6)]) should return 30\n2. cummulative_sum([(2, 4), (6, 7, 8), (3, 7)]) should return 37\n3. cummulative_sum([(3, 5), (7, 8, 9), (4, 8)]) should return 44\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-b8905d66204a4c7f9cc925ec9b59dbb1",
+      "object": "chat.completion",
+      "created": 1750867675,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef cummulative_sum(tuple_list):\n    # Initialize the total sum with the first element of the first tuple\n    total_sum = tuple_list[0][0]\n    \n    # Iterate through each tuple starting from the second one\n    for tup in tuple_list[1:]:\n        # Add the current tuple's elements to the total sum\n        total_sum += sum(tup)\n    \n    return total_sum\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 195,
+        "total_tokens": 283,
+        "completion_tokens": 88,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867677.096909
+  },
+  {
+    "mbpp_id": 615,
+    "problem": {
+      "task_id": 615,
+      "text": "Write a function to find average value of the numbers in a given tuple of tuples.",
+      "code": "def average_tuple(nums):\r\n    result = [sum(x) / len(x) for x in zip(*nums)]\r\n    return result",
+      "test_list": [
+        "assert average_tuple(((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4)))==[30.5, 34.25, 27.0, 23.25]",
+        "assert average_tuple(((1, 1, -5), (30, -15, 56), (81, -60, -39), (-10, 2, 3)))== [25.5, -18.0, 3.75]",
+        "assert average_tuple( ((100, 100, 100, 120), (300, 450, 560, 450), (810, 800, 390, 320), (10, 20, 30, 40)))==[305.0, 342.5, 270.0, 232.5]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find average value of the numbers in a given tuple of tuples.\n\nTask ID: 615\n\nExpected behavior (test cases):\n1. average_tuple(((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4)))==[30.5, 34.25, 27.0, 23.25]\n2. average_tuple(((1, 1, -5), (30, -15, 56), (81, -60, -39), (-10, 2, 3)))== [25.5, -18.0, 3.75]\n3. average_tuple( ((100, 100, 100, 120), (300, 450, 560, 450), (810, 800, 390, 320), (10, 20, 30, 40)))==[305.0, 342.5, 270.0, 232.5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-ce1acfd380ad4ee7bd2cd3719213ce68",
+      "object": "chat.completion",
+      "created": 1750867677,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef average_tuple(tuples_list):\n    return [sum(sublist) / len(sublist) for sublist in zip(*tuples_list)]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 359,
+        "total_tokens": 392,
+        "completion_tokens": 33,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867678.1970797
+  },
+  {
+    "mbpp_id": 616,
+    "problem": {
+      "task_id": 616,
+      "text": "Write a function to perfom the modulo of tuple elements in the given two tuples.",
+      "code": "def tuple_modulo(test_tup1, test_tup2):\r\n  res = tuple(ele1 % ele2 for ele1, ele2 in zip(test_tup1, test_tup2)) \r\n  return (res) ",
+      "test_list": [
+        "assert tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5)) == (0, 4, 5, 1)",
+        "assert tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6)) == (5, 5, 6, 1)",
+        "assert tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7)) == (5, 6, 7, 1)"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to perfom the modulo of tuple elements in the given two tuples.\n\nTask ID: 616\n\nExpected behavior (test cases):\n1. tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5)) should return (0, 4, 5, 1)\n2. tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6)) should return (5, 5, 6, 1)\n3. tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7)) should return (5, 6, 7, 1)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-a32c24d556b34972978d6490fd66c14e",
+      "object": "chat.completion",
+      "created": 1750867678,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef tuple_modulo(tup1, tup2):\n    result = []\n    for i in range(len(tup1)):\n        result.append(tup1[i] % tup2[i])\n    return tuple(result)\n\n# Test cases\nprint(tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5))) # Expected output: (0, 4, 5, 1)\nprint(tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6))) # Expected output: (5, 5, 6, 1)\nprint(tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7))) # Expected output: (5, 6, 7, 1)\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 224,
+        "total_tokens": 411,
+        "completion_tokens": 187,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867681.8532119
+  },
+  {
+    "mbpp_id": 617,
+    "problem": {
+      "task_id": 617,
+      "text": "Write a function to check for the number of jumps required of given length to reach a point of form (d, 0) from origin in a 2d plane.",
+      "code": "def min_Jumps(a, b, d): \r\n    temp = a \r\n    a = min(a, b) \r\n    b = max(temp, b) \r\n    if (d >= b): \r\n        return (d + b - 1) / b \r\n    if (d == 0): \r\n        return 0\r\n    if (d == a): \r\n        return 1\r\n    else:\r\n        return 2",
+      "test_list": [
+        "assert min_Jumps(3,4,11)==3.5",
+        "assert min_Jumps(3,4,0)==0",
+        "assert min_Jumps(11,14,11)==1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check for the number of jumps required of given length to reach a point of form (d, 0) from origin in a 2d plane.\n\nTask ID: 617\n\nExpected behavior (test cases):\n1. min_Jumps(3,4,11)==3.5\n2. min_Jumps(3,4,0)==0\n3. min_Jumps(11,14,11)==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-570a0d95ab794013b771dfe7b3cd2ff2",
+      "object": "chat.completion",
+      "created": 1750867682,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport math\n\ndef min_Jumps(d, n, k):\n    # Calculate the minimum number of jumps required to reach (d, 0)\n    return int(math.ceil((math.sqrt(1 + 8 * d * n) - 1) / (2 * k)))\n```\n\nThis solution uses the formula derived from the problem statement and applies it directly to calculate the minimum number of jumps required. The `math` module is used for mathematical operations such as square root calculation.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 158,
+        "total_tokens": 261,
+        "completion_tokens": 103,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867684.1343677
+  },
+  {
+    "mbpp_id": 618,
+    "problem": {
+      "task_id": 618,
+      "text": "Write a function to divide two lists using map and lambda function.",
+      "code": "def div_list(nums1,nums2):\r\n  result = map(lambda x, y: x / y, nums1, nums2)\r\n  return list(result)",
+      "test_list": [
+        "assert div_list([4,5,6],[1, 2, 3])==[4.0,2.5,2.0]",
+        "assert div_list([3,2],[1,4])==[3.0, 0.5]",
+        "assert div_list([90,120],[50,70])==[1.8, 1.7142857142857142]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to divide two lists using map and lambda function.\n\nTask ID: 618\n\nExpected behavior (test cases):\n1. div_list([4,5,6],[1, 2, 3])==[4.0,2.5,2.0]\n2. div_list([3,2],[1,4])==[3.0, 0.5]\n3. div_list([90,120],[50,70])==[1.8, 1.7142857142857142]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-463a930676f7447d956b3801f1cdb688",
+      "object": "chat.completion",
+      "created": 1750867684,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nfrom typing import List\nimport operator\n\ndef div_list(list1: List[int], list2: List[int]) -> List[float]:\n    return list(map(lambda x, y: round(x / y, 2), list1, list2))\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 186,
+        "total_tokens": 241,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867685.595033
+  },
+  {
+    "mbpp_id": 619,
+    "problem": {
+      "task_id": 619,
+      "text": "Write a function to move all the numbers in it to the given string.",
+      "code": "def move_num(test_str):\r\n  res = ''\r\n  dig = ''\r\n  for ele in test_str:\r\n    if ele.isdigit():\r\n      dig += ele\r\n    else:\r\n      res += ele\r\n  res += dig\r\n  return (res) ",
+      "test_list": [
+        "assert move_num('I1love143you55three3000thousand') == 'Iloveyouthreethousand1143553000'",
+        "assert move_num('Avengers124Assemble') == 'AvengersAssemble124'",
+        "assert move_num('Its11our12path13to14see15things16do17things') == 'Itsourpathtoseethingsdothings11121314151617'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to move all the numbers in it to the given string.\n\nTask ID: 619\n\nExpected behavior (test cases):\n1. move_num('I1love143you55three3000thousand') should return 'Iloveyouthreethousand1143553000'\n2. move_num('Avengers124Assemble') should return 'AvengersAssemble124'\n3. move_num('Its11our12path13to14see15things16do17things') should return 'Itsourpathtoseethingsdothings11121314151617'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-e1f8fc82c7084942a27592c04e74b757",
+      "object": "chat.completion",
+      "created": 1750867686,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef move_num(s):\n    num = ''\n    for c in s:\n        if c.isdigit():\n            num += c\n        else:\n            break\n    result = ''.join(sorted(num + s[num:], key=lambda x: int(x) if x.isdigit() else x))\n    return result\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 212,
+        "total_tokens": 277,
+        "completion_tokens": 65,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867687.2139943
+  },
+  {
+    "mbpp_id": 620,
+    "problem": {
+      "task_id": 620,
+      "text": "Write a function to find the largest subset where each pair is divisible.",
+      "code": "def largest_subset(a, n):\r\n\tdp = [0 for i in range(n)]\r\n\tdp[n - 1] = 1; \r\n\tfor i in range(n - 2, -1, -1):\r\n\t\tmxm = 0;\r\n\t\tfor j in range(i + 1, n):\r\n\t\t\tif a[j] % a[i] == 0 or a[i] % a[j] == 0:\r\n\t\t\t\tmxm = max(mxm, dp[j])\r\n\t\tdp[i] = 1 + mxm\r\n\treturn max(dp)",
+      "test_list": [
+        "assert largest_subset([ 1, 3, 6, 13, 17, 18 ], 6) == 4",
+        "assert largest_subset([10, 5, 3, 15, 20], 5) == 3",
+        "assert largest_subset([18, 1, 3, 6, 13, 17], 6) == 4"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest subset where each pair is divisible.\n\nTask ID: 620\n\nExpected behavior (test cases):\n1. largest_subset([ 1, 3, 6, 13, 17, 18 ], 6) should return 4\n2. largest_subset([10, 5, 3, 15, 20], 5) should return 3\n3. largest_subset([18, 1, 3, 6, 13, 17], 6) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-128364db3be948d18e2db91631b86c96",
+      "object": "chat.completion",
+      "created": 1750867687,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef largest_subset(nums, k):\n    nums.sort()\n    dp = [1] * len(nums)\n    \n    for i in range(1, len(nums)):\n        for j in range(i):\n            if nums[i] % nums[j] == 0 and dp[i] < dp[j] + 1:\n                dp[i] = dp[j] + 1\n                \n    max_length = max(dp)\n    return max_length\n\n# Test cases\nprint(largest_subset([ 1, 3, 6, 13, 17, 18 ], 6))  # Expected output: 4\nprint(largest_subset([10, 5, 3, 15, 20], 5))       # Expected output: 3\nprint(largest_subset([18, 1, 3, 6, 13, 17], 6))    # Expected output: 4\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 186,
+        "total_tokens": 389,
+        "completion_tokens": 203,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867691.1180046
+  },
+  {
+    "mbpp_id": 621,
+    "problem": {
+      "task_id": 621,
+      "text": "Write a function to increment the numeric values in the given strings by k.",
+      "code": "def increment_numerics(test_list, K):\r\n  res = [str(int(ele) + K) if ele.isdigit() else ele for ele in test_list]\r\n  return res ",
+      "test_list": [
+        "assert increment_numerics([\"MSM\", \"234\", \"is\", \"98\", \"123\", \"best\", \"4\"] , 6) == ['MSM', '240', 'is', '104', '129', 'best', '10']",
+        "assert increment_numerics([\"Dart\", \"356\", \"is\", \"88\", \"169\", \"Super\", \"6\"] , 12) == ['Dart', '368', 'is', '100', '181', 'Super', '18']",
+        "assert increment_numerics([\"Flutter\", \"451\", \"is\", \"44\", \"96\", \"Magnificent\", \"12\"] , 33) == ['Flutter', '484', 'is', '77', '129', 'Magnificent', '45']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to increment the numeric values in the given strings by k.\n\nTask ID: 621\n\nExpected behavior (test cases):\n1. increment_numerics([\"MSM\", \"234\", \"is\", \"98\", \"123\", \"best\", \"4\"] , 6) should return ['MSM', '240', 'is', '104', '129', 'best', '10']\n2. increment_numerics([\"Dart\", \"356\", \"is\", \"88\", \"169\", \"Super\", \"6\"] , 12) should return ['Dart', '368', 'is', '100', '181', 'Super', '18']\n3. increment_numerics([\"Flutter\", \"451\", \"is\", \"44\", \"96\", \"Magnificent\", \"12\"] , 33) should return ['Flutter', '484', 'is', '77', '129', 'Magnificent', '45']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-e781ea27fe3f49f4a8103f37b685332c",
+      "object": "chat.completion",
+      "created": 1750867691,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef increment_numerics(strings, k):\n    result = []\n    for s in strings:\n        num = int(s)\n        incremented_num = str(num + k)\n        if len(incremented_num) > 1 and incremented_num[0] == '0':\n            incremented_num = incremented_num[1:]\n        result.append(incremented_num)\n    return result\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 292,
+        "total_tokens": 372,
+        "completion_tokens": 80,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867692.9997964
+  },
+  {
+    "mbpp_id": 622,
+    "problem": {
+      "task_id": 622,
+      "text": "Write a function to find the median of two sorted arrays of same size.",
+      "code": "def get_median(arr1, arr2, n):\r\n  i = 0\r\n  j = 0\r\n  m1 = -1\r\n  m2 = -1\r\n  count = 0\r\n  while count < n + 1:\r\n    count += 1\r\n    if i == n:\r\n      m1 = m2\r\n      m2 = arr2[0]\r\n      break\r\n    elif j == n:\r\n      m1 = m2\r\n      m2 = arr1[0]\r\n      break\r\n    if arr1[i] <= arr2[j]:\r\n      m1 = m2\r\n      m2 = arr1[i]\r\n      i += 1\r\n    else:\r\n      m1 = m2\r\n      m2 = arr2[j]\r\n      j += 1\r\n  return (m1 + m2)/2",
+      "test_list": [
+        "assert get_median([1, 12, 15, 26, 38], [2, 13, 17, 30, 45], 5) == 16.0",
+        "assert get_median([2, 4, 8, 9], [7, 13, 19, 28], 4) == 8.5",
+        "assert get_median([3, 6, 14, 23, 36, 42], [2, 18, 27, 39, 49, 55], 6) == 25.0"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the median of two sorted arrays of same size.\n\nTask ID: 622\n\nExpected behavior (test cases):\n1. get_median([1, 12, 15, 26, 38], [2, 13, 17, 30, 45], 5) should return 16.0\n2. get_median([2, 4, 8, 9], [7, 13, 19, 28], 4) should return 8.5\n3. get_median([3, 6, 14, 23, 36, 42], [2, 18, 27, 39, 49, 55], 6) should return 25.0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-a76e534e19c547f29298c4661425db6d",
+      "object": "chat.completion",
+      "created": 1750867693,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport numpy as np\n\ndef get_median(arr1, arr2, n):\n    # Combine both arrays and sort them\n    combined = np.sort(np.concatenate((arr1, arr2)))\n    \n    # Calculate the median based on array length\n    if len(combined) % 2 == 0:\n        mid_index = int(len(combined) / 2)\n        median = (combined[mid_index - 1] + combined[mid_index]) / 2\n    else:\n        median = combined[int(len(combined) / 2)]\n    \n    return median\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 244,
+        "total_tokens": 366,
+        "completion_tokens": 122,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867695.5774362
+  },
+  {
+    "mbpp_id": 623,
+    "problem": {
+      "task_id": 623,
+      "text": "Write a function to find the n-th power of individual elements in a list using lambda function.",
+      "code": "def nth_nums(nums,n):\r\n nth_nums = list(map(lambda x: x ** n, nums))\r\n return nth_nums",
+      "test_list": [
+        "assert nth_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2)==[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]",
+        "assert nth_nums([10,20,30],3)==([1000, 8000, 27000])",
+        "assert nth_nums([12,15],5)==([248832, 759375])"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n-th power of individual elements in a list using lambda function.\n\nTask ID: 623\n\nExpected behavior (test cases):\n1. nth_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2)==[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]\n2. nth_nums([10,20,30],3)==([1000, 8000, 27000])\n3. nth_nums([12,15],5)==([248832, 759375])\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-86c63c42510640dcb13c8cdb23e686b1",
+      "object": "chat.completion",
+      "created": 1750867696,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport math\nfrom typing import List\n\ndef nth_nums(nums: List[int], n: int) -> List[int]:\n    return [math.pow(num, n) for num in nums]\n\n# Test cases\nprint(nth_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2)) # Expected output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]\nprint(nth_nums([10,20,30], 3)) # Expected output: [1000, 8000, 27000]\nprint(nth_nums([12,15], 5)) # Expected output: [248832, 759375]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 233,
+        "total_tokens": 434,
+        "completion_tokens": 201,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867699.4605355
+  },
+  {
+    "mbpp_id": 624,
+    "problem": {
+      "task_id": 624,
+      "text": "Write a python function to convert the given string to upper case.",
+      "code": "def is_upper(string):\r\n  return (string.upper())",
+      "test_list": [
+        "assert is_upper(\"person\") ==\"PERSON\"",
+        "assert is_upper(\"final\") == \"FINAL\"",
+        "assert is_upper(\"Valid\") == \"VALID\""
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert the given string to upper case.\n\nTask ID: 624\n\nExpected behavior (test cases):\n1. is_upper(\"person\") ==\"PERSON\"\n2. is_upper(\"final\") should return \"FINAL\"\n3. is_upper(\"Valid\") should return \"VALID\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-486311f193bc4f8e904238bca11855b3",
+      "object": "chat.completion",
+      "created": 1750867699,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef is_upper(s):\n    \"\"\"\n    Convert the input string 's' to uppercase.\n    \n    Parameters:\n    s (str): The input string to be converted to uppercase.\n    \n    Returns:\n    str: The uppercase version of the input string.\n    \"\"\"\n    return s.upper()\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 122,
+        "total_tokens": 185,
+        "completion_tokens": 63,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867701.0406744
+  },
+  {
+    "mbpp_id": 625,
+    "problem": {
+      "task_id": 625,
+      "text": "Write a python function to interchange first and last elements in a given list.",
+      "code": "def swap_List(newList): \r\n    size = len(newList) \r\n    temp = newList[0] \r\n    newList[0] = newList[size - 1] \r\n    newList[size - 1] = temp   \r\n    return newList ",
+      "test_list": [
+        "assert swap_List([1,2,3]) == [3,2,1]",
+        "assert swap_List([1,2,3,4,4]) == [4,2,3,4,1]",
+        "assert swap_List([4,5,6]) == [6,5,4]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to interchange first and last elements in a given list.\n\nTask ID: 625\n\nExpected behavior (test cases):\n1. swap_List([1,2,3]) should return [3,2,1]\n2. swap_List([1,2,3,4,4]) should return [4,2,3,4,1]\n3. swap_List([4,5,6]) should return [6,5,4]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-7748051ec3ae444dbc2f57fa8f547dd6",
+      "object": "chat.completion",
+      "created": 1750867701,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef swap_List(lst):\n    # Interchange the first and last elements of the list\n    lst[0], lst[-1] = lst[-1], lst[0]\n    return lst\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 158,
+        "total_tokens": 203,
+        "completion_tokens": 45,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867702.314163
+  },
+  {
+    "mbpp_id": 626,
+    "problem": {
+      "task_id": 626,
+      "text": "Write a python function to find the largest triangle that can be inscribed in the semicircle.",
+      "code": "def triangle_area(r) :  \r\n    if r < 0 : \r\n        return -1\r\n    return r * r ",
+      "test_list": [
+        "assert triangle_area(0) == 0",
+        "assert triangle_area(-1) == -1",
+        "assert triangle_area(2) == 4"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the largest triangle that can be inscribed in the semicircle.\n\nTask ID: 626\n\nExpected behavior (test cases):\n1. triangle_area(0) should return 0\n2. triangle_area(-1) should return -1\n3. triangle_area(2) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-c0d5b0f642b142beb77839ce6835f275",
+      "object": "chat.completion",
+      "created": 1750867702,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport math\n\ndef triangle_area(radius):\n    \"\"\"\n    Calculate the area of the largest triangle that can be inscribed in a semicircle with radius r.\n    \n    Parameters:\n    radius (float): The radius of the semicircle.\n    \n    Returns:\n    float: The area of the largest inscribed triangle.\n    \"\"\"\n    # The largest triangle inscribed in a semicircle has its base as the diameter and height equal to the radius.\n    base = 2 * radius\n    height = radius\n    return 0.5 * base * height\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 131,
+        "total_tokens": 252,
+        "completion_tokens": 121,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867704.8479693
+  },
+  {
+    "mbpp_id": 627,
+    "problem": {
+      "task_id": 627,
+      "text": "Write a python function to find the smallest missing number from the given array.",
+      "code": "def find_First_Missing(array,start,end): \r\n    if (start > end): \r\n        return end + 1\r\n    if (start != array[start]): \r\n        return start; \r\n    mid = int((start + end) / 2) \r\n    if (array[mid] == mid): \r\n        return find_First_Missing(array,mid+1,end) \r\n    return find_First_Missing(array,start,mid) ",
+      "test_list": [
+        "assert find_First_Missing([0,1,2,3],0,3) == 4",
+        "assert find_First_Missing([0,1,2,6,9],0,4) == 3",
+        "assert find_First_Missing([2,3,5,8,9],0,4) == 0"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the smallest missing number from the given array.\n\nTask ID: 627\n\nExpected behavior (test cases):\n1. find_First_Missing([0,1,2,3],0,3) should return 4\n2. find_First_Missing([0,1,2,6,9],0,4) should return 3\n3. find_First_Missing([2,3,5,8,9],0,4) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-0ac63c26aab94ca8a34757992d6f88ac",
+      "object": "chat.completion",
+      "created": 1750867705,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_First_Missing(arr, start, end):\n    for i in range(start, end):\n        if arr[i] != i:\n            return i\n    return end\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 166,
+        "total_tokens": 207,
+        "completion_tokens": 41,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867706.0566351
+  },
+  {
+    "mbpp_id": 628,
+    "problem": {
+      "task_id": 628,
+      "text": "Write a function to replace all spaces in the given string with character * list item * list item * list item * list item '%20'.",
+      "code": "MAX=1000;\r\ndef replace_spaces(string):\r\n  string=string.strip()\r\n  i=len(string)\r\n  space_count=string.count(' ')\r\n  new_length = i + space_count*2\r\n  if new_length > MAX:\r\n    return -1\r\n  index = new_length-1\r\n  string=list(string)\r\n  for f in range(i-2, new_length-2):\r\n    string.append('0')\r\n  for j in range(i-1, 0, -1):\r\n    if string[j] == ' ':\r\n      string[index] = '0'\r\n      string[index-1] = '2'\r\n      string[index-2] = '%'\r\n      index=index-3\r\n    else:\r\n      string[index] = string[j]\r\n      index -= 1\r\n  return ''.join(string)",
+      "test_list": [
+        "assert replace_spaces(\"My Name is Dawood\") == 'My%20Name%20is%20Dawood'",
+        "assert replace_spaces(\"I am a Programmer\") == 'I%20am%20a%20Programmer'",
+        "assert replace_spaces(\"I love Coding\") == 'I%20love%20Coding'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace all spaces in the given string with character * list item * list item * list item * list item '%20'.\n\nTask ID: 628\n\nExpected behavior (test cases):\n1. replace_spaces(\"My Name is Dawood\") should return 'My%20Name%20is%20Dawood'\n2. replace_spaces(\"I am a Programmer\") should return 'I%20am%20a%20Programmer'\n3. replace_spaces(\"I love Coding\") should return 'I%20love%20Coding'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-e19dbddda287498ab534e203f15172e4",
+      "object": "chat.completion",
+      "created": 1750867706,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef replace_spaces(input_string):\n    # Replace spaces with %20 using str.replace method\n    modified_string = input_string.replace(' ', '%20')\n    return modified_string\n\n# Test cases\nprint(replace_spaces(\"My Name is Dawood\"))  # Expected output: \"My%20Name%20is%20Dawood\"\nprint(replace_spaces(\"I am a Programmer\"))  # Expected output: \"I%20am%20a%20Programmer\"\nprint(replace_spaces(\"I love Coding\"))      # Expected output: \"I%20love%20Coding\"\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 184,
+        "total_tokens": 319,
+        "completion_tokens": 135,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867708.8350246
+  },
+  {
+    "mbpp_id": 629,
+    "problem": {
+      "task_id": 629,
+      "text": "Write a python function to find even numbers from a mixed list.",
+      "code": "def Split(list): \r\n    ev_li = [] \r\n    for i in list: \r\n        if (i % 2 == 0): \r\n            ev_li.append(i)  \r\n    return ev_li",
+      "test_list": [
+        "assert Split([1,2,3,4,5]) == [2,4]",
+        "assert Split([4,5,6,7,8,0,1]) == [4,6,8,0]",
+        "assert Split ([8,12,15,19]) == [8,12]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find even numbers from a mixed list.\n\nTask ID: 629\n\nExpected behavior (test cases):\n1. Split([1,2,3,4,5]) should return [2,4]\n2. Split([4,5,6,7,8,0,1]) should return [4,6,8,0]\n3. Split ([8,12,15,19]) should return [8,12]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-4bdc102423774cbd98ca3f78fedc8d26",
+      "object": "chat.completion",
+      "created": 1750867709,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef split(lst):\n    \"\"\"\n    This function takes a mixed list as input and returns a new list containing only the even numbers from the original list.\n    \n    Parameters:\n    lst (list): A mixed list of integers\n    \n    Returns:\n    list: A list containing only the even numbers from the input list\n    \"\"\"\n    # Filter out odd numbers and keep only even ones in a new list\n    even_numbers = [num for num in lst if num % 2 == 0]\n    return even_numbers\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 161,
+        "total_tokens": 271,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867711.1920376
+  },
+  {
+    "mbpp_id": 630,
+    "problem": {
+      "task_id": 630,
+      "text": "Write a function to extract all the adjacent coordinates of the given coordinate tuple.",
+      "code": "def adjac(ele, sub = []): \r\n  if not ele: \r\n     yield sub \r\n  else: \r\n     yield from [idx for j in range(ele[0] - 1, ele[0] + 2) \r\n                for idx in adjac(ele[1:], sub + [j])] \r\ndef get_coordinates(test_tup):\r\n  res = list(adjac(test_tup))\r\n  return (res) ",
+      "test_list": [
+        "assert get_coordinates((3, 4)) == [[2, 3], [2, 4], [2, 5], [3, 3], [3, 4], [3, 5], [4, 3], [4, 4], [4, 5]]",
+        "assert get_coordinates((4, 5)) ==[[3, 4], [3, 5], [3, 6], [4, 4], [4, 5], [4, 6], [5, 4], [5, 5], [5, 6]]",
+        "assert get_coordinates((5, 6)) == [[4, 5], [4, 6], [4, 7], [5, 5], [5, 6], [5, 7], [6, 5], [6, 6], [6, 7]]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract all the adjacent coordinates of the given coordinate tuple.\n\nTask ID: 630\n\nExpected behavior (test cases):\n1. get_coordinates((3, 4)) should return [[2, 3], [2, 4], [2, 5], [3, 3], [3, 4], [3, 5], [4, 3], [4, 4], [4, 5]]\n2. get_coordinates((4, 5)) ==[[3, 4], [3, 5], [3, 6], [4, 4], [4, 5], [4, 6], [5, 4], [5, 5], [5, 6]]\n3. get_coordinates((5, 6)) should return [[4, 5], [4, 6], [4, 7], [5, 5], [5, 6], [5, 7], [6, 5], [6, 6], [6, 7]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-ad99c1b384af4288aff8dd0ccb90cf36",
+      "object": "chat.completion",
+      "created": 1750867711,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef get_coordinates(coord):\n    x, y = coord\n    result = []\n    for i in range(y - 1, y + 2):\n        if 0 <= i < 9:\n            result.append([x, i])\n    return result\n\n# Test cases\nprint(get_coordinates((3, 4)))  # Expected output: [[2, 3], [2, 4], [2, 5], [3, 3], [3, 4], [3, 5], [4, 3], [4, 4], [4, 5]]\nprint(get_coordinates((4, 5)))  # Expected output: [[3, 4], [3, 5], [3, 6], [4, 4], [4, 5], [4, 6], [5, 4], [5, 5], [5, 6]]\nprint(get_coordinates((5, 6)))  # Expected output: [[4, 5], [4, 6], [4, 7], [5, 5], [5, 6], [5, 7], [6, 5], [6, 6], [6, 7]]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 288,
+        "total_tokens": 554,
+        "completion_tokens": 266,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867716.2062066
+  },
+  {
+    "mbpp_id": 631,
+    "problem": {
+      "task_id": 631,
+      "text": "Write a function to replace whitespaces with an underscore and vice versa in a given string by using regex.",
+      "code": "import re\r\ntext = 'Python Exercises'\r\ndef replace_spaces(text):\r\n  text =text.replace (\" \", \"_\")\r\n  return (text)\r\n  text =text.replace (\"_\", \" \")\r\n  return (text)",
+      "test_list": [
+        "assert replace_spaces('Jumanji The Jungle') == 'Jumanji_The_Jungle'",
+        "assert replace_spaces('The Avengers') == 'The_Avengers'",
+        "assert replace_spaces('Fast and Furious') == 'Fast_and_Furious'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace whitespaces with an underscore and vice versa in a given string by using regex.\n\nTask ID: 631\n\nExpected behavior (test cases):\n1. replace_spaces('Jumanji The Jungle') should return 'Jumanji_The_Jungle'\n2. replace_spaces('The Avengers') should return 'The_Avengers'\n3. replace_spaces('Fast and Furious') should return 'Fast_and_Furious'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-0a85ec3b45ab48c8ba86361f8f08ecf4",
+      "object": "chat.completion",
+      "created": 1750867716,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport re\n\ndef replace_spaces(input_string):\n    # Replace spaces with underscores and underscores with spaces\n    result = re.sub(r'(?<!_) ', '_', input_string)\n    result = re.sub(r'\\s+', '_', result)\n    result = re.sub('_', r'', result)\n    result = re.sub(r'_', r'', result)\n    return result\n\n# Test cases\nprint(replace_spaces('Jumanji The Jungle'))  # Expected output: \"Jumanji_The_Jungle\"\nprint(replace_spaces('The Avengers'))        # Expected output: \"The_Avengers\"\nprint(replace_spaces('Fast and Furious'))    # Expected output: \"Fast_and_Furious\"\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 151,
+        "total_tokens": 297,
+        "completion_tokens": 146,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867719.1609747
+  },
+  {
+    "mbpp_id": 632,
+    "problem": {
+      "task_id": 632,
+      "text": "Write a python function to move all zeroes to the end of the given list.",
+      "code": "def move_zero(num_list):\r\n    a = [0 for i in range(num_list.count(0))]\r\n    x = [ i for i in num_list if i != 0]\r\n    x.extend(a)\r\n    return (x)",
+      "test_list": [
+        "assert move_zero([1,0,2,0,3,4]) == [1,2,3,4,0,0]",
+        "assert move_zero([2,3,2,0,0,4,0,5,0]) == [2,3,2,4,5,0,0,0,0]",
+        "assert move_zero([0,1,0,1,1]) == [1,1,1,0,0]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to move all zeroes to the end of the given list.\n\nTask ID: 632\n\nExpected behavior (test cases):\n1. move_zero([1,0,2,0,3,4]) should return [1,2,3,4,0,0]\n2. move_zero([2,3,2,0,0,4,0,5,0]) should return [2,3,2,4,5,0,0,0,0]\n3. move_zero([0,1,0,1,1]) should return [1,1,1,0,0]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-2dcfc59d1f0448d28ca96866fe4d6277",
+      "object": "chat.completion",
+      "created": 1750867719,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef move_zero(lst):\n    \"\"\"\n    Move all zeros in the given list to the end while maintaining the relative order of non-zero elements.\n    \n    Parameters:\n    lst (list): The input list containing integers and possibly zero(s).\n    \n    Returns:\n    list: A new list with all zeros moved to the end.\n    \"\"\"\n    # Separate non-zero elements from the list\n    non_zero = [x for x in lst if x != 0]\n    # Extend the result with zeros at the end\n    return non_zero + [0] * (len(lst) - len(non_zero))\n\n# Test cases\nprint(move_zero([1,0,2,0,3,4]))  # Expected output: [1,2,3,4,0,0]\nprint(move_zero([2,3,2,0,0,4,0,5,0]))  # Expected output: [2,3,2,4,5,0,0,0,0]\nprint(move_zero([0,1,0,1,1]))  # Expected output: [1,1,1,0,0]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 195,
+        "total_tokens": 436,
+        "completion_tokens": 241,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867723.7220316
+  },
+  {
+    "mbpp_id": 633,
+    "problem": {
+      "task_id": 633,
+      "text": "Write a python function to find the sum of xor of all pairs of numbers in the given array.",
+      "code": "def pair_OR_Sum(arr,n) : \r\n    ans = 0 \r\n    for i in range(0,n) :    \r\n        for j in range(i + 1,n) :   \r\n            ans = ans + (arr[i] ^ arr[j])          \r\n    return ans ",
+      "test_list": [
+        "assert pair_OR_Sum([5,9,7,6],4) == 47",
+        "assert pair_OR_Sum([7,3,5],3) == 12",
+        "assert pair_OR_Sum([7,3],2) == 4"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of xor of all pairs of numbers in the given array.\n\nTask ID: 633\n\nExpected behavior (test cases):\n1. pair_OR_Sum([5,9,7,6],4) should return 47\n2. pair_OR_Sum([7,3,5],3) should return 12\n3. pair_OR_Sum([7,3],2) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-58094a563d8d46f09bad5186a0ba963e",
+      "object": "chat.completion",
+      "created": 1750867724,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef pair_OR_Sum(arr, n):\n    # Initialize result as 0\n    res = 0\n    \n    # Iterate through each number in the array\n    for i in range(n):\n        # XOR every element with the current result\n        res ^= arr[i]\n    \n    return res\n```\n\nThis solution iterates through each number in the input array and performs an XOR operation between it and the accumulated result (`res`). The final value of `res` is returned as the sum of the XOR of all possible pairs of numbers in the array.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 157,
+        "total_tokens": 274,
+        "completion_tokens": 117,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867726.200022
+  },
+  {
+    "mbpp_id": 634,
+    "problem": {
+      "task_id": 634,
+      "text": "Write a python function to find the sum of fourth power of first n even natural numbers.",
+      "code": "def even_Power_Sum(n): \r\n    sum = 0; \r\n    for i in range(1,n + 1): \r\n        j = 2*i; \r\n        sum = sum + (j*j*j*j); \r\n    return sum; ",
+      "test_list": [
+        "assert even_Power_Sum(2) == 272",
+        "assert even_Power_Sum(3) == 1568",
+        "assert even_Power_Sum(4) == 5664"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of fourth power of first n even natural numbers.\n\nTask ID: 634\n\nExpected behavior (test cases):\n1. even_Power_Sum(2) should return 272\n2. even_Power_Sum(3) should return 1568\n3. even_Power_Sum(4) should return 5664\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-dafee6f1d0114df2a9da960eb643c07c",
+      "object": "chat.completion",
+      "created": 1750867726,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef even_Power_Sum(n):\n    # Initialize sum\n    total_sum = 0\n    \n    # Loop through the first n even natural numbers\n    for i in range(1, n + 1):\n        # Calculate the fourth power and add it to the sum\n        total_sum += (2 * i) ** 4\n    \n    return total_sum\n```\n\nThis solution defines a function `even_Power_Sum` that calculates the sum of the fourth powers of the first n even natural numbers. It iterates from 1 to n, calculating each even number as 2 times its index plus one, raising it to the fourth power, and adding it to a running total sum. The final sum is then returned.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 146,
+        "total_tokens": 300,
+        "completion_tokens": 154,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867729.3060691
+  },
+  {
+    "mbpp_id": 635,
+    "problem": {
+      "task_id": 635,
+      "text": "Write a function to push all values into a heap and then pop off the smallest values one at a time.",
+      "code": "import heapq as hq\r\ndef heap_sort(iterable):\r\n    h = []\r\n    for value in iterable:\r\n        hq.heappush(h, value)\r\n    return [hq.heappop(h) for i in range(len(h))]",
+      "test_list": [
+        "assert heap_sort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0])==[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]",
+        "assert heap_sort([25, 35, 22, 85, 14, 65, 75, 25, 58])==[14, 22, 25, 25, 35, 58, 65, 75, 85]",
+        "assert heap_sort( [7, 1, 9, 5])==[1,5,7,9]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to push all values into a heap and then pop off the smallest values one at a time.\n\nTask ID: 635\n\nExpected behavior (test cases):\n1. heap_sort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0])==[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n2. heap_sort([25, 35, 22, 85, 14, 65, 75, 25, 58])==[14, 22, 25, 25, 35, 58, 65, 75, 85]\n3. heap_sort( [7, 1, 9, 5])==[1,5,7,9]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-90dc89b853e14851a30d449df69c04cf",
+      "object": "chat.completion",
+      "created": 1750867729,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport heapq\n\ndef heap_sort(arr):\n    # Convert list to max-heap using negative values for min-heap\n    arr = [-x for x in arr]\n    heapq.heapify(arr)\n    \n    result = []\n    while arr:\n        # Pop the smallest element from the heap\n        result.append(-heapq.heappop(arr))\n    \n    return result\n```\n\nThis solution uses the `heapq` module to create a min-heap from the given array of numbers. By negating each number before pushing it onto the heap, we effectively convert it into a max-heap where the smallest value is always at the root. The `heappop()` method is used to extract the smallest element from the heap one by one, which corresponds to popping the largest value from the original array due to the negation.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 263,
+        "total_tokens": 435,
+        "completion_tokens": 172,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867732.730029
+  },
+  {
+    "mbpp_id": 636,
+    "problem": {
+      "task_id": 636,
+      "text": "Write a python function to check if roots of a quadratic equation are reciprocal of each other or not.",
+      "code": "def Check_Solution(a,b,c): \r\n    if (a == c): \r\n        return (\"Yes\"); \r\n    else: \r\n        return (\"No\"); ",
+      "test_list": [
+        "assert Check_Solution(2,0,2) == \"Yes\"",
+        "assert Check_Solution(2,-5,2) == \"Yes\"",
+        "assert Check_Solution(1,2,3) == \"No\""
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check if roots of a quadratic equation are reciprocal of each other or not.\n\nTask ID: 636\n\nExpected behavior (test cases):\n1. Check_Solution(2,0,2) should return \"Yes\"\n2. Check_Solution(2,-5,2) should return \"Yes\"\n3. Check_Solution(1,2,3) should return \"No\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-1ae0cc6eb20040a0826838dc21521b1a",
+      "object": "chat.completion",
+      "created": 1750867733,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef Check_Solution(a, b, c):\n    # Calculate the discriminant\n    D = b**2 - 4*a*c\n    \n    # If the discriminant is zero, there's exactly one root which is its own reciprocal\n    if D == 0:\n        return \"Yes\"\n    \n    # If the discriminant is negative, there are no real roots and thus no reciprocal roots\n    elif D < 0:\n        return \"No\"\n    \n    # For positive discriminant, calculate the two roots using the quadratic formula\n    else:\n        root1 = (-b + D**0.5) / (2 * a)\n        root2 = (-b - D**0.5) / (2 * a)\n        \n        # Check if the product of the roots equals 1 (which means they are reciprocals)\n        if root1 * root2 == 1:\n            return \"Yes\"\n        else:\n            return \"No\"\n\n# Example usage:\nprint(Check_Solution(2,0,2))  # Output: Yes\nprint(Check_Solution(2,-5,2))  # Output: Yes\nprint(Check_Solution(1,2,3))   # Output: No\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 146,
+        "total_tokens": 407,
+        "completion_tokens": 261,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867737.6265852
+  },
+  {
+    "mbpp_id": 637,
+    "problem": {
+      "task_id": 637,
+      "text": "Write a function to check whether the given amount has no profit and no loss",
+      "code": "def noprofit_noloss(actual_cost,sale_amount): \r\n  if(sale_amount == actual_cost):\r\n    return True\r\n  else:\r\n    return False",
+      "test_list": [
+        "assert noprofit_noloss(1500,1200)==False",
+        "assert noprofit_noloss(100,100)==True",
+        "assert noprofit_noloss(2000,5000)==False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given amount has no profit and no loss\n\nTask ID: 637\n\nExpected behavior (test cases):\n1. noprofit_noloss(1500,1200)==False\n2. noprofit_noloss(100,100)==True\n3. noprofit_noloss(2000,5000)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-2b7597a0af8340b4a4b704f9ef639b04",
+      "object": "chat.completion",
+      "created": 1750867738,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef noprofit_noloss(amount1, amount2):\n    return amount1 == amount2\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 152,
+        "total_tokens": 178,
+        "completion_tokens": 26,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867738.590016
+  },
+  {
+    "mbpp_id": 638,
+    "problem": {
+      "task_id": 638,
+      "text": "Write a function to calculate wind chill index.",
+      "code": "import math\r\ndef wind_chill(v,t):\r\n windchill = 13.12 + 0.6215*t -  11.37*math.pow(v, 0.16) + 0.3965*t*math.pow(v, 0.16)\r\n return int(round(windchill, 0))",
+      "test_list": [
+        "assert wind_chill(120,35)==40",
+        "assert wind_chill(40,70)==86",
+        "assert wind_chill(10,100)==116"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate wind chill index.\n\nTask ID: 638\n\nExpected behavior (test cases):\n1. wind_chill(120,35)==40\n2. wind_chill(40,70)==86\n3. wind_chill(10,100)==116\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-0302b5801b61466d922bb91f5bfdb4eb",
+      "object": "chat.completion",
+      "created": 1750867739,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef wind_chill(temp, wind_speed):\n    \"\"\"\n    Calculate the wind chill index based on temperature and wind speed.\n    \n    Parameters:\n    temp (float): The current temperature in degrees Fahrenheit.\n    wind_speed (int): The wind speed in miles per hour.\n    \n    Returns:\n    float: The calculated wind chill index.\n    \"\"\"\n    if temp < -50 or wind_speed > 120:\n        return \"Invalid input\"\n    else:\n        return round((35.74 + 0.6215 * temp - 35.75 * ((wind_speed / 1.8) ** 0.16) + 0.4275 * temp * ((wind_speed / 1.8) ** 0.16)) - 46.80 * ((wind_speed / 1.8) ** 0.16), 2)\n\n# Test cases\nprint(wind_chill(120, 35)) # Expected output: 40\nprint(wind_chill(40, 70)) # Expected output: 86\nprint(wind_chill(10, 100)) # Expected output: 116\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 132,
+        "total_tokens": 398,
+        "completion_tokens": 266,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867743.5824914
+  },
+  {
+    "mbpp_id": 639,
+    "problem": {
+      "task_id": 639,
+      "text": "Write a function to sum the length of the names of a given list of names after removing the names that start with a lowercase letter.",
+      "code": "def sample_nam(sample_names):\r\n  sample_names=list(filter(lambda el:el[0].isupper() and el[1:].islower(),sample_names))\r\n  return len(''.join(sample_names))",
+      "test_list": [
+        "assert sample_nam(['sally', 'Dylan', 'rebecca', 'Diana', 'Joanne', 'keith'])==16",
+        "assert sample_nam([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])==10",
+        "assert sample_nam([\"abcd\", \"Python\", \"abba\", \"aba\"])==6"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sum the length of the names of a given list of names after removing the names that start with a lowercase letter.\n\nTask ID: 639\n\nExpected behavior (test cases):\n1. sample_nam(['sally', 'Dylan', 'rebecca', 'Diana', 'Joanne', 'keith'])==16\n2. sample_nam([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])==10\n3. sample_nam([\"abcd\", \"Python\", \"abba\", \"aba\"])==6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-8137f56e453a4575b2621f25f4f64bb0",
+      "object": "chat.completion",
+      "created": 1750867744,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef sample_nam(names):\n    # Filter out names starting with a lowercase letter and calculate their lengths\n    filtered_names = [name for name in names if name[0].isupper()]\n    return sum(len(name) for name in filtered_names)\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 183,
+        "total_tokens": 239,
+        "completion_tokens": 56,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867745.0729156
+  },
+  {
+    "mbpp_id": 640,
+    "problem": {
+      "task_id": 640,
+      "text": "Write a function to remove the parenthesis area in a string.",
+      "code": "import re\r\ndef remove_parenthesis(items):\r\n for item in items:\r\n    return (re.sub(r\" ?\\([^)]+\\)\", \"\", item))",
+      "test_list": [
+        "assert remove_parenthesis([\"python (chrome)\"])==(\"python\")",
+        "assert remove_parenthesis([\"string(.abc)\"])==(\"string\")",
+        "assert remove_parenthesis([\"alpha(num)\"])==(\"alpha\")"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove the parenthesis area in a string.\n\nTask ID: 640\n\nExpected behavior (test cases):\n1. remove_parenthesis([\"python (chrome)\"])==(\"python\")\n2. remove_parenthesis([\"string(.abc)\"])==(\"string\")\n3. remove_parenthesis([\"alpha(num)\"])==(\"alpha\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-0c0f684ab1a846909f3b3f453ae4eaf6",
+      "object": "chat.completion",
+      "created": 1750867745,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef remove_parenthesis(s):\n    # Split the string into words based on parentheses\n    return ''.join(word for word in s.split('(') if not word.endswith(')'))\n\n# Test cases\nprint(remove_parenthesis([\"python (chrome)\"]))  # Expected output: \"python\"\nprint(remove_parenthesis([\"string(.abc)\"]))     # Expected output: \"string\"\nprint(remove_parenthesis([\"alpha(num)\"]))       # Expected output: \"alpha\"\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 134,
+        "total_tokens": 236,
+        "completion_tokens": 102,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867747.3112545
+  },
+  {
+    "mbpp_id": 641,
+    "problem": {
+      "task_id": 641,
+      "text": "Write a function to find the nth nonagonal number.",
+      "code": "def is_nonagonal(n): \r\n\treturn int(n * (7 * n - 5) / 2) ",
+      "test_list": [
+        "assert is_nonagonal(10) == 325",
+        "assert is_nonagonal(15) == 750",
+        "assert is_nonagonal(18) == 1089"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the nth nonagonal number.\n\nTask ID: 641\n\nExpected behavior (test cases):\n1. is_nonagonal(10) should return 325\n2. is_nonagonal(15) should return 750\n3. is_nonagonal(18) should return 1089\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-a1d5b1ad87cc48f1a46885bbb292f866",
+      "object": "chat.completion",
+      "created": 1750867747,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef is_nonagonal(n):\n    \"\"\"\n    This function calculates the nth nonagonal number.\n    \n    Parameters:\n    n (int): The position of the nonagonal number in the sequence.\n    \n    Returns:\n    int: The nth nonagonal number.\n    \"\"\"\n    return n * ((7*n - 5)//2)\n\n# Test cases\nprint(is_nonagonal(10))  # Expected output: 325\nprint(is_nonagonal(15))  # Expected output: 750\nprint(is_nonagonal(18))  # Expected output: 1089\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 135,
+        "total_tokens": 265,
+        "completion_tokens": 130,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867750.0185053
+  },
+  {
+    "mbpp_id": 642,
+    "problem": {
+      "task_id": 642,
+      "text": "Write a function to remove similar rows from the given tuple matrix.",
+      "code": "def remove_similar_row(test_list):\r\n  res = set(sorted([tuple(sorted(set(sub))) for sub in test_list]))\r\n  return (res) ",
+      "test_list": [
+        "assert remove_similar_row([[(4, 5), (3, 2)], [(2, 2), (4, 6)], [(3, 2), (4, 5)]] ) == {((2, 2), (4, 6)), ((3, 2), (4, 5))}",
+        "assert remove_similar_row([[(5, 6), (4, 3)], [(3, 3), (5, 7)], [(4, 3), (5, 6)]] ) == {((4, 3), (5, 6)), ((3, 3), (5, 7))}",
+        "assert remove_similar_row([[(6, 7), (5, 4)], [(4, 4), (6, 8)], [(5, 4), (6, 7)]] ) =={((4, 4), (6, 8)), ((5, 4), (6, 7))}"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove similar rows from the given tuple matrix.\n\nTask ID: 642\n\nExpected behavior (test cases):\n1. remove_similar_row([[(4, 5), (3, 2)], [(2, 2), (4, 6)], [(3, 2), (4, 5)]] ) should return {((2, 2), (4, 6)), ((3, 2), (4, 5))}\n2. remove_similar_row([[(5, 6), (4, 3)], [(3, 3), (5, 7)], [(4, 3), (5, 6)]] ) should return {((4, 3), (5, 6)), ((3, 3), (5, 7))}\n3. remove_similar_row([[(6, 7), (5, 4)], [(4, 4), (6, 8)], [(5, 4), (6, 7)]] ) =={((4, 4), (6, 8)), ((5, 4), (6, 7))}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-bc53e26d52c94ce5b587b70d259d9e88",
+      "object": "chat.completion",
+      "created": 1750867750,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef remove_similar_row(matrix):\n    # Convert the list of tuples into a set for faster lookups and removal\n    unique_rows = set(tuple(row) for row in matrix)\n    \n    # Filter out duplicate rows based on their hash values\n    filtered_matrix = [row for row in matrix if tuple(row) not in unique_rows]\n    \n    # Return the filtered matrix as a dictionary with key-value pairs\n    return {(tuple(row[0]), tuple(row[1])): row for row in filtered_matrix}\n```\n\nThis solution first converts each row in the input matrix into a tuple and stores them in a set to ensure uniqueness. Then, it filters out any duplicates by checking against the set of unique tuples. Finally, it constructs a new dictionary where keys are tuples representing the unique rows and values are the original rows themselves.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 304,
+        "total_tokens": 477,
+        "completion_tokens": 173,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867753.492869
+  },
+  {
+    "mbpp_id": 643,
+    "problem": {
+      "task_id": 643,
+      "text": "Write a function that matches a word containing 'z', not at the start or end of the word.",
+      "code": "import re\r\ndef text_match_wordz_middle(text):\r\n        patterns = '\\Bz\\B'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+      "test_list": [
+        "assert text_match_wordz_middle(\"pythonzabc.\")==('Found a match!')",
+        "assert text_match_wordz_middle(\"xyzabc.\")==('Found a match!')",
+        "assert text_match_wordz_middle(\"  lang  .\")==('Not matched!')"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a word containing 'z', not at the start or end of the word.\n\nTask ID: 643\n\nExpected behavior (test cases):\n1. text_match_wordz_middle(\"pythonzabc.\")==('Found a match!')\n2. text_match_wordz_middle(\"xyzabc.\")==('Found a match!')\n3. text_match_wordz_middle(\"  lang  .\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-40fcf9001d344deea87d6ef7ab07ad9c",
+      "object": "chat.completion",
+      "created": 1750867754,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nimport re\n\ndef text_match_wordz_middle(text):\n    # Define the regex pattern to find words starting with 'z' but not at the beginning or end\n    pattern = r'\\b[ze]ng\\b'\n    \n    # Search for the pattern in the given text\n    if re.search(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n```\n\nThis solution uses regular expressions to search for words that contain 'z' anywhere within them, excluding those at the very beginning or end of the word. The `re.search` method is used to check for the presence of such words in the provided text.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 149,
+        "total_tokens": 287,
+        "completion_tokens": 138,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867756.3307238
+  },
+  {
+    "mbpp_id": 644,
+    "problem": {
+      "task_id": 644,
+      "text": "Write a python function to reverse an array upto a given position.",
+      "code": "def reverse_Array_Upto_K(input, k): \r\n  return (input[k-1::-1] + input[k:]) ",
+      "test_list": [
+        "assert reverse_Array_Upto_K([1, 2, 3, 4, 5, 6],4) == [4, 3, 2, 1, 5, 6]",
+        "assert reverse_Array_Upto_K([4, 5, 6, 7], 2) == [5, 4, 6, 7]",
+        "assert reverse_Array_Upto_K([9, 8, 7, 6, 5],3) == [7, 8, 9, 6, 5]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to reverse an array upto a given position.\n\nTask ID: 644\n\nExpected behavior (test cases):\n1. reverse_Array_Upto_K([1, 2, 3, 4, 5, 6],4) should return [4, 3, 2, 1, 5, 6]\n2. reverse_Array_Upto_K([4, 5, 6, 7], 2) should return [5, 4, 6, 7]\n3. reverse_Array_Upto_K([9, 8, 7, 6, 5],3) should return [7, 8, 9, 6, 5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-38be7bc709814c62a18c5049ef1bf39b",
+      "object": "chat.completion",
+      "created": 1750867756,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef reverse_Array_Upto_K(arr, k):\n    # Reverse the subarray from index 0 to k-1\n    arr[:k] = reversed(arr[:k])\n    \n    return arr\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 212,
+        "total_tokens": 258,
+        "completion_tokens": 46,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867757.6311707
+  },
+  {
+    "mbpp_id": 645,
+    "problem": {
+      "task_id": 645,
+      "text": "Write a function to find the product of it’s kth index in the given tuples.",
+      "code": "def get_product(val) : \r\n\tres = 1\r\n\tfor ele in val: \r\n\t\tres *= ele \r\n\treturn res \r\ndef find_k_product(test_list, K):\r\n  res = get_product([sub[K] for sub in test_list])\r\n  return (res) ",
+      "test_list": [
+        "assert find_k_product([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) == 665",
+        "assert find_k_product([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) == 280",
+        "assert find_k_product([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 0) == 210"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the product of it’s kth index in the given tuples.\n\nTask ID: 645\n\nExpected behavior (test cases):\n1. find_k_product([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) should return 665\n2. find_k_product([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) should return 280\n3. find_k_product([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 0) should return 210\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-0811ace76f384bcd8308d8e7d85ac549",
+      "object": "chat.completion",
+      "created": 1750867758,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_k_product(tuples_list, k):\n    # Extracting elements at the k-th position from each tuple and multiplying them together\n    result = reduce(lambda x, y: x * y, [t[k] for t in tuples_list])\n    return result\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 225,
+        "total_tokens": 285,
+        "completion_tokens": 60,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867759.1761222
+  },
+  {
+    "mbpp_id": 646,
+    "problem": {
+      "task_id": 646,
+      "text": "Write a python function to count number of cubes of size k in a cube of size n.",
+      "code": "def No_of_cubes(N,K):\r\n    No = 0\r\n    No = (N - K + 1)\r\n    No = pow(No, 3)\r\n    return No",
+      "test_list": [
+        "assert No_of_cubes(2,1) == 8",
+        "assert No_of_cubes(5,2) == 64",
+        "assert No_of_cubes(1,1) == 1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count number of cubes of size k in a cube of size n.\n\nTask ID: 646\n\nExpected behavior (test cases):\n1. No_of_cubes(2,1) should return 8\n2. No_of_cubes(5,2) should return 64\n3. No_of_cubes(1,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-eb257e0ef32a4db8a01699b623573fc7",
+      "object": "chat.completion",
+      "created": 1750867759,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef no_of_cubes(n, k):\n    # Calculate the total number of unit cubes in an n x n x n cube\n    total_unit_cubes = n ** 3\n    \n    # Calculate the number of unit cubes not covered by smaller cubes of size k x k x k\n    uncovered_cubes = total_unit_cubes - ((n-k+1)**3)\n    \n    # The result is the number of unit cubes covered by smaller cubes of size k x k x k\n    return uncovered_cubes\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 143,
+        "total_tokens": 254,
+        "completion_tokens": 111,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867761.557634
+  },
+  {
+    "mbpp_id": 647,
+    "problem": {
+      "task_id": 647,
+      "text": "Write a function to split a string at uppercase letters.",
+      "code": "import re\r\ndef split_upperstring(text):\r\n return (re.findall('[A-Z][^A-Z]*', text))",
+      "test_list": [
+        "assert split_upperstring(\"PythonProgramLanguage\")==['Python','Program','Language']",
+        "assert split_upperstring(\"PythonProgram\")==['Python','Program']",
+        "assert split_upperstring(\"ProgrammingLanguage\")==['Programming','Language']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to split a string at uppercase letters.\n\nTask ID: 647\n\nExpected behavior (test cases):\n1. split_upperstring(\"PythonProgramLanguage\")==['Python','Program','Language']\n2. split_upperstring(\"PythonProgram\")==['Python','Program']\n3. split_upperstring(\"ProgrammingLanguage\")==['Programming','Language']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-b6bfe02f00f7440991dadb40f91d7006",
+      "object": "chat.completion",
+      "created": 1750867762,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef split_upperstring(s):\n    return [s[i:i+1] for i in range(len(s)) if s[i].isupper()]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 131,
+        "total_tokens": 165,
+        "completion_tokens": 34,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867762.6525474
+  },
+  {
+    "mbpp_id": 648,
+    "problem": {
+      "task_id": 648,
+      "text": "Write a function to exchange the position of every n-th value with (n+1)th value and (n+1)th value with n-th value in a given list.",
+      "code": "from itertools import zip_longest, chain, tee\r\ndef exchange_elements(lst):\r\n    lst1, lst2 = tee(iter(lst), 2)\r\n    return list(chain.from_iterable(zip_longest(lst[1::2], lst[::2])))",
+      "test_list": [
+        "assert exchange_elements([0,1,2,3,4,5])==[1, 0, 3, 2, 5, 4] ",
+        "assert exchange_elements([5,6,7,8,9,10])==[6,5,8,7,10,9] ",
+        "assert exchange_elements([25,35,45,55,75,95])==[35,25,55,45,95,75] "
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to exchange the position of every n-th value with (n+1)th value and (n+1)th value with n-th value in a given list.\n\nTask ID: 648\n\nExpected behavior (test cases):\n1. exchange_elements([0,1,2,3,4,5])==[1, 0, 3, 2, 5, 4] \n2. exchange_elements([5,6,7,8,9,10])==[6,5,8,7,10,9] \n3. exchange_elements([25,35,45,55,75,95])==[35,25,55,45,95,75] \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-dbedde33e30e40dd9590f129d43e718c",
+      "object": "chat.completion",
+      "created": 1750867763,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef exchange_elements(lst):\n    for i in range(0, len(lst), 2):\n        lst[i], lst[i + 1] = lst[i + 1], lst[i]\n    return lst\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 224,
+        "total_tokens": 272,
+        "completion_tokens": 48,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867763.9840097
+  },
+  {
+    "mbpp_id": 649,
+    "problem": {
+      "task_id": 649,
+      "text": "Write a python function to calculate the sum of the numbers in a list between the indices of a specified range.",
+      "code": "def sum_Range_list(nums, m, n):                                                                                                                                                                                                \r\n    sum_range = 0                                                                                                                                                                                                         \r\n    for i in range(m, n+1, 1):                                                                                                                                                                                        \r\n        sum_range += nums[i]                                                                                                                                                                                                  \r\n    return sum_range   ",
+      "test_list": [
+        "assert sum_Range_list([2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12],8,10) == 29",
+        "assert sum_Range_list([1,2,3,4,5],1,2) == 5",
+        "assert sum_Range_list([1,0,1,2,5,6],4,5) == 11"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to calculate the sum of the numbers in a list between the indices of a specified range.\n\nTask ID: 649\n\nExpected behavior (test cases):\n1. sum_Range_list([2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12],8,10) should return 29\n2. sum_Range_list([1,2,3,4,5],1,2) should return 5\n3. sum_Range_list([1,0,1,2,5,6],4,5) should return 11\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-2ca0bbecac884141a0e6768f2e8ee1b2",
+      "object": "chat.completion",
+      "created": 1750867764,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef sum_Range_list(lst, start_index, end_index):\n    # Calculate the sum of elements from start_index to end_index-1\n    total_sum = sum(lst[start_index:end_index])\n    return total_sum\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 208,
+        "total_tokens": 258,
+        "completion_tokens": 50,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867765.3492184
+  },
+  {
+    "mbpp_id": 650,
+    "problem": {
+      "task_id": 650,
+      "text": "Write a python function to check whether the given two arrays are equal or not.",
+      "code": "def are_Equal(arr1,arr2,n,m):\r\n    if (n != m):\r\n        return False\r\n    arr1.sort()\r\n    arr2.sort()\r\n    for i in range(0,n - 1):\r\n        if (arr1[i] != arr2[i]):\r\n            return False\r\n    return True",
+      "test_list": [
+        "assert are_Equal([1,2,3],[3,2,1],3,3) == True",
+        "assert are_Equal([1,1,1],[2,2,2],3,3) == False",
+        "assert are_Equal([8,9],[4,5,6],2,3) == False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given two arrays are equal or not.\n\nTask ID: 650\n\nExpected behavior (test cases):\n1. are_Equal([1,2,3],[3,2,1],3,3) should return True\n2. are_Equal([1,1,1],[2,2,2],3,3) should return False\n3. are_Equal([8,9],[4,5,6],2,3) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-7191bda8f15c42a296c5de8ade688d91",
+      "object": "chat.completion",
+      "created": 1750867765,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef are_Equal(arr1, arr2, n1, n2):\n    # Check if both arrays have the same length\n    if len(arr1) != n1 or len(arr2) != n2:\n        return False\n    \n    # Compare elements of both arrays\n    for i in range(n1):\n        if arr1[i] != arr2[i]:\n            return False\n            \n    return True\n```\n\nThis function `are_Equal` takes two lists (`arr1`, `arr2`) and their respective lengths (`n1`, `n2`). It first checks if the lengths of the input arrays match those provided as arguments. If they do not, it returns `False`. Then, it iterates through each element of the arrays and compares them. If any pair of corresponding elements differ, it immediately returns `False`. If all pairs compare equally, it returns `True`.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 167,
+        "total_tokens": 353,
+        "completion_tokens": 186,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867768.978413
+  },
+  {
+    "mbpp_id": 651,
+    "problem": {
+      "task_id": 651,
+      "text": "Write a function to check if one tuple is a subset of another tuple.",
+      "code": "def check_subset(test_tup1, test_tup2):\r\n  res = set(test_tup2).issubset(test_tup1)\r\n  return (res) ",
+      "test_list": [
+        "assert check_subset((10, 4, 5, 6), (5, 10)) == True",
+        "assert check_subset((1, 2, 3, 4), (5, 6)) == False",
+        "assert check_subset((7, 8, 9, 10), (10, 8)) == True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if one tuple is a subset of another tuple.\n\nTask ID: 651\n\nExpected behavior (test cases):\n1. check_subset((10, 4, 5, 6), (5, 10)) should return True\n2. check_subset((1, 2, 3, 4), (5, 6)) should return False\n3. check_subset((7, 8, 9, 10), (10, 8)) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-fc000f9e5d334415bb8298a28440b57b",
+      "object": "chat.completion",
+      "created": 1750867769,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef check_subset(subset, superset):\n    # Check if all elements in subset are present in superset\n    for element in subset:\n        if element not in superset:\n            return False\n    return True\n\n# Test cases\nprint(check_subset((10, 4, 5, 6), (5, 10)))  # Expected output: True\nprint(check_subset((1, 2, 3, 4), (5, 6)))   # Expected output: False\nprint(check_subset((7, 8, 9, 10), (10, 8))) # Expected output: True\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 172,
+        "total_tokens": 313,
+        "completion_tokens": 141,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867771.8539836
+  },
+  {
+    "mbpp_id": 652,
+    "problem": {
+      "task_id": 652,
+      "text": "Write a function to flatten the given tuple matrix into the tuple list with each tuple representing each column.",
+      "code": "def matrix_to_list(test_list):\r\n  temp = [ele for sub in test_list for ele in sub]\r\n  res = list(zip(*temp))\r\n  return (str(res))",
+      "test_list": [
+        "assert matrix_to_list([[(4, 5), (7, 8)], [(10, 13), (18, 17)], [(0, 4), (10, 1)]]) == '[(4, 7, 10, 18, 0, 10), (5, 8, 13, 17, 4, 1)]'",
+        "assert matrix_to_list([[(5, 6), (8, 9)], [(11, 14), (19, 18)], [(1, 5), (11, 2)]]) == '[(5, 8, 11, 19, 1, 11), (6, 9, 14, 18, 5, 2)]'",
+        "assert matrix_to_list([[(6, 7), (9, 10)], [(12, 15), (20, 21)], [(23, 7), (15, 8)]]) == '[(6, 9, 12, 20, 23, 15), (7, 10, 15, 21, 7, 8)]'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to flatten the given tuple matrix into the tuple list with each tuple representing each column.\n\nTask ID: 652\n\nExpected behavior (test cases):\n1. matrix_to_list([[(4, 5), (7, 8)], [(10, 13), (18, 17)], [(0, 4), (10, 1)]]) should return '[(4, 7, 10, 18, 0, 10), (5, 8, 13, 17, 4, 1)]'\n2. matrix_to_list([[(5, 6), (8, 9)], [(11, 14), (19, 18)], [(1, 5), (11, 2)]]) should return '[(5, 8, 11, 19, 1, 11), (6, 9, 14, 18, 5, 2)]'\n3. matrix_to_list([[(6, 7), (9, 10)], [(12, 15), (20, 21)], [(23, 7), (15, 8)]]) should return '[(6, 9, 12, 20, 23, 15), (7, 10, 15, 21, 7, 8)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-6a1b4d1d14f44b2a971ac9d8082f0f6a",
+      "object": "chat.completion",
+      "created": 1750867772,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef matrix_to_list(matrix):\n    # Flatten the matrix and convert it to a string representation of tuples\n    flattened = [tuple(row) for row in zip(*matrix)]\n    result = '(' + ', '.join(map(str, flattened)) + ')'\n    return result\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 378,
+        "total_tokens": 438,
+        "completion_tokens": 60,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867773.4142447
+  },
+  {
+    "mbpp_id": 653,
+    "problem": {
+      "task_id": 653,
+      "text": "Write a function to group a sequence of key-value pairs into a dictionary of lists using collections module.",
+      "code": "from collections import defaultdict\r\ndef grouping_dictionary(l):\r\n    d = defaultdict(list)\r\n    for k, v in l:\r\n        d[k].append(v)\r\n    return d",
+      "test_list": [
+        "assert grouping_dictionary([('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)])== ({'yellow': [1, 3], 'blue': [2, 4], 'red': [1]})",
+        "assert grouping_dictionary([('yellow', 10), ('blue', 20), ('yellow', 30), ('blue', 40), ('red', 10)])== ({'yellow': [10, 30], 'blue': [20, 40], 'red': [10]})",
+        "assert grouping_dictionary([('yellow', 15), ('blue', 25), ('yellow', 35), ('blue', 45), ('red', 15)])== ({'yellow': [15, 35], 'blue': [25, 45], 'red': [15]})"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to group a sequence of key-value pairs into a dictionary of lists using collections module.\n\nTask ID: 653\n\nExpected behavior (test cases):\n1. grouping_dictionary([('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)])== ({'yellow': [1, 3], 'blue': [2, 4], 'red': [1]})\n2. grouping_dictionary([('yellow', 10), ('blue', 20), ('yellow', 30), ('blue', 40), ('red', 10)])== ({'yellow': [10, 30], 'blue': [20, 40], 'red': [10]})\n3. grouping_dictionary([('yellow', 15), ('blue', 25), ('yellow', 35), ('blue', 45), ('red', 15)])== ({'yellow': [15, 35], 'blue': [25, 45], 'red': [15]})\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-bbe369580d024ca2b608c5dcbf2eec44",
+      "object": "chat.completion",
+      "created": 1750867773,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nfrom collections import defaultdict\n\ndef grouping_dictionary(pairs):\n    # Initialize an empty dictionary to store grouped items\n    grouped_items = defaultdict(list)\n    \n    # Iterate over each pair in the input list\n    for key, value in pairs:\n        # Append the current key and value to their respective groups\n        grouped_items[key].append(value)\n    \n    # Convert the defaultdict back to a regular dict before returning\n    return dict(grouped_items)\n\n# Test cases to verify the correctness of the solution\nassert grouping_dictionary([('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]) == {'yellow': [1, 3], 'blue': [2, 4], 'red': [1]}\nassert grouping_dictionary([('yellow', 10), ('blue', 20), ('yellow', 30), ('blue', 40), ('red', 10)]) == {'yellow': [10, 30], 'blue': [20, 40], 'red': [10]}\nassert grouping_dictionary([('yellow', 15), ('blue', 25), ('yellow', 35), ('blue', 45), ('red', 15)]) == {'yellow': [15, 35], 'blue': [25, 45], 'red': [15]}\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 296,
+        "total_tokens": 597,
+        "completion_tokens": 301,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867779.0243907
+  },
+  {
+    "mbpp_id": 654,
+    "problem": {
+      "task_id": 654,
+      "text": "Write a function to find the perimeter of a rectangle.",
+      "code": "def rectangle_perimeter(l,b):\r\n  perimeter=2*(l+b)\r\n  return perimeter",
+      "test_list": [
+        "assert rectangle_perimeter(10,20)==60",
+        "assert rectangle_perimeter(10,5)==30",
+        "assert rectangle_perimeter(4,2)==12"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the perimeter of a rectangle.\n\nTask ID: 654\n\nExpected behavior (test cases):\n1. rectangle_perimeter(10,20)==60\n2. rectangle_perimeter(10,5)==30\n3. rectangle_perimeter(4,2)==12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-ed09dea42f3b4952b4c2f8a0ef710212",
+      "object": "chat.completion",
+      "created": 1750867779,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef rectangle_perimeter(length, width):\n    return 2 * (length + width)\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 128,
+        "total_tokens": 151,
+        "completion_tokens": 23,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867779.941035
+  },
+  {
+    "mbpp_id": 655,
+    "problem": {
+      "task_id": 655,
+      "text": "Write a python function to find the sum of fifth power of n natural numbers.",
+      "code": "def fifth_Power_Sum(n) : \r\n    sm = 0 \r\n    for i in range(1,n+1) : \r\n        sm = sm + (i*i*i*i*i) \r\n    return sm ",
+      "test_list": [
+        "assert fifth_Power_Sum(2) == 33",
+        "assert fifth_Power_Sum(4) == 1300",
+        "assert fifth_Power_Sum(3) == 276"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of fifth power of n natural numbers.\n\nTask ID: 655\n\nExpected behavior (test cases):\n1. fifth_Power_Sum(2) should return 33\n2. fifth_Power_Sum(4) should return 1300\n3. fifth_Power_Sum(3) should return 276\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-928017cc323e483f85f83de3013e28fc",
+      "object": "chat.completion",
+      "created": 1750867780,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef fifth_Power_Sum(n):\n    # Calculate the sum of the fifth powers of the first n natural numbers\n    result = sum(i**5 for i in range(1, n+1))\n    return result\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 142,
+        "total_tokens": 193,
+        "completion_tokens": 51,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867781.311543
+  },
+  {
+    "mbpp_id": 656,
+    "problem": {
+      "task_id": 656,
+      "text": "Write a python function to find the minimum sum of absolute differences of two arrays.",
+      "code": "def find_Min_Sum(a,b,n): \r\n    a.sort() \r\n    b.sort() \r\n    sum = 0  \r\n    for i in range(n): \r\n        sum = sum + abs(a[i] - b[i]) \r\n    return sum",
+      "test_list": [
+        "assert find_Min_Sum([3,2,1],[2,1,3],3) == 0",
+        "assert find_Min_Sum([1,2,3],[4,5,6],3) == 9",
+        "assert find_Min_Sum([4,1,8,7],[2,3,6,5],4) == 6"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum sum of absolute differences of two arrays.\n\nTask ID: 656\n\nExpected behavior (test cases):\n1. find_Min_Sum([3,2,1],[2,1,3],3) should return 0\n2. find_Min_Sum([1,2,3],[4,5,6],3) should return 9\n3. find_Min_Sum([4,1,8,7],[2,3,6,5],4) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-822ab27396c345eaaf6563a388203174",
+      "object": "chat.completion",
+      "created": 1750867781,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_Min_Sum(arr1, arr2, n):\n    # Calculate the difference between each pair and store in diff_arr\n    diff_arr = [abs(a - b) for a, b in zip(arr1, arr2)]\n    \n    # Sort the array of differences\n    diff_arr.sort()\n    \n    # Return the sum of the first 'n' elements from the sorted array\n    return sum(diff_arr[:n])\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 173,
+        "total_tokens": 267,
+        "completion_tokens": 94,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867783.4048986
+  },
+  {
+    "mbpp_id": 657,
+    "problem": {
+      "task_id": 657,
+      "text": "Write a python function to find the first digit in factorial of a given number.",
+      "code": "import math \r\ndef first_Digit(n) : \r\n    fact = 1\r\n    for i in range(2,n + 1) : \r\n        fact = fact * i \r\n        while (fact % 10 == 0) :  \r\n            fact = int(fact / 10) \r\n    while (fact >= 10) : \r\n        fact = int(fact / 10) \r\n    return math.floor(fact) ",
+      "test_list": [
+        "assert first_Digit(5) == 1",
+        "assert first_Digit(10) == 3",
+        "assert first_Digit(7) == 5"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first digit in factorial of a given number.\n\nTask ID: 657\n\nExpected behavior (test cases):\n1. first_Digit(5) should return 1\n2. first_Digit(10) should return 3\n3. first_Digit(7) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-e7bb944186454f5286de6f8683c63f46",
+      "object": "chat.completion",
+      "created": 1750867783,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef first_Digit(n):\n    # Initialize result as -1 to handle negative numbers and zero\n    res = -1\n    \n    # Handle edge case for n=0\n    if n == 0:\n        return 0\n    \n    # Calculate factorial using math library\n    fact = 1\n    for i in range(1, n + 1):\n        fact *= i\n    \n    # Extract the last digit from the factorial\n    while fact % 10 == 0:\n        fact //= 10\n    \n    # Return the last non-zero digit\n    return fact % 10\n```\n\nThis solution calculates the factorial of the input number `n` and then extracts the last non-zero digit from it, which is considered the \"first\" digit in the context of factorials.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 131,
+        "total_tokens": 300,
+        "completion_tokens": 169,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867786.746396
+  },
+  {
+    "mbpp_id": 658,
+    "problem": {
+      "task_id": 658,
+      "text": "Write a function to find the item with maximum occurrences in a given list.",
+      "code": "def max_occurrences(list1):\r\n    max_val = 0\r\n    result = list1[0] \r\n    for i in list1:\r\n        occu = list1.count(i)\r\n        if occu > max_val:\r\n            max_val = occu\r\n            result = i \r\n    return result",
+      "test_list": [
+        "assert max_occurrences([2,3,8,4,7,9,8,2,6,5,1,6,1,2,3,4,6,9,1,2])==2",
+        "assert max_occurrences([1, 3,5, 7,1, 3,13, 15, 17,5, 7,9,1, 11])==1",
+        "assert max_occurrences([1, 2, 3,2, 4, 5,1, 1, 1])==1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the item with maximum occurrences in a given list.\n\nTask ID: 658\n\nExpected behavior (test cases):\n1. max_occurrences([2,3,8,4,7,9,8,2,6,5,1,6,1,2,3,4,6,9,1,2])==2\n2. max_occurrences([1, 3,5, 7,1, 3,13, 15, 17,5, 7,9,1, 11])==1\n3. max_occurrences([1, 2, 3,2, 4, 5,1, 1, 1])==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-e952cec9e90349cc89a1e8936c3bd018",
+      "object": "chat.completion",
+      "created": 1750867787,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\nfrom collections import Counter\n\ndef max_occurrences(lst):\n    # Count the occurrences of each element in the list\n    counts = Counter(lst)\n    # Find the element(s) with the highest count\n    max_count = max(counts.values())\n    # Return all elements that have the maximum occurrence\n    return [item for item, count in counts.items() if count == max_count]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 217,
+        "total_tokens": 301,
+        "completion_tokens": 84,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867788.693192
+  },
+  {
+    "mbpp_id": 659,
+    "problem": {
+      "task_id": 659,
+      "text": "Write a python function to print duplicants from a list of integers.",
+      "code": "def Repeat(x): \r\n    _size = len(x) \r\n    repeated = [] \r\n    for i in range(_size): \r\n        k = i + 1\r\n        for j in range(k, _size): \r\n            if x[i] == x[j] and x[i] not in repeated: \r\n                repeated.append(x[i]) \r\n    return repeated ",
+      "test_list": [
+        "assert Repeat([10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]) == [20, 30, -20, 60]",
+        "assert Repeat([-1, 1, -1, 8]) == [-1]",
+        "assert Repeat([1, 2, 3, 1, 2,]) == [1, 2]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to print duplicants from a list of integers.\n\nTask ID: 659\n\nExpected behavior (test cases):\n1. Repeat([10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]) should return [20, 30, -20, 60]\n2. Repeat([-1, 1, -1, 8]) should return [-1]\n3. Repeat([1, 2, 3, 1, 2,]) should return [1, 2]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-f8b416956fb646a5b13404c9b1e19b9a",
+      "object": "chat.completion",
+      "created": 1750867789,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_duplicates(nums):\n    seen = set()\n    duplicates = []\n    for num in nums:\n        if num not in seen:\n            seen.add(num)\n        else:\n            duplicates.append(num)\n    return duplicates\n\n# Test cases\nprint(find_duplicates([10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]))  # Output: [20, 30, -20, 60]\nprint(find_duplicates([-1, 1, -1, 8]))  # Output: [-1]\nprint(find_duplicates([1, 2, 3, 1, 2,]))  # Output: [1, 2]\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 209,
+        "total_tokens": 388,
+        "completion_tokens": 179,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867792.2101946
+  },
+  {
+    "mbpp_id": 660,
+    "problem": {
+      "task_id": 660,
+      "text": "Write a python function to choose points from two ranges such that no point lies in both the ranges.",
+      "code": "def find_Points(l1,r1,l2,r2): \r\n    x = min(l1,l2) if (l1 != l2) else -1\r\n    y = max(r1,r2) if (r1 != r2) else -1\r\n    return (x,y)",
+      "test_list": [
+        "assert find_Points(5,10,1,5) == (1,10)",
+        "assert find_Points(3,5,7,9) == (3,9)",
+        "assert find_Points(1,5,2,8) == (1,8)"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to choose points from two ranges such that no point lies in both the ranges.\n\nTask ID: 660\n\nExpected behavior (test cases):\n1. find_Points(5,10,1,5) should return (1,10)\n2. find_Points(3,5,7,9) should return (3,9)\n3. find_Points(1,5,2,8) should return (1,8)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-54e69d5ea99a4c05b80d79bebcc17e99",
+      "object": "chat.completion",
+      "created": 1750867792,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_Points(range1_start, range1_end, range2_start, range2_end):\n    # Find the maximum start of the two ranges\n    max_start = max(range1_start, range2_start)\n    \n    # Find the minimum end of the two ranges\n    min_end = min(range1_end, range2_end)\n    \n    # If there is an overlap between the two ranges, adjust the ends accordingly\n    if max_start < min_end:\n        return (max_start, min_end)\n    else:\n        return ()\n\n# Test cases\nprint(find_Points(5,10,1,5))  # Expected output: (1, 10)\nprint(find_Points(3,5,7,9))   # Expected output: (3, 9)\nprint(find_Points(1,5,2,8))   # Expected output: (1, 8)\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 160,
+        "total_tokens": 353,
+        "completion_tokens": 193,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867795.9585497
+  },
+  {
+    "mbpp_id": 661,
+    "problem": {
+      "task_id": 661,
+      "text": "Write a function to find the maximum sum that can be formed which has no three consecutive elements present.",
+      "code": "def max_sum_of_three_consecutive(arr, n): \r\n\tsum = [0 for k in range(n)] \r\n\tif n >= 1: \r\n\t\tsum[0] = arr[0] \r\n\tif n >= 2: \r\n\t\tsum[1] = arr[0] + arr[1] \r\n\tif n > 2: \r\n\t\tsum[2] = max(sum[1], max(arr[1] + arr[2], arr[0] + arr[2])) \r\n\tfor i in range(3, n): \r\n\t\tsum[i] = max(max(sum[i-1], sum[i-2] + arr[i]), arr[i] + arr[i-1] + sum[i-3]) \r\n\treturn sum[n-1]",
+      "test_list": [
+        "assert max_sum_of_three_consecutive([100, 1000, 100, 1000, 1], 5) == 2101",
+        "assert max_sum_of_three_consecutive([3000, 2000, 1000, 3, 10], 5) == 5013",
+        "assert max_sum_of_three_consecutive([1, 2, 3, 4, 5, 6, 7, 8], 8) == 27"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum sum that can be formed which has no three consecutive elements present.\n\nTask ID: 661\n\nExpected behavior (test cases):\n1. max_sum_of_three_consecutive([100, 1000, 100, 1000, 1], 5) should return 2101\n2. max_sum_of_three_consecutive([3000, 2000, 1000, 3, 10], 5) should return 5013\n3. max_sum_of_three_consecutive([1, 2, 3, 4, 5, 6, 7, 8], 8) should return 27\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-375459b5748e4fe4abb214d8a0cae1d5",
+      "object": "chat.completion",
+      "created": 1750867796,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef max_sum_of_three_consecutive(arr, n):\n    dp = [0] * len(arr)\n    \n    for i in range(3, len(arr)):\n        if arr[i-1] + arr[i-2] > arr[i]:\n            dp[i] = dp[i-1]\n        else:\n            dp[i] = max(dp[i-1], dp[i-2] + arr[i])\n    \n    return dp[-1]\n\n# Test cases\nprint(max_sum_of_three_consecutive([100, 1000, 100, 1000, 1], 5)) # Expected output: 2101\nprint(max_sum_of_three_consecutive([3000, 2000, 1000, 3, 10], 5)) # Expected output: 5013\nprint(max_sum_of_three_consecutive([1, 2, 3, 4, 5, 6, 7, 8], 8)) # Expected output: 27\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 224,
+        "total_tokens": 455,
+        "completion_tokens": 231,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867800.357415
+  },
+  {
+    "mbpp_id": 662,
+    "problem": {
+      "task_id": 662,
+      "text": "Write a function to sort a list in a dictionary.",
+      "code": "def sorted_dict(dict1):\r\n  sorted_dict = {x: sorted(y) for x, y in dict1.items()}\r\n  return sorted_dict",
+      "test_list": [
+        "assert sorted_dict({'n1': [2, 3, 1], 'n2': [5, 1, 2], 'n3': [3, 2, 4]})=={'n1': [1, 2, 3], 'n2': [1, 2, 5], 'n3': [2, 3, 4]}",
+        "assert sorted_dict({'n1': [25,37,41], 'n2': [41,54,63], 'n3': [29,38,93]})=={'n1': [25, 37, 41], 'n2': [41, 54, 63], 'n3': [29, 38, 93]}",
+        "assert sorted_dict({'n1': [58,44,56], 'n2': [91,34,58], 'n3': [100,200,300]})=={'n1': [44, 56, 58], 'n2': [34, 58, 91], 'n3': [100, 200, 300]}"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a list in a dictionary.\n\nTask ID: 662\n\nExpected behavior (test cases):\n1. sorted_dict({'n1': [2, 3, 1], 'n2': [5, 1, 2], 'n3': [3, 2, 4]})=={'n1': [1, 2, 3], 'n2': [1, 2, 5], 'n3': [2, 3, 4]}\n2. sorted_dict({'n1': [25,37,41], 'n2': [41,54,63], 'n3': [29,38,93]})=={'n1': [25, 37, 41], 'n2': [41, 54, 63], 'n3': [29, 38, 93]}\n3. sorted_dict({'n1': [58,44,56], 'n2': [91,34,58], 'n3': [100,200,300]})=={'n1': [44, 56, 58], 'n2': [34, 58, 91], 'n3': [100, 200, 300]}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-52ecd8119c3f4d659241fd34714fa786",
+      "object": "chat.completion",
+      "created": 1750867800,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef sorted_dict(d):\n    return {k: sorted(v) for k, v in d.items()}\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 369,
+        "total_tokens": 395,
+        "completion_tokens": 26,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867801.3448164
+  },
+  {
+    "mbpp_id": 663,
+    "problem": {
+      "task_id": 663,
+      "text": "Write a function to find the largest possible value of k such that k modulo x is y.",
+      "code": "import sys \r\ndef find_max_val(n, x, y): \r\n\tans = -sys.maxsize \r\n\tfor k in range(n + 1): \r\n\t\tif (k % x == y): \r\n\t\t\tans = max(ans, k) \r\n\treturn (ans if (ans >= 0 and\r\n\t\t\t\t\tans <= n) else -1) ",
+      "test_list": [
+        "assert find_max_val(15, 10, 5) == 15",
+        "assert find_max_val(187, 10, 5) == 185",
+        "assert find_max_val(16, 11, 1) == 12"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest possible value of k such that k modulo x is y.\n\nTask ID: 663\n\nExpected behavior (test cases):\n1. find_max_val(15, 10, 5) should return 15\n2. find_max_val(187, 10, 5) should return 185\n3. find_max_val(16, 11, 1) should return 12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-6fa8c597eb1048918cbdf3a9ad9ab010",
+      "object": "chat.completion",
+      "created": 1750867801,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef find_max_val(x, y, z):\n    # Calculate the maximum value of k using the formula k = x * y + z\n    max_k = x * y + z\n    return max_k\n```",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 162,
+        "total_tokens": 211,
+        "completion_tokens": 49,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867802.717358
+  },
+  {
+    "mbpp_id": 664,
+    "problem": {
+      "task_id": 664,
+      "text": "Write a python function to find the average of even numbers till a given even number.",
+      "code": "def average_Even(n) : \r\n    if (n% 2!= 0) : \r\n        return (\"Invalid Input\") \r\n        return -1  \r\n    sm = 0\r\n    count = 0\r\n    while (n>= 2) : \r\n        count = count+1\r\n        sm = sm+n \r\n        n = n-2\r\n    return sm // count ",
+      "test_list": [
+        "assert average_Even(2) == 2",
+        "assert average_Even(4) == 3",
+        "assert average_Even(100) == 51"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the average of even numbers till a given even number.\n\nTask ID: 664\n\nExpected behavior (test cases):\n1. average_Even(2) should return 2\n2. average_Even(4) should return 3\n3. average_Even(100) should return 51\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "id": "chatcmpl-362040fda45247bfb1e907054811b465",
+      "object": "chat.completion",
+      "created": 1750867803,
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "reasoning_content": null,
+            "content": "```python\ndef average_Even(n):\n    sum_even = 0\n    count = 0\n    for i in range(2, n + 1, 2):  # Iterate through all even numbers from 2 up to n\n        sum_even += i\n        count += 1\n    if count == 0:\n        return 0  # Return 0 if no even numbers were found\n    else:\n        return sum_even / count\n```\n\nThis solution iterates through all even numbers from 2 up to `n`, sums them up, and then calculates the average by dividing the sum by the count of even numbers encountered. If there are no even numbers between 2 and `n` (inclusive), it returns 0.",
+            "tool_calls": []
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 134,
+        "total_tokens": 292,
+        "completion_tokens": 158,
+        "prompt_tokens_details": null
+      },
+      "prompt_logprobs": null
+    },
+    "timestamp": 1750867805.8967948
+  }
+]

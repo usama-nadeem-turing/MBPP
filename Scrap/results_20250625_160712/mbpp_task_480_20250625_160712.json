@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 480,
+  "problem": {
+    "task_id": 480,
+    "text": "Write a python function to find the maximum occurring character in a given string.",
+    "code": "def get_max_occuring_char(str1):\r\n  ASCII_SIZE = 256\r\n  ctr = [0] * ASCII_SIZE\r\n  max = -1\r\n  ch = ''\r\n  for i in str1:\r\n    ctr[ord(i)]+=1;\r\n  for i in str1:\r\n    if max < ctr[ord(i)]:\r\n      max = ctr[ord(i)]\r\n      ch = i\r\n  return ch",
+    "test_list": [
+      "assert get_max_occuring_char(\"data\") == \"a\"",
+      "assert get_max_occuring_char(\"create\") == \"e\"",
+      "assert get_max_occuring_char(\"brilliant girl\") == \"i\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the maximum occurring character in a given string.\n\nTask ID: 480\n\nExpected behavior (test cases):\n1. get_max_occuring_char(\"data\") should return \"a\"\n2. get_max_occuring_char(\"create\") should return \"e\"\n3. get_max_occuring_char(\"brilliant girl\") should return \"i\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4d649cc0ef36404cad84fc5d3eafdcd1",
+    "object": "chat.completion",
+    "created": 1750869796,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_max_occuring_char(s):\n    char_count = {}\n    \n    # Count occurrences of each character\n    for char in s:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    \n    max_char = ''\n    max_count = 0\n    \n    # Find the character with the highest count\n    for char, count in char_count.items():\n        if count > max_count:\n            max_count = count\n            max_char = char\n            \n    return max_char\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 255,
+      "completion_tokens": 117,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869798.1246374
+}

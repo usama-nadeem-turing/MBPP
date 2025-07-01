@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 135,
+  "problem": {
+    "task_id": 135,
+    "text": "Write a function to find the nth hexagonal number.",
+    "code": "def hexagonal_num(n): \r\n\treturn n*(2*n - 1) ",
+    "test_list": [
+      "assert hexagonal_num(10) == 190",
+      "assert hexagonal_num(5) == 45",
+      "assert hexagonal_num(7) == 91"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the nth hexagonal number.\n\nTask ID: 135\n\nExpected behavior (test cases):\n1. hexagonal_num(10) should return 190\n2. hexagonal_num(5) should return 45\n3. hexagonal_num(7) should return 91\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-53804254c43c42a0b1760ad31e100245",
+    "object": "chat.completion",
+    "created": 1750868931,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef hexagonal_num(n):\n    \"\"\"\n    Calculate the nth hexagonal number.\n    \n    Parameters:\n    n (int): The position of the hexagonal number in the sequence.\n    \n    Returns:\n    int: The nth hexagonal number.\n    \"\"\"\n    return n * (2 * n - 1)\n\n# Test cases\nprint(hexagonal_num(10))  # Expected output: 190\nprint(hexagonal_num(5))   # Expected output: 45\nprint(hexagonal_num(7))   # Expected output: 91\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 252,
+      "completion_tokens": 122,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868933.419008
+}

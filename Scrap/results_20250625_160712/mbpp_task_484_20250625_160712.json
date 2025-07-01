@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 484,
+  "problem": {
+    "task_id": 484,
+    "text": "Write a function to remove the matching tuples from the given two tuples.",
+    "code": "def remove_matching_tuple(test_list1, test_list2):\r\n  res = [sub for sub in test_list1 if sub not in test_list2]\r\n  return (res) ",
+    "test_list": [
+      "assert remove_matching_tuple([('Hello', 'dude'), ('How', 'are'), ('you', '?')], [('Hello', 'dude'), ('How', 'are')]) == [('you', '?')]",
+      "assert remove_matching_tuple([('Part', 'of'), ('the', 'journey'), ('is ', 'end')], [('Journey', 'the'), ('is', 'end')]) == [('Part', 'of'), ('the', 'journey'), ('is ', 'end')]",
+      "assert remove_matching_tuple([('Its', 'been'), ('a', 'long'), ('day', 'without')], [('a', 'long'), ('my', 'friend')]) == [('Its', 'been'), ('day', 'without')]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove the matching tuples from the given two tuples.\n\nTask ID: 484\n\nExpected behavior (test cases):\n1. remove_matching_tuple([('Hello', 'dude'), ('How', 'are'), ('you', '?')], [('Hello', 'dude'), ('How', 'are')]) should return [('you', '?')]\n2. remove_matching_tuple([('Part', 'of'), ('the', 'journey'), ('is ', 'end')], [('Journey', 'the'), ('is', 'end')]) should return [('Part', 'of'), ('the', 'journey'), ('is ', 'end')]\n3. remove_matching_tuple([('Its', 'been'), ('a', 'long'), ('day', 'without')], [('a', 'long'), ('my', 'friend')]) should return [('Its', 'been'), ('day', 'without')]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-11059348f2ea4880aa55b8cb99a8d05a",
+    "object": "chat.completion",
+    "created": 1750869806,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_matching_tuple(tup1, tup2):\n    # Convert both tuples into sets for efficient lookup and removal\n    set1 = set(tup1)\n    set2 = set(tup2)\n    \n    # Remove elements in set2 from set1 if they exist\n    result_set = {item for item in set1 if item not in set2}\n    \n    # Convert the resulting set back to a tuple\n    return tuple(result_set)\n\n# Test cases\nprint(remove_matching_tuple([('Hello', 'dude'), ('How', 'are'), ('you', '?')], [('Hello', 'dude'), ('How', 'are')]))  # Should return [('you', '?')]\nprint(remove_matching_tuple([('Part', 'of'), ('the', 'journey'), ('is ', 'end')], [('Journey', 'the'), ('is', 'end')]))  # Should return [('Part', 'of'), ('the', 'journey'), ('is ', 'end')]\nprint(remove_matching_tuple([('Its', 'been'), ('a', 'long'), ('day', 'without')], [('a', 'long'), ('my', 'friend')]))  # Should return [('Its', 'been'), ('day', 'without')])\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 246,
+      "total_tokens": 507,
+      "completion_tokens": 261,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869811.2750497
+}

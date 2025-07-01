@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 534,
+  "problem": {
+    "task_id": 534,
+    "text": "Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs.",
+    "code": "import re\r\ndef search_literal(pattern,text):\r\n match = re.search(pattern, text)\r\n s = match.start()\r\n e = match.end()\r\n return (s, e)",
+    "test_list": [
+      "assert search_literal('python','python programming language')==(0,6)",
+      "assert search_literal('programming','python programming language')==(7,18)",
+      "assert search_literal('language','python programming language')==(19,27)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs.\n\nTask ID: 534\n\nExpected behavior (test cases):\n1. search_literal('python','python programming language')==(0,6)\n2. search_literal('programming','python programming language')==(7,18)\n3. search_literal('language','python programming language')==(19,27)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4b8713b8d72844be8f0b82135e3778e8",
+    "object": "chat.completion",
+    "created": 1750869940,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef search_literal(pattern, text):\n    start = -1\n    while True:\n        start = text.find(pattern, start + 1)\n        if start == -1:\n            break\n    return (start, start+len(pattern))\n\n# Test cases\nprint(search_literal('python', 'python programming language')) # Expected output: (0, 6)\nprint(search_literal('programming', 'python programming language')) # Expected output: (7, 18)\nprint(search_literal('language', 'python programming language')) # Expected output: (19, 27)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "total_tokens": 274,
+      "completion_tokens": 123,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869942.5938416
+}

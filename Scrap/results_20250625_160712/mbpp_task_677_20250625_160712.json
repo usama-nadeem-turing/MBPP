@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 677,
+  "problem": {
+    "task_id": 677,
+    "text": "Write a function to check if the triangle is valid or not.",
+    "code": "def validity_triangle(a,b,c):\r\n total = a + b + c\r\n if total == 180:\r\n    return True\r\n else:\r\n    return False",
+    "test_list": [
+      "assert validity_triangle(60,50,90)==False",
+      "assert validity_triangle(45,75,60)==True",
+      "assert validity_triangle(30,50,100)==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the triangle is valid or not.\n\nTask ID: 677\n\nExpected behavior (test cases):\n1. validity_triangle(60,50,90)==False\n2. validity_triangle(45,75,60)==True\n3. validity_triangle(30,50,100)==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3443f41621b84abf98af0bb2ca4cd921",
+    "object": "chat.completion",
+    "created": 1750867830,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef validity_triangle(a, b, c):\n    # Check if all sides form a valid triangle using the triangle inequality theorem\n    return a + b > c and a + c > b and b + c > a\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 187,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867831.474251
+}

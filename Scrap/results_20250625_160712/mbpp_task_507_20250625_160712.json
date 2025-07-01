@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 507,
+  "problem": {
+    "task_id": 507,
+    "text": "Write a function to remove specific words from a given list.",
+    "code": "def remove_words(list1, removewords):\r\n    for word in list(list1):\r\n        if word in removewords:\r\n            list1.remove(word)\r\n    return list1  ",
+    "test_list": [
+      "assert remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['white', 'orange'])==['red', 'green', 'blue', 'black']",
+      "assert remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['black', 'orange'])==['red', 'green', 'blue', 'white']",
+      "assert remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['blue', 'white'])==['red', 'green', 'black', 'orange']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove specific words from a given list.\n\nTask ID: 507\n\nExpected behavior (test cases):\n1. remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['white', 'orange'])==['red', 'green', 'blue', 'black']\n2. remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['black', 'orange'])==['red', 'green', 'blue', 'white']\n3. remove_words(['red', 'green', 'blue', 'white', 'black', 'orange'],['blue', 'white'])==['red', 'green', 'black', 'orange']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0ee0146da4c94351a821dc613b5b511b",
+    "object": "chat.completion",
+    "created": 1750869870,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_words(word_list, unwanted_words):\n    return [word for word in word_list if word not in unwanted_words]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "total_tokens": 237,
+      "completion_tokens": 30,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869871.0808973
+}

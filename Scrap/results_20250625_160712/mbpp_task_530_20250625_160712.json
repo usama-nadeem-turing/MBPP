@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 530,
+  "problem": {
+    "task_id": 530,
+    "text": "Write a function to find the ration of negative numbers in an array of integers.",
+    "code": "from array import array\r\ndef negative_count(nums):\r\n    n = len(nums)\r\n    n1 = 0\r\n    for x in nums:\r\n        if x < 0:\r\n            n1 += 1\r\n        else:\r\n          None\r\n    return round(n1/n,2)",
+    "test_list": [
+      "assert negative_count([0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8])==0.31",
+      "assert negative_count([2, 1, 2, -1, -5, 6, 4, -3, -2, 3, 4, 6, 8])==0.31",
+      "assert negative_count([2, 4, -6, -9, 11, -12, 14, -5, 17])==0.44"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the ration of negative numbers in an array of integers.\n\nTask ID: 530\n\nExpected behavior (test cases):\n1. negative_count([0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8])==0.31\n2. negative_count([2, 1, 2, -1, -5, 6, 4, -3, -2, 3, 4, 6, 8])==0.31\n3. negative_count([2, 4, -6, -9, 11, -12, 14, -5, 17])==0.44\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6dd8852dcc9e4588b7448e9f642010a9",
+    "object": "chat.completion",
+    "created": 1750869930,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef negative_count(arr):\n    return sum(1 for num in arr if num < 0) / len(arr)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 227,
+      "total_tokens": 256,
+      "completion_tokens": 29,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869930.977032
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 928,
+  "problem": {
+    "task_id": 928,
+    "text": "Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format.",
+    "code": "import re\r\ndef change_date_format(dt):\r\n        return re.sub(r'(\\d{4})-(\\d{1,2})-(\\d{1,2})', '\\\\3-\\\\2-\\\\1', dt)\r\n        return change_date_format(dt)",
+    "test_list": [
+      "assert change_date_format('2026-01-02')=='02-01-2026'",
+      "assert change_date_format('2021-01-04')=='04-01-2021'",
+      "assert change_date_format('2030-06-06')=='06-06-2030'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format.\n\nTask ID: 928\n\nExpected behavior (test cases):\n1. change_date_format('2026-01-02')=='02-01-2026'\n2. change_date_format('2021-01-04')=='04-01-2021'\n3. change_date_format('2030-06-06')=='06-06-2030'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-762bf5b2e0a64e64a8dd8316afa039cd",
+    "object": "chat.completion",
+    "created": 1750868489,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef change_date_format(date_str):\n    # Splitting the input string into year, month, and day components\n    year, month, day = map(int, date_str.split('-'))\n    \n    # Reconstructing the date in the desired format\n    return f\"{day}-{month}-{year}\"\n\n# Test cases to verify the correctness of the function\nassert change_date_format('2026-01-02') == '02-01-2026', \"Test case 1 failed\"\nassert change_date_format('2021-01-04') == '04-01-2021', \"Test case 2 failed\"\nassert change_date_format('2030-06-06') == '06-06-2030', \"Test case 3 failed\"\n\nprint(\"All test cases passed!\")\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 180,
+      "total_tokens": 372,
+      "completion_tokens": 192,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868492.767957
+}

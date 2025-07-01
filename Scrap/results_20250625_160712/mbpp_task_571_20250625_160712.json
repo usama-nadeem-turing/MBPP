@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 571,
+  "problem": {
+    "task_id": 571,
+    "text": "Write a function to find maximum possible sum of disjoint pairs for the given array of integers and a number k.",
+    "code": "def max_sum_pair_diff_lessthan_K(arr, N, K): \r\n\tarr.sort() \r\n\tdp = [0] * N \r\n\tdp[0] = 0\r\n\tfor i in range(1, N): \r\n\t\tdp[i] = dp[i-1] \r\n\t\tif (arr[i] - arr[i-1] < K): \r\n\t\t\tif (i >= 2): \r\n\t\t\t\tdp[i] = max(dp[i], dp[i-2] + arr[i] + arr[i-1]); \r\n\t\t\telse: \r\n\t\t\t\tdp[i] = max(dp[i], arr[i] + arr[i-1]); \r\n\treturn dp[N - 1]",
+    "test_list": [
+      "assert max_sum_pair_diff_lessthan_K([3, 5, 10, 15, 17, 12, 9], 7, 4) == 62",
+      "assert max_sum_pair_diff_lessthan_K([5, 15, 10, 300], 4, 12) == 25",
+      "assert max_sum_pair_diff_lessthan_K([1, 2, 3, 4, 5, 6], 6, 6) == 21"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find maximum possible sum of disjoint pairs for the given array of integers and a number k.\n\nTask ID: 571\n\nExpected behavior (test cases):\n1. max_sum_pair_diff_lessthan_K([3, 5, 10, 15, 17, 12, 9], 7, 4) should return 62\n2. max_sum_pair_diff_lessthan_K([5, 15, 10, 300], 4, 12) should return 25\n3. max_sum_pair_diff_lessthan_K([1, 2, 3, 4, 5, 6], 6, 6) should return 21\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-baa8e20744ff44c89bb22c0006dbe33e",
+    "object": "chat.completion",
+    "created": 1750870026,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sum_pair_diff_lessthan_K(arr, k, n):\n    arr.sort()\n    i = j = 0\n    ans = 0\n    while i < len(arr) and j < len(arr):\n        if abs(arr[i] - arr[j]) <= k:\n            ans += arr[i]\n            i += 1\n        else:\n            j += 1\n    return ans\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 226,
+      "total_tokens": 316,
+      "completion_tokens": 90,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870028.174249
+}

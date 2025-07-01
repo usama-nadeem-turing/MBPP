@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 802,
+  "problem": {
+    "task_id": 802,
+    "text": "Write a python function to count the number of rotations required to generate a sorted array.",
+    "code": "def count_Rotation(arr,n):   \r\n    for i in range (1,n): \r\n        if (arr[i] < arr[i - 1]): \r\n            return i  \r\n    return 0",
+    "test_list": [
+      "assert count_Rotation([3,2,1],3) == 1",
+      "assert count_Rotation([4,5,1,2,3],5) == 2",
+      "assert count_Rotation([7,8,9,1,2,3],6) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of rotations required to generate a sorted array.\n\nTask ID: 802\n\nExpected behavior (test cases):\n1. count_Rotation([3,2,1],3) should return 1\n2. count_Rotation([4,5,1,2,3],5) should return 2\n3. count_Rotation([7,8,9,1,2,3],6) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-aae2d6d250bd4aa4a2b795b6e63e9b13",
+    "object": "chat.completion",
+    "created": 1750868162,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Rotation(arr, n):\n    # Find the index where the smallest element is located\n    for i in range(n-1):\n        if arr[i] > arr[i+1]:\n            break\n    return i + 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "total_tokens": 214,
+      "completion_tokens": 55,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868163.8990262
+}

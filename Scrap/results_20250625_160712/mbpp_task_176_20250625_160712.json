@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 176,
+  "problem": {
+    "task_id": 176,
+    "text": "Write a function to find the perimeter of a triangle.",
+    "code": "def perimeter_triangle(a,b,c):\r\n  perimeter=a+b+c\r\n  return perimeter",
+    "test_list": [
+      "assert perimeter_triangle(10,20,30)==60",
+      "assert perimeter_triangle(3,4,5)==12",
+      "assert perimeter_triangle(25,35,45)==105"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the perimeter of a triangle.\n\nTask ID: 176\n\nExpected behavior (test cases):\n1. perimeter_triangle(10,20,30)==60\n2. perimeter_triangle(3,4,5)==12\n3. perimeter_triangle(25,35,45)==105\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-56f0d7d7d7b2495a9022b7eafe86fab2",
+    "object": "chat.completion",
+    "created": 1750869035,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef perimeter_triangle(a, b, c):\n    return a + b + c\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 157,
+      "completion_tokens": 22,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869036.3026652
+}

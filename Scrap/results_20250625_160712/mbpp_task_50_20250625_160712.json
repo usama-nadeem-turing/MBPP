@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 50,
+  "problem": {
+    "task_id": 50,
+    "text": "Write a function to find the list with minimum length using lambda function.",
+    "code": "def min_length_list(input_list):\r\n    min_length = min(len(x) for x in input_list )  \r\n    min_list = min(input_list, key = lambda i: len(i))\r\n    return(min_length, min_list)",
+    "test_list": [
+      "assert min_length_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==(1, [0])",
+      "assert min_length_list([[1,2,3,4,5],[1,2,3,4],[1,2,3],[1,2],[1]])==(1,[1])",
+      "assert min_length_list([[3,4,5],[6,7,8,9],[10,11,12],[1,2]])==(2,[1,2])"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the list with minimum length using lambda function.\n\nTask ID: 50\n\nExpected behavior (test cases):\n1. min_length_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==(1, [0])\n2. min_length_list([[1,2,3,4,5],[1,2,3,4],[1,2,3],[1,2],[1]])==(1,[1])\n3. min_length_list([[3,4,5],[6,7,8,9],[10,11,12],[1,2]])==(2,[1,2])\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9f07a042247748a280251a4bf211c8d9",
+    "object": "chat.completion",
+    "created": 1750868708,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_length_list(lst):\n    return min(lst, key=lambda x: len(x), default=())\n\n# Test cases\nprint(min_length_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])) # Expected output: (1, [0])\nprint(min_length_list([[1,2,3,4,5],[1,2,3,4],[1,2,3],[1,2],[1]]))   # Expected output: (1, [1])\nprint(min_length_list([[3,4,5],[6,7,8,9],[10,11,12],[1,2]]))        # Expected output: (2, [1, 2])\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 214,
+      "total_tokens": 387,
+      "completion_tokens": 173,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868711.1535752
+}

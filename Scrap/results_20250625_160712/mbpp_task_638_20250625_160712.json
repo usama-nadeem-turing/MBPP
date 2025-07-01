@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 638,
+  "problem": {
+    "task_id": 638,
+    "text": "Write a function to calculate wind chill index.",
+    "code": "import math\r\ndef wind_chill(v,t):\r\n windchill = 13.12 + 0.6215*t -  11.37*math.pow(v, 0.16) + 0.3965*t*math.pow(v, 0.16)\r\n return int(round(windchill, 0))",
+    "test_list": [
+      "assert wind_chill(120,35)==40",
+      "assert wind_chill(40,70)==86",
+      "assert wind_chill(10,100)==116"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate wind chill index.\n\nTask ID: 638\n\nExpected behavior (test cases):\n1. wind_chill(120,35)==40\n2. wind_chill(40,70)==86\n3. wind_chill(10,100)==116\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0302b5801b61466d922bb91f5bfdb4eb",
+    "object": "chat.completion",
+    "created": 1750867739,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef wind_chill(temp, wind_speed):\n    \"\"\"\n    Calculate the wind chill index based on temperature and wind speed.\n    \n    Parameters:\n    temp (float): The current temperature in degrees Fahrenheit.\n    wind_speed (int): The wind speed in miles per hour.\n    \n    Returns:\n    float: The calculated wind chill index.\n    \"\"\"\n    if temp < -50 or wind_speed > 120:\n        return \"Invalid input\"\n    else:\n        return round((35.74 + 0.6215 * temp - 35.75 * ((wind_speed / 1.8) ** 0.16) + 0.4275 * temp * ((wind_speed / 1.8) ** 0.16)) - 46.80 * ((wind_speed / 1.8) ** 0.16), 2)\n\n# Test cases\nprint(wind_chill(120, 35)) # Expected output: 40\nprint(wind_chill(40, 70)) # Expected output: 86\nprint(wind_chill(10, 100)) # Expected output: 116\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 398,
+      "completion_tokens": 266,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867743.5824914
+}

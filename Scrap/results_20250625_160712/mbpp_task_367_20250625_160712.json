@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 367,
+  "problem": {
+    "task_id": 367,
+    "text": "Write a function to check if a binary tree is balanced or not.",
+    "code": "class Node: \r\n\tdef __init__(self, data): \r\n\t\tself.data = data \r\n\t\tself.left = None\r\n\t\tself.right = None\r\ndef get_height(root): \r\n\tif root is None: \r\n\t\treturn 0\r\n\treturn max(get_height(root.left), get_height(root.right)) + 1\r\ndef is_tree_balanced(root): \r\n\tif root is None: \r\n\t\treturn True\r\n\tlh = get_height(root.left) \r\n\trh = get_height(root.right) \r\n\tif (abs(lh - rh) <= 1) and is_tree_balanced( \r\n\troot.left) is True and is_tree_balanced( root.right) is True: \r\n\t\treturn True\r\n\treturn False",
+    "test_list": [
+      "assert is_tree_balanced(root) == False",
+      "assert is_tree_balanced(root1) == True",
+      "assert is_tree_balanced(root2) == False "
+    ],
+    "test_setup_code": "root = Node(1) \r\nroot.left = Node(2) \r\nroot.right = Node(3) \r\nroot.left.left = Node(4) \r\nroot.left.right = Node(5) \r\nroot.left.left.left = Node(8) \r\nroot1 = Node(1) \r\nroot1.left = Node(2) \r\nroot1.right = Node(3) \r\nroot1.left.left = Node(4) \r\nroot1.left.right = Node(5) \r\nroot1.right.left = Node(6) \r\nroot1.left.left.left = Node(7)\r\nroot2 = Node(1) \r\nroot2.left = Node(2) \r\nroot2.right = Node(3) \r\nroot2.left.left = Node(4) \r\nroot2.left.right = Node(5)\r\nroot2.left.left.left = Node(7)",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a binary tree is balanced or not.\n\nTask ID: 367\n\nExpected behavior (test cases):\n1. is_tree_balanced(root) should return False\n2. is_tree_balanced(root1) should return True\n3. is_tree_balanced(root2) should return False \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-983fc9cf71ef41029982ff3eaa63f742",
+    "object": "chat.completion",
+    "created": 1750869533,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_tree_balanced(root):\n    def height(node):\n        if node is None:\n            return 0\n        else:\n            left_height = height(node.left)\n            right_height = height(node.right)\n            if abs(left_height - right_height) > 1:\n                return float('inf')\n            return max(left_height, right_height) + 1\n    \n    return height(root) != float('inf')\n\n# Test cases\nroot1 = TreeNode(3)\nroot1.left = TreeNode(9)\nroot1.right = TreeNode(20)\nroot1.right.left = TreeNode(15)\nroot1.right.right = TreeNode(7)\n\nroot2 = TreeNode(1)\nroot2.left = TreeNode(2)\nroot2.right = TreeNode(3)\n\nroot3 = TreeNode(1)\nroot3.left = TreeNode(2)\nroot3.right = TreeNode(3)\nroot3.left.left = TreeNode(4)\nroot3.left.right = TreeNode(5)\nroot3.right.right = TreeNode(6)\n\nprint(is_tree_balanced(root1)) # Expected output: False\nprint(is_tree_balanced(root2)) # Expected output: True\nprint(is_tree_balanced(root3)) # Expected output: False\n```\n\nNote: The provided solution assumes the existence of a `TreeNode` class with appropriate methods for creating and manipulating nodes in a binary tree.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 406,
+      "completion_tokens": 279,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869538.0083637
+}

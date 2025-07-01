@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 172,
+  "problem": {
+    "task_id": 172,
+    "text": "Write a function to find the occurence of characters 'std' in the given string 1. list item 1. list item 1. list item 2. list item 2. list item 2. list item",
+    "code": "def count_occurance(s):\r\n  count=0\r\n  for i in range(len(s)):\r\n    if (s[i]== 's' and s[i+1]=='t' and s[i+2]== 'd'):\r\n      count = count + 1\r\n  return count",
+    "test_list": [
+      "assert count_occurance(\"letstdlenstdporstd\") == 3",
+      "assert count_occurance(\"truststdsolensporsd\") == 1",
+      "assert count_occurance(\"makestdsostdworthit\") == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the occurence of characters 'std' in the given string 1. list item 1. list item 1. list item 2. list item 2. list item 2. list item\n\nTask ID: 172\n\nExpected behavior (test cases):\n1. count_occurance(\"letstdlenstdporstd\") should return 3\n2. count_occurance(\"truststdsolensporsd\") should return 1\n3. count_occurance(\"makestdsostdworthit\") should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7ae2cf02e2534942b6c95742f06920c3",
+    "object": "chat.completion",
+    "created": 1750869028,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_occurance(s):\n    # Initialize counter for occurrences\n    count = 0\n    \n    # Iterate through each character in the string\n    for char in s:\n        # Check if the current character is 'std'\n        if char == 'std':\n            count += 1\n            \n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "total_tokens": 251,
+      "completion_tokens": 69,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869029.6281612
+}

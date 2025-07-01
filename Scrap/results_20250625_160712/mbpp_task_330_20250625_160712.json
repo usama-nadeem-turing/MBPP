@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 330,
+  "problem": {
+    "task_id": 330,
+    "text": "Write a function to find all three, four, five characters long words in the given string by using regex.",
+    "code": "import re\r\ndef find_char(text):\r\n  return (re.findall(r\"\\b\\w{3,5}\\b\", text))",
+    "test_list": [
+      "assert find_char('For the four consumer complaints contact manager AKR reddy') == ['For', 'the', 'four', 'AKR', 'reddy']",
+      "assert find_char('Certain service are subject to change MSR') == ['are', 'MSR']",
+      "assert find_char('Third party legal desclaimers') == ['Third', 'party', 'legal']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find all three, four, five characters long words in the given string by using regex.\n\nTask ID: 330\n\nExpected behavior (test cases):\n1. find_char('For the four consumer complaints contact manager AKR reddy') should return ['For', 'the', 'four', 'AKR', 'reddy']\n2. find_char('Certain service are subject to change MSR') should return ['are', 'MSR']\n3. find_char('Third party legal desclaimers') should return ['Third', 'party', 'legal']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-63d1b9aafecb47cda6485581d8212dec",
+    "object": "chat.completion",
+    "created": 1750869441,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef find_char(text):\n    pattern = r'\\b\\w{3,5}\\b'\n    result = re.findall(pattern, text)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 178,
+      "total_tokens": 219,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869442.1776583
+}

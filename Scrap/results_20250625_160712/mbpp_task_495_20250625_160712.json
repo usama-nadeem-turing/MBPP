@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 495,
+  "problem": {
+    "task_id": 495,
+    "text": "Write a function to remove lowercase substrings from a given string by using regex.",
+    "code": "import re\r\ndef remove_lowercase(str1):\r\n  remove_lower = lambda text: re.sub('[a-z]', '', text)\r\n  result =  remove_lower(str1)\r\n  return (result)",
+    "test_list": [
+      "assert remove_lowercase('KDeoALOklOOHserfLoAJSIskdsf') == 'KDALOOOHLAJSI'",
+      "assert remove_lowercase('ProducTnamEstreAmIngMediAplAYer') == 'PTEAIMAAY'",
+      "assert remove_lowercase('maNufacTuredbYSheZenTechNolOGIes') == 'NTYSZTNOGI'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove lowercase substrings from a given string by using regex.\n\nTask ID: 495\n\nExpected behavior (test cases):\n1. remove_lowercase('KDeoALOklOOHserfLoAJSIskdsf') should return 'KDALOOOHLAJSI'\n2. remove_lowercase('ProducTnamEstreAmIngMediAplAYer') should return 'PTEAIMAAY'\n3. remove_lowercase('maNufacTuredbYSheZenTechNolOGIes') should return 'NTYSZTNOGI'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2541196491c6466fbd9c2dbbd9dde037",
+    "object": "chat.completion",
+    "created": 1750869845,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef remove_lowercase(input_string):\n    # Use regular expression to replace all lowercase letters with an empty string\n    result = re.sub('[a-z]', '', input_string)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 187,
+      "total_tokens": 233,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869845.860499
+}

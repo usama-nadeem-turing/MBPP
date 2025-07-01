@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 848,
+  "problem": {
+    "task_id": 848,
+    "text": "Write a function to find the area of a trapezium.",
+    "code": "def area_trapezium(base1,base2,height):\r\n area = 0.5 * (base1 + base2) * height\r\n return area",
+    "test_list": [
+      "assert area_trapezium(6,9,4)==30",
+      "assert area_trapezium(10,20,30)==450",
+      "assert area_trapezium(15,25,35)==700"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the area of a trapezium.\n\nTask ID: 848\n\nExpected behavior (test cases):\n1. area_trapezium(6,9,4)==30\n2. area_trapezium(10,20,30)==450\n3. area_trapezium(15,25,35)==700\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8802e860d64e4a17ab881aca7d139f59",
+    "object": "chat.completion",
+    "created": 1750868282,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef area_trapezium(base1, base2, height):\n    return ((base1 + base2) * height) / 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "total_tokens": 183,
+      "completion_tokens": 35,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868282.6171322
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 318,
+  "problem": {
+    "task_id": 318,
+    "text": "Write a python function to find the maximum volume of a cuboid with given sum of sides.",
+    "code": "def max_volume (s): \r\n    maxvalue = 0\r\n    i = 1\r\n    for i in range(s - 1): \r\n        j = 1\r\n        for j in range(s): \r\n            k = s - i - j \r\n            maxvalue = max(maxvalue, i * j * k)         \r\n    return maxvalue ",
+    "test_list": [
+      "assert max_volume(8) == 18",
+      "assert max_volume(4) == 2",
+      "assert max_volume(1) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the maximum volume of a cuboid with given sum of sides.\n\nTask ID: 318\n\nExpected behavior (test cases):\n1. max_volume(8) should return 18\n2. max_volume(4) should return 2\n3. max_volume(1) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-48ba5d45afa14513970907f86e3b3954",
+    "object": "chat.completion",
+    "created": 1750869407,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_volume(sides_sum):\n    # Calculate the maximum possible side length for each dimension\n    max_side = sides_sum // 6\n    \n    # Calculate the maximum volume\n    max_volume = max_side ** 3 * 6\n    \n    return max_volume\n\n# Test cases\nprint(max_volume(8))  # Expected output: 18\nprint(max_volume(4))  # Expected output: 2\nprint(max_volume(1))  # Expected output: 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 237,
+      "completion_tokens": 106,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869409.70045
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 727,
+  "problem": {
+    "task_id": 727,
+    "text": "Write a function to remove all characters except letters and numbers using regex",
+    "code": "import re \r\ndef remove_char(S):\r\n  result = re.sub('[\\W_]+', '', S) \r\n  return result",
+    "test_list": [
+      "assert remove_char(\"123abcjw:, .@! eiw\") == '123abcjweiw'",
+      "assert remove_char(\"Hello1234:, ! Howare33u\") == 'Hello1234Howare33u'",
+      "assert remove_char(\"Cool543Triks@:, Make@987Trips\") == 'Cool543TriksMake987Trips' "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove all characters except letters and numbers using regex\n\nTask ID: 727\n\nExpected behavior (test cases):\n1. remove_char(\"123abcjw:, .@! eiw\") should return '123abcjweiw'\n2. remove_char(\"Hello1234:, ! Howare33u\") should return 'Hello1234Howare33u'\n3. remove_char(\"Cool543Triks@:, Make@987Trips\") should return 'Cool543TriksMake987Trips' \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-989c737e2a534ea890a0dad4a25d8b4c",
+    "object": "chat.completion",
+    "created": 1750867953,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef remove_char(s):\n    # Use regular expression to replace non-letter/number characters with an empty string\n    return re.sub('[^a-zA-Z0-9]', '', s)\n\n# Test cases\nprint(remove_char(\"123abcjw:, .@! eiw\"))  # Expected output: \"123abcjweiw\"\nprint(remove_char(\"Hello1234:, ! Howare33u\"))  # Expected output: \"Hello1234Howare33u\"\nprint(remove_char(\"Cool543Triks@:, Make@987Trips\"))  # Expected output: \"Cool543TriksMake987Trips\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "total_tokens": 342,
+      "completion_tokens": 154,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867956.169555
+}

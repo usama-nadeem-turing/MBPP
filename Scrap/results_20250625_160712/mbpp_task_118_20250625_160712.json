@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 118,
+  "problem": {
+    "task_id": 118,
+    "text": "[link text](https:// [link text](https:// [link text](https://)))write a function to convert a string to a list.",
+    "code": "def string_to_list(string): \r\n    lst = list(string.split(\" \")) \r\n    return lst",
+    "test_list": [
+      "assert string_to_list(\"python programming\")==['python','programming']",
+      "assert string_to_list(\"lists tuples strings\")==['lists','tuples','strings']",
+      "assert string_to_list(\"write a program\")==['write','a','program']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: [link text](https:// [link text](https:// [link text](https://)))write a function to convert a string to a list.\n\nTask ID: 118\n\nExpected behavior (test cases):\n1. string_to_list(\"python programming\")==['python','programming']\n2. string_to_list(\"lists tuples strings\")==['lists','tuples','strings']\n3. string_to_list(\"write a program\")==['write','a','program']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4647002c7e7f4197bd653a859115d8ba",
+    "object": "chat.completion",
+    "created": 1750868878,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef string_to_list(s):\n    return s.split()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "total_tokens": 170,
+      "completion_tokens": 16,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868878.9474306
+}

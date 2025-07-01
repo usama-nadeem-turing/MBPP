@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 89,
+  "problem": {
+    "task_id": 89,
+    "text": "Write a function to find the closest smaller number than n.",
+    "code": "def closest_num(N):\r\n  return (N - 1)",
+    "test_list": [
+      "assert closest_num(11) == 10",
+      "assert closest_num(7) == 6",
+      "assert closest_num(12) == 11"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the closest smaller number than n.\n\nTask ID: 89\n\nExpected behavior (test cases):\n1. closest_num(11) should return 10\n2. closest_num(7) should return 6\n3. closest_num(12) should return 11\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-895ca290b94f450599aaab94767005f6",
+    "object": "chat.completion",
+    "created": 1750868807,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef closest_num(n):\n    \"\"\"\n    Finds the largest integer less than n.\n    \n    Parameters:\n    - n (int): The target number\n    \n    Returns:\n    int: The closest smaller number than n\n    \"\"\"\n    # Subtracting 1 from n gives us the closest smaller number\n    return n - 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 126,
+      "total_tokens": 198,
+      "completion_tokens": 72,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868809.030408
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 333,
+  "problem": {
+    "task_id": 333,
+    "text": "Write a python function to sort a list according to the second element in sublist.",
+    "code": "def Sort(sub_li): \r\n    sub_li.sort(key = lambda x: x[1]) \r\n    return sub_li ",
+    "test_list": [
+      "assert Sort([['a', 10], ['b', 5], ['c', 20], ['d', 15]]) == [['b', 5], ['a', 10], ['d', 15], ['c', 20]]",
+      "assert Sort([['452', 10], ['256', 5], ['100', 20], ['135', 15]]) == [['256', 5], ['452', 10], ['135', 15], ['100', 20]]",
+      "assert Sort([['rishi', 10], ['akhil', 5], ['ramya', 20], ['gaur', 15]]) == [['akhil', 5], ['rishi', 10], ['gaur', 15], ['ramya', 20]]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to sort a list according to the second element in sublist.\n\nTask ID: 333\n\nExpected behavior (test cases):\n1. Sort([['a', 10], ['b', 5], ['c', 20], ['d', 15]]) should return [['b', 5], ['a', 10], ['d', 15], ['c', 20]]\n2. Sort([['452', 10], ['256', 5], ['100', 20], ['135', 15]]) should return [['256', 5], ['452', 10], ['135', 15], ['100', 20]]\n3. Sort([['rishi', 10], ['akhil', 5], ['ramya', 20], ['gaur', 15]]) should return [['akhil', 5], ['rishi', 10], ['gaur', 15], ['ramya', 20]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3df608ae0bbe4204939290eec150bb50",
+    "object": "chat.completion",
+    "created": 1750869447,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_by_second_element(lst):\n    lst.sort(key=lambda x: x[1])\n    return lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 296,
+      "total_tokens": 323,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869448.31567
+}

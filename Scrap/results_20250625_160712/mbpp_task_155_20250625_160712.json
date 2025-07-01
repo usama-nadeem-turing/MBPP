@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 155,
+  "problem": {
+    "task_id": 155,
+    "text": "Write a python function to toggle all even bits of a given number.",
+    "code": "def even_bit_toggle_number(n) : \r\n    res = 0; count = 0; temp = n \r\n    while (temp > 0) :     \r\n        if (count % 2 == 1) : \r\n            res = res | (1 << count)      \r\n        count = count + 1\r\n        temp >>= 1 \r\n    return n ^ res ",
+    "test_list": [
+      "assert even_bit_toggle_number(10) == 0",
+      "assert even_bit_toggle_number(20) == 30",
+      "assert even_bit_toggle_number(30) == 20"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to toggle all even bits of a given number.\n\nTask ID: 155\n\nExpected behavior (test cases):\n1. even_bit_toggle_number(10) should return 0\n2. even_bit_toggle_number(20) should return 30\n3. even_bit_toggle_number(30) should return 20\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d3b220d351b44f7a83af820a9c232344",
+    "object": "chat.completion",
+    "created": 1750868986,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef even_bit_toggle_number(n):\n    # Toggle all even bits using bitwise operations\n    result = n ^ ((n >> 1) | (n & -n))\n    return result\n\n# Test cases\nprint(even_bit_toggle_number(10))  # Expected output: 0\nprint(even_bit_toggle_number(20))  # Expected output: 30\nprint(even_bit_toggle_number(30))  # Expected output: 20\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 240,
+      "completion_tokens": 104,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868988.7128127
+}

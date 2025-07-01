@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 519,
+  "problem": {
+    "task_id": 519,
+    "text": "Write a function to calculate volume of a tetrahedron.",
+    "code": "import math\r\ndef volume_tetrahedron(num):\r\n\tvolume = (num ** 3 / (6 * math.sqrt(2)))\t\r\n\treturn round(volume, 2)",
+    "test_list": [
+      "assert volume_tetrahedron(10)==117.85",
+      "assert volume_tetrahedron(15)==397.75",
+      "assert volume_tetrahedron(20)==942.81"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate volume of a tetrahedron.\n\nTask ID: 519\n\nExpected behavior (test cases):\n1. volume_tetrahedron(10)==117.85\n2. volume_tetrahedron(15)==397.75\n3. volume_tetrahedron(20)==942.81\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ebb28353f0c641568d6823488815059b",
+    "object": "chat.completion",
+    "created": 1750869901,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef volume_tetrahedron(side_length):\n    \"\"\"\n    Calculate the volume of a regular tetrahedron given its side length.\n    \n    Parameters:\n    side_length (float): The length of each edge of the tetrahedron.\n    \n    Returns:\n    float: The volume of the tetrahedron.\n    \"\"\"\n    return (side_length ** 3) / (6 * sqrt(2))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 235,
+      "completion_tokens": 90,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869903.1390176
+}

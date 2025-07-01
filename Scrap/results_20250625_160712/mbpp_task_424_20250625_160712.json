@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 424,
+  "problem": {
+    "task_id": 424,
+    "text": "Write a function to extract only the rear index element of each string in the given tuple.",
+    "code": "def extract_rear(test_tuple):\r\n  res = list(sub[len(sub) - 1] for sub in test_tuple)\r\n  return (res) ",
+    "test_list": [
+      "assert extract_rear(('Mers', 'for', 'Vers') ) == ['s', 'r', 's']",
+      "assert extract_rear(('Avenge', 'for', 'People') ) == ['e', 'r', 'e']",
+      "assert extract_rear(('Gotta', 'get', 'go') ) == ['a', 't', 'o']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract only the rear index element of each string in the given tuple.\n\nTask ID: 424\n\nExpected behavior (test cases):\n1. extract_rear(('Mers', 'for', 'Vers') ) should return ['s', 'r', 's']\n2. extract_rear(('Avenge', 'for', 'People') ) should return ['e', 'r', 'e']\n3. extract_rear(('Gotta', 'get', 'go') ) should return ['a', 't', 'o']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-637269cfae674f40952cdc36f721cc97",
+    "object": "chat.completion",
+    "created": 1750869673,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract_rear(strings_tuple):\n    # Extracting and returning the last character from each string in the tuple\n    return [string[-1] for string in strings_tuple]\n\n# Test cases\nprint(extract_rear(('Mers', 'for', 'Vers')))  # Expected output: ['s', 'r', 's']\nprint(extract_rear(('Avenge', 'for', 'People')))  # Expected output: ['e', 'r', 'e']\nprint(extract_rear(('Gotta', 'get', 'go')))  # Expected output: ['a', 't', 'o']\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 174,
+      "total_tokens": 306,
+      "completion_tokens": 132,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869675.860575
+}

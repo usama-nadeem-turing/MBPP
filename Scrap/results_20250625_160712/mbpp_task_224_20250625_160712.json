@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 224,
+  "problem": {
+    "task_id": 224,
+    "text": "Write a python function to count set bits of a given number.",
+    "code": "def count_Set_Bits(n): \r\n    count = 0\r\n    while (n): \r\n        count += n & 1\r\n        n >>= 1\r\n    return count ",
+    "test_list": [
+      "assert count_Set_Bits(2) == 1",
+      "assert count_Set_Bits(4) == 1",
+      "assert count_Set_Bits(6) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count set bits of a given number.\n\nTask ID: 224\n\nExpected behavior (test cases):\n1. count_Set_Bits(2) should return 1\n2. count_Set_Bits(4) should return 1\n3. count_Set_Bits(6) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f8ecee04e4c340afb273938ef92f0a83",
+    "object": "chat.completion",
+    "created": 1750869166,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Set_Bits(n):\n    # Initialize counter for set bits\n    count = 0\n    \n    # Loop through each bit in the binary representation of n\n    while n:\n        # Increment count if the least significant bit is 1\n        count += n & 1\n        # Right shift n by one position to check the next bit\n        n >>= 1\n    \n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 218,
+      "completion_tokens": 88,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869167.5217628
+}

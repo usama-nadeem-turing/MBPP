@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 763,
+  "problem": {
+    "task_id": 763,
+    "text": "Write a python function to find the minimum difference between any two elements in a given array.",
+    "code": "def find_Min_Diff(arr,n): \r\n    arr = sorted(arr) \r\n    diff = 10**20 \r\n    for i in range(n-1): \r\n        if arr[i+1] - arr[i] < diff: \r\n            diff = arr[i+1] - arr[i]  \r\n    return diff ",
+    "test_list": [
+      "assert find_Min_Diff((1,5,3,19,18,25),6) == 1",
+      "assert find_Min_Diff((4,3,2,6),4) == 1",
+      "assert find_Min_Diff((30,5,20,9),4) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum difference between any two elements in a given array.\n\nTask ID: 763\n\nExpected behavior (test cases):\n1. find_Min_Diff((1,5,3,19,18,25),6) should return 1\n2. find_Min_Diff((4,3,2,6),4) should return 1\n3. find_Min_Diff((30,5,20,9),4) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6ca0a94d216f41b8a58976b99460908f",
+    "object": "chat.completion",
+    "created": 1750868053,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Min_Diff(arr, k):\n    arr.sort()\n    min_diff = float('inf')\n    for i in range(len(arr)-1):\n        if arr[i+1] - arr[i] < min_diff:\n            min_diff = arr[i+1] - arr[i]\n    return min_diff + k\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "total_tokens": 239,
+      "completion_tokens": 71,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868054.7658596
+}

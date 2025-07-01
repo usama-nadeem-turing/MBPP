@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 100,
+  "problem": {
+    "task_id": 100,
+    "text": "Write a function to find the next smallest palindrome of a specified number.",
+    "code": "import sys\r\ndef next_smallest_palindrome(num):\r\n    numstr = str(num)\r\n    for i in range(num+1,sys.maxsize):\r\n        if str(i) == str(i)[::-1]:\r\n            return i",
+    "test_list": [
+      "assert next_smallest_palindrome(99)==101",
+      "assert next_smallest_palindrome(1221)==1331",
+      "assert next_smallest_palindrome(120)==121"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the next smallest palindrome of a specified number.\n\nTask ID: 100\n\nExpected behavior (test cases):\n1. next_smallest_palindrome(99)==101\n2. next_smallest_palindrome(1221)==1331\n3. next_smallest_palindrome(120)==121\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fa3bffa711994b4cbc306e542bd71ef2",
+    "object": "chat.completion",
+    "created": 1750868832,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef next_smallest_palindrome(n):\n    # Convert the number to a string and reverse it\n    reversed_str = str(n)[::-1]\n    \n    # If the original number is less than half of itself plus one,\n    # then adding 1 will make it a palindrome.\n    if n < int(reversed_str[:len(str(n))]):\n        return int(reversed_str) + 1\n    \n    # Otherwise, add the difference between the length of the number and its reverse\n    else:\n        return int(reversed_str[1:] + reversed_str[:1]) + 1\n```\n\nThis solution works as follows:\n\n- It first converts the given number `n` into a string and reverses it.\n- Then, it checks if the original number is less than half of itself plus one. If true, it means adding 1 will result in a palindrome.\n- If not, it calculates the difference between the length of the number and its reverse, adds 1 to this difference, and returns the resulting palindrome.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 353,
+      "completion_tokens": 215,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868836.516475
+}

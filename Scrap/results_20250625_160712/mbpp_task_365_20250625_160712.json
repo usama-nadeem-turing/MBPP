@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 365,
+  "problem": {
+    "task_id": 365,
+    "text": "Write a python function to count the number of digits of a given number.",
+    "code": "def count_Digit(n):\r\n    count = 0\r\n    while n != 0:\r\n        n //= 10\r\n        count += 1\r\n    return count",
+    "test_list": [
+      "assert count_Digit(12345) == 5",
+      "assert count_Digit(11223305) == 8",
+      "assert count_Digit(4123459) == 7"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of digits of a given number.\n\nTask ID: 365\n\nExpected behavior (test cases):\n1. count_Digit(12345) should return 5\n2. count_Digit(11223305) should return 8\n3. count_Digit(4123459) should return 7\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4e84926869134971ac0f03c2f1a692db",
+    "object": "chat.completion",
+    "created": 1750869529,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Digit(n):\n    # Initialize counter for digit count\n    digit_count = 0\n    \n    # Loop until n becomes zero\n    while n != 0:\n        # Remove last digit from n\n        n //= 10\n        # Increment digit count\n        digit_count += 1\n    \n    return digit_count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 220,
+      "completion_tokens": 74,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869531.156379
+}

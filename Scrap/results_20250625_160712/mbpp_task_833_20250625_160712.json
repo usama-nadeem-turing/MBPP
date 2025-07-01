@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 833,
+  "problem": {
+    "task_id": 833,
+    "text": "Write a function to get dictionary keys as a list.",
+    "code": "def get_key(dict): \r\n    list = [] \r\n    for key in dict.keys(): \r\n        list.append(key)           \r\n    return list",
+    "test_list": [
+      "assert get_key({1:'python',2:'java'})==[1,2]",
+      "assert get_key({10:'red',20:'blue',30:'black'})==[10,20,30]",
+      "assert get_key({27:'language',39:'java',44:'little'})==[27,39,44]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to get dictionary keys as a list.\n\nTask ID: 833\n\nExpected behavior (test cases):\n1. get_key({1:'python',2:'java'})==[1,2]\n2. get_key({10:'red',20:'blue',30:'black'})==[10,20,30]\n3. get_key({27:'language',39:'java',44:'little'})==[27,39,44]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ac422cbfb11a4f1391be8f0900826b3b",
+    "object": "chat.completion",
+    "created": 1750868229,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_key(dct):\n    return list(dct.keys())\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "total_tokens": 185,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868229.3722825
+}

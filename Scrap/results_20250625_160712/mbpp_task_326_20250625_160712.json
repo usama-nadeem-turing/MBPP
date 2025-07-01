@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 326,
+  "problem": {
+    "task_id": 326,
+    "text": "Write a function to get the word with most number of occurrences in the given strings list.",
+    "code": "from collections import defaultdict \r\n\r\ndef most_occurrences(test_list):\r\n  temp = defaultdict(int)\r\n  for sub in test_list:\r\n    for wrd in sub.split():\r\n      temp[wrd] += 1\r\n  res = max(temp, key=temp.get)\r\n  return (str(res)) ",
+    "test_list": [
+      "assert most_occurrences([\"UTS is best for RTF\", \"RTF love UTS\", \"UTS is best\"] ) == 'UTS'",
+      "assert most_occurrences([\"Its been a great year\", \"this year is so worse\", \"this year is okay\"] ) == 'year'",
+      "assert most_occurrences([\"Families can be reunited\", \"people can be reunited\", \"Tasks can be achieved \"] ) == 'can'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to get the word with most number of occurrences in the given strings list.\n\nTask ID: 326\n\nExpected behavior (test cases):\n1. most_occurrences([\"UTS is best for RTF\", \"RTF love UTS\", \"UTS is best\"] ) should return 'UTS'\n2. most_occurrences([\"Its been a great year\", \"this year is so worse\", \"this year is okay\"] ) should return 'year'\n3. most_occurrences([\"Families can be reunited\", \"people can be reunited\", \"Tasks can be achieved \"] ) should return 'can'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-734bbd140b6044bf882143a4733a213e",
+    "object": "chat.completion",
+    "created": 1750869430,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import Counter\n\ndef most_occurrences(strings_list):\n    # Count the frequency of each word in the list\n    word_counts = Counter(strings_list)\n    \n    # Find the maximum occurrence count\n    max_count = max(word_counts.values())\n    \n    # Filter words that have the maximum occurrence count and return them as a list\n    result_words = [word for word, count in word_counts.items() if count == max_count]\n    \n    return result_words[0] if len(result_words) > 0 else None\n```\n\nThis solution uses the `collections.Counter` class to count the occurrences of each word in the input list. It then finds the highest count among these counts and returns all words that match this count. If there's no such word, it returns `None`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "total_tokens": 353,
+      "completion_tokens": 165,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869433.0344572
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 244,
+  "problem": {
+    "task_id": 244,
+    "text": "Write a python function to find the next perfect square greater than a given number.",
+    "code": "import math  \r\ndef next_Perfect_Square(N): \r\n    nextN = math.floor(math.sqrt(N)) + 1\r\n    return nextN * nextN ",
+    "test_list": [
+      "assert next_Perfect_Square(35) == 36",
+      "assert next_Perfect_Square(6) == 9",
+      "assert next_Perfect_Square(9) == 16"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the next perfect square greater than a given number.\n\nTask ID: 244\n\nExpected behavior (test cases):\n1. next_Perfect_Square(35) should return 36\n2. next_Perfect_Square(6) should return 9\n3. next_Perfect_Square(9) should return 16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-71bf14cac2e242448da40f343ff15eee",
+    "object": "chat.completion",
+    "created": 1750869215,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef next_Perfect_Square(n):\n    \"\"\"\n    Finds the smallest perfect square larger than n.\n    \n    Parameters:\n    n (int): The input integer\n    \n    Returns:\n    int: The next perfect square after n\n    \"\"\"\n    import math\n    root = math.ceil(math.sqrt(n))\n    return root ** 2\n\n# Test cases\nprint(next_Perfect_Square(35))  # Expected output: 36\nprint(next_Perfect_Square(6))   # Expected output: 9\nprint(next_Perfect_Square(9))   # Expected output: 16\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 270,
+      "completion_tokens": 131,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869218.0678024
+}

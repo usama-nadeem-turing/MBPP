@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 538,
+  "problem": {
+    "task_id": 538,
+    "text": "Write a python function to convert a given string list to a tuple.",
+    "code": "def string_list_to_tuple(str1):\r\n    result = tuple(x for x in str1 if not x.isspace()) \r\n    return result",
+    "test_list": [
+      "assert string_list_to_tuple((\"python 3.0\")) == ('p', 'y', 't', 'h', 'o', 'n', '3', '.', '0')",
+      "assert string_list_to_tuple((\"bigdata\")) == ('b', 'i', 'g', 'd', 'a', 't', 'a')",
+      "assert string_list_to_tuple((\"language\")) == ('l', 'a', 'n', 'g', 'u', 'a', 'g','e')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert a given string list to a tuple.\n\nTask ID: 538\n\nExpected behavior (test cases):\n1. string_list_to_tuple((\"python 3.0\")) should return ('p', 'y', 't', 'h', 'o', 'n', '3', '.', '0')\n2. string_list_to_tuple((\"bigdata\")) should return ('b', 'i', 'g', 'd', 'a', 't', 'a')\n3. string_list_to_tuple((\"language\")) should return ('l', 'a', 'n', 'g', 'u', 'a', 'g','e')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e9e08c55704c4aa390edaa0f18894ba5",
+    "object": "chat.completion",
+    "created": 1750869953,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef string_list_to_tuple(string_list):\n    # Convert each element in the list into a tuple and then join them with spaces\n    result = ''.join(tuple(string_list))\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 196,
+      "total_tokens": 240,
+      "completion_tokens": 44,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869953.943401
+}

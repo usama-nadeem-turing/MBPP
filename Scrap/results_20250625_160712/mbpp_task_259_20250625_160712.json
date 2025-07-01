@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 259,
+  "problem": {
+    "task_id": 259,
+    "text": "Write a function to maximize the given two tuples.",
+    "code": "def maximize_elements(test_tup1, test_tup2):\r\n  res = tuple(tuple(max(a, b) for a, b in zip(tup1, tup2))\r\n   for tup1, tup2 in zip(test_tup1, test_tup2))\r\n  return (res) ",
+    "test_list": [
+      "assert maximize_elements(((1, 3), (4, 5), (2, 9), (1, 10)), ((6, 7), (3, 9), (1, 1), (7, 3))) == ((6, 7), (4, 9), (2, 9), (7, 10))",
+      "assert maximize_elements(((2, 4), (5, 6), (3, 10), (2, 11)), ((7, 8), (4, 10), (2, 2), (8, 4))) == ((7, 8), (5, 10), (3, 10), (8, 11))",
+      "assert maximize_elements(((3, 5), (6, 7), (4, 11), (3, 12)), ((8, 9), (5, 11), (3, 3), (9, 5))) == ((8, 9), (6, 11), (4, 11), (9, 12))"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to maximize the given two tuples.\n\nTask ID: 259\n\nExpected behavior (test cases):\n1. maximize_elements(((1, 3), (4, 5), (2, 9), (1, 10)), ((6, 7), (3, 9), (1, 1), (7, 3))) should return ((6, 7), (4, 9), (2, 9), (7, 10))\n2. maximize_elements(((2, 4), (5, 6), (3, 10), (2, 11)), ((7, 8), (4, 10), (2, 2), (8, 4))) should return ((7, 8), (5, 10), (3, 10), (8, 11))\n3. maximize_elements(((3, 5), (6, 7), (4, 11), (3, 12)), ((8, 9), (5, 11), (3, 3), (9, 5))) should return ((8, 9), (6, 11), (4, 11), (9, 12))\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5308d2df8fdf42c2bfb450d88a5532fd",
+    "object": "chat.completion",
+    "created": 1750869254,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef maximize_elements(tuples1, tuples2):\n    # Sort each tuple in descending order based on its elements\n    sorted_tuples1 = [tuple(sorted(x, reverse=True)) for x in tuples1]\n    sorted_tuples2 = [tuple(sorted(x, reverse=True)) for x in tuples2]\n\n    # Pair up the sorted tuples and select the maximum element from each pair\n    result = [(max(a, b), max(c, d)) for a, b, c, d in zip(*sorted_tuples1 + sorted_tuples2)]\n\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 333,
+      "total_tokens": 452,
+      "completion_tokens": 119,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869256.9208858
+}

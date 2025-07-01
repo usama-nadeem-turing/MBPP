@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 682,
+  "problem": {
+    "task_id": 682,
+    "text": "Write a function to multiply two lists using map and lambda function.",
+    "code": "def mul_list(nums1,nums2):\r\n  result = map(lambda x, y: x * y, nums1, nums2)\r\n  return list(result)",
+    "test_list": [
+      "assert mul_list([1, 2, 3],[4,5,6])==[4,10,18]",
+      "assert mul_list([1,2],[3,4])==[3,8]",
+      "assert mul_list([90,120],[50,70])==[4500,8400]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to multiply two lists using map and lambda function.\n\nTask ID: 682\n\nExpected behavior (test cases):\n1. mul_list([1, 2, 3],[4,5,6])==[4,10,18]\n2. mul_list([1,2],[3,4])==[3,8]\n3. mul_list([90,120],[50,70])==[4500,8400]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-151a52ced237467fb1e94f218451aa12",
+    "object": "chat.completion",
+    "created": 1750867838,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom functools import reduce\n\ndef mul_list(list1, list2):\n    return list(map(lambda x, y: x * y, list1, list2))\n\n# Test cases\nprint(mul_list([1, 2, 3], [4, 5, 6]))  # Expected output: [4, 10, 18]\nprint(mul_list([1, 2], [3, 4]))        # Expected output: [3, 8]\nprint(mul_list([90, 120], [50, 70]))   # Expected output: [4500, 8400]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "total_tokens": 308,
+      "completion_tokens": 145,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867841.0725737
+}

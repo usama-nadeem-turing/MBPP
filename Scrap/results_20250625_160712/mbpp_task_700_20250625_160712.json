@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 700,
+  "problem": {
+    "task_id": 700,
+    "text": "Write a function to count the number of elements in a list which are within a specific range.",
+    "code": "def count_range_in_list(li, min, max):\r\n\tctr = 0\r\n\tfor x in li:\r\n\t\tif min <= x <= max:\r\n\t\t\tctr += 1\r\n\treturn ctr",
+    "test_list": [
+      "assert count_range_in_list([10,20,30,40,40,40,70,80,99],40,100)==6",
+      "assert count_range_in_list(['a','b','c','d','e','f'],'a','e')==5",
+      "assert count_range_in_list([7,8,9,15,17,19,45],15,20)==3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the number of elements in a list which are within a specific range.\n\nTask ID: 700\n\nExpected behavior (test cases):\n1. count_range_in_list([10,20,30,40,40,40,70,80,99],40,100)==6\n2. count_range_in_list(['a','b','c','d','e','f'],'a','e')==5\n3. count_range_in_list([7,8,9,15,17,19,45],15,20)==3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-292cc651928540658f58534d7fd0a98a",
+    "object": "chat.completion",
+    "created": 1750867886,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_range_in_list(lst, lower_bound, upper_bound):\n    return sum(lower_bound <= x <= upper_bound for x in lst)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 195,
+      "total_tokens": 228,
+      "completion_tokens": 33,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867887.3129537
+}

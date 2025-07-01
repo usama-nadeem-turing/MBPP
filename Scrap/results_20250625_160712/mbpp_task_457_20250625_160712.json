@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 457,
+  "problem": {
+    "task_id": 457,
+    "text": "Write a python function to find the sublist having minimum length.",
+    "code": "def Find_Min(lst): \r\n    minList = min((x) for x in lst) \r\n    return minList",
+    "test_list": [
+      "assert Find_Min([[1],[1,2],[1,2,3]]) == [1]",
+      "assert Find_Min([[1,1],[1,1,1],[1,2,7,8]]) == [1,1]",
+      "assert Find_Min([['x'],['x','y'],['x','y','z']]) == ['x']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sublist having minimum length.\n\nTask ID: 457\n\nExpected behavior (test cases):\n1. Find_Min([[1],[1,2],[1,2,3]]) should return [1]\n2. Find_Min([[1,1],[1,1,1],[1,2,7,8]]) should return [1,1]\n3. Find_Min([['x'],['x','y'],['x','y','z']]) should return ['x']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-19d299d547b04cb5bab62c9e08700c96",
+    "object": "chat.completion",
+    "created": 1750869743,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_min(lst):\n    # Initialize variables to store the minimum element and its index\n    min_element = lst[0][0] if isinstance(lst[0], list) else lst[0]\n    min_index = 0\n    \n    # Iterate through each sublist in the given list\n    for i, sublst in enumerate(lst):\n        # If current sublist is shorter than the previously found minimum sublist,\n        # update the minimum element and its index\n        if len(sublst) < len(min_element):\n            min_element = sublst\n            min_index = i\n            \n    # Return the sublist with the minimum length\n    return min_element\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "total_tokens": 300,
+      "completion_tokens": 137,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869745.802306
+}

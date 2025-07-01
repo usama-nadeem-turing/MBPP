@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 826,
+  "problem": {
+    "task_id": 826,
+    "text": "Write a python function to find the type of triangle from the given sides.",
+    "code": "def check_Type_Of_Triangle(a,b,c): \r\n    sqa = pow(a,2) \r\n    sqb = pow(b,2) \r\n    sqc = pow(c,2) \r\n    if (sqa == sqa + sqb or sqb == sqa + sqc or sqc == sqa + sqb): \r\n        return (\"Right-angled Triangle\") \r\n    elif (sqa > sqc + sqb or sqb > sqa + sqc or sqc > sqa + sqb): \r\n        return (\"Obtuse-angled Triangle\") \r\n    else: \r\n        return (\"Acute-angled Triangle\") ",
+    "test_list": [
+      "assert check_Type_Of_Triangle(1,2,3) == \"Obtuse-angled Triangle\"",
+      "assert check_Type_Of_Triangle(2,2,2) == \"Acute-angled Triangle\"",
+      "assert check_Type_Of_Triangle(1,0,1) == \"Right-angled Triangle\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the type of triangle from the given sides.\n\nTask ID: 826\n\nExpected behavior (test cases):\n1. check_Type_Of_Triangle(1,2,3) should return \"Obtuse-angled Triangle\"\n2. check_Type_Of_Triangle(2,2,2) should return \"Acute-angled Triangle\"\n3. check_Type_Of_Triangle(1,0,1) should return \"Right-angled Triangle\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-61844491e6994a0caecf83aa92e93c02",
+    "object": "chat.completion",
+    "created": 1750868210,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_Type_Of_Triangle(a, b, c):\n    # Check if all sides are positive numbers\n    if a <= 0 or b <= 0 or c <= 0:\n        return \"Invalid input\"\n\n    # Sort the sides to simplify comparison\n    sides = sorted([a, b, c])\n\n    # Calculate squares of the sides\n    side_a_squared = sides[0] ** 2\n    side_b_squared = sides[1] ** 2\n    side_c_squared = sides[2] ** 2\n\n    # Check for right-angled triangle\n    if side_a_squared + side_b_squared == side_c_squared:\n        return \"Right-angled Triangle\"\n\n    # Check for obtuse-angled triangle\n    elif side_a_squared + side_b_squared < side_c_squared:\n        return \"Obtuse-angled Triangle\"\n\n    # If none of the above conditions are met, it's an acute-angled triangle\n    else:\n        return \"Acute-angled Triangle\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "total_tokens": 372,
+      "completion_tokens": 213,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868213.5578568
+}

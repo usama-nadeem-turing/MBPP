@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 62,
+  "problem": {
+    "task_id": 62,
+    "text": "Write a python function to find smallest number in a list.",
+    "code": "def smallest_num(xs):\n  return min(xs)\n",
+    "test_list": [
+      "assert smallest_num([10, 20, 1, 45, 99]) == 1",
+      "assert smallest_num([1, 2, 3]) == 1",
+      "assert smallest_num([45, 46, 50, 60]) == 45"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find smallest number in a list.\n\nTask ID: 62\n\nExpected behavior (test cases):\n1. smallest_num([10, 20, 1, 45, 99]) should return 1\n2. smallest_num([1, 2, 3]) should return 1\n3. smallest_num([45, 46, 50, 60]) should return 45\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e3e2a51e9543427280f7f36ed244c5e4",
+    "object": "chat.completion",
+    "created": 1750868737,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef smallest_num(lst):\n    # Initialize min with the first element of the list\n    min_val = lst[0]\n    \n    # Iterate through the list starting from the second element\n    for num in lst[1:]:\n        if num < min_val:\n            min_val = num\n    \n    return min_val\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 227,
+      "completion_tokens": 69,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868738.843158
+}

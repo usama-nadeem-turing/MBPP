@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 678,
+  "problem": {
+    "task_id": 678,
+    "text": "Write a python function to remove spaces from a given string.",
+    "code": "def remove_spaces(str1):\r\n  str1 = str1.replace(' ','')\r\n  return str1",
+    "test_list": [
+      "assert remove_spaces(\"a b c\") == \"abc\"",
+      "assert remove_spaces(\"1 2 3\") == \"123\"",
+      "assert remove_spaces(\" b c\") == \"bc\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove spaces from a given string.\n\nTask ID: 678\n\nExpected behavior (test cases):\n1. remove_spaces(\"a b c\") should return \"abc\"\n2. remove_spaces(\"1 2 3\") should return \"123\"\n3. remove_spaces(\" b c\") should return \"bc\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7865f6a9f8ef408f8819774b4d8bb8e9",
+    "object": "chat.completion",
+    "created": 1750867831,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_spaces(input_string):\n    # Remove all spaces from the input string using str.replace method\n    result = input_string.replace(' ', '')\n    return result\n\n# Test cases\nprint(remove_spaces(\"a b c\"))  # Expected output: \"abc\"\nprint(remove_spaces(\"1 2 3\"))  # Expected output: \"123\"\nprint(remove_spaces(\" b c\"))   # Expected output: \"bc\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 225,
+      "completion_tokens": 93,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867833.5524905
+}

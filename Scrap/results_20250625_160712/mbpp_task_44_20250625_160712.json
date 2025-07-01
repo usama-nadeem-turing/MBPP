@@ -1,0 +1,46 @@
+{
+  "mbpp_id": 44,
+  "problem": {
+    "task_id": 44,
+    "text": "Write a function that matches a word at the beginning of a string.",
+    "code": "import re\r\ndef text_match_string(text):\r\n        patterns = '^\\w+'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return 'Not matched!'",
+    "test_list": [
+      "assert text_match_string(\" python\")==('Not matched!')",
+      "assert text_match_string(\"python\")==('Found a match!')",
+      "assert text_match_string(\"  lang\")==('Not matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert text_match_string(\"foo\")==('Found a match!')"
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a word at the beginning of a string.\n\nTask ID: 44\n\nExpected behavior (test cases):\n1. text_match_string(\" python\")==('Not matched!')\n2. text_match_string(\"python\")==('Found a match!')\n3. text_match_string(\"  lang\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0877a6cf2714464d8a2b5d8a621b0e78",
+    "object": "chat.completion",
+    "created": 1750868689,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef text_match_string(text):\n    # Define the regex pattern to match a word at the start of the string\n    pattern = r'^\\w+'\n    \n    # Search for the pattern in the given text\n    if re.search(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n```\n\nThis solution uses regular expressions to check if the input `text` starts with one or more word characters (letters, digits, and underscores). If it does, it returns \"Found a match!\" Otherwise, it returns \"Not matched!\".",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 251,
+      "completion_tokens": 124,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868692.005647
+}

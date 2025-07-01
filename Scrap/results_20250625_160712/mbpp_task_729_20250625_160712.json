@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 729,
+  "problem": {
+    "task_id": 729,
+    "text": "Write a function to add two lists using map and lambda function.",
+    "code": "def add_list(nums1,nums2):\r\n  result = map(lambda x, y: x + y, nums1, nums2)\r\n  return list(result)",
+    "test_list": [
+      "assert add_list([1, 2, 3],[4,5,6])==[5, 7, 9]",
+      "assert add_list([1,2],[3,4])==[4,6]",
+      "assert add_list([10,20],[50,70])==[60,90]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to add two lists using map and lambda function.\n\nTask ID: 729\n\nExpected behavior (test cases):\n1. add_list([1, 2, 3],[4,5,6])==[5, 7, 9]\n2. add_list([1,2],[3,4])==[4,6]\n3. add_list([10,20],[50,70])==[60,90]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-af3ea2d6cd2b43d2af376fde84501580",
+    "object": "chat.completion",
+    "created": 1750867957,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom typing import List\n\ndef add_list(list1: List[int], list2: List[int]) -> List[int]:\n    return list(map(lambda x, y: x + y, list1, list2))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 206,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867958.5778284
+}

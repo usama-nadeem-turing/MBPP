@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 192,
+  "problem": {
+    "task_id": 192,
+    "text": "Write a python function to check whether a string has atleast one letter and one number.",
+    "code": "def check_String(str): \r\n    flag_l = False\r\n    flag_n = False\r\n    for i in str: \r\n        if i.isalpha(): \r\n            flag_l = True  \r\n        if i.isdigit(): \r\n            flag_n = True\r\n    return flag_l and flag_n ",
+    "test_list": [
+      "assert check_String('thishasboth29') == True",
+      "assert check_String('python') == False",
+      "assert check_String ('string') == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether a string has atleast one letter and one number.\n\nTask ID: 192\n\nExpected behavior (test cases):\n1. check_String('thishasboth29') should return True\n2. check_String('python') should return False\n3. check_String ('string') should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-914bea8da586491791c9476f0022087a",
+    "object": "chat.completion",
+    "created": 1750869086,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_String(s):\n    # Check if the string contains at least one letter and one number\n    return bool(re.search(r'[a-zA-Z]', s)) and bool(re.search(r'\\d', s))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 177,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869086.8957481
+}

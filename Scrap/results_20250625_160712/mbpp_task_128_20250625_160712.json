@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 128,
+  "problem": {
+    "task_id": 128,
+    "text": "Write a function to shortlist words that are longer than n from a given list of words.",
+    "code": "def long_words(n, str):\r\n    word_len = []\r\n    txt = str.split(\" \")\r\n    for x in txt:\r\n        if len(x) > n:\r\n            word_len.append(x)\r\n    return word_len\t",
+    "test_list": [
+      "assert long_words(3,\"python is a programming language\")==['python','programming','language']",
+      "assert long_words(2,\"writing a program\")==['writing','program']",
+      "assert long_words(5,\"sorting list\")==['sorting']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to shortlist words that are longer than n from a given list of words.\n\nTask ID: 128\n\nExpected behavior (test cases):\n1. long_words(3,\"python is a programming language\")==['python','programming','language']\n2. long_words(2,\"writing a program\")==['writing','program']\n3. long_words(5,\"sorting list\")==['sorting']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5756474cc43d4f59b744066e91692f0a",
+    "object": "chat.completion",
+    "created": 1750868912,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef long_words(n, words):\n    return [word for word in words if len(word) > n]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 143,
+      "total_tokens": 170,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868912.5134559
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 313,
+  "problem": {
+    "task_id": 313,
+    "text": "Write a python function to print positive numbers in a list.",
+    "code": "def pos_nos(list1):\r\n  for num in list1: \r\n    if num >= 0: \r\n       return num ",
+    "test_list": [
+      "assert pos_nos([-1,-2,1,2]) == 1,2",
+      "assert pos_nos([3,4,-5]) == 3,4",
+      "assert pos_nos([-2,-3,1]) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to print positive numbers in a list.\n\nTask ID: 313\n\nExpected behavior (test cases):\n1. pos_nos([-1,-2,1,2]) should return 1,2\n2. pos_nos([3,4,-5]) should return 3,4\n3. pos_nos([-2,-3,1]) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8b87222f2410423482668f945e1037cc",
+    "object": "chat.completion",
+    "created": 1750869392,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef pos_nos(lst):\n    # Filter out negative numbers and return the remaining positive numbers\n    return [num for num in lst if num > 0]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 182,
+      "completion_tokens": 38,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869393.44685
+}

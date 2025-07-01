@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 652,
+  "problem": {
+    "task_id": 652,
+    "text": "Write a function to flatten the given tuple matrix into the tuple list with each tuple representing each column.",
+    "code": "def matrix_to_list(test_list):\r\n  temp = [ele for sub in test_list for ele in sub]\r\n  res = list(zip(*temp))\r\n  return (str(res))",
+    "test_list": [
+      "assert matrix_to_list([[(4, 5), (7, 8)], [(10, 13), (18, 17)], [(0, 4), (10, 1)]]) == '[(4, 7, 10, 18, 0, 10), (5, 8, 13, 17, 4, 1)]'",
+      "assert matrix_to_list([[(5, 6), (8, 9)], [(11, 14), (19, 18)], [(1, 5), (11, 2)]]) == '[(5, 8, 11, 19, 1, 11), (6, 9, 14, 18, 5, 2)]'",
+      "assert matrix_to_list([[(6, 7), (9, 10)], [(12, 15), (20, 21)], [(23, 7), (15, 8)]]) == '[(6, 9, 12, 20, 23, 15), (7, 10, 15, 21, 7, 8)]'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to flatten the given tuple matrix into the tuple list with each tuple representing each column.\n\nTask ID: 652\n\nExpected behavior (test cases):\n1. matrix_to_list([[(4, 5), (7, 8)], [(10, 13), (18, 17)], [(0, 4), (10, 1)]]) should return '[(4, 7, 10, 18, 0, 10), (5, 8, 13, 17, 4, 1)]'\n2. matrix_to_list([[(5, 6), (8, 9)], [(11, 14), (19, 18)], [(1, 5), (11, 2)]]) should return '[(5, 8, 11, 19, 1, 11), (6, 9, 14, 18, 5, 2)]'\n3. matrix_to_list([[(6, 7), (9, 10)], [(12, 15), (20, 21)], [(23, 7), (15, 8)]]) should return '[(6, 9, 12, 20, 23, 15), (7, 10, 15, 21, 7, 8)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6a1b4d1d14f44b2a971ac9d8082f0f6a",
+    "object": "chat.completion",
+    "created": 1750867772,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef matrix_to_list(matrix):\n    # Flatten the matrix and convert it to a string representation of tuples\n    flattened = [tuple(row) for row in zip(*matrix)]\n    result = '(' + ', '.join(map(str, flattened)) + ')'\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 378,
+      "total_tokens": 438,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867773.4142447
+}

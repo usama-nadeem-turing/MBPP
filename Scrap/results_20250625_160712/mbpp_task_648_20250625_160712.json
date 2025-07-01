@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 648,
+  "problem": {
+    "task_id": 648,
+    "text": "Write a function to exchange the position of every n-th value with (n+1)th value and (n+1)th value with n-th value in a given list.",
+    "code": "from itertools import zip_longest, chain, tee\r\ndef exchange_elements(lst):\r\n    lst1, lst2 = tee(iter(lst), 2)\r\n    return list(chain.from_iterable(zip_longest(lst[1::2], lst[::2])))",
+    "test_list": [
+      "assert exchange_elements([0,1,2,3,4,5])==[1, 0, 3, 2, 5, 4] ",
+      "assert exchange_elements([5,6,7,8,9,10])==[6,5,8,7,10,9] ",
+      "assert exchange_elements([25,35,45,55,75,95])==[35,25,55,45,95,75] "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to exchange the position of every n-th value with (n+1)th value and (n+1)th value with n-th value in a given list.\n\nTask ID: 648\n\nExpected behavior (test cases):\n1. exchange_elements([0,1,2,3,4,5])==[1, 0, 3, 2, 5, 4] \n2. exchange_elements([5,6,7,8,9,10])==[6,5,8,7,10,9] \n3. exchange_elements([25,35,45,55,75,95])==[35,25,55,45,95,75] \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dbedde33e30e40dd9590f129d43e718c",
+    "object": "chat.completion",
+    "created": 1750867763,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef exchange_elements(lst):\n    for i in range(0, len(lst), 2):\n        lst[i], lst[i + 1] = lst[i + 1], lst[i]\n    return lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "total_tokens": 272,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867763.9840097
+}

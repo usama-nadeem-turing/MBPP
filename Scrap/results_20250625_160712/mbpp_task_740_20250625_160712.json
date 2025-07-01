@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 740,
+  "problem": {
+    "task_id": 740,
+    "text": "Write a function to convert the given tuple to a key-value dictionary using adjacent elements.",
+    "code": "def tuple_to_dict(test_tup):\r\n  res = dict(test_tup[idx : idx + 2] for idx in range(0, len(test_tup), 2))\r\n  return (res) ",
+    "test_list": [
+      "assert tuple_to_dict((1, 5, 7, 10, 13, 5)) == {1: 5, 7: 10, 13: 5}",
+      "assert tuple_to_dict((1, 2, 3, 4, 5, 6)) == {1: 2, 3: 4, 5: 6}",
+      "assert tuple_to_dict((7, 8, 9, 10, 11, 12)) == {7: 8, 9: 10, 11: 12}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given tuple to a key-value dictionary using adjacent elements.\n\nTask ID: 740\n\nExpected behavior (test cases):\n1. tuple_to_dict((1, 5, 7, 10, 13, 5)) should return {1: 5, 7: 10, 13: 5}\n2. tuple_to_dict((1, 2, 3, 4, 5, 6)) should return {1: 2, 3: 4, 5: 6}\n3. tuple_to_dict((7, 8, 9, 10, 11, 12)) should return {7: 8, 9: 10, 11: 12}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dbe5fbc3305d43c095a89ca0e1048219",
+    "object": "chat.completion",
+    "created": 1750867992,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tuple_to_dict(tup):\n    result = {}\n    for i in range(0, len(tup), 2):\n        if i + 1 < len(tup):\n            result[tup[i]] = tup[i+1]\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 231,
+      "total_tokens": 289,
+      "completion_tokens": 58,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867993.8154197
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 444,
+  "problem": {
+    "task_id": 444,
+    "text": "Write a function to trim each tuple by k in the given tuple list.",
+    "code": "def trim_tuple(test_list, K):\r\n  res = []\r\n  for ele in test_list:\r\n    N = len(ele)\r\n    res.append(tuple(list(ele)[K: N - K]))\r\n  return (str(res)) ",
+    "test_list": [
+      "assert trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1),(9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 2) == '[(2,), (9,), (2,), (2,)]'",
+      "assert trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1), (9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 1) == '[(3, 2, 1), (4, 9, 2), (1, 2, 3), (8, 2, 1)]'",
+      "assert trim_tuple([(7, 8, 4, 9), (11, 8, 12, 4),(4, 1, 7, 8), (3, 6, 9, 7)], 1) == '[(8, 4), (8, 12), (1, 7), (6, 9)]'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to trim each tuple by k in the given tuple list.\n\nTask ID: 444\n\nExpected behavior (test cases):\n1. trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1),(9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 2) should return '[(2,), (9,), (2,), (2,)]'\n2. trim_tuple([(5, 3, 2, 1, 4), (3, 4, 9, 2, 1), (9, 1, 2, 3, 5), (4, 8, 2, 1, 7)], 1) should return '[(3, 2, 1), (4, 9, 2), (1, 2, 3), (8, 2, 1)]'\n3. trim_tuple([(7, 8, 4, 9), (11, 8, 12, 4),(4, 1, 7, 8), (3, 6, 9, 7)], 1) should return '[(8, 4), (8, 12), (1, 7), (6, 9)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b0579283735b45658de7adb744ede5f5",
+    "object": "chat.completion",
+    "created": 1750869717,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef trim_tuple(tuples_list, k):\n    # Trim each tuple by k and return as a list of tuples\n    trimmed_tuples = [(x[k:] if len(x) > k else x) for x in tuples_list]\n    return trimmed_tuples\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 365,
+      "total_tokens": 422,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869718.094768
+}

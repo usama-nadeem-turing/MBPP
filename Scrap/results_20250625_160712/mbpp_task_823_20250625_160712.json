@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 823,
+  "problem": {
+    "task_id": 823,
+    "text": "Write a function to check if the given string starts with a substring using regex.",
+    "code": "import re \r\ndef check_substring(string, sample) : \r\n  if (sample in string): \r\n      y = \"\\A\" + sample \r\n      x = re.search(y, string) \r\n      if x : \r\n          return (\"string starts with the given substring\") \r\n      else : \r\n          return (\"string doesnt start with the given substring\") \r\n  else : \r\n      return (\"entered string isnt a substring\")",
+    "test_list": [
+      "assert check_substring(\"dreams for dreams makes life fun\", \"makes\") == 'string doesnt start with the given substring'",
+      "assert check_substring(\"Hi there how are you Hi alex\", \"Hi\") == 'string starts with the given substring'",
+      "assert check_substring(\"Its been a long day\", \"been\") == 'string doesnt start with the given substring'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given string starts with a substring using regex.\n\nTask ID: 823\n\nExpected behavior (test cases):\n1. check_substring(\"dreams for dreams makes life fun\", \"makes\") should return 'string doesnt start with the given substring'\n2. check_substring(\"Hi there how are you Hi alex\", \"Hi\") should return 'string starts with the given substring'\n3. check_substring(\"Its been a long day\", \"been\") should return 'string doesnt start with the given substring'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1165c4afa60b466c838c5b13816f426a",
+    "object": "chat.completion",
+    "created": 1750868201,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_substring(string, substring):\n    # Check if the string starts with the substring\n    if not re.match(\"^\" + re.escape(substring), string):\n        return f'string doesnt start with the given substring'\n    else:\n        return 'string starts with the given substring'\n\n# Test cases\nprint(check_substring(\"dreams for dreams makes life fun\", \"makes\"))  # Expected output: 'string doesnt start with the given substring'\nprint(check_substring(\"Hi there how are you Hi alex\", \"Hi\"))         # Expected output: 'string starts with the given substring'\nprint(check_substring(\"Its been a long day\", \"been\"))               # Expected output: 'string doesnt start with the given substring'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 330,
+      "completion_tokens": 158,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868204.0715702
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 589,
+  "problem": {
+    "task_id": 589,
+    "text": "Write a function to find perfect squares between two given numbers.",
+    "code": "def perfect_squares(a, b):\r\n    lists=[]\r\n    for i in range (a,b+1):\r\n        j = 1;\r\n        while j*j <= i:\r\n            if j*j == i:\r\n                 lists.append(i)  \r\n            j = j+1\r\n        i = i+1\r\n    return lists",
+    "test_list": [
+      "assert perfect_squares(1,30)==[1, 4, 9, 16, 25]",
+      "assert perfect_squares(50,100)==[64, 81, 100]",
+      "assert perfect_squares(100,200)==[100, 121, 144, 169, 196]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find perfect squares between two given numbers.\n\nTask ID: 589\n\nExpected behavior (test cases):\n1. perfect_squares(1,30)==[1, 4, 9, 16, 25]\n2. perfect_squares(50,100)==[64, 81, 100]\n3. perfect_squares(100,200)==[100, 121, 144, 169, 196]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7c3d6111fa1340efbd768fc43987d682",
+    "object": "chat.completion",
+    "created": 1750870078,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef perfect_squares(start, end):\n    return [i**2 for i in range(int((end**0.5)+1), int((start-1)**0.5)-1, -1)]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 180,
+      "total_tokens": 228,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870079.1124713
+}

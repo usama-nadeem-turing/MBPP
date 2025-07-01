@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 772,
+  "problem": {
+    "task_id": 772,
+    "text": "Write a function to remove all the words with k length in the given string.",
+    "code": "def remove_length(test_str, K):\r\n  temp = test_str.split()\r\n  res = [ele for ele in temp if len(ele) != K]\r\n  res = ' '.join(res)\r\n  return (res) ",
+    "test_list": [
+      "assert remove_length('The person is most value tet', 3) == 'person is most value'",
+      "assert remove_length('If you told me about this ok', 4) == 'If you me about ok'",
+      "assert remove_length('Forces of darkeness is come into the play', 4) == 'Forces of darkeness is the'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove all the words with k length in the given string.\n\nTask ID: 772\n\nExpected behavior (test cases):\n1. remove_length('The person is most value tet', 3) should return 'person is most value'\n2. remove_length('If you told me about this ok', 4) should return 'If you me about ok'\n3. remove_length('Forces of darkeness is come into the play', 4) should return 'Forces of darkeness is the'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-324dc5e7d92e403fb453286037f63bc6",
+    "object": "chat.completion",
+    "created": 1750868075,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_length(s, k):\n    # Split the string into words and filter out those with length equal to k\n    filtered_words = [word for word in s.split() if len(word) != k]\n    # Join the remaining words back into a single string\n    result = ' '.join(filtered_words)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "total_tokens": 242,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868077.2102306
+}

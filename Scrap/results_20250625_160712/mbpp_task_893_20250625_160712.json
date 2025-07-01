@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 893,
+  "problem": {
+    "task_id": 893,
+    "text": "Write a python function to get the last element of each sublist.",
+    "code": "def Extract(lst): \r\n    return [item[-1] for item in lst] ",
+    "test_list": [
+      "assert Extract([[1, 2, 3], [4, 5], [6, 7, 8, 9]]) == [3, 5, 9]",
+      "assert Extract([['x', 'y', 'z'], ['m'], ['a', 'b'], ['u', 'v']]) == ['z', 'm', 'b', 'v']",
+      "assert Extract([[1, 2, 3], [4, 5]]) == [3, 5]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to get the last element of each sublist.\n\nTask ID: 893\n\nExpected behavior (test cases):\n1. Extract([[1, 2, 3], [4, 5], [6, 7, 8, 9]]) should return [3, 5, 9]\n2. Extract([['x', 'y', 'z'], ['m'], ['a', 'b'], ['u', 'v']]) should return ['z', 'm', 'b', 'v']\n3. Extract([[1, 2, 3], [4, 5]]) should return [3, 5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-091ac69d043d4160a49eee1e050afb98",
+    "object": "chat.completion",
+    "created": 1750868389,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract(lst):\n    # Use list comprehension to iterate over each sublist and append the last element to a new list.\n    result = [sublist[-1] for sublist in lst]\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 198,
+      "total_tokens": 245,
+      "completion_tokens": 47,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868390.426982
+}

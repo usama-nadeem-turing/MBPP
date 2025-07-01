@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 204,
+  "problem": {
+    "task_id": 204,
+    "text": "Write a python function to count the occurrence of a given character in a string.",
+    "code": "def count(s,c) : \r\n    res = 0 \r\n    for i in range(len(s)) : \r\n        if (s[i] == c): \r\n            res = res + 1\r\n    return res ",
+    "test_list": [
+      "assert count(\"abcc\",\"c\") == 2",
+      "assert count(\"ababca\",\"a\") == 3",
+      "assert count(\"mnmm0pm\",\"m\") == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the occurrence of a given character in a string.\n\nTask ID: 204\n\nExpected behavior (test cases):\n1. count(\"abcc\",\"c\") should return 2\n2. count(\"ababca\",\"a\") should return 3\n3. count(\"mnmm0pm\",\"m\") should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-89cbc13f667e47f6aebef9b3b8a5bc8f",
+    "object": "chat.completion",
+    "created": 1750869115,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count(s, char):\n    # Initialize counter for occurrences\n    count = 0\n    \n    # Iterate through each character in the string\n    for c in s:\n        # If the current character matches the target character, increment the counter\n        if c == char:\n            count += 1\n            \n    # Return the total number of occurrences\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 216,
+      "completion_tokens": 80,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869117.087681
+}

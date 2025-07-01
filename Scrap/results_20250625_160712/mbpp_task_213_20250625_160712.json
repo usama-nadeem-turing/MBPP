@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 213,
+  "problem": {
+    "task_id": 213,
+    "text": "Write a function to perform the concatenation of two string tuples.",
+    "code": "def concatenate_strings(test_tup1, test_tup2):\r\n  res = tuple(ele1 + ele2 for ele1, ele2 in zip(test_tup1, test_tup2))\r\n  return (res) ",
+    "test_list": [
+      "assert concatenate_strings((\"Manjeet\", \"Nikhil\", \"Akshat\"), (\" Singh\", \" Meherwal\", \" Garg\")) == ('Manjeet Singh', 'Nikhil Meherwal', 'Akshat Garg')",
+      "assert concatenate_strings((\"Shaik\", \"Ayesha\", \"Sanya\"), (\" Dawood\", \" Begum\", \" Singh\")) == ('Shaik Dawood', 'Ayesha Begum', 'Sanya Singh')",
+      "assert concatenate_strings((\"Harpreet\", \"Priyanka\", \"Muskan\"), (\"Kour\", \" Agarwal\", \"Sethi\")) == ('HarpreetKour', 'Priyanka Agarwal', 'MuskanSethi')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to perform the concatenation of two string tuples.\n\nTask ID: 213\n\nExpected behavior (test cases):\n1. concatenate_strings((\"Manjeet\", \"Nikhil\", \"Akshat\"), (\" Singh\", \" Meherwal\", \" Garg\")) should return ('Manjeet Singh', 'Nikhil Meherwal', 'Akshat Garg')\n2. concatenate_strings((\"Shaik\", \"Ayesha\", \"Sanya\"), (\" Dawood\", \" Begum\", \" Singh\")) should return ('Shaik Dawood', 'Ayesha Begum', 'Sanya Singh')\n3. concatenate_strings((\"Harpreet\", \"Priyanka\", \"Muskan\"), (\"Kour\", \" Agarwal\", \"Sethi\")) should return ('HarpreetKour', 'Priyanka Agarwal', 'MuskanSethi')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a352e5f76f36494ba46b80edf1723af0",
+    "object": "chat.completion",
+    "created": 1750869145,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef concatenate_strings(tuple1, tuple2):\n    # Concatenate the two tuples and convert each element into a tuple with an additional delimiter\n    result = [tuple(x) for x in zip(tuple1, tuple2)]\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 246,
+      "total_tokens": 300,
+      "completion_tokens": 54,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869146.8599684
+}

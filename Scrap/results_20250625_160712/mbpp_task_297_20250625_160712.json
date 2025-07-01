@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 297,
+  "problem": {
+    "task_id": 297,
+    "text": "Write a function to flatten a given nested list structure.",
+    "code": "def flatten_list(list1):\r\n    result_list = []\r\n    if not list1: return result_list\r\n    stack = [list(list1)]\r\n    while stack:\r\n        c_num = stack.pop()\r\n        next = c_num.pop()\r\n        if c_num: stack.append(c_num)\r\n        if isinstance(next, list):\r\n            if next: stack.append(list(next))\r\n        else: result_list.append(next)\r\n    result_list.reverse()\r\n    return result_list ",
+    "test_list": [
+      "assert flatten_list([0, 10, [20, 30], 40, 50, [60, 70, 80], [90, 100, 110, 120]])==[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]",
+      "assert flatten_list([[10, 20], [40], [30, 56, 25], [10, 20], [33], [40]])==[10, 20, 40, 30, 56, 25, 10, 20, 33, 40]",
+      "assert flatten_list([[1,2,3], [4,5,6], [10,11,12], [7,8,9]])==[1, 2, 3, 4, 5, 6, 10, 11, 12, 7, 8, 9]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to flatten a given nested list structure.\n\nTask ID: 297\n\nExpected behavior (test cases):\n1. flatten_list([0, 10, [20, 30], 40, 50, [60, 70, 80], [90, 100, 110, 120]])==[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]\n2. flatten_list([[10, 20], [40], [30, 56, 25], [10, 20], [33], [40]])==[10, 20, 40, 30, 56, 25, 10, 20, 33, 40]\n3. flatten_list([[1,2,3], [4,5,6], [10,11,12], [7,8,9]])==[1, 2, 3, 4, 5, 6, 10, 11, 12, 7, 8, 9]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e19b95faa7f74055a9ad102e72912c2c",
+    "object": "chat.completion",
+    "created": 1750869346,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef flatten_list(nested_list):\n    result = []\n    for item in nested_list:\n        if isinstance(item, list):\n            result.extend(flatten_list(item))\n        else:\n            result.append(item)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 359,
+      "total_tokens": 409,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869347.544803
+}

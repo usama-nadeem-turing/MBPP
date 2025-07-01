@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 884,
+  "problem": {
+    "task_id": 884,
+    "text": "Write a python function to check whether all the bits are within a given range or not.",
+    "code": "def all_Bits_Set_In_The_Given_Range(n,l,r): \r\n    num = ((1 << r) - 1) ^ ((1 << (l - 1)) - 1) \r\n    new_num = n & num \r\n    if (num == new_num): \r\n        return True\r\n    return False",
+    "test_list": [
+      "assert all_Bits_Set_In_The_Given_Range(10,2,1) == True ",
+      "assert all_Bits_Set_In_The_Given_Range(5,2,4) == False",
+      "assert all_Bits_Set_In_The_Given_Range(22,2,3) == True "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether all the bits are within a given range or not.\n\nTask ID: 884\n\nExpected behavior (test cases):\n1. all_Bits_Set_In_The_Given_Range(10,2,1) should return True \n2. all_Bits_Set_In_The_Given_Range(5,2,4) should return False\n3. all_Bits_Set_In_The_Given_Range(22,2,3) should return True \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0e3a6e857e9b4a5c9c43fcbf27ebd094",
+    "object": "chat.completion",
+    "created": 1750868366,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef all_Bits_Set_In_The_Given_Range(number, start_bit, end_bit):\n    # Convert number to binary string and remove the '0b' prefix\n    binary_str = bin(number)[2:]\n    \n    # Check if the start bit is less than the length of the binary string\n    if start_bit < len(binary_str):\n        # Check if the end bit is greater than the length of the binary string\n        if end_bit > len(binary_str):\n            return False\n        \n        # Check if the start bit is greater than the end bit\n        elif start_bit > end_bit:\n            return False\n        \n        # If everything checks out, convert back to integer and compare with original number\n        else:\n            return int(binary_str[start_bit-1:end_bit], 2) == number\n    else:\n        return False\n```\n\nThis solution defines a function `all_Bits_Set_In_The_Given_Range` that takes three arguments: `number`, `start_bit`, and `end_bit`. It first converts the `number` to its binary representation as a string. Then it checks if the `start_bit` is valid (less than the length of the binary string), if the `end_bit` is also valid (greater than the length of the binary string), and if the `start_bit` is greater than the `end_bit`. Finally, it compares the subset of the binary string from `start_bit` to `end_bit` with the original number to determine if all bits in the specified range are set.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "total_tokens": 487,
+      "completion_tokens": 320,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868372.2255435
+}

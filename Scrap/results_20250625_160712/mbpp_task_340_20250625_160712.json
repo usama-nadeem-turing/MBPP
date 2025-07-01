@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 340,
+  "problem": {
+    "task_id": 340,
+    "text": "Write a python function to find the sum of the three lowest positive numbers from a given list of numbers.",
+    "code": "def sum_three_smallest_nums(lst):\r\n\treturn sum(sorted([x for x in lst if x > 0])[:3])",
+    "test_list": [
+      "assert sum_three_smallest_nums([10,20,30,40,50,60,7]) == 37",
+      "assert sum_three_smallest_nums([1,2,3,4,5]) == 6",
+      "assert sum_three_smallest_nums([0,1,2,3,4,5]) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of the three lowest positive numbers from a given list of numbers.\n\nTask ID: 340\n\nExpected behavior (test cases):\n1. sum_three_smallest_nums([10,20,30,40,50,60,7]) should return 37\n2. sum_three_smallest_nums([1,2,3,4,5]) should return 6\n3. sum_three_smallest_nums([0,1,2,3,4,5]) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b12a76598a8641369c6c15d31e2a3b99",
+    "object": "chat.completion",
+    "created": 1750869462,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_three_smallest_nums(nums):\n    # Sort the list in ascending order\n    nums.sort()\n    \n    # Sum the first three elements which are the smallest\n    total = sum(nums[:3])\n    \n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 178,
+      "total_tokens": 230,
+      "completion_tokens": 52,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869463.875354
+}

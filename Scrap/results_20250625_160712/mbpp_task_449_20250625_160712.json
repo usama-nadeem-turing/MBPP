@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 449,
+  "problem": {
+    "task_id": 449,
+    "text": "Write a python function to check whether the triangle is valid or not if 3 points are given.",
+    "code": "def check_Triangle(x1,y1,x2,y2,x3,y3): \r\n    a = (x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2))   \r\n    if a == 0: \r\n        return ('No') \r\n    else: \r\n        return ('Yes') ",
+    "test_list": [
+      "assert check_Triangle(1,5,2,5,4,6) == 'Yes'",
+      "assert check_Triangle(1,1,1,4,1,5) == 'No'",
+      "assert check_Triangle(1,1,1,1,1,1) == 'No'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the triangle is valid or not if 3 points are given.\n\nTask ID: 449\n\nExpected behavior (test cases):\n1. check_Triangle(1,5,2,5,4,6) should return 'Yes'\n2. check_Triangle(1,1,1,4,1,5) should return 'No'\n3. check_Triangle(1,1,1,1,1,1) should return 'No'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3eb2d90b36d345f2a603eb1a1bcdb07c",
+    "object": "chat.completion",
+    "created": 1750869727,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_Triangle(x1, y1, x2, y2, x3, y3):\n    # Calculate the squared distances between all pairs of points\n    d1 = (x1 - x2)**2 + (y1 - y2)**2\n    d2 = (x2 - x3)**2 + (y2 - y3)**2\n    d3 = (x3 - x1)**2 + (y3 - y1)**2\n    \n    # Check if the sum of any two sides is greater than the third side\n    if abs(d1 + d2 - d3) < 0.0001:\n        return 'Yes'\n    else:\n        return 'No'\n\n# Test cases\nprint(check_Triangle(1,5,2,5,4,6))  # Expected output: Yes\nprint(check_Triangle(1,1,1,4,1,5))  # Expected output: No\nprint(check_Triangle(1,1,1,1,1,1))  # Expected output: No\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 164,
+      "total_tokens": 396,
+      "completion_tokens": 232,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869730.9217799
+}

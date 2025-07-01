@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 611,
+  "problem": {
+    "task_id": 611,
+    "text": "Write a function to find the maximum of nth column from the given tuple list.",
+    "code": "def max_of_nth(test_list, N):\r\n  res = max([sub[N] for sub in test_list])\r\n  return (res) ",
+    "test_list": [
+      "assert max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) == 19",
+      "assert max_of_nth([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) == 10",
+      "assert max_of_nth([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 1) == 11"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum of nth column from the given tuple list.\n\nTask ID: 611\n\nExpected behavior (test cases):\n1. max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) should return 19\n2. max_of_nth([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) should return 10\n3. max_of_nth([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 1) should return 11\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1e1fe2cf34674dbdbe74510f68b47145",
+    "object": "chat.completion",
+    "created": 1750867665,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_of_nth(tuples_list, n):\n    # Extracting the nth element from each tuple in the list and finding its maximum value.\n    return max([x[n-1] for x in tuples_list])\n\n# Test cases\nprint(max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2))  # Expected output: 19\nprint(max_of_nth([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1))  # Expected output: 10\nprint(max_of_nth([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 1))  # Expected output: 11\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 220,
+      "total_tokens": 408,
+      "completion_tokens": 188,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867668.8916857
+}

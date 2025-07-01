@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 714,
+  "problem": {
+    "task_id": 714,
+    "text": "Write a python function to count the number of distinct power of prime factor of given number.",
+    "code": "def count_Fac(n):  \r\n    m = n \r\n    count = 0\r\n    i = 2\r\n    while((i * i) <= m): \r\n        total = 0\r\n        while (n % i == 0): \r\n            n /= i \r\n            total += 1 \r\n        temp = 0\r\n        j = 1\r\n        while((temp + j) <= total): \r\n            temp += j \r\n            count += 1\r\n            j += 1 \r\n        i += 1\r\n    if (n != 1): \r\n        count += 1 \r\n    return count ",
+    "test_list": [
+      "assert count_Fac(24) == 3",
+      "assert count_Fac(12) == 2",
+      "assert count_Fac(4) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of distinct power of prime factor of given number.\n\nTask ID: 714\n\nExpected behavior (test cases):\n1. count_Fac(24) should return 3\n2. count_Fac(12) should return 2\n3. count_Fac(4) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3b61c9a4290343498457353dd4581653",
+    "object": "chat.completion",
+    "created": 1750867920,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Fac(n):\n    def is_prime(num):\n        if num <= 1:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n    \n    def get_prime_factors(num):\n        factors = []\n        while num > 1:\n            for i in range(2, num + 1):\n                if is_prime(i) and num % i == 0:\n                    factors.append(i)\n                    num //= i\n                    break\n        return factors\n    \n    prime_factors = get_prime_factors(n)\n    unique_factors = set(prime_factors)\n    return len(unique_factors)\n\n# Test cases\nprint(count_Fac(24))  # Expected output: 3\nprint(count_Fac(12))  # Expected output: 2\nprint(count_Fac(4))   # Expected output: 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 335,
+      "completion_tokens": 201,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867924.3195262
+}

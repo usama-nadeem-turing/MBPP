@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 956,
+  "problem": {
+    "task_id": 956,
+    "text": "Write a function to split the given string at uppercase letters by using regex.",
+    "code": "import re\r\ndef split_list(text):\r\n  return (re.findall('[A-Z][^A-Z]*', text))",
+    "test_list": [
+      "assert split_list(\"LearnToBuildAnythingWithGoogle\") == ['Learn', 'To', 'Build', 'Anything', 'With', 'Google']",
+      "assert split_list(\"ApmlifyingTheBlack+DeveloperCommunity\") == ['Apmlifying', 'The', 'Black+', 'Developer', 'Community']",
+      "assert split_list(\"UpdateInTheGoEcoSystem\") == ['Update', 'In', 'The', 'Go', 'Eco', 'System']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to split the given string at uppercase letters by using regex.\n\nTask ID: 956\n\nExpected behavior (test cases):\n1. split_list(\"LearnToBuildAnythingWithGoogle\") should return ['Learn', 'To', 'Build', 'Anything', 'With', 'Google']\n2. split_list(\"ApmlifyingTheBlack+DeveloperCommunity\") should return ['Apmlifying', 'The', 'Black+', 'Developer', 'Community']\n3. split_list(\"UpdateInTheGoEcoSystem\") should return ['Update', 'In', 'The', 'Go', 'Eco', 'System']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e5590fbb3de7477487ca3cd1fb6bcbad",
+    "object": "chat.completion",
+    "created": 1750868561,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef split_list(s):\n    # Splitting the string based on uppercase characters\n    result = re.split(r'[A-Z]', s)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "total_tokens": 228,
+      "completion_tokens": 40,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868562.6764188
+}

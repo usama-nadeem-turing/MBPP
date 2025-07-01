@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 154,
+  "problem": {
+    "task_id": 154,
+    "text": "Write a function to extract every specified element from a given two dimensional list.",
+    "code": "def specified_element(nums, N):\r\n    result = [i[N] for i in nums]\r\n    return result",
+    "test_list": [
+      "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]",
+      "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],2)==[3, 6, 9]",
+      "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],3)==[2,2,5]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract every specified element from a given two dimensional list.\n\nTask ID: 154\n\nExpected behavior (test cases):\n1. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]\n2. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],2)==[3, 6, 9]\n3. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],3)==[2,2,5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ed158616538d4f7a9d22e0fc6cca8d80",
+    "object": "chat.completion",
+    "created": 1750868983,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef specified_element(matrix, index):\n    return [row[index] for row in matrix]\n\n# Test cases\nprint(specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]], 0)) # Output: [1, 4, 7]\nprint(specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]], 2)) # Output: [3, 6, 9]\nprint(specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]], 3)) # Output: [2, 2, 5]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 241,
+      "total_tokens": 433,
+      "completion_tokens": 192,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868986.4380994
+}

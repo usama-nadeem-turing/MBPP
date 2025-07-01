@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 14,
+  "problem": {
+    "task_id": 14,
+    "text": "Write a python function to find the volume of a triangular prism.",
+    "code": "def find_Volume(l,b,h) : \r\n    return ((l * b * h) / 2) ",
+    "test_list": [
+      "assert find_Volume(10,8,6) == 240",
+      "assert find_Volume(3,2,2) == 6",
+      "assert find_Volume(1,2,1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the volume of a triangular prism.\n\nTask ID: 14\n\nExpected behavior (test cases):\n1. find_Volume(10,8,6) should return 240\n2. find_Volume(3,2,2) should return 6\n3. find_Volume(1,2,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c317f127be5c4b468dc2eb3c57d92944",
+    "object": "chat.completion",
+    "created": 1750868619,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Volume(base, height, length):\n    \"\"\"\n    Calculate the volume of a triangular prism.\n    \n    Parameters:\n    base (float): The base length of the triangle.\n    height (float): The height of the triangle.\n    length (float): The length of the prism.\n    \n    Returns:\n    float: The volume of the triangular prism.\n    \"\"\"\n    area = 0.5 * base * height\n    return area * length\n\n# Test cases\nprint(find_Volume(10,8,6)) # Expected output: 240\nprint(find_Volume(3,2,2)) # Expected output: 6\nprint(find_Volume(1,2,1)) # Expected output: 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 300,
+      "completion_tokens": 159,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868622.4110405
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 148,
+  "problem": {
+    "task_id": 148,
+    "text": "Write a function to divide a number into two parts such that the sum of digits is maximum.",
+    "code": "def sum_digits_single(x) : \r\n    ans = 0\r\n    while x : \r\n        ans += x % 10\r\n        x //= 10  \r\n    return ans \r\ndef closest(x) : \r\n    ans = 0\r\n    while (ans * 10 + 9 <= x) : \r\n        ans = ans * 10 + 9  \r\n    return ans   \r\ndef sum_digits_twoparts(N) : \r\n    A = closest(N)  \r\n    return sum_digits_single(A) + sum_digits_single(N - A) ",
+    "test_list": [
+      "assert sum_digits_twoparts(35)==17",
+      "assert sum_digits_twoparts(7)==7",
+      "assert sum_digits_twoparts(100)==19"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to divide a number into two parts such that the sum of digits is maximum.\n\nTask ID: 148\n\nExpected behavior (test cases):\n1. sum_digits_twoparts(35)==17\n2. sum_digits_twoparts(7)==7\n3. sum_digits_twoparts(100)==19\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-754ce9ffc9f84facacae77cff76d1a83",
+    "object": "chat.completion",
+    "created": 1750868960,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_digits_twoparts(n):\n    \"\"\"\n    Divide the given integer n into two non-negative integers x and y such that their sum of digits is maximized.\n    \n    Parameters:\n    n (int): The integer to be divided.\n    \n    Returns:\n    int: The maximum possible sum of digits after division.\n    \"\"\"\n    max_sum = 0\n    for i in range(int(n/2) + 1):\n        x = n - i\n        y = i\n        current_sum = sum(int(digit) for digit in str(x)) + sum(int(digit) for digit in str(y))\n        if current_sum > max_sum:\n            max_sum = current_sum\n    return max_sum\n\n# Test cases\nprint(sum_digits_twoparts(35))  # Expected output: 17\nprint(sum_digits_twoparts(7))   # Expected output: 7\nprint(sum_digits_twoparts(100)) # Expected output: 19\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 346,
+      "completion_tokens": 211,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868963.9771087
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 816,
+  "problem": {
+    "task_id": 816,
+    "text": "Write a function to clear the values of the given tuples.",
+    "code": "def clear_tuple(test_tup):\r\n  temp = list(test_tup)\r\n  temp.clear()\r\n  test_tup = tuple(temp)\r\n  return (test_tup) ",
+    "test_list": [
+      "assert clear_tuple((1, 5, 3, 6, 8)) == ()",
+      "assert clear_tuple((2, 1, 4 ,5 ,6)) == ()",
+      "assert clear_tuple((3, 2, 5, 6, 8)) == ()"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to clear the values of the given tuples.\n\nTask ID: 816\n\nExpected behavior (test cases):\n1. clear_tuple((1, 5, 3, 6, 8)) should return ()\n2. clear_tuple((2, 1, 4 ,5 ,6)) should return ()\n3. clear_tuple((3, 2, 5, 6, 8)) should return ()\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6f129facc7fd4922a7be0fefb49f044f",
+    "object": "chat.completion",
+    "created": 1750868184,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef clear_tuple(tup):\n    # Clearing the tuple and returning it\n    return ()\n\n# Test cases\nprint(clear_tuple((1, 5, 3, 6, 8)))  # Expected output: ()\nprint(clear_tuple((2, 1, 4 ,5 ,6)))  # Expected output: ()\nprint(clear_tuple((3, 2, 5, 6, 8)))  # Expected output: ()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "total_tokens": 253,
+      "completion_tokens": 101,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868186.2353933
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 46,
+  "problem": {
+    "task_id": 46,
+    "text": "Write a python function to determine whether all the numbers are different from each other are not.",
+    "code": "def test_distinct(data):\r\n  if len(data) == len(set(data)):\r\n    return True\r\n  else:\r\n    return False;",
+    "test_list": [
+      "assert test_distinct([1,5,7,9]) == True",
+      "assert test_distinct([2,4,5,5,7,9]) == False",
+      "assert test_distinct([1,2,3]) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to determine whether all the numbers are different from each other are not.\n\nTask ID: 46\n\nExpected behavior (test cases):\n1. test_distinct([1,5,7,9]) should return True\n2. test_distinct([2,4,5,5,7,9]) should return False\n3. test_distinct([1,2,3]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-adf668e6689840f99f331ffdf7e7d13f",
+    "object": "chat.completion",
+    "created": 1750868695,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef test_distinct(arr):\n    \"\"\"\n    Check if all elements in the given list are distinct.\n    \n    Args:\n    arr (list): A list of integers\n    \n    Returns:\n    bool: True if all elements are distinct, False otherwise\n    \"\"\"\n    seen = set()\n    for num in arr:\n        if num in seen:\n            return False\n        seen.add(num)\n    return True\n\n# Test cases\nprint(test_distinct([1,5,7,9]))  # Expected output: True\nprint(test_distinct([2,4,5,5,7,9]))  # Expected output: False\nprint(test_distinct([1,2,3]))  # Expected output: True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "total_tokens": 301,
+      "completion_tokens": 153,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868697.983745
+}

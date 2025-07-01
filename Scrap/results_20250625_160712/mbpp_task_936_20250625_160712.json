@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 936,
+  "problem": {
+    "task_id": 936,
+    "text": "Write a function to re-arrange the given tuples based on the given ordered list.",
+    "code": "def re_arrange_tuples(test_list, ord_list):\r\n  temp = dict(test_list)\r\n  res = [(key, temp[key]) for key in ord_list]\r\n  return (res) ",
+    "test_list": [
+      "assert re_arrange_tuples([(4, 3), (1, 9), (2, 10), (3, 2)],  [1, 4, 2, 3]) == [(1, 9), (4, 3), (2, 10), (3, 2)]",
+      "assert re_arrange_tuples([(5, 4), (2, 10), (3, 11), (4, 3)],  [3, 4, 2, 3]) == [(3, 11), (4, 3), (2, 10), (3, 11)]",
+      "assert re_arrange_tuples([(6, 3), (3, 8), (5, 7), (2, 4)],  [2, 5, 3, 6]) == [(2, 4), (5, 7), (3, 8), (6, 3)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to re-arrange the given tuples based on the given ordered list.\n\nTask ID: 936\n\nExpected behavior (test cases):\n1. re_arrange_tuples([(4, 3), (1, 9), (2, 10), (3, 2)],  [1, 4, 2, 3]) should return [(1, 9), (4, 3), (2, 10), (3, 2)]\n2. re_arrange_tuples([(5, 4), (2, 10), (3, 11), (4, 3)],  [3, 4, 2, 3]) should return [(3, 11), (4, 3), (2, 10), (3, 11)]\n3. re_arrange_tuples([(6, 3), (3, 8), (5, 7), (2, 4)],  [2, 5, 3, 6]) should return [(2, 4), (5, 7), (3, 8), (6, 3)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-590995b0d4da46829e5bdb1fcb178aa2",
+    "object": "chat.completion",
+    "created": 1750868508,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef re_arrange_tuples(tuples_list, order_list):\n    # Sort the tuples based on the corresponding elements in the order list\n    sorted_tuples = sorted(tuples_list, key=lambda x: order_list.index(x[0]))\n    return sorted_tuples\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 308,
+      "total_tokens": 365,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868509.403823
+}

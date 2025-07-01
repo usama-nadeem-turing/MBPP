@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 254,
+  "problem": {
+    "task_id": 254,
+    "text": "Write a function to find all words starting with 'a' or 'e' in a given string.",
+    "code": "import re\r\ndef words_ae(text):\r\n list = re.findall(\"[ae]\\w+\", text)\r\n return list",
+    "test_list": [
+      "assert words_ae(\"python programe\")==['ame']",
+      "assert words_ae(\"python programe language\")==['ame','anguage']",
+      "assert words_ae(\"assert statement\")==['assert', 'atement']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find all words starting with 'a' or 'e' in a given string.\n\nTask ID: 254\n\nExpected behavior (test cases):\n1. words_ae(\"python programe\")==['ame']\n2. words_ae(\"python programe language\")==['ame','anguage']\n3. words_ae(\"statement\")==['assert', 'atement']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9a71fc503c0148d89eaa218b38c90b6a",
+    "object": "chat.completion",
+    "created": 1750869242,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef words_ae(text):\n    # Split the text into words and filter out those starting with 'a' or 'e'\n    return [word for word in text.split() if word[0] == 'a' or word[0] == 'e']\n\n# Test cases\nprint(words_ae(\"python programe\"))  # Expected output: ['ame']\nprint(words_ae(\"python programe language\"))  # Expected output: ['ame', 'anguage']\nprint(words_ae(\"statement\"))  # Expected output: ['assert', 'atement']\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 262,
+      "completion_tokens": 121,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869244.7210956
+}

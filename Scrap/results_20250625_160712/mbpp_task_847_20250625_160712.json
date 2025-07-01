@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 847,
+  "problem": {
+    "task_id": 847,
+    "text": "Write a python function to copy a list from a singleton tuple.",
+    "code": "def lcopy(xs):\n  return xs[:]\n",
+    "test_list": [
+      "assert lcopy([1, 2, 3]) == [1, 2, 3]",
+      "assert lcopy([4, 8, 2, 10, 15, 18]) == [4, 8, 2, 10, 15, 18]",
+      "assert lcopy([4, 5, 6]) == [4, 5, 6]\n"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to copy a list from a singleton tuple.\n\nTask ID: 847\n\nExpected behavior (test cases):\n1. lcopy([1, 2, 3]) should return [1, 2, 3]\n2. lcopy([4, 8, 2, 10, 15, 18]) should return [4, 8, 2, 10, 15, 18]\n3. lcopy([4, 5, 6]) should return [4, 5, 6]\n\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c02b4258d497416eb4e70aef538bee5b",
+    "object": "chat.completion",
+    "created": 1750868280,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef lcopy(lst):\n    # Copying the list using slicing\n    copied_list = lst[:]\n    return copied_list\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "total_tokens": 214,
+      "completion_tokens": 30,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868281.4698212
+}

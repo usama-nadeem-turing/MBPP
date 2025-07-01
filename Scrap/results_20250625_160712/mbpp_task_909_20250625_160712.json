@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 909,
+  "problem": {
+    "task_id": 909,
+    "text": "Write a function to find the previous palindrome of a specified number.",
+    "code": "def previous_palindrome(num):\r\n    for x in range(num-1,0,-1):\r\n        if str(x) == str(x)[::-1]:\r\n            return x",
+    "test_list": [
+      "assert previous_palindrome(99)==88",
+      "assert previous_palindrome(1221)==1111",
+      "assert previous_palindrome(120)==111"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the previous palindrome of a specified number.\n\nTask ID: 909\n\nExpected behavior (test cases):\n1. previous_palindrome(99)==88\n2. previous_palindrome(1221)==1111\n3. previous_palindrome(120)==111\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-66d78842fa64496cacb943c0a4a86d7f",
+    "object": "chat.completion",
+    "created": 1750868435,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef previous_palindrome(n):\n    # Convert the number to string for easy manipulation\n    num_str = str(n)\n    \n    # Check if the number is even and greater than 10\n    if len(num_str) % 2 == 0 and int(num_str[:(len(num_str)//2)]) != int(num_str[(len(num_str)//2)-1::-1]):\n        return int(num_str[:-1]) - 1\n    \n    # If the number is odd or less than 10, subtract one from it directly\n    else:\n        return n - 1\n```\n\nThis solution checks if the input number `n` is an even number greater than 10. It then compares the first half of the number with its reverse to determine if it's already a palindrome. If not, it calculates the previous palindrome by decrementing the number by one. For numbers less than 10, it simply decrements them by one as they cannot be palindromes.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 338,
+      "completion_tokens": 208,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868438.8652196
+}

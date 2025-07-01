@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 970,
+  "problem": {
+    "task_id": 970,
+    "text": "Write a function to find minimum of two numbers.",
+    "code": "def min_of_two( x, y ):\r\n    if x < y:\r\n        return x\r\n    return y",
+    "test_list": [
+      "assert min_of_two(10,20)==10",
+      "assert min_of_two(19,15)==15",
+      "assert min_of_two(-10,-20)==-20"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find minimum of two numbers.\n\nTask ID: 970\n\nExpected behavior (test cases):\n1. min_of_two(10,20)==10\n2. min_of_two(19,15)==15\n3. min_of_two(-10,-20)==-20\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0d8d295686004a9eb7930326a508a27d",
+    "object": "chat.completion",
+    "created": 1750868597,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_of_two(a, b):\n    return min(a, b)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 151,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868598.3524919
+}

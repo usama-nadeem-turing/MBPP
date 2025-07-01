@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 743,
+  "problem": {
+    "task_id": 743,
+    "text": "Write a function to rotate a given list by specified number of items to the right direction.",
+    "code": "def rotate_right(list1,m,n):\r\n  result =  list1[-(m):]+list1[:-(n)]\r\n  return result",
+    "test_list": [
+      "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],3,4)==[8, 9, 10, 1, 2, 3, 4, 5, 6]",
+      "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2,2)==[9, 10, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "assert rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],5,2)==[6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to rotate a given list by specified number of items to the right direction.\n\nTask ID: 743\n\nExpected behavior (test cases):\n1. rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],3,4)==[8, 9, 10, 1, 2, 3, 4, 5, 6]\n2. rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2,2)==[9, 10, 1, 2, 3, 4, 5, 6, 7, 8]\n3. rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],5,2)==[6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6a6ee1cf0c904cd08f23b1beae79357c",
+    "object": "chat.completion",
+    "created": 1750868000,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef rotate_right(lst, n, k):\n    \"\"\"\n    Rotate the elements in the list 'lst' to the right by 'k' positions.\n    \n    Parameters:\n    lst (list): The input list to be rotated.\n    n (int): The total number of rotations.\n    k (int): The specific number of rotations for each element.\n    \n    Returns:\n    list: The rotated list.\n    \"\"\"\n    return [lst[(i+k)%len(lst)] for i in range(len(lst))]\n\n# Test cases\nprint(rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3, 4))\nprint(rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2, 2))\nprint(rotate_right([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5, 2))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 309,
+      "total_tokens": 544,
+      "completion_tokens": 235,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868004.4277377
+}

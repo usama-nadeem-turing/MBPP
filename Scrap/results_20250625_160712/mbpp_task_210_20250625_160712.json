@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 210,
+  "problem": {
+    "task_id": 210,
+    "text": "Write a function to check that the given string contains only a certain set of characters(in this case a-z, a-z and 0-9) by using regex.",
+    "code": "import re\r\ndef is_allowed_specific_char(string):\r\n    get_char = re.compile(r'[^a-zA-Z0-9.]')\r\n    string = get_char.search(string)\r\n    return not bool(string)",
+    "test_list": [
+      "assert is_allowed_specific_char(\"ABCDEFabcdef123450\") == True",
+      "assert is_allowed_specific_char(\"*&%@#!}{\") == False",
+      "assert is_allowed_specific_char(\"HELLOhowareyou98765\") == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check that the given string contains only a certain set of characters(in this case a-z, a-z and 0-9) by using regex.\n\nTask ID: 210\n\nExpected behavior (test cases):\n1. is_allowed_specific_char(\"ABCDEFabcdef123450\") should return True\n2. is_allowed_specific_char(\"*&%@#!}{\") should return False\n3. is_allowed_specific_char(\"HELLOhowareyou98765\") should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9adfb625f751453f8a728da7e35e822f",
+    "object": "chat.completion",
+    "created": 1750869139,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef is_allowed_specific_char(string):\n    # Define the pattern for allowed characters\n    pattern = r'^[a-zA-Z0-9]+$'\n    \n    # Check if the string matches the pattern\n    if re.match(pattern, string):\n        return True\n    else:\n        return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "total_tokens": 236,
+      "completion_tokens": 68,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869140.6096246
+}

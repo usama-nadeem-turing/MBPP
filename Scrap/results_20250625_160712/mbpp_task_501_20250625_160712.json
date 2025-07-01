@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 501,
+  "problem": {
+    "task_id": 501,
+    "text": "Write a python function to find common divisor between two numbers in a given pair.",
+    "code": "def ngcd(x,y):\r\n    i=1\r\n    while(i<=x and i<=y):\r\n        if(x%i==0 and y%i == 0):\r\n            gcd=i;\r\n        i+=1\r\n    return gcd;\r\ndef num_comm_div(x,y):\r\n  n = ngcd(x,y)\r\n  result = 0\r\n  z = int(n**0.5)\r\n  i = 1\r\n  while(i <= z):\r\n    if(n % i == 0):\r\n      result += 2 \r\n      if(i == n/i):\r\n        result-=1\r\n    i+=1\r\n  return result",
+    "test_list": [
+      "assert num_comm_div(2,4) == 2",
+      "assert num_comm_div(2,8) == 2",
+      "assert num_comm_div(12,24) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find common divisor between two numbers in a given pair.\n\nTask ID: 501\n\nExpected behavior (test cases):\n1. num_comm_div(2,4) should return 2\n2. num_comm_div(2,8) should return 2\n3. num_comm_div(12,24) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e3078fac22514b5783c5987893a3fee8",
+    "object": "chat.completion",
+    "created": 1750869859,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef num_comm_div(a, b):\n    # Ensure a is always less than or equal to b for simplicity\n    if a > b:\n        a, b = b, a\n    \n    # Divide both numbers by their greatest common divisor until they become coprime\n    while b != 0:\n        temp = b\n        b = a % b\n        a = temp\n    \n    return a\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 226,
+      "completion_tokens": 88,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869860.7166388
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 593,
+  "problem": {
+    "task_id": 593,
+    "text": "Write a function to remove leading zeroes from an ip address.",
+    "code": "import re\r\ndef removezero_ip(ip):\r\n string = re.sub('\\.[0]*', '.', ip)\r\n return string\r",
+    "test_list": [
+      "assert removezero_ip(\"216.08.094.196\")==('216.8.94.196') ",
+      "assert removezero_ip(\"12.01.024\")==('12.1.24') ",
+      "assert removezero_ip(\"216.08.094.0196\")==('216.8.94.196') "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove leading zeroes from an ip address.\n\nTask ID: 593\n\nExpected behavior (test cases):\n1. removezero_ip(\"216.08.094.196\")==('216.8.94.196') \n2. removezero_ip(\"12.01.024\")==('12.1.24') \n3. removezero_ip(\"216.08.094.0196\")==('216.8.94.196') \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-341e4fb41ede409a8ceb8c00a97b0245",
+    "object": "chat.completion",
+    "created": 1750870089,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef removezero_ip(ip_address):\n    # Split the IP address into its components and join them back together with no leading zeros\n    return ''.join([i for i in str(ip_address) if not i == '0' or len(str(ip_address)) > 1])\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "total_tokens": 247,
+      "completion_tokens": 61,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870090.0746815
+}

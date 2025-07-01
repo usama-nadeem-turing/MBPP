@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 741,
+  "problem": {
+    "task_id": 741,
+    "text": "Write a python function to check whether all the characters are same or not.",
+    "code": "def all_Characters_Same(s) :\r\n    n = len(s)\r\n    for i in range(1,n) :\r\n        if s[i] != s[0] :\r\n            return False\r\n    return True",
+    "test_list": [
+      "assert all_Characters_Same(\"python\") == False",
+      "assert all_Characters_Same(\"aaa\") == True",
+      "assert all_Characters_Same(\"data\") == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether all the characters are same or not.\n\nTask ID: 741\n\nExpected behavior (test cases):\n1. all_Characters_Same(\"python\") should return False\n2. all_Characters_Same(\"aaa\") should return True\n3. all_Characters_Same(\"data\") should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7e5e50390ea648df93ab9c3e67ddb026",
+    "object": "chat.completion",
+    "created": 1750867994,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef all_Characters_Same(s):\n    # Check if the string is empty\n    if len(s) == 0:\n        return False\n    \n    # Get the first character of the string\n    first_char = s[0]\n    \n    # Compare each character with the first character\n    for char in s:\n        if char != first_char:\n            return False\n            \n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 217,
+      "completion_tokens": 85,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867995.7768593
+}

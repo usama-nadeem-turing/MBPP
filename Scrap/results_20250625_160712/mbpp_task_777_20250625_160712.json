@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 777,
+  "problem": {
+    "task_id": 777,
+    "text": "Write a python function to find the sum of non-repeated elements in a given array.",
+    "code": "def find_Sum(arr,n): \r\n    arr.sort() \r\n    sum = arr[0] \r\n    for i in range(0,n-1): \r\n        if (arr[i] != arr[i+1]): \r\n            sum = sum + arr[i+1]   \r\n    return sum",
+    "test_list": [
+      "assert find_Sum([1,2,3,1,1,4,5,6],8) == 21",
+      "assert find_Sum([1,10,9,4,2,10,10,45,4],9) == 71",
+      "assert find_Sum([12,10,9,45,2,10,10,45,10],9) == 78"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of non-repeated elements in a given array.\n\nTask ID: 777\n\nExpected behavior (test cases):\n1. find_Sum([1,2,3,1,1,4,5,6],8) should return 21\n2. find_Sum([1,10,9,4,2,10,10,45,4],9) should return 71\n3. find_Sum([12,10,9,45,2,10,10,45,10],9) should return 78\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4c6fe4a13f24462080508adc2823af98",
+    "object": "chat.completion",
+    "created": 1750868090,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Sum(arr, n):\n    # Initialize variables for counting and storing sums\n    count = [0] * (n + 1)\n    total_sum = 0\n    \n    # Count occurrences of each element\n    for i in range(n):\n        count[arr[i]] += 1\n    \n    # Calculate the sum of non-repeated elements\n    for i in range(1, n + 1):\n        if count[i] % 2 == 1:\n            total_sum += i\n    \n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 198,
+      "total_tokens": 312,
+      "completion_tokens": 114,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868092.7516854
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 974,
+  "problem": {
+    "task_id": 974,
+    "text": "Write a function to find the minimum total path sum in the given triangle.",
+    "code": "def min_sum_path(A): \r\n\tmemo = [None] * len(A) \r\n\tn = len(A) - 1\r\n\tfor i in range(len(A[n])): \r\n\t\tmemo[i] = A[n][i] \r\n\tfor i in range(len(A) - 2, -1,-1): \r\n\t\tfor j in range( len(A[i])): \r\n\t\t\tmemo[j] = A[i][j] + min(memo[j], \r\n\t\t\t\t\t\t\t\t\tmemo[j + 1]) \r\n\treturn memo[0]",
+    "test_list": [
+      "assert min_sum_path([[ 2 ], [3, 9 ], [1, 6, 7 ]]) == 6",
+      "assert min_sum_path([[ 2 ], [3, 7 ], [8, 5, 6 ]]) == 10 ",
+      "assert min_sum_path([[ 3 ], [6, 4 ], [5, 2, 7 ]]) == 9"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the minimum total path sum in the given triangle.\n\nTask ID: 974\n\nExpected behavior (test cases):\n1. min_sum_path([[ 2 ], [3, 9 ], [1, 6, 7 ]]) should return 6\n2. min_sum_path([[ 2 ], [3, 7 ], [8, 5, 6 ]]) should return 10 \n3. min_sum_path([[ 3 ], [6, 4 ], [5, 2, 7 ]]) should return 9\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-658ddc5ec2de4096b3cd7ea4e2a8b549",
+    "object": "chat.completion",
+    "created": 1750868605,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_sum_path(triangle):\n    \"\"\"\n    Finds the minimum total path sum from top to bottom of a triangle.\n    \n    :param triangle: List[List[int]], a list of lists of integers representing a triangle.\n    :return: int, the minimum total path sum.\n    \"\"\"\n    for i in range(len(triangle) - 2, -1, -1):\n        for j in range(len(triangle[i])):\n            triangle[i][j] += min(triangle[i + 1][j], triangle[i + 1][j + 1])\n    return triangle[0][0]\n\n# Test cases\nprint(min_sum_path([[ 2 ], [3, 9 ], [1, 6, 7 ]]))  # Expected output: 6\nprint(min_sum_path([[ 2 ], [3, 7 ], [8, 5, 6 ]]))  # Expected output: 10\nprint(min_sum_path([[ 3 ], [6, 4 ], [5, 2, 7 ]]))  # Expected output: 9\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "total_tokens": 410,
+      "completion_tokens": 229,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868609.7338197
+}

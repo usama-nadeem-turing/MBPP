@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 966,
+  "problem": {
+    "task_id": 966,
+    "text": "Write a function to remove an empty tuple from a list of tuples.",
+    "code": "def remove_empty(tuple1): #L = [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]\r\n   tuple1 = [t for t in tuple1 if t]\r\n   return tuple1",
+    "test_list": [
+      "assert remove_empty([(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')])==[('',), ('a', 'b'), ('a', 'b', 'c'), 'd']  ",
+      "assert remove_empty([(), (), ('',), (\"python\"), (\"program\")])==[('',), (\"python\"), (\"program\")]  ",
+      "assert remove_empty([(), (), ('',), (\"java\")])==[('',),(\"java\") ]  "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove an empty tuple from a list of tuples.\n\nTask ID: 966\n\nExpected behavior (test cases):\n1. remove_empty([(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')])==[('',), ('a', 'b'), ('a', 'b', 'c'), 'd']  \n2. remove_empty([(), (), ('',), (\"python\"), (\"program\")])==[('',), (\"python\"), (\"program\")]  \n3. remove_empty([(), (), ('',), (\"java\")])==[('',),(\"java\") ]  \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f80eee41df6a45bca12fc489b6e24c51",
+    "object": "chat.completion",
+    "created": 1750868587,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_empty(tuples_list):\n    # Filter out empty tuples and return the modified list\n    return [t for t in tuples_list if t]\n\n# Test cases\nassert remove_empty([(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]) == [('',), ('a', 'b'), ('a', 'b', 'c'), 'd']\nassert remove_empty([(), (), ('',), (\"python\"), (\"program\")]) == [('python'), ('program')]\nassert remove_empty([(), (), ('',), (\"java\")]) == [('java')]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "total_tokens": 319,
+      "completion_tokens": 130,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868589.2867444
+}

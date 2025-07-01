@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 93,
+  "problem": {
+    "task_id": 93,
+    "text": "Write a function to calculate the value of 'a' to the power 'b'.",
+    "code": "def power(a,b):\r\n\tif b==0:\r\n\t\treturn 1\r\n\telif a==0:\r\n\t\treturn 0\r\n\telif b==1:\r\n\t\treturn a\r\n\telse:\r\n\t\treturn a*power(a,b-1)",
+    "test_list": [
+      "assert power(3,4) == 81",
+      "assert power(2,3) == 8",
+      "assert power(5,5) == 3125"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the value of 'a' to the power 'b'.\n\nTask ID: 93\n\nExpected behavior (test cases):\n1. power(3,4) should return 81\n2. power(2,3) should return 8\n3. power(5,5) should return 3125\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2317a3beb0f14a9886ecafcb19eca259",
+    "object": "chat.completion",
+    "created": 1750868817,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef power(a, b):\n    result = 1\n    for _ in range(b):\n        result *= a\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 167,
+      "completion_tokens": 33,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868817.69253
+}

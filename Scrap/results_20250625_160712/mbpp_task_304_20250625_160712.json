@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 304,
+  "problem": {
+    "task_id": 304,
+    "text": "Write a python function to find element at a given index after number of rotations.",
+    "code": "def find_Element(arr,ranges,rotations,index) :  \r\n    for i in range(rotations - 1,-1,-1 ) : \r\n        left = ranges[i][0] \r\n        right = ranges[i][1] \r\n        if (left <= index and right >= index) : \r\n            if (index == left) : \r\n                index = right \r\n            else : \r\n                index = index - 1 \r\n    return arr[index] ",
+    "test_list": [
+      "assert find_Element([1,2,3,4,5],[[0,2],[0,3]],2,1) == 3",
+      "assert find_Element([1,2,3,4],[[0,1],[0,2]],1,2) == 3",
+      "assert find_Element([1,2,3,4,5,6],[[0,1],[0,2]],1,1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find element at a given index after number of rotations.\n\nTask ID: 304\n\nExpected behavior (test cases):\n1. find_Element([1,2,3,4,5],[[0,2],[0,3]],2,1) should return 3\n2. find_Element([1,2,3,4],[[0,1],[0,2]],1,2) should return 3\n3. find_Element([1,2,3,4,5,6],[[0,1],[0,2]],1,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-200a7bc1ccba4e8ab608e740e299648b",
+    "object": "chat.completion",
+    "created": 1750869365,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Element(arr, queries, n, k):\n    # Rotate array arr left by k positions\n    def rotate_left(arr, k):\n        return arr[k:] + arr[:k]\n    \n    # Find the target element in rotated array\n    def find_element(arr, query):\n        for i in range(len(query)):\n            if arr[i] == query[i]:\n                continue\n            else:\n                return -1\n        return arr[-query[-1]]\n    \n    # Perform rotation and search for element\n    arr = rotate_left(arr, k)\n    return find_element(arr, queries[n])\n```\n\nThis solution first defines a helper function `rotate_left` to perform the required rotation on the input array. Then it defines another helper function `find_element` to locate the target element within the rotated array based on the provided query. Finally, it applies these functions sequentially to handle both the rotation and searching tasks as per the specified requirements.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 190,
+      "total_tokens": 385,
+      "completion_tokens": 195,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869368.8948917
+}

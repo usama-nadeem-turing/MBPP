@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 665,
+  "problem": {
+    "task_id": 665,
+    "text": "Write a python function to shift first element to the end of given list.",
+    "code": "def move_last(num_list):\r\n    a = [num_list[0] for i in range(num_list.count(num_list[0]))]\r\n    x = [ i for i in num_list if i != num_list[0]]\r\n    x.extend(a)\r\n    return (x)",
+    "test_list": [
+      "assert move_last([1,2,3,4]) == [2,3,4,1]",
+      "assert move_last([2,3,4,1,5,0]) == [3,4,1,5,0,2]",
+      "assert move_last([5,4,3,2,1]) == [4,3,2,1,5]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to shift first element to the end of given list.\n\nTask ID: 665\n\nExpected behavior (test cases):\n1. move_last([1,2,3,4]) should return [2,3,4,1]\n2. move_last([2,3,4,1,5,0]) should return [3,4,1,5,0,2]\n3. move_last([5,4,3,2,1]) should return [4,3,2,1,5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-99f0530de1a242cf9b3d5df8a52f8c9c",
+    "object": "chat.completion",
+    "created": 1750867806,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef move_last(lst):\n    \"\"\"\n    Shifts the last element of the given list to the front.\n    \n    Parameters:\n    lst (list): The input list from which the last element will be moved to the front.\n    \n    Returns:\n    list: A new list with the last element moved to the front.\n    \"\"\"\n    if not lst:\n        return []\n    else:\n        return [lst[-1]] + lst[:-1]\n\n# Test cases\nprint(move_last([1,2,3,4]))  # Expected output: [2,3,4,1]\nprint(move_last([2,3,4,1,5,0]))  # Expected output: [3,4,1,5,0,2]\nprint(move_last([5,4,3,2,1]))  # Expected output: [4,3,2,1,5]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 174,
+      "total_tokens": 362,
+      "completion_tokens": 188,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867809.5666506
+}

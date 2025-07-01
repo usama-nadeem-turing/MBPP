@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 838,
+  "problem": {
+    "task_id": 838,
+    "text": "Write a python function to find minimum number swaps required to make two binary strings equal.",
+    "code": "def min_Swaps(s1,s2) :  \r\n    c0 = 0; c1 = 0;  \r\n    for i in range(len(s1)) :  \r\n        if (s1[i] == '0' and s2[i] == '1') : \r\n            c0 += 1;    \r\n        elif (s1[i] == '1' and s2[i] == '0') : \r\n            c1 += 1;  \r\n    result = c0 // 2 + c1 // 2;  \r\n    if (c0 % 2 == 0 and c1 % 2 == 0) : \r\n        return result;  \r\n    elif ((c0 + c1) % 2 == 0) : \r\n        return result + 2;  \r\n    else : \r\n        return -1;  ",
+    "test_list": [
+      "assert min_Swaps(\"0011\",\"1111\") == 1",
+      "assert min_Swaps(\"00011\",\"01001\") == 2",
+      "assert min_Swaps(\"111\",\"111\") == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find minimum number swaps required to make two binary strings equal.\n\nTask ID: 838\n\nExpected behavior (test cases):\n1. min_Swaps(\"0011\",\"1111\") should return 1\n2. min_Swaps(\"00011\",\"01001\") should return 2\n3. min_Swaps(\"111\",\"111\") should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d21da649809a4ba1b2f0c68954247714",
+    "object": "chat.completion",
+    "created": 1750868245,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_Swaps(s1, s2):\n    count = 0\n    for i in range(len(s1)):\n        if s1[i] != s2[i]:\n            count += 1\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 210,
+      "completion_tokens": 52,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868246.3717988
+}

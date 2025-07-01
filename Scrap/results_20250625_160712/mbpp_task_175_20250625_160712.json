@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 175,
+  "problem": {
+    "task_id": 175,
+    "text": "Write a function to verify validity of a string of parentheses.",
+    "code": "def is_valid_parenthese( str1):\r\n        stack, pchar = [], {\"(\": \")\", \"{\": \"}\", \"[\": \"]\"}\r\n        for parenthese in str1:\r\n            if parenthese in pchar:\r\n                stack.append(parenthese)\r\n            elif len(stack) == 0 or pchar[stack.pop()] != parenthese:\r\n                return False\r\n        return len(stack) == 0",
+    "test_list": [
+      "assert is_valid_parenthese(\"(){}[]\")==True",
+      "assert is_valid_parenthese(\"()[{)}\")==False",
+      "assert is_valid_parenthese(\"()\")==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to verify validity of a string of parentheses.\n\nTask ID: 175\n\nExpected behavior (test cases):\n1. is_valid_parenthese(\"(){}[]\")==True\n2. is_valid_parenthese(\"()[{)}\")==False\n3. is_valid_parenthese(\"()\")==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e2d44bd7cced4ed8b8d5a89d96b2ed92",
+    "object": "chat.completion",
+    "created": 1750869032,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_valid_parenthese(s):\n    stack = []\n    mapping = {\")\": \"(\", \"}\": \"{\", \"]\": \"[\"}\n    \n    for char in s:\n        if char not in mapping:\n            stack.append(char)\n        elif not stack or mapping[char] != stack.pop():\n            return False\n    \n    return len(stack) == 0\n```\n\nThis solution uses a stack to keep track of opening parentheses. For each character in the input string, it checks whether it's an opening parenthesis and pushes it onto the stack. If it's a closing parenthesis, it pops from the stack; if the popped item doesn't match the corresponding opening parenthesis, the string is invalid. The function returns `True` if the stack is empty at the end, indicating all parentheses were properly closed.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 292,
+      "completion_tokens": 165,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869035.3967345
+}

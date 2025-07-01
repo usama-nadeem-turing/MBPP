@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 584,
+  "problem": {
+    "task_id": 584,
+    "text": "Write a function to find all adverbs and their positions in a given sentence by using regex.",
+    "code": "import re\r\ndef find_adverbs(text):\r\n  for m in re.finditer(r\"\\w+ly\", text):\r\n    return ('%d-%d: %s' % (m.start(), m.end(), m.group(0)))",
+    "test_list": [
+      "assert find_adverbs(\"Clearly, he has no excuse for such behavior.\") == '0-7: Clearly'",
+      "assert find_adverbs(\"Please handle the situation carefuly\") == '28-36: carefuly'",
+      "assert find_adverbs(\"Complete the task quickly\") == '18-25: quickly'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find all adverbs and their positions in a given sentence by using regex.\n\nTask ID: 584\n\nExpected behavior (test cases):\n1. find_adverbs(\"Clearly, he has no excuse for such behavior.\") should return '0-7: Clearly'\n2. find_adverbs(\"Please handle the situation carefuly\") should return '28-36: carefuly'\n3. find_adverbs(\"Complete the task quickly\") should return '18-25: quickly'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7d3a26985a0b413a888ee952623035ad",
+    "object": "chat.completion",
+    "created": 1750870063,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef find_adverbs(sentence):\n    # Define the pattern to match adverbs followed by a space and then a word boundary\n    pattern = r'\\b([A-Z][a-z]*\\s+)([A-Z][a-z]*)\\b'\n    \n    # Find all matches of the pattern in the sentence\n    matches = re.findall(pattern, sentence)\n    \n    # Extract the start and end indices of each adverb\n    adverbs_with_positions = [(match[0], match[1]) for match in matches]\n    \n    return adverbs_with_positions\n\n# Test cases\nprint(find_adverbs(\"Clearly, he has no excuse for such behavior.\"))  # Expected output: [('0-7', 'Clearly')]\nprint(find_adverbs(\"Please handle the situation carefully\"))  # Expected output: [('28-36', 'carefully')]\nprint(find_adverbs(\"Complete the task quickly\"))  # Expected output: [('18-25', 'quickly')]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 376,
+      "completion_tokens": 210,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870067.4289412
+}

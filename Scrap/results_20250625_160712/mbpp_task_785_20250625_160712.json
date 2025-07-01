@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 785,
+  "problem": {
+    "task_id": 785,
+    "text": "Write a function to convert tuple string to integer tuple.",
+    "code": "def tuple_str_int(test_str):\r\n  res = tuple(int(num) for num in test_str.replace('(', '').replace(')', '').replace('...', '').split(', '))\r\n  return (res) ",
+    "test_list": [
+      "assert tuple_str_int(\"(7, 8, 9)\") == (7, 8, 9)",
+      "assert tuple_str_int(\"(1, 2, 3)\") == (1, 2, 3)",
+      "assert tuple_str_int(\"(4, 5, 6)\") == (4, 5, 6)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert tuple string to integer tuple.\n\nTask ID: 785\n\nExpected behavior (test cases):\n1. tuple_str_int(\"(7, 8, 9)\") should return (7, 8, 9)\n2. tuple_str_int(\"(1, 2, 3)\") should return (1, 2, 3)\n3. tuple_str_int(\"(4, 5, 6)\") should return (4, 5, 6)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bf8ba6e71c56408e950a8135e691b33c",
+    "object": "chat.completion",
+    "created": 1750868119,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tuple_str_int(tuple_str):\n    # Split the input string by comma and convert each element to an integer\n    return tuple(map(int, tuple_str.split(',')))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "total_tokens": 200,
+      "completion_tokens": 39,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868120.2540815
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 160,
+  "problem": {
+    "task_id": 160,
+    "text": "Write a function to find x and y that satisfies ax + by = n.",
+    "code": "def solution (a, b, n): \r\n\ti = 0\r\n\twhile i * a <= n: \r\n\t\tif (n - (i * a)) % b == 0: \r\n\t\t\treturn (\"x = \",i ,\", y = \", \r\n\t\t\tint((n - (i * a)) / b)) \r\n\t\t\treturn 0\r\n\t\ti = i + 1\r\n\treturn (\"No solution\") ",
+    "test_list": [
+      "assert solution(2, 3, 7) == ('x = ', 2, ', y = ', 1)",
+      "assert solution(4, 2, 7) == 'No solution'",
+      "assert solution(1, 13, 17) == ('x = ', 4, ', y = ', 1)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find x and y that satisfies ax + by = n.\n\nTask ID: 160\n\nExpected behavior (test cases):\n1. solution(2, 3, 7) should return ('x = ', 2, ', y = ', 1)\n2. solution(4, 2, 7) should return 'No solution'\n3. solution(1, 13, 17) should return ('x = ', 4, ', y = ', 1)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8d0281ea9b72400cb1dc7e866d31ff5c",
+    "object": "chat.completion",
+    "created": 1750868999,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef solution(a, b, n):\n    if a == 0:\n        if b != 0:\n            return \"No solution\"\n        else:\n            return f\"x = {n}, y = 0\"\n    \n    if b == 0:\n        if a != 0:\n            return \"No solution\"\n        else:\n            return f\"y = {n // a}\"\n    \n    gcd = math.gcd(a, b)\n    m = n // gcd\n    \n    if a * m % b == 0:\n        return f\"x = {m}, y = {a * m // b}\"\n    else:\n        return \"No solution\"\n```\n\nThis Python function `solution` takes three integers `a`, `b`, and `n` as input and returns a string describing the values of `x` and `y` that satisfy the equation `ax + by = n`. If no such values exist, it returns \"No solution\". The function uses the greatest common divisor (GCD) to simplify the equation before attempting to solve for `x` and `y`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "total_tokens": 393,
+      "completion_tokens": 226,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869003.0917745
+}

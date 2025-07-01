@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 832,
+  "problem": {
+    "task_id": 832,
+    "text": "Write a function to extract the maximum numeric value from a string by using regex.",
+    "code": "import re \r\ndef extract_max(input): \r\n\tnumbers = re.findall('\\d+',input) \r\n\tnumbers = map(int,numbers) \r\n\treturn max(numbers)",
+    "test_list": [
+      "assert extract_max('100klh564abc365bg') == 564",
+      "assert extract_max('hello300how546mer231') == 546",
+      "assert extract_max('its233beenalong343journey234') == 343"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract the maximum numeric value from a string by using regex.\n\nTask ID: 832\n\nExpected behavior (test cases):\n1. extract_max('100klh564abc365bg') should return 564\n2. extract_max('hello300how546mer231') should return 546\n3. extract_max('its233beenalong343journey234') should return 343\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-657bac6ffda74af087febc18f748d725",
+    "object": "chat.completion",
+    "created": 1750868225,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef extract_max(input_string):\n    # Use regular expression to find all digits in the input string\n    numbers = re.findall(r'\\d+', input_string)\n    # Convert found strings of digits into integers and find the max\n    max_number = int(max(numbers))\n    return str(max_number)\n\n# Test cases\nprint(extract_max('100klh564abc365bg'))  # Expected output: '564'\nprint(extract_max('hello300how546mer231'))  # Expected output: '546'\nprint(extract_max('its233beenalong343journey234'))  # Expected output: '343'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "total_tokens": 328,
+      "completion_tokens": 159,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868228.524302
+}

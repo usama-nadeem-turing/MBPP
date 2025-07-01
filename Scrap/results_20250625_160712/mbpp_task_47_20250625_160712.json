@@ -1,0 +1,48 @@
+{
+  "mbpp_id": 47,
+  "problem": {
+    "task_id": 47,
+    "text": "Write a python function to find the last digit when factorial of a divides factorial of b.",
+    "code": "def compute_Last_Digit(A,B): \r\n    variable = 1\r\n    if (A == B): \r\n        return 1\r\n    elif ((B - A) >= 5):  \r\n        return 0\r\n    else:   \r\n        for i in range(A + 1,B + 1): \r\n            variable = (variable * (i % 10)) % 10\r\n        return variable % 10",
+    "test_list": [
+      "assert compute_Last_Digit(2,4) == 2",
+      "assert compute_Last_Digit(6,8) == 6",
+      "assert compute_Last_Digit(1,2) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert compute_Last_Digit(3,7) == 0",
+      "assert compute_Last_Digit(20,23) == 6",
+      "assert compute_Last_Digit(1021,1024) == 4"
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the last digit when factorial of a divides factorial of b.\n\nTask ID: 47\n\nExpected behavior (test cases):\n1. compute_Last_Digit(2,4) should return 2\n2. compute_Last_Digit(6,8) should return 6\n3. compute_Last_Digit(1,2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-78abcbe3b14a4718955f55d41d3b334a",
+    "object": "chat.completion",
+    "created": 1750868698,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef compute_Last_Digit(a, b):\n    # Calculate the factorial of both numbers\n    fact_a = calculate_factorial(a)\n    fact_b = calculate_factorial(b)\n\n    # Return the last digit of the division of factorials\n    return str(fact_a // fact_b)[-1]\n\n# Helper function to calculate factorial\ndef calculate_factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * calculate_factorial(n - 1)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 246,
+      "completion_tokens": 106,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868700.273635
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 908,
+  "problem": {
+    "task_id": 908,
+    "text": "Write a function to find the fixed point in the given array.",
+    "code": "def find_fixed_point(arr, n): \r\n\tfor i in range(n): \r\n\t\tif arr[i] is i: \r\n\t\t\treturn i \r\n\treturn -1",
+    "test_list": [
+      "assert find_fixed_point([-10, -1, 0, 3, 10, 11, 30, 50, 100],9) == 3",
+      "assert find_fixed_point([1, 2, 3, 4, 5, 6, 7, 8],8) == -1",
+      "assert find_fixed_point([0, 2, 5, 8, 17],5) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the fixed point in the given array.\n\nTask ID: 908\n\nExpected behavior (test cases):\n1. find_fixed_point([-10, -1, 0, 3, 10, 11, 30, 50, 100],9) should return 3\n2. find_fixed_point([1, 2, 3, 4, 5, 6, 7, 8],8) should return -1\n3. find_fixed_point([0, 2, 5, 8, 17],5) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0c934ea899de470a90d31e859893ca5d",
+    "object": "chat.completion",
+    "created": 1750868432,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_fixed_point(arr):\n    for i in range(len(arr)):\n        if arr[i] == i:\n            return i\n    return -1\n\n# Test cases\nprint(find_fixed_point([-10, -1, 0, 3, 10, 11, 30, 50, 100]))  # Output: 3\nprint(find_fixed_point([1, 2, 3, 4, 5, 6, 7, 8]))  # Output: -1\nprint(find_fixed_point([0, 2, 5, 8, 17]))  # Output: 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 198,
+      "total_tokens": 345,
+      "completion_tokens": 147,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868434.861078
+}

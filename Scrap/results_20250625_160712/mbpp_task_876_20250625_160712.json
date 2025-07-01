@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 876,
+  "problem": {
+    "task_id": 876,
+    "text": "Write a python function to find lcm of two positive integers.",
+    "code": "def lcm(x, y):\r\n   if x > y:\r\n       z = x\r\n   else:\r\n       z = y\r\n   while(True):\r\n       if((z % x == 0) and (z % y == 0)):\r\n           lcm = z\r\n           break\r\n       z += 1\r\n   return lcm",
+    "test_list": [
+      "assert lcm(4,6) == 12",
+      "assert lcm(15,17) == 255",
+      "assert lcm(2,6) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find lcm of two positive integers.\n\nTask ID: 876\n\nExpected behavior (test cases):\n1. lcm(4,6) should return 12\n2. lcm(15,17) should return 255\n3. lcm(2,6) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-26b71be7bf9247da8346cac755334c19",
+    "object": "chat.completion",
+    "created": 1750868350,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef lcm(x, y):\n    # Calculate LCM using the formula: lcm(a, b) = abs(a*b) // gcd(a,b)\n    from math import gcd\n    return abs(x * y) // gcd(x, y)\n\n# Test cases\nprint(lcm(4, 6))  # Expected output: 12\nprint(lcm(15, 17))  # Expected output: 255\nprint(lcm(2, 6))  # Expected output: 6\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 245,
+      "completion_tokens": 114,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868352.735512
+}

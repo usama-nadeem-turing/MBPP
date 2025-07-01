@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 814,
+  "problem": {
+    "task_id": 814,
+    "text": "Write a function to find the area of a rombus.",
+    "code": "def rombus_area(p,q):\r\n  area=(p*q)/2\r\n  return area",
+    "test_list": [
+      "assert rombus_area(10,20)==100",
+      "assert rombus_area(10,5)==25",
+      "assert rombus_area(4,2)==4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the area of a rombus.\n\nTask ID: 814\n\nExpected behavior (test cases):\n1. rombus_area(10,20)==100\n2. rombus_area(10,5)==25\n3. rombus_area(4,2)==4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5e3efe2240614cdaa9501d71fdacff24",
+    "object": "chat.completion",
+    "created": 1750868181,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef rombus_area(a, b):\n    return a * b / 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 151,
+      "completion_tokens": 22,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868181.845765
+}

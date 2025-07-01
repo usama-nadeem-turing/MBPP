@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 555,
+  "problem": {
+    "task_id": 555,
+    "text": "Write a python function to find the difference between sum of cubes of first n natural numbers and the sum of first n natural numbers.",
+    "code": "def difference(n) :  \r\n    S = (n*(n + 1))//2;  \r\n    res = S*(S-1);  \r\n    return res;  ",
+    "test_list": [
+      "assert difference(3) == 30",
+      "assert difference(5) == 210",
+      "assert difference(2) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the difference between sum of cubes of first n natural numbers and the sum of first n natural numbers.\n\nTask ID: 555\n\nExpected behavior (test cases):\n1. difference(3) should return 30\n2. difference(5) should return 210\n3. difference(2) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7f8e811722224ed7a64683fbcd190767",
+    "object": "chat.completion",
+    "created": 1750869994,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef difference(n):\n    # Calculate the sum of cubes of first n natural numbers using the formula:\n    # Sum = (n * (n + 1) / 2)^2\n    sum_of_cubes = (n * (n + 1) // 2) ** 2\n    \n    # Calculate the sum of first n natural numbers using the formula:\n    # Sum = n * (n + 1) / 2\n    sum_of_natural_numbers = n * (n + 1) // 2\n    \n    # Return the difference between the two sums\n    return sum_of_cubes - sum_of_natural_numbers\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 276,
+      "completion_tokens": 139,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869996.5930395
+}

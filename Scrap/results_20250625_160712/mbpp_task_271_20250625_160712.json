@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 271,
+  "problem": {
+    "task_id": 271,
+    "text": "Write a python function to find the sum of fifth power of first n even natural numbers.",
+    "code": "def even_Power_Sum(n): \r\n    sum = 0; \r\n    for i in range(1,n+1): \r\n        j = 2*i; \r\n        sum = sum + (j*j*j*j*j); \r\n    return sum; ",
+    "test_list": [
+      "assert even_Power_Sum(2) == 1056",
+      "assert even_Power_Sum(3) == 8832",
+      "assert even_Power_Sum(1) == 32"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of fifth power of first n even natural numbers.\n\nTask ID: 271\n\nExpected behavior (test cases):\n1. even_Power_Sum(2) should return 1056\n2. even_Power_Sum(3) should return 8832\n3. even_Power_Sum(1) should return 32\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5026cc0778334182882f2e4f3fc13479",
+    "object": "chat.completion",
+    "created": 1750869276,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef even_Power_Sum(n):\n    total_sum = 0\n    for i in range(1, n + 1):\n        even_number = 2 * i\n        total_sum += even_number ** 5\n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 202,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869277.3232808
+}

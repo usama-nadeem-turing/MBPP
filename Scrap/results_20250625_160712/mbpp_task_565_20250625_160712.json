@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 565,
+  "problem": {
+    "task_id": 565,
+    "text": "Write a python function to split a string into characters.",
+    "code": "def split(word): \r\n    return [char for char in word] ",
+    "test_list": [
+      "assert split('python') == ['p','y','t','h','o','n']",
+      "assert split('Name') == ['N','a','m','e']",
+      "assert split('program') == ['p','r','o','g','r','a','m']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to split a string into characters.\n\nTask ID: 565\n\nExpected behavior (test cases):\n1. split('python') should return ['p','y','t','h','o','n']\n2. split('Name') should return ['N','a','m','e']\n3. split('program') should return ['p','r','o','g','r','a','m']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8efc4e00722d4b6eb5b5f9af9793d00d",
+    "object": "chat.completion",
+    "created": 1750870020,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef split(s):\n    # Splitting the string at each character and returning the result as a list of characters.\n    return list(s)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "total_tokens": 180,
+      "completion_tokens": 33,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870021.4595776
+}

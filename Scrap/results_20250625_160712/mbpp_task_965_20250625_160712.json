@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 965,
+  "problem": {
+    "task_id": 965,
+    "text": "Write a function to convert camel case string to snake case string.",
+    "code": "def camel_to_snake(text):\r\n        import re\r\n        str1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', text)\r\n        return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', str1).lower()",
+    "test_list": [
+      "assert camel_to_snake('PythonProgram')==('python_program')",
+      "assert camel_to_snake('pythonLanguage')==('python_language')",
+      "assert camel_to_snake('ProgrammingLanguage')==('programming_language')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert camel case string to snake case string.\n\nTask ID: 965\n\nExpected behavior (test cases):\n1. camel_to_snake('PythonProgram')==('python_program')\n2. camel_to_snake('pythonLanguage')==('python_language')\n3. camel_to_snake('ProgrammingLanguage')==('programming_language')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a6069fe8dcdb42379fb71eed8591c87c",
+    "object": "chat.completion",
+    "created": 1750868585,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef camel_to_snake(s):\n    # Split the input string into words based on uppercase letters\n    words = s.split('_')\n    \n    # Convert each word to lowercase and join them with underscores\n    return ''.join(word.lower() for word in words)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 188,
+      "completion_tokens": 58,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868586.5463789
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 83,
+  "problem": {
+    "task_id": 83,
+    "text": "Write a python function to find the character made by adding all the characters of the given string.",
+    "code": "def get_Char(strr):  \r\n    summ = 0\r\n    for i in range(len(strr)): \r\n        summ += (ord(strr[i]) - ord('a') + 1)  \r\n    if (summ % 26 == 0): \r\n        return ord('z') \r\n    else: \r\n        summ = summ % 26\r\n        return chr(ord('a') + summ - 1)",
+    "test_list": [
+      "assert get_Char(\"abc\") == \"f\"",
+      "assert get_Char(\"gfg\") == \"t\"",
+      "assert get_Char(\"ab\") == \"c\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the character made by adding all the characters of the given string.\n\nTask ID: 83\n\nExpected behavior (test cases):\n1. get_Char(\"abc\") should return \"f\"\n2. get_Char(\"gfg\") should return \"t\"\n3. get_Char(\"ab\") should return \"c\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bb6a8015e7784d3d8da58043be619519",
+    "object": "chat.completion",
+    "created": 1750868796,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_Char(s):\n    # Initialize result with an empty string\n    res = \"\"\n    \n    # Iterate through each character in the input string\n    for char in s:\n        # Append the ASCII value of the current character to the result\n        res += str(ord(char))\n    \n    # Return the final result as a single character\n    return chr(int(res))\n\n# Test cases\nprint(get_Char(\"abc\"))  # Expected output: f\nprint(get_Char(\"gfg\"))  # Expected output: t\nprint(get_Char(\"ab\"))   # Expected output: c\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 254,
+      "completion_tokens": 124,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868798.5204737
+}

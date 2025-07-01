@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 704,
+  "problem": {
+    "task_id": 704,
+    "text": "Write a function to calculate the harmonic sum of n-1.",
+    "code": "def harmonic_sum(n):\r\n  if n < 2:\r\n    return 1\r\n  else:\r\n    return 1 / n + (harmonic_sum(n - 1))",
+    "test_list": [
+      "assert harmonic_sum(10)==2.9289682539682538",
+      "assert harmonic_sum(4)==2.083333333333333",
+      "assert harmonic_sum(7)==2.5928571428571425 "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the harmonic sum of n-1.\n\nTask ID: 704\n\nExpected behavior (test cases):\n1. harmonic_sum(10)==2.9289682539682538\n2. harmonic_sum(4)==2.083333333333333\n3. harmonic_sum(7)==2.5928571428571425 \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-326ec5cb808e43e496891a694eb7a16c",
+    "object": "chat.completion",
+    "created": 1750867893,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef harmonic_sum(n):\n    return sum(1/i for i in range(1, n+1))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 193,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867894.190683
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 639,
+  "problem": {
+    "task_id": 639,
+    "text": "Write a function to sum the length of the names of a given list of names after removing the names that start with a lowercase letter.",
+    "code": "def sample_nam(sample_names):\r\n  sample_names=list(filter(lambda el:el[0].isupper() and el[1:].islower(),sample_names))\r\n  return len(''.join(sample_names))",
+    "test_list": [
+      "assert sample_nam(['sally', 'Dylan', 'rebecca', 'Diana', 'Joanne', 'keith'])==16",
+      "assert sample_nam([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])==10",
+      "assert sample_nam([\"abcd\", \"Python\", \"abba\", \"aba\"])==6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sum the length of the names of a given list of names after removing the names that start with a lowercase letter.\n\nTask ID: 639\n\nExpected behavior (test cases):\n1. sample_nam(['sally', 'Dylan', 'rebecca', 'Diana', 'Joanne', 'keith'])==16\n2. sample_nam([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])==10\n3. sample_nam([\"abcd\", \"Python\", \"abba\", \"aba\"])==6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8137f56e453a4575b2621f25f4f64bb0",
+    "object": "chat.completion",
+    "created": 1750867744,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sample_nam(names):\n    # Filter out names starting with a lowercase letter and calculate their lengths\n    filtered_names = [name for name in names if name[0].isupper()]\n    return sum(len(name) for name in filtered_names)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 183,
+      "total_tokens": 239,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867745.0729156
+}

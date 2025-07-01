@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 676,
+  "problem": {
+    "task_id": 676,
+    "text": "Write a function to remove everything except alphanumeric characters from the given string by using regex.",
+    "code": "import re\r\ndef remove_extra_char(text1):\r\n  pattern = re.compile('[\\W_]+')\r\n  return (pattern.sub('', text1))",
+    "test_list": [
+      "assert remove_extra_char('**//Google Android// - 12. ') == 'GoogleAndroid12'",
+      "assert remove_extra_char('****//Google Flutter//*** - 36. ') == 'GoogleFlutter36'",
+      "assert remove_extra_char('**//Google Firebase// - 478. ') == 'GoogleFirebase478'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove everything except alphanumeric characters from the given string by using regex.\n\nTask ID: 676\n\nExpected behavior (test cases):\n1. remove_extra_char('**//Google Android// - 12. ') should return 'GoogleAndroid12'\n2. remove_extra_char('****//Google Flutter//*** - 36. ') should return 'GoogleFlutter36'\n3. remove_extra_char('**//Google Firebase// - 478. ') should return 'GoogleFirebase478'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9603adcf0c36476eb07b32ece6f6a099",
+    "object": "chat.completion",
+    "created": 1750867829,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef remove_extra_char(s):\n    # Remove all non-alphanumeric characters and replace them with an empty string\n    cleaned_string = re.sub(r'\\W+', '', s)\n    return cleaned_string\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 170,
+      "total_tokens": 218,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867830.113612
+}

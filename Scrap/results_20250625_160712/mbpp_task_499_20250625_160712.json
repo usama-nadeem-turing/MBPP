@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 499,
+  "problem": {
+    "task_id": 499,
+    "text": "Write a function to find the diameter of a circle.",
+    "code": "def diameter_circle(r):\r\n  diameter=2*r\r\n  return diameter",
+    "test_list": [
+      "assert diameter_circle(10)==20",
+      "assert diameter_circle(40)==80",
+      "assert diameter_circle(15)==30"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the diameter of a circle.\n\nTask ID: 499\n\nExpected behavior (test cases):\n1. diameter_circle(10)==20\n2. diameter_circle(40)==80\n3. diameter_circle(15)==30\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0781d85ce15741109663171a0b836c99",
+    "object": "chat.completion",
+    "created": 1750869857,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef diameter_circle(radius):\n    return 2 * radius * math.sqrt(2)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "total_tokens": 144,
+      "completion_tokens": 25,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869857.5109189
+}

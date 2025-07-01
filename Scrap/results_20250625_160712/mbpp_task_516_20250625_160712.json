@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 516,
+  "problem": {
+    "task_id": 516,
+    "text": "Write a function to sort a list of elements using radix sort.",
+    "code": "def radix_sort(nums):\r\n    RADIX = 10\r\n    placement = 1\r\n    max_digit = max(nums)\r\n\r\n    while placement < max_digit:\r\n      buckets = [list() for _ in range( RADIX )]\r\n      for i in nums:\r\n        tmp = int((i / placement) % RADIX)\r\n        buckets[tmp].append(i)\r\n      a = 0\r\n      for b in range( RADIX ):\r\n        buck = buckets[b]\r\n        for i in buck:\r\n          nums[a] = i\r\n          a += 1\r\n      placement *= RADIX\r\n    return nums",
+    "test_list": [
+      "assert radix_sort([15, 79, 25, 68, 37]) == [15, 25, 37, 68, 79]",
+      "assert radix_sort([9, 11, 8, 7, 3, 2]) == [2, 3, 7, 8, 9, 11]",
+      "assert radix_sort([36, 12, 24, 26, 29]) == [12, 24, 26, 29, 36]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a list of elements using radix sort.\n\nTask ID: 516\n\nExpected behavior (test cases):\n1. radix_sort([15, 79, 25, 68, 37]) should return [15, 25, 37, 68, 79]\n2. radix_sort([9, 11, 8, 7, 3, 2]) should return [2, 3, 7, 8, 9, 11]\n3. radix_sort([36, 12, 24, 26, 29]) should return [12, 24, 26, 29, 36]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-58925ce78fc64f3b8996470e66f8763a",
+    "object": "chat.completion",
+    "created": 1750869891,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef radix_sort(arr):\n    max_num = max(arr)\n    exp = 1\n    while max_num // exp > 0:\n        counting_sort(arr, exp)\n        exp *= 10\n    return arr\n\ndef counting_sort(arr, exp):\n    n = len(arr)\n    output = [0] * n\n    count = [0] * 10\n    \n    for i in range(n):\n        index = (arr[i] // exp) % 10\n        count[index] += 1\n    \n    for i in range(1, 10):\n        count[i] += count[i - 1]\n    \n    i = n - 1\n    while i >= 0:\n        index = (arr[i] // exp) % 10\n        output[count[index] - 1] = arr[i]\n        count[index] -= 1\n        i -= 1\n    \n    for i in range(n):\n        arr[i] = output[i]\n\n# Test cases\nprint(radix_sort([15, 79, 25, 68, 37]))  # Expected output: [15, 25, 37, 68, 79]\nprint(radix_sort([9, 11, 8, 7, 3, 2]))   # Expected output: [2, 3, 7, 8, 9, 11]\nprint(radix_sort([36, 12, 24, 26, 29]))  # Expected output: [12, 24, 26, 29, 36]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "total_tokens": 583,
+      "completion_tokens": 359,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869897.9163463
+}

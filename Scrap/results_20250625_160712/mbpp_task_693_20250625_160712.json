@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 693,
+  "problem": {
+    "task_id": 693,
+    "text": "Write a function to remove multiple spaces in a string by using regex.",
+    "code": "import re\r\ndef remove_multiple_spaces(text1):\r\n  return (re.sub(' +',' ',text1))",
+    "test_list": [
+      "assert remove_multiple_spaces('Google      Assistant') == 'Google Assistant'",
+      "assert remove_multiple_spaces('Quad      Core') == 'Quad Core'",
+      "assert remove_multiple_spaces('ChromeCast      Built-in') == 'ChromeCast Built-in'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove multiple spaces in a string by using regex.\n\nTask ID: 693\n\nExpected behavior (test cases):\n1. remove_multiple_spaces('Google      Assistant') should return 'Google Assistant'\n2. remove_multiple_spaces('Quad      Core') should return 'Quad Core'\n3. remove_multiple_spaces('ChromeCast      Built-in') should return 'ChromeCast Built-in'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8bd9a53f23304296b1ae7ad5e298c9f4",
+    "object": "chat.completion",
+    "created": 1750867865,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef remove_multiple_spaces(input_string):\n    # Use regular expression to replace one or more whitespace characters (\\s+) with a single space\n    cleaned_string = re.sub(r'\\s+', ' ', input_string).strip()\n    return cleaned_string\n\n# Test cases\nprint(remove_multiple_spaces('Google      Assistant'))  # Expected output: 'Google Assistant'\nprint(remove_multiple_spaces('Quad      Core'))         # Expected output: 'Quad Core'\nprint(remove_multiple_spaces('ChromeCast      Built-in'))  # Expected output: 'ChromeCast Built-in'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 260,
+      "completion_tokens": 119,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867867.2271352
+}

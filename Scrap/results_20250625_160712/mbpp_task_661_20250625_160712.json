@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 661,
+  "problem": {
+    "task_id": 661,
+    "text": "Write a function to find the maximum sum that can be formed which has no three consecutive elements present.",
+    "code": "def max_sum_of_three_consecutive(arr, n): \r\n\tsum = [0 for k in range(n)] \r\n\tif n >= 1: \r\n\t\tsum[0] = arr[0] \r\n\tif n >= 2: \r\n\t\tsum[1] = arr[0] + arr[1] \r\n\tif n > 2: \r\n\t\tsum[2] = max(sum[1], max(arr[1] + arr[2], arr[0] + arr[2])) \r\n\tfor i in range(3, n): \r\n\t\tsum[i] = max(max(sum[i-1], sum[i-2] + arr[i]), arr[i] + arr[i-1] + sum[i-3]) \r\n\treturn sum[n-1]",
+    "test_list": [
+      "assert max_sum_of_three_consecutive([100, 1000, 100, 1000, 1], 5) == 2101",
+      "assert max_sum_of_three_consecutive([3000, 2000, 1000, 3, 10], 5) == 5013",
+      "assert max_sum_of_three_consecutive([1, 2, 3, 4, 5, 6, 7, 8], 8) == 27"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum sum that can be formed which has no three consecutive elements present.\n\nTask ID: 661\n\nExpected behavior (test cases):\n1. max_sum_of_three_consecutive([100, 1000, 100, 1000, 1], 5) should return 2101\n2. max_sum_of_three_consecutive([3000, 2000, 1000, 3, 10], 5) should return 5013\n3. max_sum_of_three_consecutive([1, 2, 3, 4, 5, 6, 7, 8], 8) should return 27\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-375459b5748e4fe4abb214d8a0cae1d5",
+    "object": "chat.completion",
+    "created": 1750867796,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sum_of_three_consecutive(arr, n):\n    dp = [0] * len(arr)\n    \n    for i in range(3, len(arr)):\n        if arr[i-1] + arr[i-2] > arr[i]:\n            dp[i] = dp[i-1]\n        else:\n            dp[i] = max(dp[i-1], dp[i-2] + arr[i])\n    \n    return dp[-1]\n\n# Test cases\nprint(max_sum_of_three_consecutive([100, 1000, 100, 1000, 1], 5)) # Expected output: 2101\nprint(max_sum_of_three_consecutive([3000, 2000, 1000, 3, 10], 5)) # Expected output: 5013\nprint(max_sum_of_three_consecutive([1, 2, 3, 4, 5, 6, 7, 8], 8)) # Expected output: 27\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "total_tokens": 455,
+      "completion_tokens": 231,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867800.357415
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 835,
+  "problem": {
+    "task_id": 835,
+    "text": "Write a python function to find the slope of a line.",
+    "code": "def slope(x1,y1,x2,y2): \r\n    return (float)(y2-y1)/(x2-x1)  ",
+    "test_list": [
+      "assert slope(4,2,2,5) == -1.5",
+      "assert slope(2,4,4,6) == 1",
+      "assert slope(1,2,4,2) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the slope of a line.\n\nTask ID: 835\n\nExpected behavior (test cases):\n1. slope(4,2,2,5) should return -1.5\n2. slope(2,4,4,6) should return 1\n3. slope(1,2,4,2) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ad463dfc2e0a4aeca2f8bf148ac0e1c6",
+    "object": "chat.completion",
+    "created": 1750868236,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef slope(x1, y1, x2, y2):\n    \"\"\"\n    Calculate the slope of a line given two points.\n    \n    Parameters:\n    x1 (float): The x-coordinate of the first point.\n    y1 (float): The y-coordinate of the first point.\n    x2 (float): The x-coordinate of the second point.\n    y2 (float): The y-coordinate of the second point.\n    \n    Returns:\n    float: The slope of the line.\n    \"\"\"\n    if x2 == x1:\n        # If both points have the same x-coordinate, the slope is undefined.\n        return \"undefined\"\n    else:\n        return (y2 - y1) / (x2 - x1)\n\n# Test cases\nprint(slope(4,2,2,5))  # Expected output: -1.5\nprint(slope(2,4,4,6))  # Expected output: 1\nprint(slope(1,2,4,2))  # Expected output: 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 362,
+      "completion_tokens": 222,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868239.9244385
+}

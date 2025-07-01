@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 360,
+  "problem": {
+    "task_id": 360,
+    "text": "Write a function to find the n’th carol number.",
+    "code": "def get_carol(n): \r\n\tresult = (2**n) - 1\r\n\treturn result * result - 2",
+    "test_list": [
+      "assert get_carol(2) == 7",
+      "assert get_carol(4) == 223",
+      "assert get_carol(5) == 959"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n’th carol number.\n\nTask ID: 360\n\nExpected behavior (test cases):\n1. get_carol(2) should return 7\n2. get_carol(4) should return 223\n3. get_carol(5) should return 959\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4f7765e6710d4d9982cbe7d0eed16d94",
+    "object": "chat.completion",
+    "created": 1750869516,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_carol(n):\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 7\n    else:\n        return 2 * pow(10, n - 1) + 9 * pow(10, n - 2)\n\n# Test cases\nprint(get_carol(2))  # Expected output: 7\nprint(get_carol(4))  # Expected output: 223\nprint(get_carol(5))  # Expected output: 959\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 251,
+      "completion_tokens": 120,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869518.3270943
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 573,
+  "problem": {
+    "task_id": 573,
+    "text": "Write a python function to calculate the product of the unique numbers of a given list.",
+    "code": "def unique_product(list_data):\r\n    temp = list(set(list_data))\r\n    p = 1\r\n    for i in temp:\r\n        p *= i\r\n    return p",
+    "test_list": [
+      "assert unique_product([10, 20, 30, 40, 20, 50, 60, 40]) ==  720000000",
+      "assert unique_product([1, 2, 3, 1,]) == 6",
+      "assert unique_product([7, 8, 9, 0, 1, 1]) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to calculate the product of the unique numbers of a given list.\n\nTask ID: 573\n\nExpected behavior (test cases):\n1. unique_product([10, 20, 30, 40, 20, 50, 60, 40]) should return  720000000\n2. unique_product([1, 2, 3, 1,]) should return 6\n3. unique_product([7, 8, 9, 0, 1, 1]) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ece6107e1e3e4766b731295a187fd59e",
+    "object": "chat.completion",
+    "created": 1750870032,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef unique_product(lst):\n    # Remove duplicates and convert to set for multiplication\n    unique_numbers = set(lst)\n    result = 1\n    for num in unique_numbers:\n        result *= num\n    return result\n\n# Test cases\nprint(unique_product([10, 20, 30, 40, 20, 50, 60, 40]))  # Expected output: 720000000\nprint(unique_product([1, 2, 3, 1,]))  # Expected output: 6\nprint(unique_product([7, 8, 9, 0, 1, 1]))  # Expected output: 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 191,
+      "total_tokens": 349,
+      "completion_tokens": 158,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870035.018341
+}

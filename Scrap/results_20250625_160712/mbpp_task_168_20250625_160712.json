@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 168,
+  "problem": {
+    "task_id": 168,
+    "text": "Write a python function to find the frequency of a number in a given array.",
+    "code": "def frequency(a,x): \r\n    count = 0  \r\n    for i in a: \r\n        if i == x: count += 1\r\n    return count ",
+    "test_list": [
+      "assert frequency([1,2,3],4) == 0",
+      "assert frequency([1,2,2,3,3,3,4],3) == 3",
+      "assert frequency([0,1,2,3,1,2],1) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the frequency of a number in a given array.\n\nTask ID: 168\n\nExpected behavior (test cases):\n1. frequency([1,2,3],4) should return 0\n2. frequency([1,2,2,3,3,3,4],3) should return 3\n3. frequency([0,1,2,3,1,2],1) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9b938d7d9d2c42978b403c6c0e4ac963",
+    "object": "chat.completion",
+    "created": 1750869023,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef frequency(arr, num):\n    count = arr.count(num)\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "total_tokens": 178,
+      "completion_tokens": 22,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869024.156908
+}

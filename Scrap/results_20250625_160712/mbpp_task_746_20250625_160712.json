@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 746,
+  "problem": {
+    "task_id": 746,
+    "text": "Write a function to find area of a sector.",
+    "code": "def sector_area(r,a):\r\n    pi=22/7\r\n    if a >= 360:\r\n        return None\r\n    sectorarea = (pi*r**2) * (a/360)\r\n    return sectorarea",
+    "test_list": [
+      "assert sector_area(4,45)==6.285714285714286",
+      "assert sector_area(9,45)==31.82142857142857",
+      "assert sector_area(9,360)==None"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find area of a sector.\n\nTask ID: 746\n\nExpected behavior (test cases):\n1. sector_area(4,45)==6.285714285714286\n2. sector_area(9,45)==31.82142857142857\n3. sector_area(9,360)==None\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-57e26471f9934fd9be90ff3ba4d46a5f",
+    "object": "chat.completion",
+    "created": 1750868007,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef sector_area(radius, angle_in_degrees):\n    if angle_in_degrees == 360:\n        return None\n    else:\n        area = (angle_in_degrees / 360) * math.pi * radius**2\n        return round(area, 6)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "total_tokens": 221,
+      "completion_tokens": 67,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868008.9769876
+}

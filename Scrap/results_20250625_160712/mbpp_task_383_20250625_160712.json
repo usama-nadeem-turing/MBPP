@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 383,
+  "problem": {
+    "task_id": 383,
+    "text": "Write a python function to toggle all odd bits of a given number.",
+    "code": "def even_bit_toggle_number(n) : \r\n    res = 0; count = 0; temp = n    \r\n    while(temp > 0 ) : \r\n        if (count % 2 == 0) : \r\n            res = res | (1 << count)      \r\n        count = count + 1\r\n        temp >>= 1 \r\n    return n ^ res ",
+    "test_list": [
+      "assert even_bit_toggle_number(10) == 15",
+      "assert even_bit_toggle_number(20) == 1",
+      "assert even_bit_toggle_number(30) == 11"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to toggle all odd bits of a given number.\n\nTask ID: 383\n\nExpected behavior (test cases):\n1. even_bit_toggle_number(10) should return 15\n2. even_bit_toggle_number(20) should return 1\n3. even_bit_toggle_number(30) should return 11\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a625590fe55c48a9b457a4f6c296000b",
+    "object": "chat.completion",
+    "created": 1750869567,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef even_bit_toggle_number(n):\n    # Initialize an empty string to store the result\n    result = \"\"\n    \n    # Loop through each bit in the binary representation of n\n    while n > 0:\n        # Check if the current bit is set (odd)\n        if n & 1 == 1:\n            # Toggle the bit and add it to the result string\n            result += \"1\"\n        else:\n            # If the bit is not set, add '0' to the result string\n            result += \"0\"\n        \n        # Right shift n by 1 to process the next bit\n        n >>= 1\n    \n    # Reverse the result string to get the correct order of bits\n    return int(result[::-1], 2)\n\n# Test cases\nprint(even_bit_toggle_number(10))  # Expected output: 15\nprint(even_bit_toggle_number(20))  # Expected output: 1\nprint(even_bit_toggle_number(30))  # Expected output: 11\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 357,
+      "completion_tokens": 221,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869571.1425295
+}

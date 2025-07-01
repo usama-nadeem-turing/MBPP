@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 726,
+  "problem": {
+    "task_id": 726,
+    "text": "Write a function to multiply the adjacent elements of the given tuple.",
+    "code": "def multiply_elements(test_tup):\r\n  res = tuple(i * j for i, j in zip(test_tup, test_tup[1:]))\r\n  return (res) ",
+    "test_list": [
+      "assert multiply_elements((1, 5, 7, 8, 10)) == (5, 35, 56, 80)",
+      "assert multiply_elements((2, 4, 5, 6, 7)) == (8, 20, 30, 42)",
+      "assert multiply_elements((12, 13, 14, 9, 15)) == (156, 182, 126, 135)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to multiply the adjacent elements of the given tuple.\n\nTask ID: 726\n\nExpected behavior (test cases):\n1. multiply_elements((1, 5, 7, 8, 10)) should return (5, 35, 56, 80)\n2. multiply_elements((2, 4, 5, 6, 7)) should return (8, 20, 30, 42)\n3. multiply_elements((12, 13, 14, 9, 15)) should return (156, 182, 126, 135)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6a17e8e066f544a885d58fb9ab29cc4e",
+    "object": "chat.completion",
+    "created": 1750867952,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef multiply_elements(tup):\n    result = ()\n    for i in range(len(tup) - 1):\n        result += (tup[i] * tup[i + 1],)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 206,
+      "total_tokens": 254,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867953.0715296
+}

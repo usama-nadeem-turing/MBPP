@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 36,
+  "problem": {
+    "task_id": 36,
+    "text": "Write a python function to find the nth digit in the proper fraction of two given numbers.",
+    "code": "def find_Nth_Digit(p,q,N) :  \r\n    while (N > 0) : \r\n        N -= 1;  \r\n        p *= 10;  \r\n        res = p // q;  \r\n        p %= q;  \r\n    return res;  ",
+    "test_list": [
+      "assert find_Nth_Digit(1,2,1) == 5",
+      "assert find_Nth_Digit(3,5,1) == 6",
+      "assert find_Nth_Digit(5,6,5) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the nth digit in the proper fraction of two given numbers.\n\nTask ID: 36\n\nExpected behavior (test cases):\n1. find_Nth_Digit(1,2,1) should return 5\n2. find_Nth_Digit(3,5,1) should return 6\n3. find_Nth_Digit(5,6,5) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-477d573e30764db4ba91559899c76f5b",
+    "object": "chat.completion",
+    "created": 1750868670,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Nth_Digit(num1, num2, n):\n    # Convert both numbers to strings and concatenate them\n    concatenated_str = str(num1) + str(num2)\n    \n    # Calculate the position of the nth digit from the end\n    position_from_end = len(concatenated_str) - n\n    \n    # If the position is within the length of the concatenated string\n    if position_from_end < len(concatenated_str):\n        # Return the character at the calculated position\n        return concatenated_str[position_from_end]\n    else:\n        # Handle the case where the nth digit is not found\n        return \"No such digit exists\"\n\n# Test cases\nprint(find_Nth_Digit(1,2,1))  # Expected output: 5\nprint(find_Nth_Digit(3,5,1))  # Expected output: 6\nprint(find_Nth_Digit(5,6,5))  # Expected output: 3\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "total_tokens": 355,
+      "completion_tokens": 206,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868673.5891643
+}

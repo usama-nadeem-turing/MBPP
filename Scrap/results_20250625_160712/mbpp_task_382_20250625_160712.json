@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 382,
+  "problem": {
+    "task_id": 382,
+    "text": "Write a function to find the number of rotations in a circularly sorted array.",
+    "code": "def find_rotation_count(A):\r\n    (left, right) = (0, len(A) - 1)\r\n    while left <= right:\r\n        if A[left] <= A[right]:\r\n            return left\r\n        mid = (left + right) // 2\r\n        next = (mid + 1) % len(A)\r\n        prev = (mid - 1 + len(A)) % len(A)\r\n        if A[mid] <= A[next] and A[mid] <= A[prev]:\r\n            return mid\r\n        elif A[mid] <= A[right]:\r\n            right = mid - 1\r\n        elif A[mid] >= A[left]:\r\n            left = mid + 1\r\n    return -1",
+    "test_list": [
+      "assert find_rotation_count([8, 9, 10, 1, 2, 3, 4, 5, 6, 7]) == 3",
+      "assert find_rotation_count([8, 9, 10,2, 5, 6]) == 3",
+      "assert find_rotation_count([2, 5, 6, 8, 9, 10]) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the number of rotations in a circularly sorted array.\n\nTask ID: 382\n\nExpected behavior (test cases):\n1. find_rotation_count([8, 9, 10, 1, 2, 3, 4, 5, 6, 7]) should return 3\n2. find_rotation_count([8, 9, 10,2, 5, 6]) should return 3\n3. find_rotation_count([2, 5, 6, 8, 9, 10]) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cc832026a5674d359930e1f8c2c6f6a2",
+    "object": "chat.completion",
+    "created": 1750869563,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_rotation_count(arr):\n    left = 0\n    right = len(arr) - 1\n    \n    while arr[left] >= arr[right]:\n        if right - left == 1:\n            return right\n        \n        mid = (left + right) // 2\n        \n        if arr[mid] <= arr[right]:\n            right = mid\n        else:\n            left = mid\n\n    return left\n\n# Test cases\nprint(find_rotation_count([8, 9, 10, 1, 2, 3, 4, 5, 6, 7]))  # Expected output: 3\nprint(find_rotation_count([8, 9, 10, 2, 5, 6]))  # Expected output: 3\nprint(find_rotation_count([2, 5, 6, 8, 9, 10]))  # Expected output: 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "total_tokens": 385,
+      "completion_tokens": 196,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869566.908719
+}

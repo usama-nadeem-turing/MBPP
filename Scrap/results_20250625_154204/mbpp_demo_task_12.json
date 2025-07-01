@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 12,
+  "problem": {
+    "task_id": 12,
+    "text": "Write a function to sort a given matrix in ascending order according to the sum of its rows.",
+    "code": "def sort_matrix(M):\r\n    result = sorted(M, key=sum)\r\n    return result",
+    "test_list": [
+      "assert sort_matrix([[1, 2, 3], [2, 4, 5], [1, 1, 1]])==[[1, 1, 1], [1, 2, 3], [2, 4, 5]]",
+      "assert sort_matrix([[1, 2, 3], [-2, 4, -5], [1, -1, 1]])==[[-2, 4, -5], [1, -1, 1], [1, 2, 3]]",
+      "assert sort_matrix([[5,8,9],[6,4,3],[2,1,4]])==[[2, 1, 4], [6, 4, 3], [5, 8, 9]]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a given matrix in ascending order according to the sum of its rows.\n\nTask ID: 12\n\nExpected behavior (test cases):\n1. sort_matrix([[1, 2, 3], [2, 4, 5], [1, 1, 1]])==[[1, 1, 1], [1, 2, 3], [2, 4, 5]]\n2. sort_matrix([[1, 2, 3], [-2, 4, -5], [1, -1, 1]])==[[-2, 4, -5], [1, -1, 1], [1, 2, 3]]\n3. sort_matrix([[5,8,9],[6,4,3],[2,1,4]])==[[2, 1, 4], [6, 4, 3], [5, 8, 9]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b7f50c55888e4c8c8c801915cc41115c",
+    "object": "chat.completion",
+    "created": 1750866132,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_matrix(matrix):\n    # Sort each row based on the sum of elements and then return the sorted matrix\n    return [[row[i] for i in range(len(row))] for row in sorted(zip(*matrix), key=sum)]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 264,
+      "total_tokens": 316,
+      "completion_tokens": 52,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750866133.017261
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 913,
+  "problem": {
+    "task_id": 913,
+    "text": "Write a function to check for a number at the end of a string.",
+    "code": "import re\r\ndef end_num(string):\r\n    text = re.compile(r\".*[0-9]$\")\r\n    if text.match(string):\r\n        return True\r\n    else:\r\n        return False",
+    "test_list": [
+      "assert end_num('abcdef')==False",
+      "assert end_num('abcdef7')==True",
+      "assert end_num('abc')==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check for a number at the end of a string.\n\nTask ID: 913\n\nExpected behavior (test cases):\n1. end_num('abcdef')==False\n2. end_num('abcdef7')==True\n3. end_num('abc')==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ffadfa65c6224ee78dd86c9ba2bdb31d",
+    "object": "chat.completion",
+    "created": 1750868451,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef end_num(s):\n    # Check if the last character is a digit\n    return s[-1].isdigit()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 118,
+      "total_tokens": 147,
+      "completion_tokens": 29,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868451.5930645
+}

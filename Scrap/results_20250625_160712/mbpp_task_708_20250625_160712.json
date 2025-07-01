@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 708,
+  "problem": {
+    "task_id": 708,
+    "text": "Write a python function to convert a string to a list.",
+    "code": "def Convert(string): \r\n    li = list(string.split(\" \")) \r\n    return li ",
+    "test_list": [
+      "assert Convert('python program') == ['python','program']",
+      "assert Convert('Data Analysis') ==['Data','Analysis']",
+      "assert Convert('Hadoop Training') == ['Hadoop','Training']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert a string to a list.\n\nTask ID: 708\n\nExpected behavior (test cases):\n1. Convert('python program') should return ['python','program']\n2. Convert('Data Analysis') ==['Data','Analysis']\n3. Convert('Hadoop Training') should return ['Hadoop','Training']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5524798ef0ff4bf29bd85dd4d29c8210",
+    "object": "chat.completion",
+    "created": 1750867901,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef convert(s):\n    # Splitting the input string into a list based on spaces and returning it\n    return s.split()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 161,
+      "completion_tokens": 31,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867901.9687767
+}

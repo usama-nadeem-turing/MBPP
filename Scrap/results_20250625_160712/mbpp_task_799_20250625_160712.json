@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 799,
+  "problem": {
+    "task_id": 799,
+    "text": "Write a python function to left rotate the bits of a given number.",
+    "code": "INT_BITS = 32\r\ndef left_Rotate(n,d):   \r\n    return (n << d)|(n >> (INT_BITS - d))  ",
+    "test_list": [
+      "assert left_Rotate(16,2) == 64",
+      "assert left_Rotate(10,2) == 40",
+      "assert left_Rotate(99,3) == 792"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to left rotate the bits of a given number.\n\nTask ID: 799\n\nExpected behavior (test cases):\n1. left_Rotate(16,2) should return 64\n2. left_Rotate(10,2) should return 40\n3. left_Rotate(99,3) should return 792\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-84739c99113348d9921071c4b66f97e3",
+    "object": "chat.completion",
+    "created": 1750868156,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef left_Rotate(num, d):\n    # Convert the number to binary string\n    num_bin = bin(num)[2:]\n    \n    # Calculate the length of the binary string\n    n = len(num_bin)\n    \n    # Perform left rotation\n    rotated_num_bin = num_bin[d:] + num_bin[:d]\n    \n    # Convert back to integer and return\n    return int(rotated_num_bin, 2)\n\n# Test cases\nprint(left_Rotate(16, 2))  # Expected output: 64\nprint(left_Rotate(10, 2))  # Expected output: 40\nprint(left_Rotate(99, 3))  # Expected output: 792\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 298,
+      "completion_tokens": 157,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868158.8294616
+}

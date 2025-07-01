@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 291,
+  "problem": {
+    "task_id": 291,
+    "text": "Write a function to find out the number of ways of painting the fence such that at most 2 adjacent posts have the same color for the given fence with n posts and k colors.",
+    "code": "def count_no_of_ways(n, k): \r\n\tdp = [0] * (n + 1) \r\n\ttotal = k \r\n\tmod = 1000000007\r\n\tdp[1] = k \r\n\tdp[2] = k * k\t \r\n\tfor i in range(3,n+1): \r\n\t\tdp[i] = ((k - 1) * (dp[i - 1] + dp[i - 2])) % mod \r\n\treturn dp[n]",
+    "test_list": [
+      "assert count_no_of_ways(2, 4) == 16",
+      "assert count_no_of_ways(3, 2) == 6",
+      "assert count_no_of_ways(4, 4) == 228"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find out the number of ways of painting the fence such that at most 2 adjacent posts have the same color for the given fence with n posts and k colors.\n\nTask ID: 291\n\nExpected behavior (test cases):\n1. count_no_of_ways(2, 4) should return 16\n2. count_no_of_ways(3, 2) should return 6\n3. count_no_of_ways(4, 4) should return 228\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-35c82bf3f10f48679966c91a56a311d9",
+    "object": "chat.completion",
+    "created": 1750869332,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_no_of_ways(n, k):\n    if n == 0:\n        return 1\n    elif n == 1:\n        return k\n    else:\n        # The recurrence relation is based on the fact that we can either paint the current post in a new color or reuse an existing one.\n        # If we use a new color, it cannot be the same as the previous one, so we multiply by k-1.\n        # If we reuse an existing color, we can choose from all k colors except the one used previously.\n        return (k * count_no_of_ways(n - 1, k)) + ((k - 1) * count_no_of_ways(n - 2, k))\n\n# Test cases\nprint(count_no_of_ways(2, 4))  # Expected output: 16\nprint(count_no_of_ways(3, 2))  # Expected output: 6\nprint(count_no_of_ways(4, 4))  # Expected output: 228\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "total_tokens": 391,
+      "completion_tokens": 222,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869335.8817365
+}

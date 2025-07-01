@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 302,
+  "problem": {
+    "task_id": 302,
+    "text": "Write a python function to find the most significant bit number which is also a set bit.",
+    "code": "def set_Bit_Number(n): \r\n    if (n == 0): \r\n        return 0; \r\n    msb = 0; \r\n    n = int(n / 2); \r\n    while (n > 0): \r\n        n = int(n / 2); \r\n        msb += 1; \r\n    return (1 << msb)",
+    "test_list": [
+      "assert set_Bit_Number(6) == 4",
+      "assert set_Bit_Number(10) == 8",
+      "assert set_Bit_Number(18) == 16"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the most significant bit number which is also a set bit.\n\nTask ID: 302\n\nExpected behavior (test cases):\n1. set_Bit_Number(6) should return 4\n2. set_Bit_Number(10) should return 8\n3. set_Bit_Number(18) should return 16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3804df8ab5034c5aba74687a00b693e5",
+    "object": "chat.completion",
+    "created": 1750869361,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef set_Bit_Number(n):\n    # Find the position of the highest set bit\n    highest_set_bit = n.bit_length()\n    # Return the value of the highest set bit\n    return highest_set_bit * 2 ** (highest_set_bit - 1)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 198,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869362.7777677
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 327,
+  "problem": {
+    "task_id": 327,
+    "text": "Write a function to print check if the triangle is isosceles or not.",
+    "code": "def check_isosceles(x,y,z):\r\n  if x==y or y==z or z==x:\r\n\t   return True\r\n  else:\r\n     return False",
+    "test_list": [
+      "assert check_isosceles(6,8,12)==False ",
+      "assert check_isosceles(6,6,12)==True",
+      "assert check_isosceles(6,16,20)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to print check if the triangle is isosceles or not.\n\nTask ID: 327\n\nExpected behavior (test cases):\n1. check_isosceles(6,8,12)==False \n2. check_isosceles(6,6,12)==True\n3. check_isosceles(6,16,20)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-230d5b2aaccf4d30ba582a14a05da32a",
+    "object": "chat.completion",
+    "created": 1750869433,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_isosceles(a, b, c):\n    # Check if all sides of the triangle are equal\n    return a == b and b == c\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 183,
+      "completion_tokens": 39,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869434.2291765
+}

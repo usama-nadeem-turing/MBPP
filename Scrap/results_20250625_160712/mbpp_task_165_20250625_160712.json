@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 165,
+  "problem": {
+    "task_id": 165,
+    "text": "Write a python function to count characters at same position in a given string (lower and uppercase characters) as in english alphabet.",
+    "code": "def count_char_position(str1): \r\n    count_chars = 0\r\n    for i in range(len(str1)):\r\n        if ((i == ord(str1[i]) - ord('A')) or \r\n            (i == ord(str1[i]) - ord('a'))): \r\n            count_chars += 1\r\n    return count_chars ",
+    "test_list": [
+      "assert count_char_position(\"xbcefg\") == 2",
+      "assert count_char_position(\"ABcED\") == 3",
+      "assert count_char_position(\"AbgdeF\") == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count characters at same position in a given string (lower and uppercase characters) as in english alphabet.\n\nTask ID: 165\n\nExpected behavior (test cases):\n1. count_char_position(\"xbcefg\") should return 2\n2. count_char_position(\"ABcED\") should return 3\n3. count_char_position(\"AbgdeF\") should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c2ac396721394bc5881a861660c84324",
+    "object": "chat.completion",
+    "created": 1750869015,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_char_position(s):\n    # Initialize a dictionary to store character positions\n    char_positions = {}\n    \n    # Iterate through each character in the string\n    for i, char in enumerate(s):\n        # Convert character to lowercase for comparison\n        lower_char = char.lower()\n        \n        # Check if the character is already in the dictionary\n        if lower_char in char_positions:\n            # Increment the count of occurrences\n            char_positions[lower_char] += 1\n        else:\n            # Add the character to the dictionary with an initial count of 1\n            char_positions[lower_char] = 1\n    \n    # Calculate the total number of characters at the same position\n    total_count = sum(char_positions.values())\n    \n    return total_count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 306,
+      "completion_tokens": 160,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869018.4529567
+}

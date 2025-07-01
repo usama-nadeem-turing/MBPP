@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 63,
+  "problem": {
+    "task_id": 63,
+    "text": "Write a function to find the maximum difference between available pairs in the given tuple list.",
+    "code": "def max_difference(test_list):\r\n  temp = [abs(b - a) for a, b in test_list]\r\n  res = max(temp)\r\n  return (res) ",
+    "test_list": [
+      "assert max_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) == 7",
+      "assert max_difference([(4, 6), (2, 17), (9, 13), (11, 12)]) == 15",
+      "assert max_difference([(12, 35), (21, 27), (13, 23), (41, 22)]) == 23"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum difference between available pairs in the given tuple list.\n\nTask ID: 63\n\nExpected behavior (test cases):\n1. max_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) should return 7\n2. max_difference([(4, 6), (2, 17), (9, 13), (11, 12)]) should return 15\n3. max_difference([(12, 35), (21, 27), (13, 23), (41, 22)]) should return 23\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-489b902dafee41f3bd0f95d2459555da",
+    "object": "chat.completion",
+    "created": 1750868739,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_difference(tuples_list):\n    # Find the minimum value among all first elements of tuples\n    min_value = min(x for x, y in tuples_list)\n    \n    # Initialize the result with the difference between the minimum value and the second element of the first tuple\n    result = y - min_value\n    \n    # Iterate through the rest of the tuples to find the maximum difference\n    for x, y in tuples_list:\n        if y > min_value:\n            result = max(result, y - min_value)\n    \n    return result\n\n# Test cases\nprint(max_difference([(3, 5), (1, 7), (10, 3), (1, 2)]))  # Expected output: 7\nprint(max_difference([(4, 6), (2, 17), (9, 13), (11, 12)]))  # Expected output: 15\nprint(max_difference([(12, 35), (21, 27), (13, 23), (41, 22)]))  # Expected output: 23\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 205,
+      "total_tokens": 448,
+      "completion_tokens": 243,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868743.4340174
+}

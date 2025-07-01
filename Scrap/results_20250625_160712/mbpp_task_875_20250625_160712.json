@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 875,
+  "problem": {
+    "task_id": 875,
+    "text": "Write a function to find the minimum difference in the tuple pairs of given tuples.",
+    "code": "def min_difference(test_list):\r\n  temp = [abs(b - a) for a, b in test_list]\r\n  res = min(temp)\r\n  return (res) ",
+    "test_list": [
+      "assert min_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) == 1",
+      "assert min_difference([(4, 6), (12, 8), (11, 4), (2, 13)]) == 2",
+      "assert min_difference([(5, 17), (3, 9), (12, 5), (3, 24)]) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the minimum difference in the tuple pairs of given tuples.\n\nTask ID: 875\n\nExpected behavior (test cases):\n1. min_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) should return 1\n2. min_difference([(4, 6), (12, 8), (11, 4), (2, 13)]) should return 2\n3. min_difference([(5, 17), (3, 9), (12, 5), (3, 24)]) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7847ffcfc242440f8890467a624ac5e6",
+    "object": "chat.completion",
+    "created": 1750868346,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_difference(tuples_list):\n    # Sort each tuple pair and calculate the absolute differences between consecutive elements\n    sorted_pairs = [tuple(sorted(pair)) for pair in tuples_list]\n    differences = [abs(sorted_pairs[i][j] - sorted_pairs[i+1][j]) for i in range(len(sorted_pairs) - 1) for j in range(1, len(sorted_pairs[0]))]\n    \n    # Return the smallest difference found\n    return min(differences)\n\n# Test cases\nprint(min_difference([(3, 5), (1, 7), (10, 3), (1, 2)]))  # Expected output: 1\nprint(min_difference([(4, 6), (12, 8), (11, 4), (2, 13)]))  # Expected output: 2\nprint(min_difference([(5, 17), (3, 9), (12, 5), (3, 24)]))  # Expected output: 6\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 197,
+      "total_tokens": 419,
+      "completion_tokens": 222,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868350.2961707
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 697,
+  "problem": {
+    "task_id": 697,
+    "text": "Write a function to find number of even elements in the given list using lambda function.",
+    "code": "def count_even(array_nums):\r\n   count_even = len(list(filter(lambda x: (x%2 == 0) , array_nums)))\r\n   return count_even",
+    "test_list": [
+      "assert count_even([1, 2, 3, 5, 7, 8, 9, 10])==3",
+      "assert count_even([10,15,14,13,-18,12,-20])==5",
+      "assert count_even([1, 2, 4, 8, 9])==3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find number of even elements in the given list using lambda function.\n\nTask ID: 697\n\nExpected behavior (test cases):\n1. count_even([1, 2, 3, 5, 7, 8, 9, 10])==3\n2. count_even([10,15,14,13,-18,12,-20])==5\n3. count_even([1, 2, 4, 8, 9])==3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-09c6987ea7e44d42bc26009f93f9ca04",
+    "object": "chat.completion",
+    "created": 1750867880,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_even(nums):\n    return len(list(filter(lambda x: x % 2 == 0, nums)))\n\n# Test cases\nprint(count_even([1, 2, 3, 5, 7, 8, 9, 10]))  # Expected output: 3\nprint(count_even([10, 15, 14, 13, -18, 12, -20]))  # Expected output: 5\nprint(count_even([1, 2, 4, 8, 9]))  # Expected output: 3\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 305,
+      "completion_tokens": 133,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867883.0225916
+}

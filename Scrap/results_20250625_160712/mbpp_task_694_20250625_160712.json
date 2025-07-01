@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 694,
+  "problem": {
+    "task_id": 694,
+    "text": "Write a function to extract unique values from the given dictionary values.",
+    "code": "def extract_unique(test_dict):\r\n  res = list(sorted({ele for val in test_dict.values() for ele in val}))\r\n  return res",
+    "test_list": [
+      "assert extract_unique({'msm' : [5, 6, 7, 8],'is' : [10, 11, 7, 5],'best' : [6, 12, 10, 8],'for' : [1, 2, 5]} ) == [1, 2, 5, 6, 7, 8, 10, 11, 12]",
+      "assert extract_unique({'Built' : [7, 1, 9, 4],'for' : [11, 21, 36, 14, 9],'ISP' : [4, 1, 21, 39, 47],'TV' : [1, 32, 38]} ) == [1, 4, 7, 9, 11, 14, 21, 32, 36, 38, 39, 47]",
+      "assert extract_unique({'F' : [11, 13, 14, 17],'A' : [12, 11, 15, 18],'N' : [19, 21, 15, 36],'G' : [37, 36, 35]}) == [11, 12, 13, 14, 15, 17, 18, 19, 21, 35, 36, 37]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract unique values from the given dictionary values.\n\nTask ID: 694\n\nExpected behavior (test cases):\n1. extract_unique({'msm' : [5, 6, 7, 8],'is' : [10, 11, 7, 5],'best' : [6, 12, 10, 8],'for' : [1, 2, 5]} ) should return [1, 2, 5, 6, 7, 8, 10, 11, 12]\n2. extract_unique({'Built' : [7, 1, 9, 4],'for' : [11, 21, 36, 14, 9],'ISP' : [4, 1, 21, 39, 47],'TV' : [1, 32, 38]} ) should return [1, 4, 7, 9, 11, 14, 21, 32, 36, 38, 39, 47]\n3. extract_unique({'F' : [11, 13, 14, 17],'A' : [12, 11, 15, 18],'N' : [19, 21, 15, 36],'G' : [37, 36, 35]}) should return [11, 12, 13, 14, 15, 17, 18, 19, 21, 35, 36, 37]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-62afb43c818e44a18b2d0f75f4ba6fa5",
+    "object": "chat.completion",
+    "created": 1750867867,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract_unique(data_dict):\n    # Extracting all unique values from the dictionary's values and converting them into a set for uniqueness\n    unique_values = set()\n    for value_list in data_dict.values():\n        unique_values.update(value_list)\n    return list(unique_values)\n\n# Test cases\nprint(extract_unique({'msm' : [5, 6, 7, 8],'is' : [10, 11, 7, 5],'best' : [6, 12, 10, 8],'for' : [1, 2, 5]})) # Should return [1, 2, 5, 6, 7, 8, 10, 11, 12]\nprint(extract_unique({'Built' : [7, 1, 9, 4],'for' : [11, 21, 36, 14, 9],'ISP' : [4, 1, 21, 39, 47],'TV' : [1, 32, 38]})) # Should return [1, 4, 7, 9, 11, 14, 21, 32, 36, 38, 39, 47]\nprint(extract_unique({'F' : [11, 13, 14, 17],'A' : [12, 11, 15, 18],'N' : [19, 21, 15, 36],'G' : [37, 36, 35]})) # Should return [11, 12, 13, 14, 15, 17, 18, 19, 21, 35, 36, 37]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 440,
+      "total_tokens": 859,
+      "completion_tokens": 419,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867874.863748
+}

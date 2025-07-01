@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 180,
+  "problem": {
+    "task_id": 180,
+    "text": "Write a function to calculate distance between two points using latitude and longitude.",
+    "code": "from math import radians, sin, cos, acos\r\ndef distance_lat_long(slat,slon,elat,elon):\r\n dist = 6371.01 * acos(sin(slat)*sin(elat) + cos(slat)*cos(elat)*cos(slon - elon))\r\n return dist",
+    "test_list": [
+      "assert distance_lat_long(23.5,67.5,25.5,69.5)==12179.372041317429",
+      "assert distance_lat_long(10.5,20.5,30.5,40.5)==6069.397933300514",
+      "assert distance_lat_long(10,20,30,40)==6783.751974994595"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate distance between two points using latitude and longitude.\n\nTask ID: 180\n\nExpected behavior (test cases):\n1. distance_lat_long(23.5,67.5,25.5,69.5)==12179.372041317429\n2. distance_lat_long(10.5,20.5,30.5,40.5)==6069.397933300514\n3. distance_lat_long(10,20,30,40)==6783.751974994595\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-98e44a7aa34d4e90961812aca2464eff",
+    "object": "chat.completion",
+    "created": 1750869045,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef distance_lat_long(lat1, lon1, lat2, lon2):\n    # Convert decimal degrees to radians \n    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])\n    \n    # Haversine formula\n    dlon = lon2 - lon1\n    dlat = lat2 - lat1\n    a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2\n    c = 2 * math.asin(math.sqrt(a))\n    r = 6371  # Radius of earth in kilometers is 6371\n    return round(c * r, 5)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 214,
+      "total_tokens": 382,
+      "completion_tokens": 168,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869048.1941357
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 328,
+  "problem": {
+    "task_id": 328,
+    "text": "Write a function to rotate a given list by specified number of items to the left direction.",
+    "code": "def rotate_left(list1,m,n):\r\n  result =  list1[m:]+list1[:n]\r\n  return result",
+    "test_list": [
+      "assert rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],3,4)==[4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4]",
+      "assert rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2,2)==[3, 4, 5, 6, 7, 8, 9, 10, 1, 2]",
+      "assert rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],5,2)==[6, 7, 8, 9, 10, 1, 2]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to rotate a given list by specified number of items to the left direction.\n\nTask ID: 328\n\nExpected behavior (test cases):\n1. rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],3,4)==[4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4]\n2. rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2,2)==[3, 4, 5, 6, 7, 8, 9, 10, 1, 2]\n3. rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],5,2)==[6, 7, 8, 9, 10, 1, 2]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0a99c80879954bec81e6bd8005bb985b",
+    "object": "chat.completion",
+    "created": 1750869434,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef rotate_left(lst, n, k):\n    return lst[k:] + lst[:k]\n\n# Test cases\nprint(rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3, 4))  # Expected output: [4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4]\nprint(rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2, 2))  # Expected output: [3, 4, 5, 6, 7, 8, 9, 10, 1, 2]\nprint(rotate_left([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5, 2))  # Expected output: [6, 7, 8, 9, 10, 1, 2]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 297,
+      "total_tokens": 550,
+      "completion_tokens": 253,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869439.039401
+}

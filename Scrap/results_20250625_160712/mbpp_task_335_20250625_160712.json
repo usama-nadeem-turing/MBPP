@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 335,
+  "problem": {
+    "task_id": 335,
+    "text": "Write a function to find the sum of arithmetic progression.",
+    "code": "def ap_sum(a,n,d):\r\n  total = (n * (2 * a + (n - 1) * d)) / 2\r\n  return total",
+    "test_list": [
+      "assert ap_sum(1,5,2)==25",
+      "assert ap_sum(2,6,4)==72",
+      "assert ap_sum(1,4,5)==34"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the sum of arithmetic progression.\n\nTask ID: 335\n\nExpected behavior (test cases):\n1. ap_sum(1,5,2)==25\n2. ap_sum(2,6,4)==72\n3. ap_sum(1,4,5)==34\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d7ddb8747fb0432284656611bcf2e0bc",
+    "object": "chat.completion",
+    "created": 1750869451,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef ap_sum(a, d, n):\n    # Calculate the sum using the formula for the sum of an arithmetic progression\n    return n * (2*a + (n-1)*d) // 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 177,
+      "completion_tokens": 49,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869451.9566255
+}

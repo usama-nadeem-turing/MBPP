@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 497,
+  "problem": {
+    "task_id": 497,
+    "text": "Write a function to find the surface area of a cone.",
+    "code": "import math\r\ndef surfacearea_cone(r,h):\r\n  l = math.sqrt(r * r + h * h)\r\n  SA = math.pi * r * (r + l)\r\n  return SA",
+    "test_list": [
+      "assert surfacearea_cone(5,12)==282.7433388230814",
+      "assert surfacearea_cone(10,15)==880.5179353159282",
+      "assert surfacearea_cone(19,17)==2655.923961165254"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the surface area of a cone.\n\nTask ID: 497\n\nExpected behavior (test cases):\n1. surfacearea_cone(5,12)==282.7433388230814\n2. surfacearea_cone(10,15)==880.5179353159282\n3. surfacearea_cone(19,17)==2655.923961165254\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0cd6e5144de64c299a679fa672bbcba6",
+    "object": "chat.completion",
+    "created": 1750869852,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef surfacearea_cone(radius, height):\n    # Calculate the slant height using Pythagorean theorem\n    slant_height = math.sqrt(radius**2 + height**2)\n    \n    # Calculate the base area and lateral surface area\n    base_area = math.pi * radius ** 2\n    lateral_surface_area = math.pi * radius * slant_height\n    \n    # Total surface area is the sum of base area and lateral surface area\n    total_surface_area = base_area + lateral_surface_area\n    \n    return round(total_surface_area, 4)\n\n# Test cases\nprint(surfacearea_cone(5,12))  # Expected output: 282.7433\nprint(surfacearea_cone(10,15)) # Expected output: 880.5179\nprint(surfacearea_cone(19,17)) # Expected output: 2655.9240\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 179,
+      "total_tokens": 383,
+      "completion_tokens": 204,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869855.4663255
+}

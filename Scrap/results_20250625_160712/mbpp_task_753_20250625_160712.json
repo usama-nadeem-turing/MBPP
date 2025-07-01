@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 753,
+  "problem": {
+    "task_id": 753,
+    "text": "Write a function to find minimum k records from tuple list.",
+    "code": "def min_k(test_list, K):\r\n  res = sorted(test_list, key = lambda x: x[1])[:K]\r\n  return (res) ",
+    "test_list": [
+      "assert min_k([('Manjeet', 10), ('Akshat', 4), ('Akash', 2), ('Nikhil', 8)], 2) == [('Akash', 2), ('Akshat', 4)]",
+      "assert min_k([('Sanjeev', 11), ('Angat', 5), ('Akash', 3), ('Nepin', 9)], 3) == [('Akash', 3), ('Angat', 5), ('Nepin', 9)]",
+      "assert min_k([('tanmay', 14), ('Amer', 11), ('Ayesha', 9), ('SKD', 16)], 1) == [('Ayesha', 9)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find minimum k records from tuple list.\n\nTask ID: 753\n\nExpected behavior (test cases):\n1. min_k([('Manjeet', 10), ('Akshat', 4), ('Akash', 2), ('Nikhil', 8)], 2) should return [('Akash', 2), ('Akshat', 4)]\n2. min_k([('Sanjeev', 11), ('Angat', 5), ('Akash', 3), ('Nepin', 9)], 3) should return [('Akash', 3), ('Angat', 5), ('Nepin', 9)]\n3. min_k([('tanmay', 14), ('Amer', 11), ('Ayesha', 9), ('SKD', 16)], 1) should return [('Ayesha', 9)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-230f840ac6214fc6aefa5e5a7cafed60",
+    "object": "chat.completion",
+    "created": 1750868028,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_k(lst, k):\n    lst.sort(key=lambda x: x[1])\n    return [lst[i] for i in range(k)]\n\n# Test cases\nprint(min_k([('Manjeet', 10), ('Akshat', 4), ('Akash', 2), ('Nikhil', 8)], 2)) # Should return [('Akash', 2), ('Akshat', 4)]\nprint(min_k([('Sanjeev', 11), ('Angat', 5), ('Akash', 3), ('Nepin', 9)], 3)) # Should return [('Akash', 3), ('Angat', 5), ('Nepin', 9)]\nprint(min_k([('tanmay', 14), ('Amer', 11), ('Ayesha', 9), ('SKD', 16)], 1)) # Should return [('Ayesha', 9)]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 255,
+      "total_tokens": 461,
+      "completion_tokens": 206,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868032.391285
+}

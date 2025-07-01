@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 99,
+  "problem": {
+    "task_id": 99,
+    "text": "Write a function to convert the given decimal number to its binary equivalent.",
+    "code": "def decimal_to_binary(n): \r\n    return bin(n).replace(\"0b\",\"\") ",
+    "test_list": [
+      "assert decimal_to_binary(8) == '1000'",
+      "assert decimal_to_binary(18) == '10010'",
+      "assert decimal_to_binary(7) == '111' "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given decimal number to its binary equivalent.\n\nTask ID: 99\n\nExpected behavior (test cases):\n1. decimal_to_binary(8) should return '1000'\n2. decimal_to_binary(18) should return '10010'\n3. decimal_to_binary(7) should return '111' \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ab6f7c78c3dd458f8574483c2c18c8ff",
+    "object": "chat.completion",
+    "created": 1750868829,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef decimal_to_binary(decimal_number):\n    \"\"\"\n    Convert a given decimal number to its binary equivalent.\n    \n    Parameters:\n    - decimal_number (int): The decimal number to be converted.\n    \n    Returns:\n    - str: The binary representation of the input decimal number.\n    \"\"\"\n    return bin(decimal_number)[2:] if decimal_number else \"0\"\n\n# Test cases to verify the correctness of the function\nassert decimal_to_binary(8) == '1000', \"Test case 1 failed\"\nassert decimal_to_binary(18) == '10010', \"Test case 2 failed\"\nassert decimal_to_binary(7) == '111', \"Test case 3 failed\"\nprint(\"All test cases passed!\")\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 297,
+      "completion_tokens": 159,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868832.4107535
+}

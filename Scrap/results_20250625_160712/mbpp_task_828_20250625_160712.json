@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 828,
+  "problem": {
+    "task_id": 828,
+    "text": "Write a function to count alphabets,digits and special charactes in a given string.",
+    "code": "def count_alpha_dig_spl(string):\r\n  alphabets=digits = special = 0\r\n  for i in range(len(string)):\r\n    if(string[i].isalpha()):\r\n        alphabets = alphabets + 1\r\n    elif(string[i].isdigit()):\r\n        digits = digits + 1\r\n    else:\r\n        special = special + 1\r\n  return (alphabets,digits,special)   ",
+    "test_list": [
+      "assert count_alpha_dig_spl(\"abc!@#123\")==(3,3,3)",
+      "assert count_alpha_dig_spl(\"dgsuy@#$%&1255\")==(5,4,5)",
+      "assert count_alpha_dig_spl(\"fjdsif627348#%$^&\")==(6,6,5)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count alphabets,digits and special charactes in a given string.\n\nTask ID: 828\n\nExpected behavior (test cases):\n1. count_alpha_dig_spl(\"abc!@#123\")==(3,3,3)\n2. count_alpha_dig_spl(\"dgsuy@#$%&1255\")==(5,4,5)\n3. count_alpha_dig_spl(\"fjdsif627348#%$^&\")==(6,6,5)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1ae94b0dfeee4be09cc68f4cccce4f82",
+    "object": "chat.completion",
+    "created": 1750868215,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_alpha_dig_spl(s):\n    alpha_count = 0\n    dig_count = 0\n    spl_count = 0\n    \n    for char in s:\n        if char.isalpha():\n            alpha_count += 1\n        elif char.isdigit():\n            dig_count += 1\n        else:\n            spl_count += 1\n            \n    return (alpha_count, dig_count, spl_count)\n\n# Test cases\nprint(count_alpha_dig_spl(\"abc!@#123\")) # Expected output: (3, 3, 3)\nprint(count_alpha_dig_spl(\"dgsuy@#$%&1255\")) # Expected output: (5, 4, 5)\nprint(count_alpha_dig_spl(\"fjdsif627348#%$^&\")) # Expected output: (6, 6, 5)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 179,
+      "total_tokens": 370,
+      "completion_tokens": 191,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868218.2395458
+}

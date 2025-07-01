@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 143,
+  "problem": {
+    "task_id": 143,
+    "text": "Write a function to find number of lists present in the given tuple.",
+    "code": "def find_lists(Input): \r\n\tif isinstance(Input, list): \r\n\t\treturn 1\r\n\telse: \r\n\t\treturn len(Input) ",
+    "test_list": [
+      "assert find_lists(([1, 2, 3, 4], [5, 6, 7, 8])) == 2",
+      "assert find_lists(([1, 2], [3, 4], [5, 6]))  == 3",
+      "assert find_lists(([9, 8, 7, 6, 5, 4, 3, 2, 1])) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find number of lists present in the given tuple.\n\nTask ID: 143\n\nExpected behavior (test cases):\n1. find_lists(([1, 2, 3, 4], [5, 6, 7, 8])) should return 2\n2. find_lists(([1, 2], [3, 4], [5, 6]))  should return 3\n3. find_lists(([9, 8, 7, 6, 5, 4, 3, 2, 1])) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c436ea5d20894e5eae48e1185e56c0e1",
+    "object": "chat.completion",
+    "created": 1750868949,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_lists(tup):\n    # Initialize count to zero\n    count = 0\n    \n    # Iterate through each element in the tuple\n    for item in tup:\n        # If the element is a list, increment the count\n        if isinstance(item, list):\n            count += 1\n            \n    # Return the total count of lists found\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "total_tokens": 266,
+      "completion_tokens": 80,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868950.3974504
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 548,
+  "problem": {
+    "task_id": 548,
+    "text": "Write a function to find the length of the longest increasing subsequence of the given sequence.",
+    "code": "def longest_increasing_subsequence(arr): \r\n\tn = len(arr) \r\n\tlongest_increasing_subsequence = [1]*n \r\n\tfor i in range (1 , n): \r\n\t\tfor j in range(0 , i): \r\n\t\t\tif arr[i] > arr[j] and longest_increasing_subsequence[i]< longest_increasing_subsequence[j] + 1 : \r\n\t\t\t\tlongest_increasing_subsequence[i] = longest_increasing_subsequence[j]+1\r\n\tmaximum = 0\r\n\tfor i in range(n): \r\n\t\tmaximum = max(maximum , longest_increasing_subsequence[i]) \r\n\treturn maximum",
+    "test_list": [
+      "assert longest_increasing_subsequence([10, 22, 9, 33, 21, 50, 41, 60]) == 5",
+      "assert longest_increasing_subsequence([3, 10, 2, 1, 20]) == 3",
+      "assert longest_increasing_subsequence([50, 3, 10, 7, 40, 80]) == 4 "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the length of the longest increasing subsequence of the given sequence.\n\nTask ID: 548\n\nExpected behavior (test cases):\n1. longest_increasing_subsequence([10, 22, 9, 33, 21, 50, 41, 60]) should return 5\n2. longest_increasing_subsequence([3, 10, 2, 1, 20]) should return 3\n3. longest_increasing_subsequence([50, 3, 10, 7, 40, 80]) should return 4 \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d474cee8964d4e24b5363165afcbef0b",
+    "object": "chat.completion",
+    "created": 1750869974,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef longest_increasing_subsequence(sequence):\n    if not sequence:\n        return 0\n    \n    dp = [1] * len(sequence)\n    \n    for i in range(1, len(sequence)):\n        for j in range(i):\n            if sequence[i] > sequence[j]:\n                dp[i] = max(dp[i], dp[j] + 1)\n                \n    return max(dp)\n\n# Test cases\nprint(longest_increasing_subsequence([10, 22, 9, 33, 21, 50, 41, 60])) # Expected output: 5\nprint(longest_increasing_subsequence([3, 10, 2, 1, 20])) # Expected output: 3\nprint(longest_increasing_subsequence([50, 3, 10, 7, 40, 80])) # Expected output: 4\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 199,
+      "total_tokens": 398,
+      "completion_tokens": 199,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869977.7469573
+}

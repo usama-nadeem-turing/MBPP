@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 553,
+  "problem": {
+    "task_id": 553,
+    "text": "Write a function to convert the given tuple to a floating-point number.",
+    "code": "def tuple_to_float(test_tup):\r\n  res = float('.'.join(str(ele) for ele in test_tup))\r\n  return (res) ",
+    "test_list": [
+      "assert tuple_to_float((4, 56)) == 4.56",
+      "assert tuple_to_float((7, 256)) == 7.256",
+      "assert tuple_to_float((8, 123)) == 8.123"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given tuple to a floating-point number.\n\nTask ID: 553\n\nExpected behavior (test cases):\n1. tuple_to_float((4, 56)) should return 4.56\n2. tuple_to_float((7, 256)) should return 7.256\n3. tuple_to_float((8, 123)) should return 8.123\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b6a69d99819c4d69afa802a135685f78",
+    "object": "chat.completion",
+    "created": 1750869990,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tuple_to_float(tup):\n    # Convert each element in the tuple to float and then sum them up\n    result = sum(float(i) for i in tup)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "total_tokens": 197,
+      "completion_tokens": 44,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869991.4099765
+}

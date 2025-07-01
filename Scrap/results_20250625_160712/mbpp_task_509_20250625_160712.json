@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 509,
+  "problem": {
+    "task_id": 509,
+    "text": "Write a python function to find the average of odd numbers till a given odd number.",
+    "code": "def average_Odd(n) : \r\n    if (n%2==0) : \r\n        return (\"Invalid Input\") \r\n        return -1 \r\n    sm =0\r\n    count =0\r\n    while (n>=1) : \r\n        count=count+1\r\n        sm = sm + n \r\n        n = n-2\r\n    return sm//count ",
+    "test_list": [
+      "assert average_Odd(9) == 5",
+      "assert average_Odd(5) == 3",
+      "assert average_Odd(11) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the average of odd numbers till a given odd number.\n\nTask ID: 509\n\nExpected behavior (test cases):\n1. average_Odd(9) should return 5\n2. average_Odd(5) should return 3\n3. average_Odd(11) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dfc74c8b309c4ed6bb95739595390b9c",
+    "object": "chat.completion",
+    "created": 1750869873,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef average_odd(n):\n    total = sum(i for i in range(1, n+1) if i % 2 != 0)\n    count = len([i for i in range(1, n+1) if i % 2 != 0])\n    return total / count if count > 0 else 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 207,
+      "completion_tokens": 75,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869874.5259771
+}

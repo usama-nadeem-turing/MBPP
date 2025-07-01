@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 681,
+  "problem": {
+    "task_id": 681,
+    "text": "Write a python function to find the smallest prime divisor of a number.",
+    "code": "def smallest_Divisor(n): \r\n    if (n % 2 == 0): \r\n        return 2; \r\n    i = 3;  \r\n    while (i*i <= n): \r\n        if (n % i == 0): \r\n            return i; \r\n        i += 2; \r\n    return n; ",
+    "test_list": [
+      "assert smallest_Divisor(10) == 2",
+      "assert smallest_Divisor(25) == 5",
+      "assert smallest_Divisor(31) == 31"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the smallest prime divisor of a number.\n\nTask ID: 681\n\nExpected behavior (test cases):\n1. smallest_Divisor(10) should return 2\n2. smallest_Divisor(25) should return 5\n3. smallest_Divisor(31) should return 31\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1980648530484cfc883679b2f2854eb6",
+    "object": "chat.completion",
+    "created": 1750867836,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef smallest_Divisor(n):\n    # Start checking from 2 as the smallest prime number\n    for i in range(2, n + 1):\n        if n % i == 0:\n            return i\n```\n\nThis solution iterates through all numbers starting from 2 up to `n` and checks if `n` is divisible by any of them. The first number it finds that divides `n` evenly is returned as the smallest prime divisor.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 235,
+      "completion_tokens": 100,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867838.1233242
+}

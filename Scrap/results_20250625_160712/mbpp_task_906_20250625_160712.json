@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 906,
+  "problem": {
+    "task_id": 906,
+    "text": "Write a function to extract year, month and date from a url by using regex.",
+    "code": "import re\r\ndef extract_date(url):\r\n        return re.findall(r'/(\\d{4})/(\\d{1,2})/(\\d{1,2})/', url)",
+    "test_list": [
+      "assert extract_date(\"https://www.washingtonpost.com/news/football-insider/wp/2016/09/02/odell-beckhams-fame-rests-on-one-stupid-little-ball-josh-norman-tells-author/\") == [('2016', '09', '02')]",
+      "assert extract_date(\"https://www.indiatoday.in/movies/celebrities/story/wp/2020/11/03/odeof-sushant-singh-rajput-s-death-his-brother-in-law-shares-advice-for-fans-1749646/\") == [('2020', '11', '03')]",
+      "assert extract_date(\"https://economictimes.indiatimes.com/news/economy/2020/12/29/finance/pension-assets-under-pfrda-touch-rs-5-32-lakh-crore/articleshow/79736619.cms\") == [('2020', '12', '29')]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract year, month and date from a url by using regex.\n\nTask ID: 906\n\nExpected behavior (test cases):\n1. extract_date(\"https://www.washingtonpost.com/news/football-insider/wp/2016/09/02/odell-beckhams-fame-rests-on-one-stupid-little-ball-josh-norman-tells-author/\") should return [('2016', '09', '02')]\n2. extract_date(\"https://www.indiatoday.in/movies/celebrities/story/wp/2020/11/03/odeof-sushant-singh-rajput-s-death-his-brother-in-law-shares-advice-for-fans-1749646/\") should return [('2020', '11', '03')]\n3. extract_date(\"https://economictimes.indiatimes.com/news/economy/2020/12/29/finance/pension-assets-under-pfrda-touch-rs-5-32-lakh-crore/articleshow/79736619.cms\") should return [('2020', '12', '29')]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-71464c2b04974af39adc1f1af026bb95",
+    "object": "chat.completion",
+    "created": 1750868423,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef extract_date(url):\n    pattern = r'(\\d{4})-(\\d{2})-(\\d{2})'\n    match = re.search(pattern, url)\n    if match:\n        return [match.group(1), match.group(2), match.group(3)]\n    else:\n        return []\n\n# Test cases\nprint(extract_date(\"https://www.washingtonpost.com/news/football-insider/wp/2016/09/02/odell-beckhams-fame-rests-on-one-stupid-little-ball-josh-norman-tells-author/\")) # Should return ['2016', '09', '02']\nprint(extract_date(\"https://www.indiatoday.in/movies/celebrities/story/wp/2020/11/03/odeof-sushant-singh-rajput-s-death-his-brother-in-law-shares-advice-for-fans-1749646/\")) # Should return ['2020', '11', '03']\nprint(extract_date(\"https://economictimes.indiatimes.com/news/economy/2020/12/29/finance/pension-assets-under-pfrda-touch-rs-5-32-lakh-crore/articleshow/79736619.cms\")) # Should return ['2020', '12', '29']\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 327,
+      "total_tokens": 643,
+      "completion_tokens": 316,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868428.644198
+}

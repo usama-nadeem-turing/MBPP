@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 115,
+  "problem": {
+    "task_id": 115,
+    "text": "Write a function to check whether all dictionaries in a list are empty or not.",
+    "code": "def empty_dit(list1):\r\n empty_dit=all(not d for d in list1)\r\n return empty_dit",
+    "test_list": [
+      "assert empty_dit([{},{},{}])==True",
+      "assert empty_dit([{1,2},{},{}])==False",
+      "assert empty_dit({})==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether all dictionaries in a list are empty or not.\n\nTask ID: 115\n\nExpected behavior (test cases):\n1. empty_dit([{},{},{}])==True\n2. empty_dit([{1,2},{},{}])==False\n3. empty_dit({})==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-77f468b189084d779835a99bd3a5ba58",
+    "object": "chat.completion",
+    "created": 1750868874,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_all_empty(dicts_list):\n    # Check if all elements in the list are empty dictionaries\n    return len([d for d in dicts_list if d]) == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 171,
+      "completion_tokens": 43,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868875.2520168
+}

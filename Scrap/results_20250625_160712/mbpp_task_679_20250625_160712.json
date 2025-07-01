@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 679,
+  "problem": {
+    "task_id": 679,
+    "text": "Write a function to access dictionary key’s element by index.",
+    "code": "def access_key(ditionary,key):\r\n  return list(ditionary)[key]",
+    "test_list": [
+      "assert access_key({'physics': 80, 'math': 90, 'chemistry': 86},0)== 'physics'",
+      "assert access_key({'python':10, 'java': 20, 'C++':30},2)== 'C++'",
+      "assert access_key({'program':15,'computer':45},1)== 'computer'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to access dictionary key’s element by index.\n\nTask ID: 679\n\nExpected behavior (test cases):\n1. access_key({'physics': 80, 'math': 90, 'chemistry': 86},0)== 'physics'\n2. access_key({'python':10, 'java': 20, 'C++':30},2)== 'C++'\n3. access_key({'program':15,'computer':45},1)== 'computer'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c4f269d0611b45aba24045988965c92b",
+    "object": "chat.completion",
+    "created": 1750867834,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef access_key(dct, idx):\n    return list(dct.keys())[idx]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "total_tokens": 189,
+      "completion_tokens": 22,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867834.457067
+}

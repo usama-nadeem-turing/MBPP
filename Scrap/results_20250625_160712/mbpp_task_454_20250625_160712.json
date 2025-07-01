@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 454,
+  "problem": {
+    "task_id": 454,
+    "text": "Write a function that matches a word containing 'z'.",
+    "code": "import re\r\ndef text_match_wordz(text):\r\n        patterns = '\\w*z.\\w*'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "test_list": [
+      "assert text_match_wordz(\"pythonz.\")==('Found a match!')",
+      "assert text_match_wordz(\"xyz.\")==('Found a match!')",
+      "assert text_match_wordz(\"  lang  .\")==('Not matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a word containing 'z'.\n\nTask ID: 454\n\nExpected behavior (test cases):\n1. text_match_wordz(\"pythonz.\")==('Found a match!')\n2. text_match_wordz(\"xyz.\")==('Found a match!')\n3. text_match_wordz(\"  lang  .\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8f8051248a244933ad45fb819200793d",
+    "object": "chat.completion",
+    "created": 1750869737,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef text_match_wordz(text):\n    # Define the pattern to search for words containing 'z'\n    pattern = r'\\b\\w*z\\b'\n    \n    # Search for the pattern in the given text\n    if re.search(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 209,
+      "completion_tokens": 75,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869738.6696105
+}

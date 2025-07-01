@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 765,
+  "problem": {
+    "task_id": 765,
+    "text": "Write a function to find nth polite number.",
+    "code": "import math \r\ndef is_polite(n): \r\n\tn = n + 1\r\n\treturn (int)(n+(math.log((n + math.log(n, 2)), 2))) ",
+    "test_list": [
+      "assert is_polite(7) == 11",
+      "assert is_polite(4) == 7",
+      "assert is_polite(9) == 13"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find nth polite number.\n\nTask ID: 765\n\nExpected behavior (test cases):\n1. is_polite(7) should return 11\n2. is_polite(4) should return 7\n3. is_polite(9) should return 13\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f1dc781f7b234fb79d4d8dc0fcdd632a",
+    "object": "chat.completion",
+    "created": 1750868056,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_polite(n):\n    count = 0\n    num = 1\n    while True:\n        if sum(int(digit)**2 for digit in str(num)) == n**2:\n            count += 1\n            if count == n:\n                return num\n        num += 1\n```\n\nThis solution iterates through numbers starting from 1 and checks each one to see if it meets the criteria of being an nth polite number. It uses a helper function `sum(int(digit)**2 for digit in str(num))` to calculate the square of the digits of the current number and compares it with `n**2`. If they match, it increments the count and breaks out of the loop when the count reaches `n`. The first number that matches will be returned as the result.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "total_tokens": 294,
+      "completion_tokens": 169,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868059.7789474
+}

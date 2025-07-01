@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 19,
+  "problem": {
+    "task_id": 19,
+    "text": "Write a function to find whether a given array of integers contains any duplicate element.",
+    "code": "def test_duplicate(arraynums):\r\n    nums_set = set(arraynums)    \r\n    return len(arraynums) != len(nums_set)     ",
+    "test_list": [
+      "assert test_duplicate(([1,2,3,4,5]))==False",
+      "assert test_duplicate(([1,2,3,4, 4]))==True",
+      "assert test_duplicate([1,1,2,2,3,3,4,4,5])==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find whether a given array of integers contains any duplicate element.\n\nTask ID: 19\n\nExpected behavior (test cases):\n1. test_duplicate(([1,2,3,4,5]))==False\n2. test_duplicate(([1,2,3,4, 4]))==True\n3. test_duplicate([1,1,2,2,3,3,4,4,5])==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a4cf2e6a82944e919eeb7c59465b3346",
+    "object": "chat.completion",
+    "created": 1750868630,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef test_duplicate(arr):\n    \"\"\"\n    This function checks if there is at least one duplicate number in the given list.\n    \n    Parameters:\n    arr (list): A list of integers\n    \n    Returns:\n    bool: True if there is at least one duplicate, False otherwise\n    \"\"\"\n    return len(set(arr)) != len(arr)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "total_tokens": 225,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868631.4148571
+}

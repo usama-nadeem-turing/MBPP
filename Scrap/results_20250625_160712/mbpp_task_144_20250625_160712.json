@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 144,
+  "problem": {
+    "task_id": 144,
+    "text": "Write a python function to find the sum of absolute differences in all pairs of the given array.",
+    "code": "def sum_Pairs(arr,n): \r\n    sum = 0\r\n    for i in range(n - 1,-1,-1): \r\n        sum += i*arr[i] - (n-1-i) * arr[i] \r\n    return sum",
+    "test_list": [
+      "assert sum_Pairs([1,8,9,15,16],5) == 74",
+      "assert sum_Pairs([1,2,3,4],4) == 10",
+      "assert sum_Pairs([1,2,3,4,5,7,9,11,14],9) == 188"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of absolute differences in all pairs of the given array.\n\nTask ID: 144\n\nExpected behavior (test cases):\n1. sum_Pairs([1,8,9,15,16],5) should return 74\n2. sum_Pairs([1,2,3,4],4) should return 10\n3. sum_Pairs([1,2,3,4,5,7,9,11,14],9) should return 188\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-df3e16dab31d410d8e9db8a5fd160da0",
+    "object": "chat.completion",
+    "created": 1750868950,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_Pairs(arr, n):\n    total_sum = 0\n    for i in range(n):\n        for j in range(i + 1, n):\n            total_sum += abs(arr[i] - arr[j])\n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 177,
+      "total_tokens": 233,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868951.8772335
+}

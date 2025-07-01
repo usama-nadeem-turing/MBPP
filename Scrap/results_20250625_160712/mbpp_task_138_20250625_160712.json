@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 138,
+  "problem": {
+    "task_id": 138,
+    "text": "Write a python function to check whether the given number can be represented as sum of non-zero powers of 2 or not.",
+    "code": "def is_Sum_Of_Powers_Of_Two(n): \r\n    if (n % 2 == 1): \r\n        return False\r\n    else: \r\n        return True",
+    "test_list": [
+      "assert is_Sum_Of_Powers_Of_Two(10) == True",
+      "assert is_Sum_Of_Powers_Of_Two(7) == False",
+      "assert is_Sum_Of_Powers_Of_Two(14) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number can be represented as sum of non-zero powers of 2 or not.\n\nTask ID: 138\n\nExpected behavior (test cases):\n1. is_Sum_Of_Powers_Of_Two(10) should return True\n2. is_Sum_Of_Powers_Of_Two(7) should return False\n3. is_Sum_Of_Powers_Of_Two(14) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2e62cdd7d1cc4e05ac9b51e50cdef03b",
+    "object": "chat.completion",
+    "created": 1750868937,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_Sum_Of_Powers_Of_Two(n):\n    \"\"\"\n    Check if the given number n can be expressed as the sum of non-zero powers of 2.\n    \n    Args:\n    n (int): The number to check.\n    \n    Returns:\n    bool: True if n can be expressed as such a sum, False otherwise.\n    \"\"\"\n    # Convert n to binary and remove '0b' prefix\n    binary_representation = bin(n)[2:]\n    # Count the number of '1's in the binary representation\n    count_of_ones = binary_representation.count('1')\n    # If there are no '1's, it means n cannot be expressed as a sum of powers of 2\n    return count_of_ones == 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "total_tokens": 313,
+      "completion_tokens": 160,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868940.399127
+}

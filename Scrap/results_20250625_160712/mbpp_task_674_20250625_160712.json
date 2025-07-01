@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 674,
+  "problem": {
+    "task_id": 674,
+    "text": "Write a function to remove duplicate words from a given string using collections module.",
+    "code": "from collections import OrderedDict\r\ndef remove_duplicate(string):\r\n  result = ' '.join(OrderedDict((w,w) for w in string.split()).keys())\r\n  return result",
+    "test_list": [
+      "assert remove_duplicate(\"Python Exercises Practice Solution Exercises\")==(\"Python Exercises Practice Solution\")",
+      "assert remove_duplicate(\"Python Exercises Practice Solution Python\")==(\"Python Exercises Practice Solution\")",
+      "assert remove_duplicate(\"Python Exercises Practice Solution Practice\")==(\"Python Exercises Practice Solution\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove duplicate words from a given string using collections module.\n\nTask ID: 674\n\nExpected behavior (test cases):\n1. remove_duplicate(\"Python Exercises Practice Solution Exercises\")==(\"Python Exercises Practice Solution\")\n2. remove_duplicate(\"Python Exercises Practice Solution Python\")==(\"Python Exercises Practice Solution\")\n3. remove_duplicate(\"Python Exercises Practice Solution Practice\")==(\"Python Exercises Practice Solution\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dfc7766bfe194b24895b61db63ccc7cf",
+    "object": "chat.completion",
+    "created": 1750867825,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import OrderedDict\n\ndef remove_duplicate(input_string):\n    # Split the input string into words and sort them alphabetically\n    sorted_words = sorted(input_string.split())\n    \n    # Use OrderedDict to maintain order while removing duplicates\n    unique_words = list(OrderedDict.fromkeys(sorted_words))\n    \n    # Join the unique words back into a single string separated by spaces\n    result = ' '.join(unique_words)\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 235,
+      "completion_tokens": 94,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867827.45359
+}

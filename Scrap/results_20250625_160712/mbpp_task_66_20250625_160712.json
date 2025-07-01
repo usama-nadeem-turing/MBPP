@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 66,
+  "problem": {
+    "task_id": 66,
+    "text": "Write a python function to count positive numbers in a list.",
+    "code": "def pos_count(list):\r\n  pos_count= 0\r\n  for num in list: \r\n    if num >= 0: \r\n      pos_count += 1\r\n  return pos_count ",
+    "test_list": [
+      "assert pos_count([1,-2,3,-4]) == 2",
+      "assert pos_count([3,4,5,-1]) == 3",
+      "assert pos_count([1,2,3,4]) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count positive numbers in a list.\n\nTask ID: 66\n\nExpected behavior (test cases):\n1. pos_count([1,-2,3,-4]) should return 2\n2. pos_count([3,4,5,-1]) should return 3\n3. pos_count([1,2,3,4]) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-73411702c28c4ca99850f139517c5b11",
+    "object": "chat.completion",
+    "created": 1750868747,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef pos_count(nums):\n    # Initialize counter for positive numbers\n    count = 0\n    \n    # Iterate through each number in the list\n    for num in nums:\n        if num > 0:\n            count += 1\n            \n    # Return the total count of positive numbers\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 207,
+      "completion_tokens": 67,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868748.8555691
+}

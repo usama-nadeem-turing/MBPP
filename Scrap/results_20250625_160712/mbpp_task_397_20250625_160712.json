@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 397,
+  "problem": {
+    "task_id": 397,
+    "text": "Write a function to find the median of three specific numbers.",
+    "code": "def median_numbers(a,b,c):\r\n if a > b:\r\n    if a < c:\r\n        median = a\r\n    elif b > c:\r\n        median = b\r\n    else:\r\n        median = c\r\n else:\r\n    if a > c:\r\n        median = a\r\n    elif b < c:\r\n        median = b\r\n    else:\r\n        median = c\r\n return median",
+    "test_list": [
+      "assert median_numbers(25,55,65)==55.0",
+      "assert median_numbers(20,10,30)==20.0",
+      "assert median_numbers(15,45,75)==45.0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the median of three specific numbers.\n\nTask ID: 397\n\nExpected behavior (test cases):\n1. median_numbers(25,55,65)==55.0\n2. median_numbers(20,10,30)==20.0\n3. median_numbers(15,45,75)==45.0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-063fb1a76ba24d59b0ad8664c1b7879d",
+    "object": "chat.completion",
+    "created": 1750869602,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef median_numbers(a, b, c):\n    # Sort the list of numbers in ascending order\n    sorted_nums = sorted([a, b, c])\n    \n    # Calculate the median based on the length of the sorted list\n    if len(sorted_nums) == 3:\n        return float(sorted_nums[1])  # The middle number is the median for an odd-length list\n    else:\n        raise ValueError(\"The input list must contain exactly three elements.\")  # Raise an error for invalid input\n```\n\nThis solution defines a function `median_numbers` that takes three arguments and returns their median value. It first sorts the list of numbers in ascending order and then calculates the median based on whether the length of the sorted list is odd or even. If the length is odd, it returns the middle element as the median; otherwise, it raises a `ValueError`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 326,
+      "completion_tokens": 182,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869605.3022428
+}

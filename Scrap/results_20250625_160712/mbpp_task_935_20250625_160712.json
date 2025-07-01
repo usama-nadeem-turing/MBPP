@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 935,
+  "problem": {
+    "task_id": 935,
+    "text": "Write a function to calculate the sum of series 1²+2²+3²+….+n².",
+    "code": "def series_sum(number):\r\n total = 0\r\n total = (number * (number + 1) * (2 * number + 1)) / 6\r\n return total",
+    "test_list": [
+      "assert series_sum(6)==91",
+      "assert series_sum(7)==140",
+      "assert series_sum(12)==650"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the sum of series 1²+2²+3²+….+n².\n\nTask ID: 935\n\nExpected behavior (test cases):\n1. series_sum(6)==91\n2. series_sum(7)==140\n3. series_sum(12)==650\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dbcde554ec3c4fc59307831c0c4504c0",
+    "object": "chat.completion",
+    "created": 1750868507,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef series_sum(n):\n    return int(n * (n + 1) * (2*n + 1)) / 6\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 165,
+      "completion_tokens": 33,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868507.874255
+}

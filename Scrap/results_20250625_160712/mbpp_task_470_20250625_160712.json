@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 470,
+  "problem": {
+    "task_id": 470,
+    "text": "Write a function to find the pairwise addition of the elements of the given tuples.",
+    "code": "def add_pairwise(test_tup):\r\n  res = tuple(i + j for i, j in zip(test_tup, test_tup[1:]))\r\n  return (res) ",
+    "test_list": [
+      "assert add_pairwise((1, 5, 7, 8, 10)) == (6, 12, 15, 18)",
+      "assert add_pairwise((2, 6, 8, 9, 11)) == (8, 14, 17, 20)",
+      "assert add_pairwise((3, 7, 9, 10, 12)) == (10, 16, 19, 22)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the pairwise addition of the elements of the given tuples.\n\nTask ID: 470\n\nExpected behavior (test cases):\n1. add_pairwise((1, 5, 7, 8, 10)) should return (6, 12, 15, 18)\n2. add_pairwise((2, 6, 8, 9, 11)) should return (8, 14, 17, 20)\n3. add_pairwise((3, 7, 9, 10, 12)) should return (10, 16, 19, 22)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-87b9e4e1740e40ef9439957cb6f1d055",
+    "object": "chat.completion",
+    "created": 1750869777,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef add_pairwise(tuples):\n    # Initialize an empty list to store the results\n    result = []\n    \n    # Iterate through each tuple in the input list\n    for tup in tuples:\n        # Calculate the sum of consecutive elements and append it to the result list\n        result.append(sum(tup[i] + tup[i+1] for i in range(len(tup) - 1)))\n    \n    return result\n\n# Test cases\nprint(add_pairwise([(1, 5, 7, 8, 10)]))  # Expected output: [6, 12, 15, 18]\nprint(add_pairwise([(2, 6, 8, 9, 11)]))  # Expected output: [8, 14, 17, 20]\nprint(add_pairwise([(3, 7, 9, 10, 12)]))  # Expected output: [10, 16, 19, 22]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "total_tokens": 428,
+      "completion_tokens": 221,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869781.546291
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 188,
+  "problem": {
+    "task_id": 188,
+    "text": "Write a python function to check whether the given number can be represented by product of two squares or not.",
+    "code": "def prod_Square(n):\r\n    for i in range(2,(n) + 1):\r\n        if (i*i < (n+1)):\r\n            for j in range(2,n + 1):\r\n                if ((i*i*j*j) == n):\r\n                    return True;\r\n    return False;",
+    "test_list": [
+      "assert prod_Square(25) == False",
+      "assert prod_Square(30) == False",
+      "assert prod_Square(16) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number can be represented by product of two squares or not.\n\nTask ID: 188\n\nExpected behavior (test cases):\n1. prod_Square(25) should return False\n2. prod_Square(30) should return False\n3. prod_Square(16) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-589b04fab8e14b7cbff1572059d65c54",
+    "object": "chat.completion",
+    "created": 1750869073,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef prod_Square(n):\n    import math\n    \n    # Check if n is a perfect square\n    sqrt_n = int(math.sqrt(n))\n    if sqrt_n * sqrt_n == n:\n        # Check if n can be expressed as a product of two squares\n        for i in range(1, int(sqrt_n)):\n            if i * i == n - i * i:\n                return True\n        return False\n    else:\n        return False\n```\n\nThis solution first checks if `n` is a perfect square. If it is, then it iterates through all possible factors up to the square root of `n`. For each factor, it calculates the other factor and checks if their sum equals `n`. If such a pair exists, `n` can be expressed as a product of two squares; otherwise, it cannot.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 310,
+      "completion_tokens": 175,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869076.3276494
+}

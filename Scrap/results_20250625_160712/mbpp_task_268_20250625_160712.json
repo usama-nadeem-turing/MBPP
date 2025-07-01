@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 268,
+  "problem": {
+    "task_id": 268,
+    "text": "Write a function to find the n'th star number.",
+    "code": "def find_star_num(n): \r\n\treturn (6 * n * (n - 1) + 1) ",
+    "test_list": [
+      "assert find_star_num(3) == 37",
+      "assert find_star_num(4) == 73",
+      "assert find_star_num(5) == 121"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n'th star number.\n\nTask ID: 268\n\nExpected behavior (test cases):\n1. find_star_num(3) should return 37\n2. find_star_num(4) should return 73\n3. find_star_num(5) should return 121\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2175ad11334b4e319ee35ca9655e294f",
+    "object": "chat.completion",
+    "created": 1750869271,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_star_num(n):\n    \"\"\"\n    Calculate the nth star number.\n    \n    Args:\n    n : int - The position of the star number in the sequence.\n    \n    Returns:\n    int - The nth star number.\n    \"\"\"\n    return n * (3*n - 1)\n\n# Test cases to verify the correctness of the function\nassert find_star_num(3) == 37, \"Test case 1 failed\"\nassert find_star_num(4) == 73, \"Test case 2 failed\"\nassert find_star_num(5) == 121, \"Test case 3 failed\"\n\nprint(\"All test cases passed!\")\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 270,
+      "completion_tokens": 140,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869273.4884546
+}

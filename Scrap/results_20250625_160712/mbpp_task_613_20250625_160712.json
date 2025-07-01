@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 613,
+  "problem": {
+    "task_id": 613,
+    "text": "Write a function to find the maximum value in record list as tuple attribute in the given tuple list.",
+    "code": "def maximum_value(test_list):\r\n  res = [(key, max(lst)) for key, lst in test_list]\r\n  return (res) ",
+    "test_list": [
+      "assert maximum_value([('key1', [3, 4, 5]), ('key2', [1, 4, 2]), ('key3', [9, 3])]) == [('key1', 5), ('key2', 4), ('key3', 9)]",
+      "assert maximum_value([('key1', [4, 5, 6]), ('key2', [2, 5, 3]), ('key3', [10, 4])]) == [('key1', 6), ('key2', 5), ('key3', 10)]",
+      "assert maximum_value([('key1', [5, 6, 7]), ('key2', [3, 6, 4]), ('key3', [11, 5])]) == [('key1', 7), ('key2', 6), ('key3', 11)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum value in record list as tuple attribute in the given tuple list.\n\nTask ID: 613\n\nExpected behavior (test cases):\n1. maximum_value([('key1', [3, 4, 5]), ('key2', [1, 4, 2]), ('key3', [9, 3])]) should return [('key1', 5), ('key2', 4), ('key3', 9)]\n2. maximum_value([('key1', [4, 5, 6]), ('key2', [2, 5, 3]), ('key3', [10, 4])]) should return [('key1', 6), ('key2', 5), ('key3', 10)]\n3. maximum_value([('key1', [5, 6, 7]), ('key2', [3, 6, 4]), ('key3', [11, 5])]) should return [('key1', 7), ('key2', 6), ('key3', 11)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d68288d694984c1fab501b7d3417f5fe",
+    "object": "chat.completion",
+    "created": 1750867673,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef maximum_value(records):\n    max_values = []\n    for key, values in records:\n        if not isinstance(values, list) or len(values) == 0:\n            continue\n        max_val = max(values)\n        max_values.append((key, max_val))\n    return max_values\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 292,
+      "total_tokens": 356,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867675.095566
+}

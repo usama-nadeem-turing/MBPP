@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 452,
+  "problem": {
+    "task_id": 452,
+    "text": "Write a function that gives loss amount if the given amount has loss else return none.",
+    "code": "def loss_amount(actual_cost,sale_amount): \r\n  if(sale_amount > actual_cost):\r\n    amount = sale_amount - actual_cost\r\n    return amount\r\n  else:\r\n    return None",
+    "test_list": [
+      "assert loss_amount(1500,1200)==None",
+      "assert loss_amount(100,200)==100",
+      "assert loss_amount(2000,5000)==3000"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that gives loss amount if the given amount has loss else return none.\n\nTask ID: 452\n\nExpected behavior (test cases):\n1. loss_amount(1500,1200)==None\n2. loss_amount(100,200)==100\n3. loss_amount(2000,5000)==3000\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b9f54aae84a2461d866b8d095c654657",
+    "object": "chat.completion",
+    "created": 1750869733,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef loss_amount(amount, reference):\n    # Calculate the difference between the amount and the reference value\n    diff = abs(amount - reference)\n    \n    # If the absolute difference is less than or equal to 100, calculate the loss amount as half of the difference\n    if diff <= 100:\n        return diff / 2\n    \n    # Otherwise, return None indicating no loss\n    return None\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 237,
+      "completion_tokens": 91,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869735.358377
+}

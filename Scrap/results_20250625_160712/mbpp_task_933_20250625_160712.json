@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 933,
+  "problem": {
+    "task_id": 933,
+    "text": "Write a function to convert camel case string to snake case string by using regex.",
+    "code": "import re\r\ndef camel_to_snake(text):\r\n  str1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', text)\r\n  return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', str1).lower()",
+    "test_list": [
+      "assert camel_to_snake('GoogleAssistant') == 'google_assistant'",
+      "assert camel_to_snake('ChromeCast') == 'chrome_cast'",
+      "assert camel_to_snake('QuadCore') == 'quad_core'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert camel case string to snake case string by using regex.\n\nTask ID: 933\n\nExpected behavior (test cases):\n1. camel_to_snake('GoogleAssistant') should return 'google_assistant'\n2. camel_to_snake('ChromeCast') should return 'chrome_cast'\n3. camel_to_snake('QuadCore') should return 'quad_core'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-440de52f685d4a3d86954c318e31a127",
+    "object": "chat.completion",
+    "created": 1750868499,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef camel_to_snake(camel_str):\n    # Use regular expression to replace capital letters with underscore and make them lowercase\n    snake_str = re.sub(r'(?<!^)(?=[A-Z])', '_', camel_str).lower()\n    return snake_str\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 202,
+      "completion_tokens": 62,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868500.2324
+}

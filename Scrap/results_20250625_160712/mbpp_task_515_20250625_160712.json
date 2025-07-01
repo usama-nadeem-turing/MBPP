@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 515,
+  "problem": {
+    "task_id": 515,
+    "text": "Write a function to check if there is a subset with sum divisible by m.",
+    "code": "def modular_sum(arr, n, m): \r\n\tif (n > m): \r\n\t\treturn True\r\n\tDP = [False for i in range(m)] \r\n\tfor i in range(n): \r\n\t\tif (DP[0]): \r\n\t\t\treturn True\r\n\t\ttemp = [False for i in range(m)] \r\n\t\tfor j in range(m): \r\n\t\t\tif (DP[j] == True): \r\n\t\t\t\tif (DP[(j + arr[i]) % m] == False): \r\n\t\t\t\t\ttemp[(j + arr[i]) % m] = True\r\n\t\tfor j in range(m): \r\n\t\t\tif (temp[j]): \r\n\t\t\t\tDP[j] = True\r\n\t\tDP[arr[i] % m] = True\r\n\treturn DP[0]",
+    "test_list": [
+      "assert modular_sum([3, 1, 7, 5], 4, 6) == True",
+      "assert modular_sum([1, 7], 2, 5) == False",
+      "assert modular_sum([1, 6], 2, 5) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if there is a subset with sum divisible by m.\n\nTask ID: 515\n\nExpected behavior (test cases):\n1. modular_sum([3, 1, 7, 5], 4, 6) should return True\n2. modular_sum([1, 7], 2, 5) should return False\n3. modular_sum([1, 6], 2, 5) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-90366e04463448d9b1666a359b4d55ef",
+    "object": "chat.completion",
+    "created": 1750869889,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef modular_sum(arr, n, m):\n    # Initialize a list to store remainders of sums\n    remainder = [0] * m\n    \n    for num in arr:\n        current_sum = (remainder[num % m] + num) % m\n        remainder[current_sum] = current_sum\n    \n    # Check if there's a number whose remainder is 0\n    for i in range(m):\n        if remainder[i] == 0:\n            return True\n    \n    return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 157,
+      "total_tokens": 261,
+      "completion_tokens": 104,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869891.372912
+}

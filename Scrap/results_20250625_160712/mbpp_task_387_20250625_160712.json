@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 387,
+  "problem": {
+    "task_id": 387,
+    "text": "Write a python function to check whether the hexadecimal number is even or odd.",
+    "code": "def even_or_odd(N): \r\n    l = len(N) \r\n    if (N[l-1] =='0'or N[l-1] =='2'or \r\n        N[l-1] =='4'or N[l-1] =='6'or \r\n        N[l-1] =='8'or N[l-1] =='A'or \r\n        N[l-1] =='C'or N[l-1] =='E'): \r\n        return (\"Even\") \r\n    else: \r\n        return (\"Odd\") ",
+    "test_list": [
+      "assert even_or_odd(\"AB3454D\") ==\"Odd\"",
+      "assert even_or_odd(\"ABC\") == \"Even\"",
+      "assert even_or_odd(\"AAD\") == \"Odd\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the hexadecimal number is even or odd.\n\nTask ID: 387\n\nExpected behavior (test cases):\n1. even_or_odd(\"AB3454D\") ==\"Odd\"\n2. even_or_odd(\"ABC\") should return \"Even\"\n3. even_or_odd(\"AAD\") should return \"Odd\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d9437e9971e94dc5923f82eb0db1f7bf",
+    "object": "chat.completion",
+    "created": 1750869578,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef even_or_odd(hex_num):\n    # Convert the hex number to decimal and check if it's even or odd\n    decimal_value = int(hex_num, 16)\n    if decimal_value % 2 == 0:\n        return \"Even\"\n    else:\n        return \"Odd\"\n\n# Test cases\nprint(even_or_odd(\"AB3454D\"))  # Expected output: \"Odd\"\nprint(even_or_odd(\"ABC\"))      # Expected output: \"Even\"\nprint(even_or_odd(\"AAD\"))      # Expected output: \"Odd\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 254,
+      "completion_tokens": 122,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869580.2507286
+}

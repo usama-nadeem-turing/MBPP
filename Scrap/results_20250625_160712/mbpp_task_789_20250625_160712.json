@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 789,
+  "problem": {
+    "task_id": 789,
+    "text": "Write a function to calculate the perimeter of a regular polygon.",
+    "code": "from math import tan, pi\r\ndef perimeter_polygon(s,l):\r\n  perimeter = s*l\r\n  return perimeter",
+    "test_list": [
+      "assert perimeter_polygon(4,20)==80",
+      "assert perimeter_polygon(10,15)==150",
+      "assert perimeter_polygon(9,7)==63"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the perimeter of a regular polygon.\n\nTask ID: 789\n\nExpected behavior (test cases):\n1. perimeter_polygon(4,20)==80\n2. perimeter_polygon(10,15)==150\n3. perimeter_polygon(9,7)==63\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-831baf6cce9b4c0885a0047f381864d1",
+    "object": "chat.completion",
+    "created": 1750868129,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef perimeter_polygon(sides, length):\n    return sides * length\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 146,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868129.8610427
+}

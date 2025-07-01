@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 656,
+  "problem": {
+    "task_id": 656,
+    "text": "Write a python function to find the minimum sum of absolute differences of two arrays.",
+    "code": "def find_Min_Sum(a,b,n): \r\n    a.sort() \r\n    b.sort() \r\n    sum = 0  \r\n    for i in range(n): \r\n        sum = sum + abs(a[i] - b[i]) \r\n    return sum",
+    "test_list": [
+      "assert find_Min_Sum([3,2,1],[2,1,3],3) == 0",
+      "assert find_Min_Sum([1,2,3],[4,5,6],3) == 9",
+      "assert find_Min_Sum([4,1,8,7],[2,3,6,5],4) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum sum of absolute differences of two arrays.\n\nTask ID: 656\n\nExpected behavior (test cases):\n1. find_Min_Sum([3,2,1],[2,1,3],3) should return 0\n2. find_Min_Sum([1,2,3],[4,5,6],3) should return 9\n3. find_Min_Sum([4,1,8,7],[2,3,6,5],4) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-822ab27396c345eaaf6563a388203174",
+    "object": "chat.completion",
+    "created": 1750867781,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Min_Sum(arr1, arr2, n):\n    # Calculate the difference between each pair and store in diff_arr\n    diff_arr = [abs(a - b) for a, b in zip(arr1, arr2)]\n    \n    # Sort the array of differences\n    diff_arr.sort()\n    \n    # Return the sum of the first 'n' elements from the sorted array\n    return sum(diff_arr[:n])\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 173,
+      "total_tokens": 267,
+      "completion_tokens": 94,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867783.4048986
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 13,
+  "problem": {
+    "task_id": 13,
+    "text": "Write a function to count the most common words in a dictionary.",
+    "code": "from collections import Counter\r\ndef count_common(words):\r\n  word_counts = Counter(words)\r\n  top_four = word_counts.most_common(4)\r\n  return (top_four)\r\n",
+    "test_list": [
+      "assert count_common(['red','green','black','pink','black','white','black','eyes','white','black','orange','pink','pink','red','red','white','orange','white',\"black\",'pink','green','green','pink','green','pink','white','orange',\"orange\",'red']) == [('pink', 6), ('black', 5), ('white', 5), ('red', 4)]",
+      "assert count_common(['one', 'two', 'three', 'four', 'five', 'one', 'two', 'one', 'three', 'one']) == [('one', 4), ('two', 2), ('three', 2), ('four', 1)]",
+      "assert count_common(['Facebook', 'Apple', 'Amazon', 'Netflix', 'Google', 'Apple', 'Netflix', 'Amazon']) == [('Apple', 2), ('Amazon', 2), ('Netflix', 2), ('Facebook', 1)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the most common words in a dictionary.\n\nTask ID: 13\n\nExpected behavior (test cases):\n1. count_common(['red','green','black','pink','black','white','black','eyes','white','black','orange','pink','pink','red','red','white','orange','white',\"black\",'pink','green','green','pink','green','pink','white','orange',\"orange\",'red']) should return [('pink', 6), ('black', 5), ('white', 5), ('red', 4)]\n2. count_common(['one', 'two', 'three', 'four', 'five', 'one', 'two', 'one', 'three', 'one']) should return [('one', 4), ('two', 2), ('three', 2), ('four', 1)]\n3. count_common(['Facebook', 'Apple', 'Amazon', 'Netflix', 'Google', 'Apple', 'Netflix', 'Amazon']) should return [('Apple', 2), ('Amazon', 2), ('Netflix', 2), ('Facebook', 1)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e3b37e60014a4ec1a628eecfb94ff7b8",
+    "object": "chat.completion",
+    "created": 1750867252,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import Counter\n\ndef count_common(words):\n    # Count the frequency of each word\n    word_count = Counter(words)\n    # Find the maximum frequency\n    max_freq = max(word_count.values())\n    # Filter words with the maximum frequency and sort them alphabetically\n    result = sorted([word for word, freq in word_count.items() if freq == max_freq])\n    return list(zip(result, [max_freq] * len(result)))\n\n# Test cases\nprint(count_common(['red','green','black','pink','black','white','black','eyes','white','black','orange','pink','pink','red','red','white','orange','white',\"black\",'pink','green','green','pink','green','pink','white','orange',\"orange\",'red']))\nprint(count_common(['one', 'two', 'three', 'four', 'five', 'one', 'two', 'one', 'three', 'one']))\nprint(count_common(['Facebook', 'Apple', 'Amazon', 'Netflix', 'Google', 'Apple', 'Netflix', 'Amazon']))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 291,
+      "total_tokens": 513,
+      "completion_tokens": 222,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867256.6790528
+}

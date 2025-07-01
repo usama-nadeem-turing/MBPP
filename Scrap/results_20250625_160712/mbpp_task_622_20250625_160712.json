@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 622,
+  "problem": {
+    "task_id": 622,
+    "text": "Write a function to find the median of two sorted arrays of same size.",
+    "code": "def get_median(arr1, arr2, n):\r\n  i = 0\r\n  j = 0\r\n  m1 = -1\r\n  m2 = -1\r\n  count = 0\r\n  while count < n + 1:\r\n    count += 1\r\n    if i == n:\r\n      m1 = m2\r\n      m2 = arr2[0]\r\n      break\r\n    elif j == n:\r\n      m1 = m2\r\n      m2 = arr1[0]\r\n      break\r\n    if arr1[i] <= arr2[j]:\r\n      m1 = m2\r\n      m2 = arr1[i]\r\n      i += 1\r\n    else:\r\n      m1 = m2\r\n      m2 = arr2[j]\r\n      j += 1\r\n  return (m1 + m2)/2",
+    "test_list": [
+      "assert get_median([1, 12, 15, 26, 38], [2, 13, 17, 30, 45], 5) == 16.0",
+      "assert get_median([2, 4, 8, 9], [7, 13, 19, 28], 4) == 8.5",
+      "assert get_median([3, 6, 14, 23, 36, 42], [2, 18, 27, 39, 49, 55], 6) == 25.0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the median of two sorted arrays of same size.\n\nTask ID: 622\n\nExpected behavior (test cases):\n1. get_median([1, 12, 15, 26, 38], [2, 13, 17, 30, 45], 5) should return 16.0\n2. get_median([2, 4, 8, 9], [7, 13, 19, 28], 4) should return 8.5\n3. get_median([3, 6, 14, 23, 36, 42], [2, 18, 27, 39, 49, 55], 6) should return 25.0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a76e534e19c547f29298c4661425db6d",
+    "object": "chat.completion",
+    "created": 1750867693,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport numpy as np\n\ndef get_median(arr1, arr2, n):\n    # Combine both arrays and sort them\n    combined = np.sort(np.concatenate((arr1, arr2)))\n    \n    # Calculate the median based on array length\n    if len(combined) % 2 == 0:\n        mid_index = int(len(combined) / 2)\n        median = (combined[mid_index - 1] + combined[mid_index]) / 2\n    else:\n        median = combined[int(len(combined) / 2)]\n    \n    return median\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 244,
+      "total_tokens": 366,
+      "completion_tokens": 122,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867695.5774362
+}

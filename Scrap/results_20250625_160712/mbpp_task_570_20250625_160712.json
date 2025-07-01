@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 570,
+  "problem": {
+    "task_id": 570,
+    "text": "Write a function to remove words from a given list of strings containing a character or string.",
+    "code": "def remove_words(list1, charlist):\r\n    new_list = []\r\n    for line in list1:\r\n        new_words = ' '.join([word for word in line.split() if not any([phrase in word for phrase in charlist])])\r\n        new_list.append(new_words)\r\n    return new_list",
+    "test_list": [
+      "assert remove_words(['Red color', 'Orange#', 'Green', 'Orange @', \"White\"],['#', 'color', '@'])==['Red', '', 'Green', 'Orange', 'White']",
+      "assert remove_words(['Red &', 'Orange+', 'Green', 'Orange @', 'White'],['&', '+', '@'])==['Red', '', 'Green', 'Orange', 'White']",
+      "assert remove_words(['Red &', 'Orange+', 'Green', 'Orange @', 'White'],['@'])==['Red &', 'Orange+', 'Green', 'Orange', 'White']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove words from a given list of strings containing a character or string.\n\nTask ID: 570\n\nExpected behavior (test cases):\n1. remove_words(['Red color', 'Orange#', 'Green', 'Orange @', \"White\"],['#', 'color', '@'])==['Red', '', 'Green', 'Orange', 'White']\n2. remove_words(['Red &', 'Orange+', 'Green', 'Orange @', 'White'],['&', '+', '@'])==['Red', '', 'Green', 'Orange', 'White']\n3. remove_words(['Red &', 'Orange+', 'Green', 'Orange @', 'White'],['@'])==['Red &', 'Orange+', 'Green', 'Orange', 'White']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6b8d6408fbfc4efdab24f4a59c1010a6",
+    "object": "chat.completion",
+    "created": 1750870025,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_words(words_list, chars_to_remove):\n    return [word for word in words_list if not any(char in word for char in chars_to_remove)]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 218,
+      "total_tokens": 255,
+      "completion_tokens": 37,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870026.1367502
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 685,
+  "problem": {
+    "task_id": 685,
+    "text": "Write a python function to find sum of prime numbers between 1 to n.",
+    "code": "def sum_Of_Primes(n): \r\n    prime = [True] * (n + 1)  \r\n    p = 2\r\n    while p * p <= n: \r\n        if prime[p] == True:  \r\n            i = p * 2\r\n            while i <= n: \r\n                prime[i] = False\r\n                i += p \r\n        p += 1    \r\n    sum = 0\r\n    for i in range (2,n + 1): \r\n        if(prime[i]): \r\n            sum += i \r\n    return sum",
+    "test_list": [
+      "assert sum_Of_Primes(10) == 17",
+      "assert sum_Of_Primes(20) == 77",
+      "assert sum_Of_Primes(5) == 10"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find sum of prime numbers between 1 to n.\n\nTask ID: 685\n\nExpected behavior (test cases):\n1. sum_Of_Primes(10) should return 17\n2. sum_Of_Primes(20) should return 77\n3. sum_Of_Primes(5) should return 10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-39ea599c489a47eea95d044cf1a2176b",
+    "object": "chat.completion",
+    "created": 1750867845,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_prime(num):\n    \"\"\"Check if a number is prime.\"\"\"\n    if num <= 1:\n        return False\n    for i in range(2, int(num**0.5) + 1):\n        if num % i == 0:\n            return False\n    return True\n\ndef sum_of_primes(n):\n    \"\"\"Calculate the sum of all prime numbers up to and including n.\"\"\"\n    total = 0\n    for num in range(2, n + 1):\n        if is_prime(num):\n            total += num\n    return total\n\n# Test cases\nprint(sum_of_primes(10))  # Expected output: 17\nprint(sum_of_primes(20))  # Expected output: 77\nprint(sum_of_primes(5))   # Expected output: 10\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 317,
+      "completion_tokens": 179,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867848.2197497
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 561,
+  "problem": {
+    "task_id": 561,
+    "text": "Write a function to assign with each element, its pair elements from other similar pairs in the given tuple.",
+    "code": "def assign_elements(test_list):\r\n  res = dict()\r\n  for key, val in test_list:\r\n    res.setdefault(val, [])\r\n    res.setdefault(key, []).append(val)\r\n  return (res) ",
+    "test_list": [
+      "assert assign_elements([(5, 3), (7, 5), (2, 7), (3, 8), (8, 4)] ) == {3: [8], 5: [3], 7: [5], 2: [7], 8: [4], 4: []}",
+      "assert assign_elements([(6, 4), (9, 4), (3, 8), (4, 9), (9, 5)] ) == {4: [9], 6: [4], 9: [4, 5], 8: [], 3: [8], 5: []}",
+      "assert assign_elements([(6, 2), (6, 8), (4, 9), (4, 9), (3, 7)] ) == {2: [], 6: [2, 8], 8: [], 9: [], 4: [9, 9], 7: [], 3: [7]}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to assign with each element, its pair elements from other similar pairs in the given tuple.\n\nTask ID: 561\n\nExpected behavior (test cases):\n1. assign_elements([(5, 3), (7, 5), (2, 7), (3, 8), (8, 4)] ) should return {3: [8], 5: [3], 7: [5], 2: [7], 8: [4], 4: []}\n2. assign_elements([(6, 4), (9, 4), (3, 8), (4, 9), (9, 5)] ) should return {4: [9], 6: [4], 9: [4, 5], 8: [], 3: [8], 5: []}\n3. assign_elements([(6, 2), (6, 8), (4, 9), (4, 9), (3, 7)] ) should return {2: [], 6: [2, 8], 8: [], 9: [], 4: [9, 9], 7: [], 3: [7]}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-932b9d97ea794d679bd76cd8c2c359c4",
+    "object": "chat.completion",
+    "created": 1750870010,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef assign_elements(tuples_list):\n    result = {}\n    for tup in tuples_list:\n        for i in range(len(tup)):\n            if tup[i] not in result:\n                result[tup[i]] = []\n            result[tup[i]].append(tup[(i + 1) % len(tup)])\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "total_tokens": 392,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870012.2517002
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 425,
+  "problem": {
+    "task_id": 425,
+    "text": "Write a function to count the number of sublists containing a particular element.",
+    "code": "def count_element_in_list(list1, x): \r\n    ctr = 0\r\n    for i in range(len(list1)): \r\n        if x in list1[i]: \r\n            ctr+= 1          \r\n    return ctr",
+    "test_list": [
+      "assert count_element_in_list([[1, 3], [5, 7], [1, 11], [1, 15, 7]],1)==3",
+      "assert count_element_in_list([['A', 'B'], ['A', 'C'], ['A', 'D', 'E'], ['B', 'C', 'D']],'A')==3",
+      "assert count_element_in_list([['A', 'B'], ['A', 'C'], ['A', 'D', 'E'], ['B', 'C', 'D']],'E')==1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the number of sublists containing a particular element.\n\nTask ID: 425\n\nExpected behavior (test cases):\n1. count_element_in_list([[1, 3], [5, 7], [1, 11], [1, 15, 7]],1)==3\n2. count_element_in_list([['A', 'B'], ['A', 'C'], ['A', 'D', 'E'], ['B', 'C', 'D']],'A')==3\n3. count_element_in_list([['A', 'B'], ['A', 'C'], ['A', 'D', 'E'], ['B', 'C', 'D']],'E')==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-90c760c6337c4cb78d6ab5caae10a87c",
+    "object": "chat.completion",
+    "created": 1750869676,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_element_in_list(lst, elem):\n    return sum(1 for sublist in lst if elem in sublist)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 213,
+      "total_tokens": 241,
+      "completion_tokens": 28,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869676.9089546
+}

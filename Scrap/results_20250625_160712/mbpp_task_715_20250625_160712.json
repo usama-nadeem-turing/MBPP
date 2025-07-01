@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 715,
+  "problem": {
+    "task_id": 715,
+    "text": "Write a function to convert the given string of integers into a tuple.",
+    "code": "def str_to_tuple(test_str):\r\n  res = tuple(map(int, test_str.split(', ')))\r\n  return (res) ",
+    "test_list": [
+      "assert str_to_tuple(\"1, -5, 4, 6, 7\") == (1, -5, 4, 6, 7)",
+      "assert str_to_tuple(\"1, 2, 3, 4, 5\") == (1, 2, 3, 4, 5)",
+      "assert str_to_tuple(\"4, 6, 9, 11, 13, 14\") == (4, 6, 9, 11, 13, 14)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given string of integers into a tuple.\n\nTask ID: 715\n\nExpected behavior (test cases):\n1. str_to_tuple(\"1, -5, 4, 6, 7\") should return (1, -5, 4, 6, 7)\n2. str_to_tuple(\"1, 2, 3, 4, 5\") should return (1, 2, 3, 4, 5)\n3. str_to_tuple(\"4, 6, 9, 11, 13, 14\") should return (4, 6, 9, 11, 13, 14)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f84b64e0b26441848320ac0bf9e60f05",
+    "object": "chat.completion",
+    "created": 1750867924,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef str_to_tuple(input_str):\n    # Split the input string by comma and convert each element to an integer\n    elements = map(int, input_str.split(\", \"))\n    # Convert the list of integers into a tuple\n    result_tuple = tuple(elements)\n    return result_tuple\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 212,
+      "total_tokens": 274,
+      "completion_tokens": 62,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867925.908614
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 546,
+  "problem": {
+    "task_id": 546,
+    "text": "Write a function to find the last occurrence of a character in a string.",
+    "code": "def last_occurence_char(string,char):\r\n flag = -1\r\n for i in range(len(string)):\r\n     if(string[i] == char):\r\n         flag = i\r\n if(flag == -1):\r\n    return None\r\n else:\r\n    return flag + 1",
+    "test_list": [
+      "assert last_occurence_char(\"hello world\",'l')==10",
+      "assert last_occurence_char(\"language\",'g')==7",
+      "assert last_occurence_char(\"little\",'y')==None"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the last occurrence of a character in a string.\n\nTask ID: 546\n\nExpected behavior (test cases):\n1. last_occurence_char(\"hello world\",'l')==10\n2. last_occurence_char(\"language\",'g')==7\n3. last_occurence_char(\"little\",'y')==None\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-349484817f584f6f96e2a67ee9c41da0",
+    "object": "chat.completion",
+    "created": 1750869969,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef last_occurence_char(s, char):\n    index = -1\n    for i in range(len(s) - 1, -1, -1):\n        if s[i] == char:\n            index = i\n    return index\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 186,
+      "completion_tokens": 55,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869970.1530392
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 96,
+  "problem": {
+    "task_id": 96,
+    "text": "Write a python function to find the number of divisors of a given integer.",
+    "code": "def divisor(n):\r\n  for i in range(n):\r\n    x = len([i for i in range(1,n+1) if not n % i])\r\n  return x",
+    "test_list": [
+      "assert divisor(15) == 4 ",
+      "assert divisor(12) == 6",
+      "assert divisor(9) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the number of divisors of a given integer.\n\nTask ID: 96\n\nExpected behavior (test cases):\n1. divisor(15) should return 4 \n2. divisor(12) should return 6\n3. divisor(9) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fde708da2e914190aa27c24e819cac4b",
+    "object": "chat.completion",
+    "created": 1750868825,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef divisor(n):\n    count = 0\n    for i in range(1, n + 1):\n        if n % i == 0:\n            count += 1\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "total_tokens": 172,
+      "completion_tokens": 47,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868826.6322596
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 745,
+  "problem": {
+    "task_id": 745,
+    "text": "Write a function to find numbers within a given range where every number is divisible by every digit it contains.",
+    "code": "def divisible_by_digits(startnum, endnum):\r\n    return [n for n in range(startnum, endnum+1) \\\r\n                if not any(map(lambda x: int(x) == 0 or n%int(x) != 0, str(n)))]",
+    "test_list": [
+      "assert divisible_by_digits(1,22)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]",
+      "assert divisible_by_digits(1,15)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15]",
+      "assert divisible_by_digits(20,25)==[22, 24]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find numbers within a given range where every number is divisible by every digit it contains.\n\nTask ID: 745\n\nExpected behavior (test cases):\n1. divisible_by_digits(1,22)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n2. divisible_by_digits(1,15)==[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15]\n3. divisible_by_digits(20,25)==[22, 24]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a224737e18e74afca2d92c3f21f3d04a",
+    "object": "chat.completion",
+    "created": 1750868006,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef divisible_by_digits(start, end):\n    result = []\n    for num in range(start, end + 1):\n        if all(int(digit) != 0 and int(num) % int(digit) == 0 for digit in str(num)):\n            result.append(num)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 220,
+      "total_tokens": 286,
+      "completion_tokens": 66,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868007.3221934
+}

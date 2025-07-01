@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 103,
+  "problem": {
+    "task_id": 103,
+    "text": "Write a function to find eulerian number a(n, m).",
+    "code": "def eulerian_num(n, m): \r\n\tif (m >= n or n == 0): \r\n\t\treturn 0 \r\n\tif (m == 0): \r\n\t\treturn 1 \r\n\treturn ((n - m) * eulerian_num(n - 1, m - 1) +(m + 1) * eulerian_num(n - 1, m))",
+    "test_list": [
+      "assert eulerian_num(3, 1) == 4",
+      "assert eulerian_num(4, 1) == 11",
+      "assert eulerian_num(5, 3) == 26"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find eulerian number a(n, m).\n\nTask ID: 103\n\nExpected behavior (test cases):\n1. eulerian_num(3, 1) should return 4\n2. eulerian_num(4, 1) should return 11\n3. eulerian_num(5, 3) should return 26\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f71db2ae5a184c49a99af3cc30a2277a",
+    "object": "chat.completion",
+    "created": 1750868839,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef eulerian_num(n, m):\n    # Initialize the result with the base case for n=1 and m=1\n    if n == 1:\n        return m\n    \n    # Calculate the Eulerian number using dynamic programming\n    dp = [[0] * (m + 1) for _ in range(n + 1)]\n    \n    # Base case initialization\n    for i in range(m + 1):\n        dp[1][i] = i\n    \n    # Fill the DP table\n    for i in range(2, n + 1):\n        for j in range(i, -1, -1):\n            dp[i][j] = sum(dp[i-1][k] for k in range(j+1))\n    \n    # Return the value of the Eulerian number at position (n, m)\n    return dp[n][m]\n\n# Test cases\nprint(eulerian_num(3, 1))  # Expected output: 4\nprint(eulerian_num(4, 1))  # Expected output: 11\nprint(eulerian_num(5, 3))  # Expected output: 26\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 384,
+      "completion_tokens": 246,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868843.5219755
+}

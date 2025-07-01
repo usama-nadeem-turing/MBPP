@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 834,
+  "problem": {
+    "task_id": 834,
+    "text": "Write a function to generate a square matrix filled with elements from 1 to n raised to the power of 2 in spiral order.",
+    "code": "def generate_matrix(n):\r\n        if n<=0:\r\n            return [] \r\n        matrix=[row[:] for row in [[0]*n]*n]        \r\n        row_st=0\r\n        row_ed=n-1        \r\n        col_st=0\r\n        col_ed=n-1\r\n        current=1        \r\n        while (True):\r\n            if current>n*n:\r\n                break\r\n            for c in range (col_st, col_ed+1):\r\n                matrix[row_st][c]=current\r\n                current+=1\r\n            row_st+=1\r\n            for r in range (row_st, row_ed+1):\r\n                matrix[r][col_ed]=current\r\n                current+=1\r\n            col_ed-=1\r\n            for c in range (col_ed, col_st-1, -1):\r\n                matrix[row_ed][c]=current\r\n                current+=1\r\n            row_ed-=1\r\n            for r in range (row_ed, row_st-1, -1):\r\n                matrix[r][col_st]=current\r\n                current+=1\r\n            col_st+=1\r\n        return matrix",
+    "test_list": [
+      "assert generate_matrix(3)==[[1, 2, 3], [8, 9, 4], [7, 6, 5]] ",
+      "assert generate_matrix(2)==[[1,2],[4,3]]",
+      "assert generate_matrix(7)==[[1, 2, 3, 4, 5, 6, 7], [24, 25, 26, 27, 28, 29, 8], [23, 40, 41, 42, 43, 30, 9], [22, 39, 48, 49, 44, 31, 10], [21, 38, 47, 46, 45, 32, 11], [20, 37, 36, 35, 34, 33, 12], [19, 18, 17, 16, 15, 14, 13]]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to generate a square matrix filled with elements from 1 to n raised to the power of 2 in spiral order.\n\nTask ID: 834\n\nExpected behavior (test cases):\n1. generate_matrix(3)==[[1, 2, 3], [8, 9, 4], [7, 6, 5]] \n2. generate_matrix(2)==[[1,2],[4,3]]\n3. generate_matrix(7)==[[1, 2, 3, 4, 5, 6, 7], [24, 25, 26, 27, 28, 29, 8], [23, 40, 41, 42, 43, 30, 9], [22, 39, 48, 49, 44, 31, 10], [21, 38, 47, 46, 45, 32, 11], [20, 37, 36, 35, 34, 33, 12], [19, 18, 17, 16, 15, 14, 13]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-127d09e16e544ea584a1faed6cc492b2",
+    "object": "chat.completion",
+    "created": 1750868229,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef generate_matrix(n):\n    \"\"\"\n    Generate an nxn matrix filled with numbers from 1 to n^2 in spiral order.\n    \n    :param n: Size of the matrix (must be a perfect square)\n    :return: A list of lists representing the spiral matrix\n    \"\"\"\n    if not isinstance(n, int) or n < 1:\n        raise ValueError(\"Size must be a positive integer\")\n    \n    matrix = [[0] * n for _ in range(n)]\n    num = 1\n    \n    def fill(matrix, start_row, end_row, start_col, end_col):\n        if start_row > end_row or start_col > end_col:\n            return\n        \n        # Fill top row\n        for col in range(start_col, end_col + 1):\n            matrix[start_row][col] = num\n            num += 1\n            \n        # Fill right column\n        for row in range(start_row + 1, end_row + 1):\n            matrix[row][end_col] = num\n            num += 1\n            \n        # Fill bottom row\n        for col in reversed(range(start_col, end_col)):\n            matrix[end_row][col] = num\n            num += 1\n            \n        # Fill left column\n        for row in reversed(range(start_row + 1, end_row)):\n            matrix[row][start_col] = num\n            num += 1\n            \n        fill(matrix, start_row + 1, end_row - 1, start_col + 1, end_col - 1)\n\n    fill(matrix, 0, n - 1, 0, n - 1)\n    return matrix\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 348,
+      "total_tokens": 690,
+      "completion_tokens": 342,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868235.6910625
+}

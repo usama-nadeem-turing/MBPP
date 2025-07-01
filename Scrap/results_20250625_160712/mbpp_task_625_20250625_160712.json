@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 625,
+  "problem": {
+    "task_id": 625,
+    "text": "Write a python function to interchange first and last elements in a given list.",
+    "code": "def swap_List(newList): \r\n    size = len(newList) \r\n    temp = newList[0] \r\n    newList[0] = newList[size - 1] \r\n    newList[size - 1] = temp   \r\n    return newList ",
+    "test_list": [
+      "assert swap_List([1,2,3]) == [3,2,1]",
+      "assert swap_List([1,2,3,4,4]) == [4,2,3,4,1]",
+      "assert swap_List([4,5,6]) == [6,5,4]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to interchange first and last elements in a given list.\n\nTask ID: 625\n\nExpected behavior (test cases):\n1. swap_List([1,2,3]) should return [3,2,1]\n2. swap_List([1,2,3,4,4]) should return [4,2,3,4,1]\n3. swap_List([4,5,6]) should return [6,5,4]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7748051ec3ae444dbc2f57fa8f547dd6",
+    "object": "chat.completion",
+    "created": 1750867701,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef swap_List(lst):\n    # Interchange the first and last elements of the list\n    lst[0], lst[-1] = lst[-1], lst[0]\n    return lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 203,
+      "completion_tokens": 45,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867702.314163
+}

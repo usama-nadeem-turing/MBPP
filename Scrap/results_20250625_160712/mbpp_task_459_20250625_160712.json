@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 459,
+  "problem": {
+    "task_id": 459,
+    "text": "Write a function to remove uppercase substrings from a given string by using regex.",
+    "code": "import re\r\ndef remove_uppercase(str1):\r\n  remove_upper = lambda text: re.sub('[A-Z]', '', text)\r\n  result =  remove_upper(str1)\r\n  return (result)",
+    "test_list": [
+      "assert remove_uppercase('cAstyoUrFavoRitETVshoWs') == 'cstyoravoitshos'",
+      "assert remove_uppercase('wAtchTheinTernEtrAdIo') == 'wtchheinerntrdo'",
+      "assert remove_uppercase('VoicESeaRchAndreComMendaTionS') == 'oiceachndreomendaion'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove uppercase substrings from a given string by using regex.\n\nTask ID: 459\n\nExpected behavior (test cases):\n1. remove_uppercase('cAstyoUrFavoRitETVshoWs') should return 'cstyoravoitshos'\n2. remove_uppercase('wAtchTheinTernEtrAdIo') should return 'wtchheinerntrdo'\n3. remove_uppercase('VoicESeaRchAndreComMendaTionS') should return 'oiceachndreomendaion'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b6f0b052751e421fa419c6ea848e72a7",
+    "object": "chat.completion",
+    "created": 1750869747,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef remove_uppercase(input_string):\n    # Use regular expression to find and replace all uppercase letters with an empty string\n    result = re.sub('[A-Z]', '', input_string)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "total_tokens": 231,
+      "completion_tokens": 49,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869748.0362892
+}

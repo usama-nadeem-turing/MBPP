@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 942,
+  "problem": {
+    "task_id": 942,
+    "text": "Write a function to check if any list element is present in the given list.",
+    "code": "def check_element(test_tup, check_list):\r\n  res = False\r\n  for ele in check_list:\r\n    if ele in test_tup:\r\n      res = True\r\n      break\r\n  return (res) ",
+    "test_list": [
+      "assert check_element((4, 5, 7, 9, 3),  [6, 7, 10, 11]) == True",
+      "assert check_element((1, 2, 3, 4),  [4, 6, 7, 8, 9]) == True",
+      "assert check_element((3, 2, 1, 4, 5),  [9, 8, 7, 6]) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if any list element is present in the given list.\n\nTask ID: 942\n\nExpected behavior (test cases):\n1. check_element((4, 5, 7, 9, 3),  [6, 7, 10, 11]) should return True\n2. check_element((1, 2, 3, 4),  [4, 6, 7, 8, 9]) should return True\n3. check_element((3, 2, 1, 4, 5),  [9, 8, 7, 6]) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4b5957fca2c64aa7a29e073c95542d61",
+    "object": "chat.completion",
+    "created": 1750868528,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_element(list1, list2):\n    # Check if any element of list1 is present in list2\n    for item in list1:\n        if item in list2:\n            return True\n    return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 201,
+      "total_tokens": 252,
+      "completion_tokens": 51,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868529.055404
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 97,
+  "problem": {
+    "task_id": 97,
+    "text": "Write a function to find frequency count of list of lists.",
+    "code": "def frequency_lists(list1):\r\n    list1 = [item for sublist in list1 for item in sublist]\r\n    dic_data = {}\r\n    for num in list1:\r\n        if num in dic_data.keys():\r\n            dic_data[num] += 1\r\n        else:\r\n            key = num\r\n            value = 1\r\n            dic_data[key] = value\r\n    return dic_data\r\n",
+    "test_list": [
+      "assert frequency_lists([[1, 2, 3, 2], [4, 5, 6, 2], [7, 8, 9, 5]])=={1: 1, 2: 3, 3: 1, 4: 1, 5: 2, 6: 1, 7: 1, 8: 1, 9: 1}",
+      "assert frequency_lists([[1,2,3,4],[5,6,7,8],[9,10,11,12]])=={1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1,10:1,11:1,12:1}",
+      "assert frequency_lists([[20,30,40,17],[18,16,14,13],[10,20,30,40]])=={20:2,30:2,40:2,17: 1,18:1, 16: 1,14: 1,13: 1, 10: 1}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find frequency count of list of lists.\n\nTask ID: 97\n\nExpected behavior (test cases):\n1. frequency_lists([[1, 2, 3, 2], [4, 5, 6, 2], [7, 8, 9, 5]])=={1: 1, 2: 3, 3: 1, 4: 1, 5: 2, 6: 1, 7: 1, 8: 1, 9: 1}\n2. frequency_lists([[1,2,3,4],[5,6,7,8],[9,10,11,12]])=={1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1,10:1,11:1,12:1}\n3. frequency_lists([[20,30,40,17],[18,16,14,13],[10,20,30,40]])=={20:2,30:2,40:2,17: 1,18:1, 16: 1,14: 1,13: 1, 10: 1}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1f950c7a841540ad85050f72825497d6",
+    "object": "chat.completion",
+    "created": 1750868827,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef frequency_lists(lists):\n    result = {}\n    for sublist in lists:\n        for item in sublist:\n            if item in result:\n                result[item] += 1\n            else:\n                result[item] = 1\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 378,
+      "total_tokens": 434,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868828.1404634
+}

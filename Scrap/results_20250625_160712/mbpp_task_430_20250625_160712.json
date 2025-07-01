@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 430,
+  "problem": {
+    "task_id": 430,
+    "text": "Write a function to find the directrix of a parabola.",
+    "code": "def parabola_directrix(a, b, c): \r\n  directrix=((int)(c - ((b * b) + 1) * 4 * a ))\r\n  return directrix",
+    "test_list": [
+      "assert parabola_directrix(5,3,2)==-198",
+      "assert parabola_directrix(9,8,4)==-2336",
+      "assert parabola_directrix(2,4,6)==-130"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the directrix of a parabola.\n\nTask ID: 430\n\nExpected behavior (test cases):\n1. parabola_directrix(5,3,2)==-198\n2. parabola_directrix(9,8,4)==-2336\n3. parabola_directrix(2,4,6)==-130\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c42b900d287448f08423ebaeabaa3fc4",
+    "object": "chat.completion",
+    "created": 1750869689,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef parabola_directrix(a,b,c):\n    return -c / (4*a)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "total_tokens": 171,
+      "completion_tokens": 24,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869690.354648
+}

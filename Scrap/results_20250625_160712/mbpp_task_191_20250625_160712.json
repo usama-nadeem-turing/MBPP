@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 191,
+  "problem": {
+    "task_id": 191,
+    "text": "Write a function to check whether the given month name contains 30 days or not.",
+    "code": "def check_monthnumber(monthname3):\r\n  if monthname3 ==\"April\" or monthname3== \"June\" or monthname3== \"September\" or monthname3== \"November\":\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert check_monthnumber(\"February\")==False",
+      "assert check_monthnumber(\"June\")==True",
+      "assert check_monthnumber(\"April\")==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given month name contains 30 days or not.\n\nTask ID: 191\n\nExpected behavior (test cases):\n1. check_monthnumber(\"February\")==False\n2. check_monthnumber(\"June\")==True\n3. check_monthnumber(\"April\")==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7716cbab71994fa994360a4aeb8df698",
+    "object": "chat.completion",
+    "created": 1750869084,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_monthnumber(month_name):\n    # List of months with 30 days\n    thirty_days_months = [\"April\", \"June\", \"September\", \"November\"]\n    \n    # Check if the input month is in the list of months with 30 days\n    return month_name in thirty_days_months\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "total_tokens": 192,
+      "completion_tokens": 69,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869085.563944
+}

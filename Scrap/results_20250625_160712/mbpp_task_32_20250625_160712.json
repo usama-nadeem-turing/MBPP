@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 32,
+  "problem": {
+    "task_id": 32,
+    "text": "Write a python function to find the largest prime factor of a given number.",
+    "code": "import math \r\ndef max_Prime_Factors (n): \r\n    maxPrime = -1 \r\n    while n%2 == 0: \r\n        maxPrime = 2\r\n        n >>= 1    \r\n    for i in range(3,int(math.sqrt(n))+1,2): \r\n        while n % i == 0: \r\n            maxPrime = i \r\n            n = n / i \r\n    if n > 2: \r\n        maxPrime = n  \r\n    return int(maxPrime)",
+    "test_list": [
+      "assert max_Prime_Factors(15) == 5",
+      "assert max_Prime_Factors(6) == 3",
+      "assert max_Prime_Factors(2) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the largest prime factor of a given number.\n\nTask ID: 32\n\nExpected behavior (test cases):\n1. max_Prime_Factors(15) should return 5\n2. max_Prime_Factors(6) should return 3\n3. max_Prime_Factors(2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e1be2314017b4fc9ab494e3b0173074e",
+    "object": "chat.completion",
+    "created": 1750868661,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_Prime_Factors(n):\n    i = 2\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n    return n\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 186,
+      "completion_tokens": 51,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868662.2211502
+}

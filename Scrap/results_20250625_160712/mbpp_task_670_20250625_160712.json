@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 670,
+  "problem": {
+    "task_id": 670,
+    "text": "Write a python function to check whether a sequence of numbers has a decreasing trend or not.",
+    "code": "def decreasing_trend(nums):\r\n    if (sorted(nums)== nums):\r\n        return True\r\n    else:\r\n        return False",
+    "test_list": [
+      "assert decreasing_trend([-4,-3,-2,-1]) == True",
+      "assert decreasing_trend([1,2,3]) == True",
+      "assert decreasing_trend([3,2,1]) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether a sequence of numbers has a decreasing trend or not.\n\nTask ID: 670\n\nExpected behavior (test cases):\n1. decreasing_trend([-4,-3,-2,-1]) should return True\n2. decreasing_trend([1,2,3]) should return True\n3. decreasing_trend([3,2,1]) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dba643013ed84461a45ac183e3650354",
+    "object": "chat.completion",
+    "created": 1750867818,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_decreasing(nums):\n    # Check if each element in nums is greater than its predecessor\n    for i in range(1, len(nums)):\n        if nums[i] >= nums[i - 1]:\n            return False\n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 143,
+      "total_tokens": 199,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867819.5131483
+}

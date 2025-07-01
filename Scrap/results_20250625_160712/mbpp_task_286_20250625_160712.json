@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 286,
+  "problem": {
+    "task_id": 286,
+    "text": "Write a function to find the largest sum of contiguous array in the modified array which is formed by repeating the given array k times.",
+    "code": "def max_sub_array_sum_repeated(a, n, k): \r\n\tmax_so_far = -2147483648\r\n\tmax_ending_here = 0\r\n\tfor i in range(n*k): \r\n\t\tmax_ending_here = max_ending_here + a[i%n] \r\n\t\tif (max_so_far < max_ending_here): \r\n\t\t\tmax_so_far = max_ending_here \r\n\t\tif (max_ending_here < 0): \r\n\t\t\tmax_ending_here = 0\r\n\treturn max_so_far",
+    "test_list": [
+      "assert max_sub_array_sum_repeated([10, 20, -30, -1], 4, 3) == 30",
+      "assert max_sub_array_sum_repeated([-1, 10, 20], 3, 2) == 59",
+      "assert max_sub_array_sum_repeated([-1, -2, -3], 3, 3) == -1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest sum of contiguous array in the modified array which is formed by repeating the given array k times.\n\nTask ID: 286\n\nExpected behavior (test cases):\n1. max_sub_array_sum_repeated([10, 20, -30, -1], 4, 3) should return 30\n2. max_sub_array_sum_repeated([-1, 10, 20], 3, 2) should return 59\n3. max_sub_array_sum_repeated([-1, -2, -3], 3, 3) should return -1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f0e98a474b534ef2b6c9cbb16e012ed4",
+    "object": "chat.completion",
+    "created": 1750869315,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sub_array_sum_repeated(arr, n, k):\n    # Calculate the length of the original array\n    len_arr = len(arr)\n    \n    # Create an array with repeated elements 'k' times\n    arr_k_times = [arr[i % len_arr] for i in range(n * k)]\n    \n    # Initialize variables to store the maximum subarray sum and its start index\n    max_sum = float('-inf')\n    start_index = 0\n    \n    # Iterate through the array to find the maximum subarray sum\n    for i in range(len(arr_k_times)):\n        current_sum = 0\n        for j in range(i, len(arr_k_times), len_arr):\n            current_sum += arr_k_times[j]\n            if current_sum > max_sum:\n                max_sum = current_sum\n                start_index = i\n                \n    return max_sum\n\n# Test cases\nprint(max_sub_array_sum_repeated([10, 20, -30, -1], 4, 3))  # Expected output: 30\nprint(max_sub_array_sum_repeated([-1, 10, 20], 3, 2))      # Expected output: 59\nprint(max_sub_array_sum_repeated([-1, -2, -3], 3, 3))      # Expected output: -1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 195,
+      "total_tokens": 481,
+      "completion_tokens": 286,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869320.2752602
+}

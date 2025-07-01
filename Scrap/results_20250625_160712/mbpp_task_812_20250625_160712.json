@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 812,
+  "problem": {
+    "task_id": 812,
+    "text": "Write a function to abbreviate 'road' as 'rd.' in a given string.",
+    "code": "import re\r\ndef road_rd(street):\r\n  return (re.sub('Road$', 'Rd.', street))",
+    "test_list": [
+      "assert road_rd(\"ravipadu Road\")==('ravipadu Rd.')",
+      "assert road_rd(\"palnadu Road\")==('palnadu Rd.')",
+      "assert road_rd(\"eshwar enclave Road\")==('eshwar enclave Rd.')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to abbreviate 'road' as 'rd.' in a given string.\n\nTask ID: 812\n\nExpected behavior (test cases):\n1. road_rd(\"ravipadu Road\")==('ravipadu Rd.')\n2. road_rd(\"palnadu Road\")==('palnadu Rd.')\n3. road_rd(\"eshwar enclave Road\")==('eshwar enclave Rd.')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-db81968269064e3b88fe7a13883c2dbd",
+    "object": "chat.completion",
+    "created": 1750868179,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef road_rd(s):\n    return s.replace('Road', 'Rd.')\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 167,
+      "completion_tokens": 21,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868180.1300395
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 855,
+  "problem": {
+    "task_id": 855,
+    "text": "Write a python function to check for even parity of a given number.",
+    "code": "def check_Even_Parity(x): \r\n    parity = 0\r\n    while (x != 0): \r\n        x = x & (x - 1) \r\n        parity += 1\r\n    if (parity % 2 == 0): \r\n        return True\r\n    else: \r\n        return False",
+    "test_list": [
+      "assert check_Even_Parity(10) == True",
+      "assert check_Even_Parity(11) == False",
+      "assert check_Even_Parity(18) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check for even parity of a given number.\n\nTask ID: 855\n\nExpected behavior (test cases):\n1. check_Even_Parity(10) should return True\n2. check_Even_Parity(11) should return False\n3. check_Even_Parity(18) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9ce08fc5a33c435198df7dcbf36021aa",
+    "object": "chat.completion",
+    "created": 1750868305,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_Even_Parity(n):\n    # Convert the number to binary string and count the '0's\n    if bin(n).count('0') % 2 == 0:\n        return True\n    else:\n        return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 189,
+      "completion_tokens": 55,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868306.6089323
+}

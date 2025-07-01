@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 166,
+  "problem": {
+    "task_id": 166,
+    "text": "Write a python function to count the pairs with xor as an even number.",
+    "code": "def find_even_Pair(A,N): \r\n    evenPair = 0\r\n    for i in range(0,N): \r\n        for j in range(i+1,N): \r\n            if ((A[i] ^ A[j]) % 2 == 0): \r\n                evenPair+=1\r\n    return evenPair; ",
+    "test_list": [
+      "assert find_even_Pair([5,4,7,2,1],5) == 4",
+      "assert find_even_Pair([7,2,8,1,0,5,11],7) == 9",
+      "assert find_even_Pair([1,2,3],3) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the pairs with xor as an even number.\n\nTask ID: 166\n\nExpected behavior (test cases):\n1. find_even_Pair([5,4,7,2,1],5) should return 4\n2. find_even_Pair([7,2,8,1,0,5,11],7) should return 9\n3. find_even_Pair([1,2,3],3) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ae643002c1984bcbb230562e962ac9bb",
+    "object": "chat.completion",
+    "created": 1750869018,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_even_Pair(arr, n):\n    count = 0\n    for i in range(n-1):\n        for j in range(i+1, n):\n            if ((arr[i] ^ arr[j]) % 2 == 0):\n                count += 1\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "total_tokens": 230,
+      "completion_tokens": 67,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869020.124383
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 732,
+  "problem": {
+    "task_id": 732,
+    "text": "Write a function to replace all occurrences of spaces, commas, or dots with a colon.",
+    "code": "import re\r\ndef replace_specialchar(text):\r\n return (re.sub(\"[ ,.]\", \":\", text))\r",
+    "test_list": [
+      "assert replace_specialchar('Python language, Programming language.')==('Python:language::Programming:language:')",
+      "assert replace_specialchar('a b c,d e f')==('a:b:c:d:e:f')",
+      "assert replace_specialchar('ram reshma,ram rahim')==('ram:reshma:ram:rahim')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace all occurrences of spaces, commas, or dots with a colon.\n\nTask ID: 732\n\nExpected behavior (test cases):\n1. replace_specialchar('Python language, Programming language.')==('Python:language::Programming:language:')\n2. replace_specialchar('a b c,d e f')==('a:b:c:d:e:f')\n3. replace_specialchar('ram reshma,ram rahim')==('ram:reshma:ram:rahim')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a3c12cb44e9b47fe80c44e00ea1c588e",
+    "object": "chat.completion",
+    "created": 1750867964,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef replace_specialchar(s):\n    return s.replace(' ', ':').replace(',', ':').replace('.', ':')\n\n# Test cases\nprint(replace_specialchar('Python language, Programming language.')) # Expected output: 'Python:language::Programming:language:'\nprint(replace_specialchar('a b c,d e f')) # Expected output: 'a:b:c:d:e:f'\nprint(replace_specialchar('ram reshma,ram rahim')) # Expected output: 'ram:reshma:ram:rahim'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "total_tokens": 272,
+      "completion_tokens": 111,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867966.4752705
+}

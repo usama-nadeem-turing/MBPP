@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 887,
+  "problem": {
+    "task_id": 887,
+    "text": "Write a python function to check whether the given number is odd or not using bitwise operator.",
+    "code": "def is_odd(n) : \r\n    if (n^1 == n-1) :\r\n        return True; \r\n    else :\r\n        return False; ",
+    "test_list": [
+      "assert is_odd(5) == True",
+      "assert is_odd(6) == False",
+      "assert is_odd(7) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number is odd or not using bitwise operator.\n\nTask ID: 887\n\nExpected behavior (test cases):\n1. is_odd(5) should return True\n2. is_odd(6) should return False\n3. is_odd(7) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-43252c9f48814ea28768d66c04516795",
+    "object": "chat.completion",
+    "created": 1750868379,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_odd(n):\n    # Check if n AND (n-1) equals zero\n    return (n & (n - 1)) == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 126,
+      "total_tokens": 165,
+      "completion_tokens": 39,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868380.0328615
+}

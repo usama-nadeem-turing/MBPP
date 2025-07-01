@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 866,
+  "problem": {
+    "task_id": 866,
+    "text": "Write a function to check whether the given month name contains 31 days or not.",
+    "code": "def check_monthnumb(monthname2):\r\n  if(monthname2==\"January\" or monthname2==\"March\"or monthname2==\"May\" or monthname2==\"July\" or monthname2==\"Augest\" or monthname2==\"October\" or monthname2==\"December\"):\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert check_monthnumb(\"February\")==False",
+      "assert check_monthnumb(\"January\")==True",
+      "assert check_monthnumb(\"March\")==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given month name contains 31 days or not.\n\nTask ID: 866\n\nExpected behavior (test cases):\n1. check_monthnumb(\"February\")==False\n2. check_monthnumb(\"January\")==True\n3. check_monthnumb(\"March\")==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5091d3ea98ab457f8676794d317981c8",
+    "object": "chat.completion",
+    "created": 1750868328,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_monthnumb(month_name):\n    # List of months with 31 days\n    thirty_one_days_months = [\"January\", \"March\", \"May\", \"July\", \"August\", \n                              \"October\", \"December\"]\n    \n    # Check if the input month is in the list of months with 31 days\n    return month_name in thirty_one_days_months\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 126,
+      "total_tokens": 209,
+      "completion_tokens": 83,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868329.6766415
+}

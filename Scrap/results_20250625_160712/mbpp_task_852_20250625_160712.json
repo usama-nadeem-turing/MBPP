@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 852,
+  "problem": {
+    "task_id": 852,
+    "text": "Write a python function to remove negative numbers from a list.",
+    "code": "def remove_negs(num_list): \r\n    for item in num_list: \r\n        if item < 0: \r\n           num_list.remove(item) \r\n    return num_list",
+    "test_list": [
+      "assert remove_negs([1,-2,3,-4]) == [1,3]",
+      "assert remove_negs([1,2,3,-4]) == [1,2,3]",
+      "assert remove_negs([4,5,-6,7,-8]) == [4,5,7]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove negative numbers from a list.\n\nTask ID: 852\n\nExpected behavior (test cases):\n1. remove_negs([1,-2,3,-4]) should return [1,3]\n2. remove_negs([1,2,3,-4]) should return [1,2,3]\n3. remove_negs([4,5,-6,7,-8]) should return [4,5,7]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a5136ecf65074d0e9521abe3a68575da",
+    "object": "chat.completion",
+    "created": 1750868293,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_negs(nums):\n    # Use list comprehension to filter out negative numbers and create a new list with non-negative numbers\n    return [num for num in nums if num >= 0]\n\n# Test cases\nprint(remove_negs([1,-2,3,-4]))  # Expected output: [1, 3]\nprint(remove_negs([1,2,3,-4]))   # Expected output: [1, 2, 3]\nprint(remove_negs([4,5,-6,7,-8]))# Expected output: [4, 5, 7]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "total_tokens": 284,
+      "completion_tokens": 128,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868295.995241
+}

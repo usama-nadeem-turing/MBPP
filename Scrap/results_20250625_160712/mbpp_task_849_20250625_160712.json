@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 849,
+  "problem": {
+    "task_id": 849,
+    "text": "Write a python function to find sum of all prime divisors of a given number.",
+    "code": "def Sum(N): \r\n    SumOfPrimeDivisors = [0]*(N + 1)   \r\n    for i in range(2,N + 1) : \r\n        if (SumOfPrimeDivisors[i] == 0) : \r\n            for j in range(i,N + 1,i) : \r\n                SumOfPrimeDivisors[j] += i           \r\n    return SumOfPrimeDivisors[N] ",
+    "test_list": [
+      "assert Sum(60) == 10",
+      "assert Sum(39) == 16",
+      "assert Sum(40) == 7"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find sum of all prime divisors of a given number.\n\nTask ID: 849\n\nExpected behavior (test cases):\n1. Sum(60) should return 10\n2. Sum(39) should return 16\n3. Sum(40) should return 7\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e43a213e4fc34e18802566e8b00fd673",
+    "object": "chat.completion",
+    "created": 1750868283,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_prime(n):\n    \"\"\"Check if a number is prime.\"\"\"\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef sum_of_primes(divisor):\n    \"\"\"\n    Calculate the sum of all prime divisors of a given number.\n    \n    Args:\n    divisor (int): The number whose prime divisors will be summed.\n    \n    Returns:\n    int: The sum of all prime divisors of the given number.\n    \"\"\"\n    total_sum = 0\n    # Divide out the factor of 2 first\n    while divisor % 2 == 0:\n        total_sum += 2\n        divisor //= 2\n    \n    # Now check for odd factors\n    for i in range(3, int(math.sqrt(divisor)) + 1, 2):\n        while divisor % i == 0:\n            total_sum += i\n            divisor //= i\n    \n    # If divisor becomes a prime greater than 2\n    if divisor > 2:\n        total_sum += divisor\n    \n    return total_sum\n\n# Test cases\nprint(sum_of_primes(60))  # Expected output: 10\nprint(sum_of_primes(39))  # Expected output: 16\nprint(sum_of_primes(40))  # Expected output: 7\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 437,
+      "completion_tokens": 307,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868288.2915883
+}

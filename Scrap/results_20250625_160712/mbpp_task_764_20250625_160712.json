@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 764,
+  "problem": {
+    "task_id": 764,
+    "text": "Write a python function to count numeric values in a given string.",
+    "code": "def number_ctr(str):\r\n      number_ctr= 0\r\n      for i in range(len(str)):\r\n          if str[i] >= '0' and str[i] <= '9': number_ctr += 1     \r\n      return  number_ctr",
+    "test_list": [
+      "assert number_ctr('program2bedone') == 1",
+      "assert number_ctr('3wonders') ==1",
+      "assert number_ctr('123') == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count numeric values in a given string.\n\nTask ID: 764\n\nExpected behavior (test cases):\n1. number_ctr('program2bedone') should return 1\n2. number_ctr('3wonders') ==1\n3. number_ctr('123') should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c28e5300946b48bfbcbf3e4f12e1ca57",
+    "object": "chat.completion",
+    "created": 1750868055,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef number_ctr(s):\n    # Initialize counter for numeric characters\n    num_count = 0\n    \n    # Iterate through each character in the string\n    for char in s:\n        # Check if the character is a digit\n        if char.isdigit():\n            num_count += 1\n            \n    return num_count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 197,
+      "completion_tokens": 68,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868056.4405115
+}

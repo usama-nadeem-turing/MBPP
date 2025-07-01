@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 600,
+  "problem": {
+    "task_id": 600,
+    "text": "Write a python function to check whether the given number is even or not using bitwise operator.",
+    "code": "def is_Even(n) : \r\n    if (n^1 == n+1) :\r\n        return True; \r\n    else :\r\n        return False; ",
+    "test_list": [
+      "assert is_Even(1) == False",
+      "assert is_Even(2) == True",
+      "assert is_Even(3) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number is even or not using bitwise operator.\n\nTask ID: 600\n\nExpected behavior (test cases):\n1. is_Even(1) should return False\n2. is_Even(2) should return True\n3. is_Even(3) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d02a0489b2074daeb382589824e31c21",
+    "object": "chat.completion",
+    "created": 1750870108,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_Even(n):\n    # Check if n AND (n-1) equals zero\n    return n & (n - 1) == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 168,
+      "completion_tokens": 39,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870109.602102
+}

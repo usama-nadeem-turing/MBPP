@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 620,
+  "problem": {
+    "task_id": 620,
+    "text": "Write a function to find the largest subset where each pair is divisible.",
+    "code": "def largest_subset(a, n):\r\n\tdp = [0 for i in range(n)]\r\n\tdp[n - 1] = 1; \r\n\tfor i in range(n - 2, -1, -1):\r\n\t\tmxm = 0;\r\n\t\tfor j in range(i + 1, n):\r\n\t\t\tif a[j] % a[i] == 0 or a[i] % a[j] == 0:\r\n\t\t\t\tmxm = max(mxm, dp[j])\r\n\t\tdp[i] = 1 + mxm\r\n\treturn max(dp)",
+    "test_list": [
+      "assert largest_subset([ 1, 3, 6, 13, 17, 18 ], 6) == 4",
+      "assert largest_subset([10, 5, 3, 15, 20], 5) == 3",
+      "assert largest_subset([18, 1, 3, 6, 13, 17], 6) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest subset where each pair is divisible.\n\nTask ID: 620\n\nExpected behavior (test cases):\n1. largest_subset([ 1, 3, 6, 13, 17, 18 ], 6) should return 4\n2. largest_subset([10, 5, 3, 15, 20], 5) should return 3\n3. largest_subset([18, 1, 3, 6, 13, 17], 6) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-128364db3be948d18e2db91631b86c96",
+    "object": "chat.completion",
+    "created": 1750867687,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef largest_subset(nums, k):\n    nums.sort()\n    dp = [1] * len(nums)\n    \n    for i in range(1, len(nums)):\n        for j in range(i):\n            if nums[i] % nums[j] == 0 and dp[i] < dp[j] + 1:\n                dp[i] = dp[j] + 1\n                \n    max_length = max(dp)\n    return max_length\n\n# Test cases\nprint(largest_subset([ 1, 3, 6, 13, 17, 18 ], 6))  # Expected output: 4\nprint(largest_subset([10, 5, 3, 15, 20], 5))       # Expected output: 3\nprint(largest_subset([18, 1, 3, 6, 13, 17], 6))    # Expected output: 4\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "total_tokens": 389,
+      "completion_tokens": 203,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867691.1180046
+}

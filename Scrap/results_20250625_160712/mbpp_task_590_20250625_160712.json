@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 590,
+  "problem": {
+    "task_id": 590,
+    "text": "Write a function to convert polar coordinates to rectangular coordinates.",
+    "code": "import cmath\r\ndef polar_rect(x,y):\r\n cn = complex(x,y)\r\n cn=cmath.polar(cn)\r\n cn1 = cmath.rect(2, cmath.pi)\r\n return (cn,cn1)",
+    "test_list": [
+      "assert polar_rect(3,4)==((5.0, 0.9272952180016122), (-2+2.4492935982947064e-16j))",
+      "assert polar_rect(4,7)==((8.06225774829855, 1.0516502125483738), (-2+2.4492935982947064e-16j))",
+      "assert polar_rect(15,17)==((22.67156809750927, 0.8478169733934057), (-2+2.4492935982947064e-16j))"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert polar coordinates to rectangular coordinates.\n\nTask ID: 590\n\nExpected behavior (test cases):\n1. polar_rect(3,4)==((5.0, 0.9272952180016122), (-2+2.4492935982947064e-16j))\n2. polar_rect(4,7)==((8.06225774829855, 1.0516502125483738), (-2+2.4492935982947064e-16j))\n3. polar_rect(15,17)==((22.67156809750927, 0.8478169733934057), (-2+2.4492935982947064e-16j))\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-747cff79daf34cfca0a2f987a9bc5160",
+    "object": "chat.completion",
+    "created": 1750870079,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport cmath\n\ndef polar_rect(r, theta):\n    \"\"\"\n    Convert polar coordinates (r, theta) to rectangular coordinates.\n    \n    Parameters:\n    r (float): The radial distance in polar coordinates.\n    theta (float): The angle in radians in polar coordinates.\n    \n    Returns:\n    tuple: A tuple containing two elements - the x and y components of the rectangular coordinates.\n    \"\"\"\n    x = r * cmath.cos(theta)\n    y = r * cmath.sin(theta)\n    return (x.real, y.real)\n\n# Test cases\nprint(polar_rect(3, 4)) # Expected output: ((5.0, 0.9272952180016122), (-2+2.4492935982947064e-16j))\nprint(polar_rect(4, 7)) # Expected output: ((8.06225774829855, 1.0516502125483738), (-2+2.4492935982947064e-16j))\nprint(polar_rect(15, 17)) # Expected output: ((22.67156809750927, 0.8478169733934057), (-2+2.4492935982947064e-16j))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 298,
+      "total_tokens": 643,
+      "completion_tokens": 345,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870085.4938762
+}

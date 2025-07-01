@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 690,
+  "problem": {
+    "task_id": 690,
+    "text": "Write a function to multiply consecutive numbers of a given list.",
+    "code": "def mul_consecutive_nums(nums):\r\n    result = [b*a for a, b in zip(nums[:-1], nums[1:])]\r\n    return result",
+    "test_list": [
+      "assert mul_consecutive_nums([1, 1, 3, 4, 4, 5, 6, 7])==[1, 3, 12, 16, 20, 30, 42]",
+      "assert mul_consecutive_nums([4, 5, 8, 9, 6, 10])==[20, 40, 72, 54, 60]",
+      "assert mul_consecutive_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[2, 6, 12, 20, 30, 42, 56, 72, 90]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to multiply consecutive numbers of a given list.\n\nTask ID: 690\n\nExpected behavior (test cases):\n1. mul_consecutive_nums([1, 1, 3, 4, 4, 5, 6, 7])==[1, 3, 12, 16, 20, 30, 42]\n2. mul_consecutive_nums([4, 5, 8, 9, 6, 10])==[20, 40, 72, 54, 60]\n3. mul_consecutive_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[2, 6, 12, 20, 30, 42, 56, 72, 90]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f1f1b36d4210491a93f352cba9329152",
+    "object": "chat.completion",
+    "created": 1750867860,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef mul_consecutive_nums(nums):\n    result = []\n    for i in range(1, len(nums)):\n        result.append(nums[i-1] * nums[i])\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 259,
+      "total_tokens": 302,
+      "completion_tokens": 43,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867861.075212
+}

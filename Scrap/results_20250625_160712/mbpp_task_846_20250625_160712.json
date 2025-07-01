@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 846,
+  "problem": {
+    "task_id": 846,
+    "text": "Write a function to find the minimum number of platforms required for a railway/bus station.",
+    "code": "def find_platform(arr, dep, n): \r\n    arr.sort() \r\n    dep.sort() \r\n    plat_needed = 1\r\n    result = 1\r\n    i = 1\r\n    j = 0\r\n    while (i < n and j < n): \r\n        if (arr[i] <= dep[j]):           \r\n            plat_needed+= 1\r\n            i+= 1\r\n        elif (arr[i] > dep[j]):           \r\n            plat_needed-= 1\r\n            j+= 1\r\n        if (plat_needed > result):  \r\n            result = plat_needed           \r\n    return result",
+    "test_list": [
+      "assert find_platform([900, 940, 950, 1100, 1500, 1800],[910, 1200, 1120, 1130, 1900, 2000],6)==3",
+      "assert find_platform([100,200,300,400],[700,800,900,1000],4)==4",
+      "assert find_platform([5,6,7,8],[4,3,2,1],4)==1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the minimum number of platforms required for a railway/bus station.\n\nTask ID: 846\n\nExpected behavior (test cases):\n1. find_platform([900, 940, 950, 1100, 1500, 1800],[910, 1200, 1120, 1130, 1900, 2000],6)==3\n2. find_platform([100,200,300,400],[700,800,900,1000],4)==4\n3. find_platform([5,6,7,8],[4,3,2,1],4)==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-aaa77c39ff6c4c28a1e5d5237d91d3d3",
+    "object": "chat.completion",
+    "created": 1750868275,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_platform(arrival_time, departure_time, n):\n    arrival_time.sort()\n    departure_time.sort()\n    \n    max_plates = 1\n    plates = 1\n    \n    i = 1\n    j = 0\n    \n    while i < n and j < n:\n        if arrival_time[i] <= departure_time[j]:\n            plates += 1\n            i += 1\n        else:\n            plates -= 1\n            j += 1\n        \n        if plates > max_plates:\n            max_plates = plates\n            \n    return max_plates\n\n# Test cases\nprint(find_platform([900, 940, 950, 1100, 1500, 1800],[910, 1200, 1120, 1130, 1900, 2000],6)) # Output: 3\nprint(find_platform([100,200,300,400],[700,800,900,1000],4)) # Output: 4\nprint(find_platform([5,6,7,8],[4,3,2,1],4)) # Output: 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 234,
+      "total_tokens": 512,
+      "completion_tokens": 278,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868280.4185784
+}

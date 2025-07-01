@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 666,
+  "problem": {
+    "task_id": 666,
+    "text": "Write a function to count occurrence of a character in a string.",
+    "code": "def count_char(string,char):\r\n count = 0\r\n for i in range(len(string)):\r\n    if(string[i] == char):\r\n        count = count + 1\r\n return count",
+    "test_list": [
+      "assert count_char(\"Python\",'o')==1",
+      "assert count_char(\"little\",'t')==2",
+      "assert count_char(\"assert\",'s')==2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count occurrence of a character in a string.\n\nTask ID: 666\n\nExpected behavior (test cases):\n1. count_char(\"Python\",'o')==1\n2. count_char(\"little\",'t')==2\n3. count_char(\"assert\",'s')==2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8a6a8d2bd947454ca23e900ec10c4f28",
+    "object": "chat.completion",
+    "created": 1750867810,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_char(s, char):\n    return s.count(char)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 121,
+      "total_tokens": 139,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867810.4224133
+}

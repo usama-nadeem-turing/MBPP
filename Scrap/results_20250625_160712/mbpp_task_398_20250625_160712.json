@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 398,
+  "problem": {
+    "task_id": 398,
+    "text": "Write a function to compute the sum of digits of each number of a given list.",
+    "code": "def sum_of_digits(nums):\r\n    return sum(int(el) for n in nums for el in str(n) if el.isdigit())",
+    "test_list": [
+      "assert sum_of_digits([10,2,56])==14",
+      "assert sum_of_digits([[10,20,4,5,'b',70,'a']])==19",
+      "assert sum_of_digits([10,20,-4,5,-70])==19"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to compute the sum of digits of each number of a given list.\n\nTask ID: 398\n\nExpected behavior (test cases):\n1. sum_of_digits([10,2,56])==14\n2. sum_of_digits([[10,20,4,5,'b',70,'a']])==19\n3. sum_of_digits([10,20,-4,5,-70])==19\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b4fa29df3ef4401b88960b8832073773",
+    "object": "chat.completion",
+    "created": 1750869605,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_of_digits(lst):\n    total = 0\n    for item in lst:\n        if isinstance(item, int):  # Check if the item is an integer\n            total += sum(int(digit) for digit in str(abs(item)))\n        elif isinstance(item, list):  # If it's a nested list, recursively call the function\n            total += sum_of_digits(item)\n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 246,
+      "completion_tokens": 88,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869607.3246331
+}

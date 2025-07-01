@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 53,
+  "problem": {
+    "task_id": 53,
+    "text": "Write a python function to check whether the first and last characters of a given string are equal or not.",
+    "code": "def check_Equality(str):\r\n  if (str[0] == str[-1]):  \r\n    return (\"Equal\") \r\n  else:  \r\n    return (\"Not Equal\") ",
+    "test_list": [
+      "assert check_Equality(\"abcda\") == \"Equal\"",
+      "assert check_Equality(\"ab\") == \"Not Equal\"",
+      "assert check_Equality(\"mad\") == \"Not Equal\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the first and last characters of a given string are equal or not.\n\nTask ID: 53\n\nExpected behavior (test cases):\n1. check_Equality(\"abcda\") should return \"Equal\"\n2. check_Equality(\"ab\") should return \"Not Equal\"\n3. check_Equality(\"mad\") should return \"Not Equal\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-47468a29339a41609efa16b24b4d81ab",
+    "object": "chat.completion",
+    "created": 1750868713,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_Equality(s):\n    # Check if the first character is equal to the last character\n    if s[0] == s[-1]:\n        return \"Equal\"\n    else:\n        return \"Not Equal\"\n\n# Test cases\nprint(check_Equality(\"abcda\"))  # Expected output: 'Equal'\nprint(check_Equality(\"ab\"))     # Expected output: 'Not Equal'\nprint(check_Equality(\"mad\"))    # Expected output: 'Not Equal'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 239,
+      "completion_tokens": 102,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868715.3919022
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 604,
+  "problem": {
+    "task_id": 604,
+    "text": "Write a function to reverse words in a given string.",
+    "code": "def reverse_words(s):\r\n        return ' '.join(reversed(s.split()))",
+    "test_list": [
+      "assert reverse_words(\"python program\")==(\"program python\")",
+      "assert reverse_words(\"java language\")==(\"language java\")",
+      "assert reverse_words(\"indian man\")==(\"man indian\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to reverse words in a given string.\n\nTask ID: 604\n\nExpected behavior (test cases):\n1. reverse_words(\"python program\")==(\"program python\")\n2. reverse_words(\"java language\")==(\"language java\")\n3. reverse_words(\"indian man\")==(\"man indian\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-243fcd5302034e788c6364372161cae0",
+    "object": "chat.completion",
+    "created": 1750867650,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef reverse_words(s):\n    return ' '.join(reversed(s.split()))\n\n# Test cases\nprint(reverse_words(\"python program\"))  # Expected output: \"program python\"\nprint(reverse_words(\"java language\"))   # Expected output: \"language java\"\nprint(reverse_words(\"indian man\"))      # Expected output: \"man indian\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "total_tokens": 196,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867652.2355506
+}

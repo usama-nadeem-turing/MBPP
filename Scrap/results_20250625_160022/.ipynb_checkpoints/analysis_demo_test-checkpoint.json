@@ -1,0 +1,14 @@
+{
+  "total_problems": 4,
+  "successful_responses": 4,
+  "failed_responses": 0,
+  "success_rate": 1.0,
+  "average_tokens": 327.5,
+  "total_tokens": 1310,
+  "mbpp_ids": [
+    11,
+    12,
+    13,
+    14
+  ]
+}

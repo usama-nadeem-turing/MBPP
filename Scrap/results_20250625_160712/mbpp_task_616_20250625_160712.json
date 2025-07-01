@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 616,
+  "problem": {
+    "task_id": 616,
+    "text": "Write a function to perfom the modulo of tuple elements in the given two tuples.",
+    "code": "def tuple_modulo(test_tup1, test_tup2):\r\n  res = tuple(ele1 % ele2 for ele1, ele2 in zip(test_tup1, test_tup2)) \r\n  return (res) ",
+    "test_list": [
+      "assert tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5)) == (0, 4, 5, 1)",
+      "assert tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6)) == (5, 5, 6, 1)",
+      "assert tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7)) == (5, 6, 7, 1)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to perfom the modulo of tuple elements in the given two tuples.\n\nTask ID: 616\n\nExpected behavior (test cases):\n1. tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5)) should return (0, 4, 5, 1)\n2. tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6)) should return (5, 5, 6, 1)\n3. tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7)) should return (5, 6, 7, 1)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a32c24d556b34972978d6490fd66c14e",
+    "object": "chat.completion",
+    "created": 1750867678,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tuple_modulo(tup1, tup2):\n    result = []\n    for i in range(len(tup1)):\n        result.append(tup1[i] % tup2[i])\n    return tuple(result)\n\n# Test cases\nprint(tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5))) # Expected output: (0, 4, 5, 1)\nprint(tuple_modulo((11, 5, 6, 7), (6, 7, 8, 6))) # Expected output: (5, 5, 6, 1)\nprint(tuple_modulo((12, 6, 7, 8), (7, 8, 9, 7))) # Expected output: (5, 6, 7, 1)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "total_tokens": 411,
+      "completion_tokens": 187,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867681.8532119
+}

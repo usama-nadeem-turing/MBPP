@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 551,
+  "problem": {
+    "task_id": 551,
+    "text": "Write a function to extract a specified column from a given nested list.",
+    "code": "def extract_column(list1, n):\r\n   result = [i.pop(n) for i in list1]\r\n   return result ",
+    "test_list": [
+      "assert extract_column([[1, 2, 3], [2, 4, 5], [1, 1, 1]],0)==[1, 2, 1]",
+      "assert extract_column([[1, 2, 3], [-2, 4, -5], [1, -1, 1]],2)==[3, -5, 1]",
+      "assert extract_column([[1, 3], [5, 7], [1, 3], [13, 15, 17], [5, 7], [9, 11]],0)==[1, 5, 1, 13, 5, 9]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract a specified column from a given nested list.\n\nTask ID: 551\n\nExpected behavior (test cases):\n1. extract_column([[1, 2, 3], [2, 4, 5], [1, 1, 1]],0)==[1, 2, 1]\n2. extract_column([[1, 2, 3], [-2, 4, -5], [1, -1, 1]],2)==[3, -5, 1]\n3. extract_column([[1, 3], [5, 7], [1, 3], [13, 15, 17], [5, 7], [9, 11]],0)==[1, 5, 1, 13, 5, 9]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-62624535e300405aa5f23b149cddcf27",
+    "object": "chat.completion",
+    "created": 1750869984,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract_column(matrix, col_index):\n    return [row[col_index] for row in matrix]\n\n# Test cases\nprint(extract_column([[1, 2, 3], [2, 4, 5], [1, 1, 1]], 0))  # Output: [1, 2, 1]\nprint(extract_column([[1, 2, 3], [-2, 4, -5], [1, -1, 1]], 2))  # Output: [3, -5, 1]\nprint(extract_column([[1, 3], [5, 7], [1, 3], [13, 15, 17], [5, 7], [9, 11]], 0))  # Output: [1, 5, 1, 13, 5, 9]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 241,
+      "total_tokens": 437,
+      "completion_tokens": 196,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869987.309319
+}

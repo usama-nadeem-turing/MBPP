@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 964,
+  "problem": {
+    "task_id": 964,
+    "text": "Write a python function to check whether the length of the word is even or not.",
+    "code": "def word_len(s): \r\n    s = s.split(' ')   \r\n    for word in s:    \r\n        if len(word)%2==0: \r\n            return True  \r\n        else:\r\n          return False",
+    "test_list": [
+      "assert word_len(\"program\") == False",
+      "assert word_len(\"solution\") == True",
+      "assert word_len(\"data\") == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the length of the word is even or not.\n\nTask ID: 964\n\nExpected behavior (test cases):\n1. word_len(\"program\") should return False\n2. word_len(\"solution\") should return True\n3. word_len(\"data\") should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-194f75f5d4c84f778841474bfe6923d5",
+    "object": "chat.completion",
+    "created": 1750868584,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef word_len(word):\n    # Check if the length of the word is even\n    return len(word) % 2 == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "total_tokens": 159,
+      "completion_tokens": 34,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868585.0208118
+}

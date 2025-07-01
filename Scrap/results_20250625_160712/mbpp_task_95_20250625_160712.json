@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 95,
+  "problem": {
+    "task_id": 95,
+    "text": "Write a python function to find the minimum length of sublist.",
+    "code": "def Find_Min_Length(lst):  \r\n    minLength = min(len(x) for x in lst )\r\n    return minLength ",
+    "test_list": [
+      "assert Find_Min_Length([[1],[1,2]]) == 1",
+      "assert Find_Min_Length([[1,2],[1,2,3],[1,2,3,4]]) == 2",
+      "assert Find_Min_Length([[3,3,3],[4,4,4,4]]) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum length of sublist.\n\nTask ID: 95\n\nExpected behavior (test cases):\n1. Find_Min_Length([[1],[1,2]]) should return 1\n2. Find_Min_Length([[1,2],[1,2,3],[1,2,3,4]]) should return 2\n3. Find_Min_Length([[3,3,3],[4,4,4,4]]) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-16c92956f65c4c169c3e7eabff073c72",
+    "object": "chat.completion",
+    "created": 1750868822,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_min_length(lists):\n    # Initialize min_length with the maximum possible value for list lengths\n    min_length = float('inf')\n    \n    # Iterate through each sublist in the given lists\n    for lst in lists:\n        # Update min_length if the current sublist is shorter than the previously recorded shortest sublist\n        min_length = min(min_length, len(lst))\n    \n    # Return the minimum length found across all sublists\n    return min_length\n\n# Test cases\nprint(find_min_length([[1],[1,2]]))  # Expected output: 1\nprint(find_min_length([[1,2],[1,2,3],[1,2,3,4]]))  # Expected output: 2\nprint(find_min_length([[3,3,3],[4,4,4,4]]))  # Expected output: 3\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 157,
+      "total_tokens": 340,
+      "completion_tokens": 183,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868825.3158207
+}

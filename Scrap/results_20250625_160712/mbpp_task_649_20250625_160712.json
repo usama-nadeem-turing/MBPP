@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 649,
+  "problem": {
+    "task_id": 649,
+    "text": "Write a python function to calculate the sum of the numbers in a list between the indices of a specified range.",
+    "code": "def sum_Range_list(nums, m, n):                                                                                                                                                                                                \r\n    sum_range = 0                                                                                                                                                                                                         \r\n    for i in range(m, n+1, 1):                                                                                                                                                                                        \r\n        sum_range += nums[i]                                                                                                                                                                                                  \r\n    return sum_range   ",
+    "test_list": [
+      "assert sum_Range_list([2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12],8,10) == 29",
+      "assert sum_Range_list([1,2,3,4,5],1,2) == 5",
+      "assert sum_Range_list([1,0,1,2,5,6],4,5) == 11"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to calculate the sum of the numbers in a list between the indices of a specified range.\n\nTask ID: 649\n\nExpected behavior (test cases):\n1. sum_Range_list([2, 1, 5, 6, 8, 3, 4, 9, 10, 11, 8, 12],8,10) should return 29\n2. sum_Range_list([1,2,3,4,5],1,2) should return 5\n3. sum_Range_list([1,0,1,2,5,6],4,5) should return 11\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2ca0bbecac884141a0e6768f2e8ee1b2",
+    "object": "chat.completion",
+    "created": 1750867764,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_Range_list(lst, start_index, end_index):\n    # Calculate the sum of elements from start_index to end_index-1\n    total_sum = sum(lst[start_index:end_index])\n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 208,
+      "total_tokens": 258,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867765.3492184
+}

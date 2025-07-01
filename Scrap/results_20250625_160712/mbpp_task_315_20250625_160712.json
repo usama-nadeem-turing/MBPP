@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 315,
+  "problem": {
+    "task_id": 315,
+    "text": "Write a python function to find the first maximum length of even word.",
+    "code": "def find_Max_Len_Even(str): \r\n    n = len(str) \r\n    i = 0\r\n    currlen = 0\r\n    maxlen = 0\r\n    st = -1\r\n    while (i < n): \r\n        if (str[i] == ' '): \r\n            if (currlen % 2 == 0): \r\n                if (maxlen < currlen): \r\n                    maxlen = currlen \r\n                    st = i - currlen \r\n            currlen = 0 \r\n        else : \r\n            currlen += 1\r\n        i += 1\r\n    if (currlen % 2 == 0): \r\n        if (maxlen < currlen): \r\n            maxlen = currlen \r\n            st = i - currlen \r\n    if (st == -1): \r\n        return \"-1\" \r\n    return str[st: st + maxlen] ",
+    "test_list": [
+      "assert find_Max_Len_Even(\"python language\") == \"language\"",
+      "assert find_Max_Len_Even(\"maximum even length\") == \"length\"",
+      "assert find_Max_Len_Even(\"eve\") == \"-1\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first maximum length of even word.\n\nTask ID: 315\n\nExpected behavior (test cases):\n1. find_Max_Len_Even(\"python language\") should return \"language\"\n2. find_Max_Len_Even(\"maximum even length\") should return \"length\"\n3. find_Max_Len_Even(\"eve\") should return \"-1\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5d3ef08c2c1b4caab598472687048d98",
+    "object": "chat.completion",
+    "created": 1750869400,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Max_Len_Even(s):\n    # Split the string into words and filter out odd-length words\n    even_words = [word for word in s.split() if len(word) % 2 == 0]\n    \n    # If there are no even-length words, return -1\n    if not even_words:\n        return \"-1\"\n    \n    # Return the longest even-length word\n    return max(even_words, key=len)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 237,
+      "completion_tokens": 97,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869401.823955
+}

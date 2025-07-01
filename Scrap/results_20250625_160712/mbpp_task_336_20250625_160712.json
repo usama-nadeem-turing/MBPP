@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 336,
+  "problem": {
+    "task_id": 336,
+    "text": "Write a function to check whether the given month name contains 28 days or not.",
+    "code": "def check_monthnum(monthname1):\r\n  if monthname1 == \"February\":\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert check_monthnum(\"February\")==True",
+      "assert check_monthnum(\"January\")==False",
+      "assert check_monthnum(\"March\")==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given month name contains 28 days or not.\n\nTask ID: 336\n\nExpected behavior (test cases):\n1. check_monthnum(\"February\")==True\n2. check_monthnum(\"January\")==False\n3. check_monthnum(\"March\")==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f1066e2a6f58410587a8382417b95a1c",
+    "object": "chat.completion",
+    "created": 1750869452,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_monthnum(month_name):\n    # List of months with 28 days\n    valid_months = [\"April\", \"June\", \"September\", \"November\"]\n    \n    # Check if the input month is in the list of valid months\n    return month_name.lower() in [month.lower() for month in valid_months]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "total_tokens": 195,
+      "completion_tokens": 72,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869453.7101989
+}

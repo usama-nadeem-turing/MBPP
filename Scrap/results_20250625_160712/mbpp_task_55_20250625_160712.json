@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 55,
+  "problem": {
+    "task_id": 55,
+    "text": "Write a function to find t-nth term of geometric series.",
+    "code": "import math\r\ndef tn_gp(a,n,r):\r\n  tn = a * (math.pow(r, n - 1))\r\n  return tn",
+    "test_list": [
+      "assert tn_gp(1,5,2)==16",
+      "assert tn_gp(1,5,4)==256",
+      "assert tn_gp(2,6,3)==486"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find t-nth term of geometric series.\n\nTask ID: 55\n\nExpected behavior (test cases):\n1. tn_gp(1,5,2)==16\n2. tn_gp(1,5,4)==256\n3. tn_gp(2,6,3)==486\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0ad6e3cf33c843bbb6be88db392129f7",
+    "object": "chat.completion",
+    "created": 1750868721,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tn_gp(t,n,r):\n    return r**(t-1) * n\n\n# Test cases\nprint(tn_gp(1,5,2)) # Expected output: 16\nprint(tn_gp(1,5,4)) # Expected output: 256\nprint(tn_gp(2,6,3)) # Expected output: 486\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 217,
+      "completion_tokens": 86,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868723.4324546
+}

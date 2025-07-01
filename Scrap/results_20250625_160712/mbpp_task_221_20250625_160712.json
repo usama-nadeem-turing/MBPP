@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 221,
+  "problem": {
+    "task_id": 221,
+    "text": "Write a python function to find the first even number in a given list of numbers.",
+    "code": "def first_even(nums):\r\n    first_even = next((el for el in nums if el%2==0),-1)\r\n    return first_even",
+    "test_list": [
+      "assert first_even ([1, 3, 5, 7, 4, 1, 6, 8]) == 4",
+      "assert first_even([2, 3, 4]) == 2",
+      "assert first_even([5, 6, 7]) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first even number in a given list of numbers.\n\nTask ID: 221\n\nExpected behavior (test cases):\n1. first_even ([1, 3, 5, 7, 4, 1, 6, 8]) should return 4\n2. first_even([2, 3, 4]) should return 2\n3. first_even([5, 6, 7]) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-89ea952275514491b9c0f9c91559d9dd",
+    "object": "chat.completion",
+    "created": 1750869160,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef first_even(numbers):\n    for num in numbers:\n        if num % 2 == 0:\n            return num\n    return None\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "total_tokens": 195,
+      "completion_tokens": 34,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869161.3131845
+}

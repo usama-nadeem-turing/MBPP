@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 949,
+  "problem": {
+    "task_id": 949,
+    "text": "Write a function to sort the given tuple list basis the total digits in tuple.",
+    "code": "def count_digs(tup):\r\n  return sum([len(str(ele)) for ele in tup ]) \r\ndef sort_list(test_list):\r\n  test_list.sort(key = count_digs)\r\n  return (str(test_list))",
+    "test_list": [
+      "assert sort_list([(3, 4, 6, 723), (1, 2), (12345,), (134, 234, 34)] ) == '[(1, 2), (12345,), (3, 4, 6, 723), (134, 234, 34)]'",
+      "assert sort_list([(3, 4, 8), (1, 2), (1234335,), (1345, 234, 334)] ) == '[(1, 2), (3, 4, 8), (1234335,), (1345, 234, 334)]'",
+      "assert sort_list([(34, 4, 61, 723), (1, 2), (145,), (134, 23)] ) == '[(1, 2), (145,), (134, 23), (34, 4, 61, 723)]'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort the given tuple list basis the total digits in tuple.\n\nTask ID: 949\n\nExpected behavior (test cases):\n1. sort_list([(3, 4, 6, 723), (1, 2), (12345,), (134, 234, 34)] ) should return '[(1, 2), (12345,), (3, 4, 6, 723), (134, 234, 34)]'\n2. sort_list([(3, 4, 8), (1, 2), (1234335,), (1345, 234, 334)] ) should return '[(1, 2), (3, 4, 8), (1234335,), (1345, 234, 334)]'\n3. sort_list([(34, 4, 61, 723), (1, 2), (145,), (134, 23)] ) should return '[(1, 2), (145,), (134, 23), (34, 4, 61, 723)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-412b6269a0c64cb096eda740bac1b2db",
+    "object": "chat.completion",
+    "created": 1750868542,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_list(lst):\n    # Sort the list based on the sum of elements in each tuple\n    lst.sort(key=sum)\n    return lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 352,
+      "total_tokens": 387,
+      "completion_tokens": 35,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868543.5011363
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 512,
+  "problem": {
+    "task_id": 512,
+    "text": "Write a function to count the element frequency in the mixed nested tuple.",
+    "code": "def flatten(test_tuple): \r\n\tfor tup in test_tuple: \r\n\t\tif isinstance(tup, tuple): \r\n\t\t\tyield from flatten(tup) \r\n\t\telse: \r\n\t\t\tyield tup \r\ndef count_element_freq(test_tuple):\r\n  res = {}\r\n  for ele in flatten(test_tuple):\r\n    if ele not in res:\r\n      res[ele] = 0\r\n    res[ele] += 1\r\n  return (res) ",
+    "test_list": [
+      "assert count_element_freq((5, 6, (5, 6), 7, (8, 9), 9) ) == {5: 2, 6: 2, 7: 1, 8: 1, 9: 2}",
+      "assert count_element_freq((6, 7, (6, 7), 8, (9, 10), 10) ) == {6: 2, 7: 2, 8: 1, 9: 1, 10: 2}",
+      "assert count_element_freq((7, 8, (7, 8), 9, (10, 11), 11) ) == {7: 2, 8: 2, 9: 1, 10: 1, 11: 2}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the element frequency in the mixed nested tuple.\n\nTask ID: 512\n\nExpected behavior (test cases):\n1. count_element_freq((5, 6, (5, 6), 7, (8, 9), 9) ) should return {5: 2, 6: 2, 7: 1, 8: 1, 9: 2}\n2. count_element_freq((6, 7, (6, 7), 8, (9, 10), 10) ) should return {6: 2, 7: 2, 8: 1, 9: 1, 10: 2}\n3. count_element_freq((7, 8, (7, 8), 9, (10, 11), 11) ) should return {7: 2, 8: 2, 9: 1, 10: 1, 11: 2}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-75a61695997f4d7aa7741b7eb929458d",
+    "object": "chat.completion",
+    "created": 1750867265,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_element_freq(tup):\n    freq_dict = {}\n    for item in tup:\n        if isinstance(item, tuple):\n            for sub_item in item:\n                if sub_item in freq_dict:\n                    freq_dict[sub_item] += 1\n                else:\n                    freq_dict[sub_item] = 1\n        elif item in freq_dict:\n            freq_dict[item] += 1\n        else:\n            freq_dict[item] = 1\n    return freq_dict\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 283,
+      "total_tokens": 384,
+      "completion_tokens": 101,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867267.570619
+}

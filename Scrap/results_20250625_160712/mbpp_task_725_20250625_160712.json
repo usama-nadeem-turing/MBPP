@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 725,
+  "problem": {
+    "task_id": 725,
+    "text": "Write a function to extract values between quotation marks of the given string by using regex.",
+    "code": "import re\r\ndef extract_quotation(text1):\r\n  return (re.findall(r'\"(.*?)\"', text1))",
+    "test_list": [
+      "assert extract_quotation('Cortex \"A53\" Based \"multi\" tasking \"Processor\"') == ['A53', 'multi', 'Processor']",
+      "assert extract_quotation('Cast your \"favorite\" entertainment \"apps\"') == ['favorite', 'apps']",
+      "assert extract_quotation('Watch content \"4k Ultra HD\" resolution with \"HDR 10\" Support') == ['4k Ultra HD', 'HDR 10']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract values between quotation marks of the given string by using regex.\n\nTask ID: 725\n\nExpected behavior (test cases):\n1. extract_quotation('Cortex \"A53\" Based \"multi\" tasking \"Processor\"') should return ['A53', 'multi', 'Processor']\n2. extract_quotation('Cast your \"favorite\" entertainment \"apps\"') should return ['favorite', 'apps']\n3. extract_quotation('Watch content \"4k Ultra HD\" resolution with \"HDR 10\" Support') should return ['4k Ultra HD', 'HDR 10']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-06f529c96e674a058297c404ae096bf1",
+    "object": "chat.completion",
+    "created": 1750867949,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef extract_quotation(input_string):\n    pattern = r'\"([^\"]*)\"'\n    matches = re.findall(pattern, input_string)\n    return matches\n\n# Test cases\nprint(extract_quotation('Cortex \"A53\" Based \"multi\" tasking \"Processor\"'))  # Should return ['A53', 'multi', 'Processor']\nprint(extract_quotation('Cast your \"favorite\" entertainment \"apps\"'))  # Should return ['favorite', 'apps']\nprint(extract_quotation('Watch content \"4k Ultra HD\" resolution with \"HDR 10\" Support'))  # Should return ['4k Ultra HD', 'HDR 10']\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 190,
+      "total_tokens": 336,
+      "completion_tokens": 146,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867951.7351007
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 950,
+  "problem": {
+    "task_id": 950,
+    "text": "Write a function to display sign of the chinese zodiac for given year.",
+    "code": "def chinese_zodiac(year):\r\n if (year - 2000) % 12 == 0:\r\n     sign = 'Dragon'\r\n elif (year - 2000) % 12 == 1:\r\n     sign = 'Snake'\r\n elif (year - 2000) % 12 == 2:\r\n     sign = 'Horse'\r\n elif (year - 2000) % 12 == 3:\r\n     sign = 'sheep'\r\n elif (year - 2000) % 12 == 4:\r\n     sign = 'Monkey'\r\n elif (year - 2000) % 12 == 5:\r\n     sign = 'Rooster'\r\n elif (year - 2000) % 12 == 6:\r\n     sign = 'Dog'\r\n elif (year - 2000) % 12 == 7:\r\n     sign = 'Pig'\r\n elif (year - 2000) % 12 == 8:\r\n     sign = 'Rat'\r\n elif (year - 2000) % 12 == 9:\r\n     sign = 'Ox'\r\n elif (year - 2000) % 12 == 10:\r\n     sign = 'Tiger'\r\n else:\r\n     sign = 'Hare'\r\n return sign",
+    "test_list": [
+      "assert chinese_zodiac(1997)==('Ox')",
+      "assert chinese_zodiac(1998)==('Tiger')",
+      "assert chinese_zodiac(1994)==('Dog')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to display sign of the chinese zodiac for given year.\n\nTask ID: 950\n\nExpected behavior (test cases):\n1. chinese_zodiac(1997)==('Ox')\n2. chinese_zodiac(1998)==('Tiger')\n3. chinese_zodiac(1994)==('Dog')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f1adadb62a1f4a5cbb5cb62f4b9878b1",
+    "object": "chat.completion",
+    "created": 1750868544,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef chinese_zodiac(year):\n    # Define the Chinese zodiac cycle and its corresponding years\n    zodiac_cycle = [(1964, 'Rat'), (1972, 'Ox'), (1979, 'Tiger'), (1987, 'Rabbit'), \n                    (1995, 'Dragon'), (2003, 'Snake'), (2011, 'Horse'), (2018, 'Sheep'),\n                    (2026, 'Monkey'), (2034, 'Rooster'), (2042, 'Dog'), (2050, 'Pig')]\n    \n    # Find the index in the zodiac cycle where the given year falls\n    index = next((i for i, (start_year, _) in enumerate(zodiac_cycle) if start_year <= year), None)\n    \n    # Return the corresponding zodiac animal\n    return zodiac_cycle[index][1] if index is not None else \"Unknown\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 355,
+      "completion_tokens": 221,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868547.7173727
+}

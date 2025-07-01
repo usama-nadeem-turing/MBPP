@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 389,
+  "problem": {
+    "task_id": 389,
+    "text": "Write a function to find the n'th lucas number.",
+    "code": "def find_lucas(n): \r\n\tif (n == 0): \r\n\t\treturn 2\r\n\tif (n == 1): \r\n\t\treturn 1\r\n\treturn find_lucas(n - 1) + find_lucas(n - 2) ",
+    "test_list": [
+      "assert find_lucas(9) == 76",
+      "assert find_lucas(4) == 7",
+      "assert find_lucas(3) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n'th lucas number.\n\nTask ID: 389\n\nExpected behavior (test cases):\n1. find_lucas(9) should return 76\n2. find_lucas(4) should return 7\n3. find_lucas(3) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0c374c7c7f504fe39c190a5968e42983",
+    "object": "chat.completion",
+    "created": 1750869584,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_lucas(n):\n    if n == 0:\n        return 2\n    elif n == 1:\n        return 1\n    else:\n        a, b = 2, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        return b\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 205,
+      "completion_tokens": 77,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869585.4882617
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 301,
+  "problem": {
+    "task_id": 301,
+    "text": "Write a function to find the depth of a dictionary.",
+    "code": "def dict_depth(d):\r\n    if isinstance(d, dict):\r\n        return 1 + (max(map(dict_depth, d.values())) if d else 0)\r\n    return 0",
+    "test_list": [
+      "assert dict_depth({'a':1, 'b': {'c': {'d': {}}}})==4",
+      "assert dict_depth({'a':1, 'b': {'c':'python'}})==2",
+      "assert dict_depth({1: 'Sun', 2: {3: {4:'Mon'}}})==3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the depth of a dictionary.\n\nTask ID: 301\n\nExpected behavior (test cases):\n1. dict_depth({'a':1, 'b': {'c': {'d': {}}}})==4\n2. dict_depth({'a':1, 'b': {'c':'python'}})==2\n3. dict_depth({1: 'Sun', 2: {3: {4:'Mon'}}})==3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a11569aac3cb4febb0b6382780796c6c",
+    "object": "chat.completion",
+    "created": 1750869360,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef dict_depth(d):\n    return max([dict_depth(v) for v in d.values()] + [len(str(type(d).__name__))]) if isinstance(d, dict) else len(str(type(d).__name__))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "total_tokens": 203,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869361.2157242
+}

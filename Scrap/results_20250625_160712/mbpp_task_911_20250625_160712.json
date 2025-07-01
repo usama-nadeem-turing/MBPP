@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 911,
+  "problem": {
+    "task_id": 911,
+    "text": "Write a function to compute maximum product of three numbers of a given array of integers using heap queue algorithm.",
+    "code": "def maximum_product(nums):\r\n    import heapq\r\n    a, b = heapq.nlargest(3, nums), heapq.nsmallest(2, nums)\r\n    return max(a[0] * a[1] * a[2], a[0] * b[0] * b[1])",
+    "test_list": [
+      "assert maximum_product( [12, 74, 9, 50, 61, 41])==225700",
+      "assert maximum_product([25, 35, 22, 85, 14, 65, 75, 25, 58])==414375",
+      "assert maximum_product([18, 14, 10, 9, 8, 7, 9, 3, 2, 4, 1])==2520"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to compute maximum product of three numbers of a given array of integers using heap queue algorithm.\n\nTask ID: 911\n\nExpected behavior (test cases):\n1. maximum_product( [12, 74, 9, 50, 61, 41])==225700\n2. maximum_product([25, 35, 22, 85, 14, 65, 75, 25, 58])==414375\n3. maximum_product([18, 14, 10, 9, 8, 7, 9, 3, 2, 4, 1])==2520\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-06795855ebb64018946c0e61e587b883",
+    "object": "chat.completion",
+    "created": 1750868442,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport heapq\n\ndef maximum_product(nums):\n    # Convert all elements in nums into negative values because we will use max-heap.\n    # This is done so that the largest and second-largest positive numbers can be easily found later.\n    for i in range(len(nums)):\n        nums[i] = -nums[i]\n    \n    # Create a max-heap with the first three elements as they are the largest initially.\n    heapq.heapify(nums)\n    # Pop the smallest element from the heap which is actually the largest number in terms of absolute value.\n    heapq.heappop(nums)\n    # Push the next two largest numbers back into the heap.\n    heapq.heappush(nums, heapq.heappop(nums))\n    heapq.heappush(nums, heapq.heappop(nums))\n    \n    # Calculate the product of the top three elements after popping out the smallest ones.\n    return -1 * heapq.nlargest(3, nums) * (-1 * heapq.nsmallest(2, nums))\n\n# Test cases\nprint(maximum_product([12, 74, 9, 50, 61, 41]))  # Expected output: 225700\nprint(maximum_product([25, 35, 22, 85, 14, 65, 75, 25, 58]))  # Expected output: 414375\nprint(maximum_product([18, 14, 10, 9, 8, 7, 9, 3, 2, 4, 1]))  # Expected output: 2520\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 223,
+      "total_tokens": 577,
+      "completion_tokens": 354,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868448.0524063
+}

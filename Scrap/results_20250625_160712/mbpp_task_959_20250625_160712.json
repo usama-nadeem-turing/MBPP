@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 959,
+  "problem": {
+    "task_id": 959,
+    "text": "Write a python function to find the average of a list.",
+    "code": "def Average(lst): \r\n    return sum(lst) / len(lst) ",
+    "test_list": [
+      "assert Average([15, 9, 55, 41, 35, 20, 62, 49]) == 35.75",
+      "assert Average([4, 5, 1, 2, 9, 7, 10, 8]) == 5.75",
+      "assert Average([1,2,3]) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the average of a list.\n\nTask ID: 959\n\nExpected behavior (test cases):\n1. Average([15, 9, 55, 41, 35, 20, 62, 49]) should return 35.75\n2. Average([4, 5, 1, 2, 9, 7, 10, 8]) should return 5.75\n3. Average([1,2,3]) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d35aee0504d14ea8a0cf7a054c43b5c8",
+    "object": "chat.completion",
+    "created": 1750868570,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef average(numbers):\n    # Calculate the sum of all numbers in the list\n    total = sum(numbers)\n    # Count the number of elements in the list\n    count = len(numbers)\n    # Return the average as a float\n    return total / count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "total_tokens": 240,
+      "completion_tokens": 59,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868571.7879107
+}

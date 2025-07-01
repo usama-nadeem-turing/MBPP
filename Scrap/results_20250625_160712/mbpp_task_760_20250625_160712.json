@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 760,
+  "problem": {
+    "task_id": 760,
+    "text": "Write a python function to check whether an array contains only one distinct element or not.",
+    "code": "def unique_Element(arr,n):\r\n    s = set(arr)\r\n    if (len(s) == 1):\r\n        return ('YES')\r\n    else:\r\n        return ('NO')",
+    "test_list": [
+      "assert unique_Element([1,1,1],3) == 'YES'",
+      "assert unique_Element([1,2,1,2],4) == 'NO'",
+      "assert unique_Element([1,2,3,4,5],5) == 'NO'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether an array contains only one distinct element or not.\n\nTask ID: 760\n\nExpected behavior (test cases):\n1. unique_Element([1,1,1],3) should return 'YES'\n2. unique_Element([1,2,1,2],4) should return 'NO'\n3. unique_Element([1,2,3,4,5],5) should return 'NO'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c800aef68331415ea37a4276c274e43a",
+    "object": "chat.completion",
+    "created": 1750868047,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef unique_Element(arr, n):\n    # Check if all elements in the array are equal\n    return len(set(arr)) == 1 and arr.count(n) == n\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "total_tokens": 193,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868048.62829
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 185,
+  "problem": {
+    "task_id": 185,
+    "text": "Write a function to find the focus of a parabola.",
+    "code": "def parabola_focus(a, b, c): \r\n  focus= (((-b / (2 * a)),(((4 * a * c) - (b * b) + 1) / (4 * a))))\r\n  return focus",
+    "test_list": [
+      "assert parabola_focus(5,3,2)==(-0.3, 1.6)",
+      "assert parabola_focus(9,8,4)==(-0.4444444444444444, 2.25)",
+      "assert parabola_focus(2,4,6)==(-1.0, 4.125)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the focus of a parabola.\n\nTask ID: 185\n\nExpected behavior (test cases):\n1. parabola_focus(5,3,2)==(-0.3, 1.6)\n2. parabola_focus(9,8,4)==(-0.4444444444444444, 2.25)\n3. parabola_focus(2,4,6)==(-1.0, 4.125)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-827b434256494604aa93f152ac9a4c4f",
+    "object": "chat.completion",
+    "created": 1750869064,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef parabola_focus(a, b, c):\n    return (-b / (2 * a), -c / (a * b))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 175,
+      "total_tokens": 209,
+      "completion_tokens": 34,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869065.4464307
+}

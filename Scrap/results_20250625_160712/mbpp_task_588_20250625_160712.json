@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 588,
+  "problem": {
+    "task_id": 588,
+    "text": "Write a python function to find the difference between largest and smallest value in a given array.",
+    "code": "def big_diff(nums):\r\n     diff= max(nums)-min(nums)\r\n     return diff",
+    "test_list": [
+      "assert big_diff([1,2,3,4]) == 3",
+      "assert big_diff([4,5,12]) == 8",
+      "assert big_diff([9,2,3]) == 7"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the difference between largest and smallest value in a given array.\n\nTask ID: 588\n\nExpected behavior (test cases):\n1. big_diff([1,2,3,4]) should return 3\n2. big_diff([4,5,12]) should return 8\n3. big_diff([9,2,3]) should return 7\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cd08da36012349efac01e04f33bfe15d",
+    "object": "chat.completion",
+    "created": 1750870076,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef big_diff(arr):\n    # Find the maximum and minimum values in the array\n    max_val = max(arr)\n    min_val = min(arr)\n    \n    # Calculate the difference between the maximum and minimum values\n    diff = max_val - min_val\n    \n    return diff\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 206,
+      "completion_tokens": 62,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870077.778841
+}

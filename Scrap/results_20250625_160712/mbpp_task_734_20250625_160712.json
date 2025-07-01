@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 734,
+  "problem": {
+    "task_id": 734,
+    "text": "Write a python function to find sum of products of all possible subarrays.",
+    "code": "def sum_Of_Subarray_Prod(arr,n):\r\n    ans = 0\r\n    res = 0\r\n    i = n - 1\r\n    while (i >= 0):\r\n        incr = arr[i]*(1 + res)\r\n        ans += incr\r\n        res = incr\r\n        i -= 1\r\n    return (ans)",
+    "test_list": [
+      "assert sum_Of_Subarray_Prod([1,2,3],3) == 20",
+      "assert sum_Of_Subarray_Prod([1,2],2) == 5",
+      "assert sum_Of_Subarray_Prod([1,2,3,4],4) == 84"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find sum of products of all possible subarrays.\n\nTask ID: 734\n\nExpected behavior (test cases):\n1. sum_Of_Subarray_Prod([1,2,3],3) should return 20\n2. sum_Of_Subarray_Prod([1,2],2) should return 5\n3. sum_Of_Subarray_Prod([1,2,3,4],4) should return 84\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a71f288dd5b04ed3a4ae313557a62d42",
+    "object": "chat.completion",
+    "created": 1750867972,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_of_subarray_prod(arr, n):\n    total_sum = 0\n    for i in range(n):\n        product = 1\n        for j in range(i, n):\n            product *= arr[j]\n            total_sum += product\n    return total_sum\n\n# Test cases\nprint(sum_of_subarray_prod([1,2,3],3))  # Expected output: 20\nprint(sum_of_subarray_prod([1,2],2))     # Expected output: 5\nprint(sum_of_subarray_prod([1,2,3,4],4)) # Expected output: 84\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 293,
+      "completion_tokens": 135,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867974.4316728
+}

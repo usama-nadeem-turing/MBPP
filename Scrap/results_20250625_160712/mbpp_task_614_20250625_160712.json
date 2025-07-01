@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 614,
+  "problem": {
+    "task_id": 614,
+    "text": "Write a function to find the cumulative sum of all the values that are present in the given tuple list.",
+    "code": "def cummulative_sum(test_list):\r\n  res = sum(map(sum, test_list))\r\n  return (res)",
+    "test_list": [
+      "assert cummulative_sum([(1, 3), (5, 6, 7), (2, 6)]) == 30",
+      "assert cummulative_sum([(2, 4), (6, 7, 8), (3, 7)]) == 37",
+      "assert cummulative_sum([(3, 5), (7, 8, 9), (4, 8)]) == 44"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the cumulative sum of all the values that are present in the given tuple list.\n\nTask ID: 614\n\nExpected behavior (test cases):\n1. cummulative_sum([(1, 3), (5, 6, 7), (2, 6)]) should return 30\n2. cummulative_sum([(2, 4), (6, 7, 8), (3, 7)]) should return 37\n3. cummulative_sum([(3, 5), (7, 8, 9), (4, 8)]) should return 44\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b8905d66204a4c7f9cc925ec9b59dbb1",
+    "object": "chat.completion",
+    "created": 1750867675,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef cummulative_sum(tuple_list):\n    # Initialize the total sum with the first element of the first tuple\n    total_sum = tuple_list[0][0]\n    \n    # Iterate through each tuple starting from the second one\n    for tup in tuple_list[1:]:\n        # Add the current tuple's elements to the total sum\n        total_sum += sum(tup)\n    \n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 195,
+      "total_tokens": 283,
+      "completion_tokens": 88,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867677.096909
+}

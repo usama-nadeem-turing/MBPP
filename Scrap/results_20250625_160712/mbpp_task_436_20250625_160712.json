@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 436,
+  "problem": {
+    "task_id": 436,
+    "text": "Write a python function to print negative numbers in a list.",
+    "code": "def neg_nos(list1):\r\n  for num in list1: \r\n    if num < 0: \r\n       return num ",
+    "test_list": [
+      "assert neg_nos([-1,4,5,-6]) == -1,-6",
+      "assert neg_nos([-1,-2,3,4]) == -1,-2",
+      "assert neg_nos([-7,-6,8,9]) == -7,-6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to print negative numbers in a list.\n\nTask ID: 436\n\nExpected behavior (test cases):\n1. neg_nos([-1,4,5,-6]) should return -1,-6\n2. neg_nos([-1,-2,3,4]) should return -1,-2\n3. neg_nos([-7,-6,8,9]) should return -7,-6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-121a76b779d34f4a8d01c5509ed2ed8e",
+    "object": "chat.completion",
+    "created": 1750869701,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef neg_nos(lst):\n    # Use list comprehension to filter out negative numbers and convert them to strings for easy printing\n    return [str(num) for num in lst if num < 0]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "total_tokens": 196,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869702.6011822
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 766,
+  "problem": {
+    "task_id": 766,
+    "text": "Write a function to iterate over all pairs of consecutive items in a given list.",
+    "code": "def pair_wise(l1):\r\n    temp = []\r\n    for i in range(len(l1) - 1):\r\n        current_element, next_element = l1[i], l1[i + 1]\r\n        x = (current_element, next_element)\r\n        temp.append(x)\r\n    return temp",
+    "test_list": [
+      "assert pair_wise([1,1,2,3,3,4,4,5])==[(1, 1), (1, 2), (2, 3), (3, 3), (3, 4), (4, 4), (4, 5)]",
+      "assert pair_wise([1,5,7,9,10])==[(1, 5), (5, 7), (7, 9), (9, 10)]",
+      "assert pair_wise([1,2,3,4,5,6,7,8,9,10])==[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9), (9, 10)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to iterate over all pairs of consecutive items in a given list.\n\nTask ID: 766\n\nExpected behavior (test cases):\n1. pair_wise([1,1,2,3,3,4,4,5])==[(1, 1), (1, 2), (2, 3), (3, 3), (3, 4), (4, 4), (4, 5)]\n2. pair_wise([1,5,7,9,10])==[(1, 5), (5, 7), (7, 9), (9, 10)]\n3. pair_wise([1,2,3,4,5,6,7,8,9,10])==[(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9), (9, 10)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-94bd9db7a74943af965bf57fbb02f5fa",
+    "object": "chat.completion",
+    "created": 1750868060,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef pair_wise(lst):\n    result = []\n    for i in range(len(lst) - 1):\n        result.append((lst[i], lst[i + 1]))\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 280,
+      "total_tokens": 324,
+      "completion_tokens": 44,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868061.074337
+}

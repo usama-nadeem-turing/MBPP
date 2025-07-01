@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 215,
+  "problem": {
+    "task_id": 215,
+    "text": "Write a function to decode a run-length encoded given list.",
+    "code": "def decode_list(alist):\r\n    def aux(g):\r\n        if isinstance(g, list):\r\n            return [(g[1], range(g[0]))]\r\n        else:\r\n            return [(g, [0])]\r\n    return [x for g in alist for x, R in aux(g) for i in R]",
+    "test_list": [
+      "assert decode_list([[2, 1], 2, 3, [2, 4], 5,1])==[1,1,2,3,4,4,5,1]",
+      "assert decode_list(['a', 'u', 't', 'o', 'm', 'a', 't', 'i', 'c', 'a', [2, 'l'], 'y'])==['a', 'u', 't', 'o', 'm', 'a', 't', 'i', 'c', 'a', 'l', 'l', 'y']",
+      "assert decode_list(['p', 'y', 't', 'h', 'o', 'n'])==['p', 'y', 't', 'h', 'o', 'n']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to decode a run-length encoded given list.\n\nTask ID: 215\n\nExpected behavior (test cases):\n1. decode_list([[2, 1], 2, 3, [2, 4], 5,1])==[1,1,2,3,4,4,5,1]\n2. decode_list(['a', 'u', 't', 'o', 'm', 'a', 't', 'i', 'c', 'a', [2, 'l'], 'y'])==['a', 'u', 't', 'o', 'm', 'a', 't', 'i', 'c', 'a', 'l', 'l', 'y']\n3. decode_list(['p', 'y', 't', 'h', 'o', 'n'])==['p', 'y', 't', 'h', 'o', 'n']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1abfd5e7d8ca4f0b94b7dbf00ee566ee",
+    "object": "chat.completion",
+    "created": 1750869148,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef decode_list(encoded):\n    result = []\n    i = 0\n    while i < len(encoded):\n        if isinstance(encoded[i], int) and isinstance(encoded[i+1], int):\n            count = encoded[i]\n            value = encoded[i+1]\n            for _ in range(count):\n                result.append(value)\n            i += 2\n        else:\n            result.append(encoded[i])\n            i += 1\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 255,
+      "total_tokens": 350,
+      "completion_tokens": 95,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869150.2774127
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 137,
+  "problem": {
+    "task_id": 137,
+    "text": "Write a function to find the ration of zeroes in an array of integers.",
+    "code": "from array import array\r\ndef zero_count(nums):\r\n    n = len(nums)\r\n    n1 = 0\r\n    for x in nums:\r\n        if x == 0:\r\n            n1 += 1\r\n        else:\r\n          None\r\n    return round(n1/n,2)",
+    "test_list": [
+      "assert zero_count([0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8])==0.15",
+      "assert zero_count([2, 1, 2, -1, -5, 6, 4, -3, -2, 3, 4, 6, 8])==0.00",
+      "assert zero_count([2, 4, -6, -9, 11, -12, 14, -5, 17])==0.00"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the ration of zeroes in an array of integers.\n\nTask ID: 137\n\nExpected behavior (test cases):\n1. zero_count([0, 1, 2, -1, -5, 6, 0, -3, -2, 3, 4, 6, 8])==0.15\n2. zero_count([2, 1, 2, -1, -5, 6, 4, -3, -2, 3, 4, 6, 8])==0.00\n3. zero_count([2, 4, -6, -9, 11, -12, 14, -5, 17])==0.00\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-289e1fd2d00c4ecda183ba65d26ce8b4",
+    "object": "chat.completion",
+    "created": 1750868936,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef zero_count(arr):\n    return arr.count(0) / len(arr)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 226,
+      "total_tokens": 247,
+      "completion_tokens": 21,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868937.211897
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 542,
+  "problem": {
+    "task_id": 542,
+    "text": "Write a function to replace all occurrences of spaces, commas, or dots with a colon in the given string by using regex.",
+    "code": "import re\r\ndef fill_spaces(text):\r\n  return (re.sub(\"[ ,.]\", \":\", text))",
+    "test_list": [
+      "assert fill_spaces('Boult Curve Wireless Neckband') == 'Boult:Curve:Wireless:Neckband'",
+      "assert fill_spaces('Stereo Sound Sweatproof') == 'Stereo:Sound:Sweatproof'",
+      "assert fill_spaces('Probass Curve Audio') == 'Probass:Curve:Audio'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace all occurrences of spaces, commas, or dots with a colon in the given string by using regex.\n\nTask ID: 542\n\nExpected behavior (test cases):\n1. fill_spaces('Boult Curve Wireless Neckband') should return 'Boult:Curve:Wireless:Neckband'\n2. fill_spaces('Stereo Sound Sweatproof') should return 'Stereo:Sound:Sweatproof'\n3. fill_spaces('Probass Curve Audio') should return 'Probass:Curve:Audio'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b3d0aa7a56f145b7b9f0ad0d2eabdf5a",
+    "object": "chat.completion",
+    "created": 1750869960,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef fill_spaces(input_string):\n    # Replace spaces, commas, and dots with colons\n    result = re.sub(r'[ ,.]', ':', input_string)\n    return result\n\n# Test cases\nprint(fill_spaces('Boult Curve Wireless Neckband'))  # Expected output: Boult:Curve:Wireless:Neckband\nprint(fill_spaces('Stereo Sound Sweatproof'))       # Expected output: Stereo:Sound:Sweatproof\nprint(fill_spaces('Probass Curve Audio'))           # Expected output: Probass:Curve:Audio\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 295,
+      "completion_tokens": 123,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869962.8876488
+}

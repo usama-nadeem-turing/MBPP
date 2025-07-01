@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 427,
+  "problem": {
+    "task_id": 427,
+    "text": "Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format by using regex.",
+    "code": "import re\r\ndef change_date_format(dt):\r\n        return re.sub(r'(\\d{4})-(\\d{1,2})-(\\d{1,2})', '\\\\3-\\\\2-\\\\1', dt)",
+    "test_list": [
+      "assert change_date_format(\"2026-01-02\") == '02-01-2026'",
+      "assert change_date_format(\"2020-11-13\") == '13-11-2020'",
+      "assert change_date_format(\"2021-04-26\") == '26-04-2021'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format by using regex.\n\nTask ID: 427\n\nExpected behavior (test cases):\n1. change_date_format(\"2026-01-02\") should return '02-01-2026'\n2. change_date_format(\"2020-11-13\") should return '13-11-2020'\n3. change_date_format(\"2021-04-26\") should return '26-04-2021'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-48c3a9079d88412a934a387acab54e37",
+    "object": "chat.completion",
+    "created": 1750869678,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef change_date_format(date_str):\n    # Use regular expression to match and replace the pattern in the input string\n    return re.sub(r'(\\d{4})-(\\d{1,2})-(\\d{1,2})', r'\\3-\\2-\\1', date_str)\n\n# Test cases\nprint(change_date_format(\"2026-01-02\"))  # Expected output: \"02-01-2026\"\nprint(change_date_format(\"2020-11-13\"))  # Expected output: \"13-11-2020\"\nprint(change_date_format(\"2021-04-26\"))  # Expected output: \"26-04-2021\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "total_tokens": 362,
+      "completion_tokens": 173,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869681.3827055
+}

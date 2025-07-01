@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 400,
+  "problem": {
+    "task_id": 400,
+    "text": "Write a function to extract the frequency of unique tuples in the given list order irrespective.",
+    "code": "def extract_freq(test_list):\r\n  res = len(list(set(tuple(sorted(sub)) for sub in test_list)))\r\n  return (res)",
+    "test_list": [
+      "assert extract_freq([(3, 4), (1, 2), (4, 3), (5, 6)] ) == 3",
+      "assert extract_freq([(4, 15), (2, 3), (5, 4), (6, 7)] ) == 4",
+      "assert extract_freq([(5, 16), (2, 3), (6, 5), (6, 9)] ) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract the frequency of unique tuples in the given list order irrespective.\n\nTask ID: 400\n\nExpected behavior (test cases):\n1. extract_freq([(3, 4), (1, 2), (4, 3), (5, 6)] ) should return 3\n2. extract_freq([(4, 15), (2, 3), (5, 4), (6, 7)] ) should return 4\n3. extract_freq([(5, 16), (2, 3), (6, 5), (6, 9)] ) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-35c29b25775e4b8fb8847dd17cd87fdc",
+    "object": "chat.completion",
+    "created": 1750869609,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract_freq(lst):\n    # Convert each tuple into a string and store them in a set to remove duplicates.\n    # Then convert the set back to a list and count the number of elements.\n    return len(set(map(str, lst)))\n\n# Test cases\nprint(extract_freq([(3, 4), (1, 2), (4, 3), (5, 6)]))  # Expected output: 3\nprint(extract_freq([(4, 15), (2, 3), (5, 4), (6, 7)]))  # Expected output: 4\nprint(extract_freq([(5, 16), (2, 3), (6, 5), (6, 9)]))  # Expected output: 4\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 196,
+      "total_tokens": 367,
+      "completion_tokens": 171,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869612.2026312
+}

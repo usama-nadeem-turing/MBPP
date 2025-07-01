@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 243,
+  "problem": {
+    "task_id": 243,
+    "text": "Write a function to sort the given list based on the occurrence of first element of tuples.",
+    "code": "def sort_on_occurence(lst): \r\n\tdct = {} \r\n\tfor i, j in lst: \r\n\t\tdct.setdefault(i, []).append(j) \r\n\treturn ([(i, *dict.fromkeys(j), len(j)) \r\n\t\t\t\tfor i, j in dct.items()]) ",
+    "test_list": [
+      "assert sort_on_occurence([(1, 'Jake'), (2, 'Bob'), (1, 'Cara')]) == [(1, 'Jake', 'Cara', 2), (2, 'Bob', 1)]",
+      "assert sort_on_occurence([('b', 'ball'), ('a', 'arm'), ('b', 'b'), ('a', 'ant')]) == [('b', 'ball', 'b', 2), ('a', 'arm', 'ant', 2)]",
+      "assert sort_on_occurence([(2, 'Mark'), (3, 'Maze'), (2, 'Sara')]) == [(2, 'Mark', 'Sara', 2), (3, 'Maze', 1)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort the given list based on the occurrence of first element of tuples.\n\nTask ID: 243\n\nExpected behavior (test cases):\n1. sort_on_occurence([(1, 'Jake'), (2, 'Bob'), (1, 'Cara')]) should return [(1, 'Jake', 'Cara', 2), (2, 'Bob', 1)]\n2. sort_on_occurence([('b', 'ball'), ('a', 'arm'), ('b', 'b'), ('a', 'ant')]) should return [('b', 'ball', 'b', 2), ('a', 'arm', 'ant', 2)]\n3. sort_on_occurence([(2, 'Mark'), (3, 'Maze'), (2, 'Sara')]) should return [(2, 'Mark', 'Sara', 2), (3, 'Maze', 1)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-333e765fdf3c4d089f544524e15af99e",
+    "object": "chat.completion",
+    "created": 1750869211,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_on_occurence(lst):\n    # Count occurrences of each tuple's first element\n    counts = {}\n    for item in lst:\n        key = item[0]\n        if key not in counts:\n            counts[key] = [item, 1]\n        else:\n            counts[key][1] += 1\n    \n    # Sort items based on their count and original order\n    sorted_items = sorted(counts.items(), key=lambda x: (-x[1][1], lst.index(x[0])))\n    \n    # Reconstruct the final list with sorted tuples\n    result = []\n    for key, value in sorted_items:\n        result.append(value)\n    \n    return result\n```\n\nThis solution defines a function `sort_on_occurence` that takes a list of tuples as input. It first counts how many times each unique first element appears across all tuples. Then, it sorts these tuples based on their frequency of appearance and their original position within the input list. Finally, it reconstructs the output list using the sorted tuples.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 253,
+      "total_tokens": 467,
+      "completion_tokens": 214,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869215.3498995
+}

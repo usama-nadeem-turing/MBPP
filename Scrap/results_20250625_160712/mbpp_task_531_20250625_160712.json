@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 531,
+  "problem": {
+    "task_id": 531,
+    "text": "Write a function to find minimum number of coins that make a given value.",
+    "code": "import sys \r\ndef min_coins(coins, m, V): \r\n    if (V == 0): \r\n        return 0\r\n    res = sys.maxsize \r\n    for i in range(0, m): \r\n        if (coins[i] <= V): \r\n            sub_res = min_coins(coins, m, V-coins[i]) \r\n            if (sub_res != sys.maxsize and sub_res + 1 < res): \r\n                res = sub_res + 1  \r\n    return res ",
+    "test_list": [
+      "assert min_coins([9, 6, 5, 1] ,4,11)==2",
+      "assert min_coins([4,5,6,7,8,9],6,9)==1",
+      "assert min_coins([1, 2, 3],3,4)==2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find minimum number of coins that make a given value.\n\nTask ID: 531\n\nExpected behavior (test cases):\n1. min_coins([9, 6, 5, 1] ,4,11)==2\n2. min_coins([4,5,6,7,8,9],6,9)==1\n3. min_coins([1, 2, 3],3,4)==2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-eec567bfe1644ab381f12f0158622f79",
+    "object": "chat.completion",
+    "created": 1750869931,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_coins(coins, amount, n):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    \n    for i in range(1, amount + 1):\n        for j in range(n):\n            if coins[j] <= i:\n                dp[i] = min(dp[i], dp[i - coins[j]] + 1)\n    \n    return dp[amount] if dp[amount] != float('inf') else -1\n```\n\nThis solution uses dynamic programming to efficiently compute the minimum number of coins needed to make up the given amount. It initializes a DP array where `dp[i]` represents the minimum number of coins required to make up the amount `i`. The outer loop iterates through each possible coin denomination, and the inner loop tries to use each coin denomination as much as possible while keeping the total amount within bounds.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "total_tokens": 348,
+      "completion_tokens": 189,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869934.647647
+}

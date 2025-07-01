@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 403,
+  "problem": {
+    "task_id": 403,
+    "text": "Write a function to check if a url is valid or not using regex.",
+    "code": "import re\r\ndef is_valid_URL(str):\r\n\tregex = (\"((http|https)://)(www.)?\" +\r\n\t\t\t\"[a-zA-Z0-9@:%._\\\\+~#?&//=]\" +\r\n\t\t\t\"{2,256}\\\\.[a-z]\" +\r\n\t\t\t\"{2,6}\\\\b([-a-zA-Z0-9@:%\" +\r\n\t\t\t\"._\\\\+~#?&//=]*)\")\r\n\tp = re.compile(regex)\r\n\tif (str == None):\r\n\t\treturn False\r\n\tif(re.search(p, str)):\r\n\t\treturn True\r\n\telse:\r\n\t\treturn False",
+    "test_list": [
+      "assert is_valid_URL(\"https://www.google.com\") == True",
+      "assert is_valid_URL(\"https:/www.gmail.com\") == False",
+      "assert is_valid_URL(\"https:// www.redit.com\") == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a url is valid or not using regex.\n\nTask ID: 403\n\nExpected behavior (test cases):\n1. is_valid_URL(\"https://www.google.com\") should return True\n2. is_valid_URL(\"https:/www.gmail.com\") should return False\n3. is_valid_URL(\"https:// www.redit.com\") should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bc13683b32b34557a71150843d0eafac",
+    "object": "chat.completion",
+    "created": 1750869617,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef is_valid_URL(url):\n    # Regular expression pattern for validating URLs\n    pattern = r'^(http|https)://(www\\.)?([a-zA-Z0-9]+)(:[0-9]+)?(/.*)?$'\n    \n    # Check if the URL matches the regular expression pattern\n    if re.match(pattern, url):\n        return True\n    else:\n        return False\n```\n\nThis solution uses a regular expression to validate URLs according to common patterns and then checks if the provided URL matches these patterns. If it does, the function returns `True`, indicating the URL is valid; otherwise, it returns `False`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 277,
+      "completion_tokens": 138,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869620.1083457
+}

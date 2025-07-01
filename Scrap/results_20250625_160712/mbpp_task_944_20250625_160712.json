@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 944,
+  "problem": {
+    "task_id": 944,
+    "text": "Write a function to separate and print the numbers and their position of a given string.",
+    "code": "import re\r\ndef num_position(text):\r\n for m in re.finditer(\"\\d+\", text):\r\n    return m.start()",
+    "test_list": [
+      "assert num_position(\"there are 70 flats in this apartment\")==10",
+      "assert num_position(\"every adult have 32 teeth\")==17",
+      "assert num_position(\"isha has 79 chocolates in her bag\")==9"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to separate and print the numbers and their position of a given string.\n\nTask ID: 944\n\nExpected behavior (test cases):\n1. num_position(\"there are 70 flats in this apartment\")==10\n2. num_position(\"every adult have 32 teeth\")==17\n3. num_position(\"isha has 79 chocolates in her bag\")==9\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cc922a0ee46f41c69ae6d8ee7d3572fa",
+    "object": "chat.completion",
+    "created": 1750868530,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef num_position(s):\n    # Splitting the string into words based on spaces\n    words = s.split()\n    \n    # Initializing counters for number positions and total count\n    num_positions = 0\n    total_count = len(words)\n    \n    # Iterating through each word to find numbers\n    for i, word in enumerate(words):\n        if word.isdigit():\n            num_positions += 1\n    \n    return num_positions\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 143,
+      "total_tokens": 235,
+      "completion_tokens": 92,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868532.1869469
+}

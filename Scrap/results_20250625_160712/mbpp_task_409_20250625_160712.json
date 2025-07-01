@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 409,
+  "problem": {
+    "task_id": 409,
+    "text": "Write a function to find the minimum product from the pairs of tuples within a given list.",
+    "code": "def min_product_tuple(list1):\r\n    result_min = min([abs(x * y) for x, y in list1] )\r\n    return result_min",
+    "test_list": [
+      "assert min_product_tuple([(2, 7), (2, 6), (1, 8), (4, 9)] )==8",
+      "assert min_product_tuple([(10,20), (15,2), (5,10)] )==30",
+      "assert min_product_tuple([(11,44), (10,15), (20,5), (12, 9)] )==100"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the minimum product from the pairs of tuples within a given list.\n\nTask ID: 409\n\nExpected behavior (test cases):\n1. min_product_tuple([(2, 7), (2, 6), (1, 8), (4, 9)] )==8\n2. min_product_tuple([(10,20), (15,2), (5,10)] )==30\n3. min_product_tuple([(11,44), (10,15), (20,5), (12, 9)] )==100\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0afbb286394d4cc089ab0c964e5d9873",
+    "object": "chat.completion",
+    "created": 1750869633,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_product_tuple(tuples_list):\n    # Calculate the product for each tuple and return the smallest one.\n    return min(tuple[0] * tuple[1] for tuple in tuples_list)\n```\n\nThis solution defines a function `min_product_tuple` that takes a list of tuples as input. It calculates the product of each pair of numbers in the tuples using a generator expression inside the `min()` function, which returns the smallest product among all pairs.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 193,
+      "total_tokens": 290,
+      "completion_tokens": 97,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869635.0295925
+}

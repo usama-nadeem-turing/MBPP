@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 432,
+  "problem": {
+    "task_id": 432,
+    "text": "Write a function to find the median of a trapezium.",
+    "code": "def median_trapezium(base1,base2,height):\r\n median = 0.5 * (base1+ base2)\r\n return median",
+    "test_list": [
+      "assert median_trapezium(15,25,35)==20",
+      "assert median_trapezium(10,20,30)==15",
+      "assert median_trapezium(6,9,4)==7.5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the median of a trapezium.\n\nTask ID: 432\n\nExpected behavior (test cases):\n1. median_trapezium(15,25,35)==20\n2. median_trapezium(10,20,30)==15\n3. median_trapezium(6,9,4)==7.5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4bb7e42e8d8747209fef581e3bc3c67d",
+    "object": "chat.completion",
+    "created": 1750869694,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef median_trapezium(a, b, c):\n    # Calculate the median using the formula for the median of a trapezium\n    return (a + b) / 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "total_tokens": 193,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869694.8070197
+}

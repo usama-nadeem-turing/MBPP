@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 132,
+  "problem": {
+    "task_id": 132,
+    "text": "Write a function to convert tuple to a string.",
+    "code": "def tup_string(tup1):\r\n  str =  ''.join(tup1)\r\n  return str",
+    "test_list": [
+      "assert tup_string(('e', 'x', 'e', 'r', 'c', 'i', 's', 'e', 's'))==(\"exercises\")",
+      "assert tup_string(('p','y','t','h','o','n'))==(\"python\")",
+      "assert tup_string(('p','r','o','g','r','a','m'))==(\"program\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert tuple to a string.\n\nTask ID: 132\n\nExpected behavior (test cases):\n1. tup_string(('e', 'x', 'e', 'r', 'c', 'i', 's', 'e', 's'))==(\"exercises\")\n2. tup_string(('p','y','t','h','o','n'))==(\"python\")\n3. tup_string(('p','r','o','g','r','a','m'))==(\"program\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f8423a37b96b4c6d9e0ba61e820ac5e7",
+    "object": "chat.completion",
+    "created": 1750868926,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tup_string(tup):\n    return ''.join(tup)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "total_tokens": 183,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868926.600773
+}

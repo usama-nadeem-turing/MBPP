@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 411,
+  "problem": {
+    "task_id": 411,
+    "text": "Write a function to convert the given snake case string to camel case string by using regex.",
+    "code": "import re\r\ndef snake_to_camel(word):\r\n  return ''.join(x.capitalize() or '_' for x in word.split('_'))",
+    "test_list": [
+      "assert snake_to_camel('android_tv') == 'AndroidTv'",
+      "assert snake_to_camel('google_pixel') == 'GooglePixel'",
+      "assert snake_to_camel('apple_watch') == 'AppleWatch'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given snake case string to camel case string by using regex.\n\nTask ID: 411\n\nExpected behavior (test cases):\n1. snake_to_camel('android_tv') should return 'AndroidTv'\n2. snake_to_camel('google_pixel') should return 'GooglePixel'\n3. snake_to_camel('apple_watch') should return 'AppleWatch'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-be982ca9bf094e33aafafaf3866a8f73",
+    "object": "chat.completion",
+    "created": 1750869636,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef snake_to_camel(snake_str):\n    # Split the input string into words based on underscore character\n    words = snake_str.split('_')\n    \n    # Capitalize each word except the first one and join them together\n    camel_case_str = ''.join(word.capitalize() for word in words)\n    \n    return camel_case_str\n\n# Test cases\nprint(snake_to_camel('android_tv'))  # Expected output: AndroidTv\nprint(snake_to_camel('google_pixel'))  # Expected output: GooglePixel\nprint(snake_to_camel('apple_watch'))  # Expected output: AppleWatch\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 275,
+      "completion_tokens": 134,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869638.6276677
+}

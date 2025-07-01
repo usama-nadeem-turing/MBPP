@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 886,
+  "problem": {
+    "task_id": 886,
+    "text": "Write a function to add all the numbers in a list and divide it with the length of the list.",
+    "code": "def sum_num(numbers):\r\n    total = 0\r\n    for x in numbers:\r\n        total += x\r\n    return total/len(numbers) ",
+    "test_list": [
+      "assert sum_num((8, 2, 3, 0, 7))==4.0",
+      "assert sum_num((-10,-20,-30))==-20.0",
+      "assert sum_num((19,15,18))==17.333333333333332"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to add all the numbers in a list and divide it with the length of the list.\n\nTask ID: 886\n\nExpected behavior (test cases):\n1. sum_num((8, 2, 3, 0, 7))==4.0\n2. sum_num((-10,-20,-30))==-20.0\n3. sum_num((19,15,18))==17.333333333333332\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e6d6105fbb104229872e03347ea132e3",
+    "object": "chat.completion",
+    "created": 1750868376,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_num(numbers):\n    total = sum(numbers)\n    return total / len(numbers)\n\n# Test cases\nprint(sum_num((8, 2, 3, 0, 7))) # Expected output: 4.0\nprint(sum_num((-10,-20,-30)))   # Expected output: -20.0\nprint(sum_num((19,15,18)))      # Expected output: 17.333333333333332\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 288,
+      "completion_tokens": 116,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868378.833796
+}

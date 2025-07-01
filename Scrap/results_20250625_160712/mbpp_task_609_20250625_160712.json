@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 609,
+  "problem": {
+    "task_id": 609,
+    "text": "Write a python function to find minimum possible value for the given periodic function.",
+    "code": "def floor_Min(A,B,N):\r\n    x = max(B - 1,N)\r\n    return (A*x) // B",
+    "test_list": [
+      "assert floor_Min(10,20,30) == 15",
+      "assert floor_Min(1,2,1) == 0",
+      "assert floor_Min(11,10,9) == 9"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find minimum possible value for the given periodic function.\n\nTask ID: 609\n\nExpected behavior (test cases):\n1. floor_Min(10,20,30) should return 15\n2. floor_Min(1,2,1) should return 0\n3. floor_Min(11,10,9) should return 9\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-dbed13549e7548a795c0eebab2a07dea",
+    "object": "chat.completion",
+    "created": 1750867663,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef floor_Min(a, b, c):\n    # Calculate the maximum of the three numbers and subtract it from each number\n    max_val = max(a, b, c)\n    result = min(max_val - a, max_val - b, max_val - c)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 208,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867664.2246459
+}

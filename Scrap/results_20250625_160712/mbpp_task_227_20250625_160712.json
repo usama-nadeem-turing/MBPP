@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 227,
+  "problem": {
+    "task_id": 227,
+    "text": "Write a function to find minimum of three numbers.",
+    "code": "def min_of_three(a,b,c): \r\n      if (a <= b) and (a <= c): \r\n        smallest = a \r\n      elif (b <= a) and (b <= c): \r\n        smallest = b \r\n      else: \r\n        smallest = c \r\n      return smallest ",
+    "test_list": [
+      "assert min_of_three(10,20,0)==0",
+      "assert min_of_three(19,15,18)==15",
+      "assert min_of_three(-10,-20,-30)==-30"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find minimum of three numbers.\n\nTask ID: 227\n\nExpected behavior (test cases):\n1. min_of_three(10,20,0)==0\n2. min_of_three(19,15,18)==15\n3. min_of_three(-10,-20,-30)==-30\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ae663848914a46a38f440053844f76af",
+    "object": "chat.completion",
+    "created": 1750869173,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_of_three(a, b, c):\n    return min(a, b, c)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 162,
+      "completion_tokens": 24,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869173.66457
+}

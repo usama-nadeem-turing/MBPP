@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 952,
+  "problem": {
+    "task_id": 952,
+    "text": "Write a function to compute the value of ncr mod p.",
+    "code": "def nCr_mod_p(n, r, p): \r\n\tif (r > n- r): \r\n\t\tr = n - r \r\n\tC = [0 for i in range(r + 1)] \r\n\tC[0] = 1 \r\n\tfor i in range(1, n + 1): \r\n\t\tfor j in range(min(i, r), 0, -1): \r\n\t\t\tC[j] = (C[j] + C[j-1]) % p \r\n\treturn C[r] ",
+    "test_list": [
+      "assert nCr_mod_p(10, 2, 13) == 6",
+      "assert nCr_mod_p(11, 3, 14) == 11",
+      "assert nCr_mod_p(18, 14, 19) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to compute the value of ncr mod p.\n\nTask ID: 952\n\nExpected behavior (test cases):\n1. nCr_mod_p(10, 2, 13) should return 6\n2. nCr_mod_p(11, 3, 14) should return 11\n3. nCr_mod_p(18, 14, 19) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-928dccaa27af4ea59e0b1ccab309712a",
+    "object": "chat.completion",
+    "created": 1750868549,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef nCr_mod_p(n, r, p):\n    def factorial(x):\n        if x == 0:\n            return 1\n        else:\n            return x * factorial(x - 1) % p\n    \n    numerator = [factorial(n - i) for i in range(r + 1)]\n    denominator = [factorial(i) for i in range(r + 1)]\n    \n    result = 1\n    for i in range(r + 1):\n        result = (result * (numerator[i] // denominator[i])) % p\n    \n    return result\n\n# Test cases\nprint(nCr_mod_p(10, 2, 13))  # Expected output: 6\nprint(nCr_mod_p(11, 3, 14))  # Expected output: 11\nprint(nCr_mod_p(18, 14, 19)) # Expected output: 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "total_tokens": 357,
+      "completion_tokens": 201,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868553.1416829
+}

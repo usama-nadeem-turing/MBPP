@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 288,
+  "problem": {
+    "task_id": 288,
+    "text": "Write a function to count array elements having modular inverse under given prime number p equal to itself.",
+    "code": "def modular_inverse(arr, N, P):\r\n\tcurrent_element = 0\r\n\tfor i in range(0, N):\r\n\t\tif ((arr[i] * arr[i]) % P == 1):\r\n\t\t\tcurrent_element = current_element + 1\r\n\treturn current_element",
+    "test_list": [
+      "assert modular_inverse([ 1, 6, 4, 5 ], 4, 7) == 2",
+      "assert modular_inverse([1, 3, 8, 12, 12], 5, 13) == 3",
+      "assert modular_inverse([2, 3, 4, 5], 4, 6) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count array elements having modular inverse under given prime number p equal to itself.\n\nTask ID: 288\n\nExpected behavior (test cases):\n1. modular_inverse([ 1, 6, 4, 5 ], 4, 7) should return 2\n2. modular_inverse([1, 3, 8, 12, 12], 5, 13) should return 3\n3. modular_inverse([2, 3, 4, 5], 4, 6) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-97c0976eff6a4301b47da7a7a2d9fa67",
+    "object": "chat.completion",
+    "created": 1750869323,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom math import gcd\n\ndef modular_inverse(arr, mod, p):\n    result = []\n    for num in arr:\n        if gcd(num, mod) == 1 and pow(num, -1, p) % p == 1:\n            result.append(1)\n        else:\n            result.append(0)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "total_tokens": 255,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869325.0915895
+}

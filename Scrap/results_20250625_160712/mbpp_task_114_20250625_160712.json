@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 114,
+  "problem": {
+    "task_id": 114,
+    "text": "Write a function to assign frequency to each tuple in the given tuple list.",
+    "code": "from collections import Counter \r\ndef assign_freq(test_list):\r\n  res = [(*key, val) for key, val in Counter(test_list).items()]\r\n  return (str(res)) ",
+    "test_list": [
+      "assert assign_freq([(6, 5, 8), (2, 7), (6, 5, 8), (6, 5, 8), (9, ), (2, 7)] ) == '[(6, 5, 8, 3), (2, 7, 2), (9, 1)]'",
+      "assert assign_freq([(4, 2, 4), (7, 1), (4, 8), (4, 2, 4), (9, 2), (7, 1)] ) == '[(4, 2, 4, 2), (7, 1, 2), (4, 8, 1), (9, 2, 1)]'",
+      "assert assign_freq([(11, 13, 10), (17, 21), (4, 2, 3), (17, 21), (9, 2), (4, 2, 3)] ) == '[(11, 13, 10, 1), (17, 21, 2), (4, 2, 3, 2), (9, 2, 1)]'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to assign frequency to each tuple in the given tuple list.\n\nTask ID: 114\n\nExpected behavior (test cases):\n1. assign_freq([(6, 5, 8), (2, 7), (6, 5, 8), (6, 5, 8), (9, ), (2, 7)] ) should return '[(6, 5, 8, 3), (2, 7, 2), (9, 1)]'\n2. assign_freq([(4, 2, 4), (7, 1), (4, 8), (4, 2, 4), (9, 2), (7, 1)] ) should return '[(4, 2, 4, 2), (7, 1, 2), (4, 8, 1), (9, 2, 1)]'\n3. assign_freq([(11, 13, 10), (17, 21), (4, 2, 3), (17, 21), (9, 2), (4, 2, 3)] ) should return '[(11, 13, 10, 1), (17, 21, 2), (4, 2, 3, 2), (9, 2, 1)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bc49d0bbed03419f8ab21435f1ba59d1",
+    "object": "chat.completion",
+    "created": 1750868871,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef assign_freq(tuples_list):\n    # Create a dictionary to count occurrences of tuples\n    freq_dict = {}\n    \n    for tup in tuples_list:\n        if len(tup) not in freq_dict:\n            freq_dict[len(tup)] = 0\n        freq_dict[len(tup)] += 1\n    \n    # Sort the keys and create the result list\n    sorted_keys = sorted(freq_dict.keys())\n    result = []\n    for key in sorted_keys:\n        for _ in range(freq_dict[key]):\n            result.append(tuple(sorted(key)))\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 367,
+      "total_tokens": 488,
+      "completion_tokens": 121,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868874.0016253
+}

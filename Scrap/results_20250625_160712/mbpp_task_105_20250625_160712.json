@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 105,
+  "problem": {
+    "task_id": 105,
+    "text": "Write a python function to count true booleans in the given list.",
+    "code": "def count(lst):   \r\n    return sum(lst) ",
+    "test_list": [
+      "assert count([True,False,True]) == 2",
+      "assert count([False,False]) == 0",
+      "assert count([True,True,True]) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count true booleans in the given list.\n\nTask ID: 105\n\nExpected behavior (test cases):\n1. count([True,False,True]) should return 2\n2. count([False,False]) should return 0\n3. count([True,True,True]) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-93c905fed8f04040897024a8bf0f8e6f",
+    "object": "chat.completion",
+    "created": 1750868844,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count(lst):\n    # Initialize counter for True values\n    count_true = lst.count(True)\n    return count_true\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 157,
+      "completion_tokens": 30,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868845.4822855
+}

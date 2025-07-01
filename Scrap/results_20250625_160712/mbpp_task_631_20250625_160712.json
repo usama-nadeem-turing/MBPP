@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 631,
+  "problem": {
+    "task_id": 631,
+    "text": "Write a function to replace whitespaces with an underscore and vice versa in a given string by using regex.",
+    "code": "import re\r\ntext = 'Python Exercises'\r\ndef replace_spaces(text):\r\n  text =text.replace (\" \", \"_\")\r\n  return (text)\r\n  text =text.replace (\"_\", \" \")\r\n  return (text)",
+    "test_list": [
+      "assert replace_spaces('Jumanji The Jungle') == 'Jumanji_The_Jungle'",
+      "assert replace_spaces('The Avengers') == 'The_Avengers'",
+      "assert replace_spaces('Fast and Furious') == 'Fast_and_Furious'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace whitespaces with an underscore and vice versa in a given string by using regex.\n\nTask ID: 631\n\nExpected behavior (test cases):\n1. replace_spaces('Jumanji The Jungle') should return 'Jumanji_The_Jungle'\n2. replace_spaces('The Avengers') should return 'The_Avengers'\n3. replace_spaces('Fast and Furious') should return 'Fast_and_Furious'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0a85ec3b45ab48c8ba86361f8f08ecf4",
+    "object": "chat.completion",
+    "created": 1750867716,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef replace_spaces(input_string):\n    # Replace spaces with underscores and underscores with spaces\n    result = re.sub(r'(?<!_) ', '_', input_string)\n    result = re.sub(r'\\s+', '_', result)\n    result = re.sub('_', r'', result)\n    result = re.sub(r'_', r'', result)\n    return result\n\n# Test cases\nprint(replace_spaces('Jumanji The Jungle'))  # Expected output: \"Jumanji_The_Jungle\"\nprint(replace_spaces('The Avengers'))        # Expected output: \"The_Avengers\"\nprint(replace_spaces('Fast and Furious'))    # Expected output: \"Fast_and_Furious\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "total_tokens": 297,
+      "completion_tokens": 146,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867719.1609747
+}

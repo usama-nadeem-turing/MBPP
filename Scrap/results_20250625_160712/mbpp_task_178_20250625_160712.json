@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 178,
+  "problem": {
+    "task_id": 178,
+    "text": "Write a function to search some literals strings in a string.",
+    "code": "import re\r\ndef string_literals(patterns,text):\r\n  for pattern in patterns:\r\n     if re.search(pattern,  text):\r\n       return ('Matched!')\r\n     else:\r\n       return ('Not Matched!')",
+    "test_list": [
+      "assert string_literals(['language'],'python language')==('Matched!')",
+      "assert string_literals(['program'],'python language')==('Not Matched!')",
+      "assert string_literals(['python'],'programming language')==('Not Matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to search some literals strings in a string.\n\nTask ID: 178\n\nExpected behavior (test cases):\n1. string_literals(['language'],'python language')==('Matched!')\n2. string_literals(['program'],'python language')==('Not Matched!')\n3. string_literals(['python'],'programming language')==('Not Matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-94f25239e6a04e3ca7c6ba8bdbb0cfc8",
+    "object": "chat.completion",
+    "created": 1750869040,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef string_literals(strings, main_string):\n    for s in strings:\n        if s.lower() in main_string.lower():\n            return 'Matched!'\n    return 'Not Matched!'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 174,
+      "completion_tokens": 42,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869041.000039
+}

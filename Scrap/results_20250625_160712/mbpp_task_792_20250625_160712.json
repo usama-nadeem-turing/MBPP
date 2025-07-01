@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 792,
+  "problem": {
+    "task_id": 792,
+    "text": "Write a python function to count the number of lists in a given number of lists.",
+    "code": "def count_list(input_list): \r\n    return len(input_list)",
+    "test_list": [
+      "assert count_list([[1, 3], [5, 7], [9, 11], [13, 15, 17]]) == 4",
+      "assert count_list([[1,2],[2,3],[4,5]]) == 3",
+      "assert count_list([[1,0],[2,0]]) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of lists in a given number of lists.\n\nTask ID: 792\n\nExpected behavior (test cases):\n1. count_list([[1, 3], [5, 7], [9, 11], [13, 15, 17]]) should return 4\n2. count_list([[1,2],[2,3],[4,5]]) should return 3\n3. count_list([[1,0],[2,0]]) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ba8e6a46eb25490e82d38f7c467fa4be",
+    "object": "chat.completion",
+    "created": 1750868138,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_list(lst):\n    # Initialize counter for list counts\n    count = 0\n    \n    # Iterate through each element in the input list\n    for item in lst:\n        # If the current element is a list, increment the counter\n        if isinstance(item, list):\n            count += 1\n            \n    # Return the total count of lists found\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 254,
+      "completion_tokens": 82,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868140.0103269
+}

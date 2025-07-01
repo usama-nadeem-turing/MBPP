@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 941,
+  "problem": {
+    "task_id": 941,
+    "text": "Write a function to count the elements in a list until an element is a tuple.",
+    "code": "def count_elim(num):\r\n  count_elim = 0\r\n  for n in num:\r\n    if isinstance(n, tuple):\r\n        break\r\n    count_elim += 1\r\n  return count_elim",
+    "test_list": [
+      "assert count_elim([10,20,30,(10,20),40])==3",
+      "assert count_elim([10,(20,30),(10,20),40])==1",
+      "assert count_elim([(10,(20,30,(10,20),40))])==0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the elements in a list until an element is a tuple.\n\nTask ID: 941\n\nExpected behavior (test cases):\n1. count_elim([10,20,30,(10,20),40])==3\n2. count_elim([10,(20,30),(10,20),40])==1\n3. count_elim([(10,(20,30,(10,20),40))])==0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-15bbf121a8e74a18a5a9d49350620f90",
+    "object": "chat.completion",
+    "created": 1750868526,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_elim(lst):\n    counter = 0\n    for item in lst:\n        if isinstance(item, tuple):\n            break\n        else:\n            counter += 1\n    return counter\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "total_tokens": 213,
+      "completion_tokens": 45,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868527.64583
+}

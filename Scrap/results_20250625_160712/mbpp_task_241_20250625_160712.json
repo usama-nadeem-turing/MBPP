@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 241,
+  "problem": {
+    "task_id": 241,
+    "text": "Write a function to generate a 3d array having each element as '*'.",
+    "code": "def array_3d(m,n,o):\r\n array_3d = [[ ['*' for col in range(m)] for col in range(n)] for row in range(o)]\r\n return array_3d",
+    "test_list": [
+      "assert array_3d(6,4,3)==[[['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*']]]",
+      "assert array_3d(5,3,4)==[[['*', '*', '*', '*', '*'], ['*', '*', '*', '*','*'], ['*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*'],['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']]]",
+      "assert array_3d(1,2,3)==[[['*'],['*']],[['*'],['*']],[['*'],['*']]]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to generate a 3d array having each element as '*'.\n\nTask ID: 241\n\nExpected behavior (test cases):\n1. array_3d(6,4,3)==[[['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*', '*']]]\n2. array_3d(5,3,4)==[[['*', '*', '*', '*', '*'], ['*', '*', '*', '*','*'], ['*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*'],['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']], [['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']]]\n3. array_3d(1,2,3)==[[['*'],['*']],[['*'],['*']],[['*'],['*']]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-51d7e5d2f951400fa4c67a7440425618",
+    "object": "chat.completion",
+    "created": 1750869205,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport numpy as np\n\ndef array_3d(dims):\n    \"\"\"\n    Generates a 3-dimensional NumPy array of specified dimensions where every element is '*'.\n    \n    Parameters:\n    dims (tuple): A tuple containing three integers representing the depth, width, and height respectively.\n    \n    Returns:\n    numpy.ndarray: A 3D array with '*' in all elements.\n    \"\"\"\n    return np.full(dims, '*', dtype=str).reshape(*dims)\n\n# Test cases\nprint(array_3d((6, 4, 3))) # Expected output: [[[('*', '*', '*', '*', '*', '*'), ..., '*', '*', '*', '*', '*')],\n                            #[['*', '*', '*', '*', '*', '*'], ..., '*', '*', '*', '*', '*']],\n                            #[['*', '*', '*', '*', '*', '*'], ..., '*', '*', '*', '*', '*']]]\n\nprint(array_3d((5, 3, 4))) # Expected output: [[[('*', '*', '*', '*', '*'), ..., '*', '*', '*', '*')],\n                              #[['*', '*', '*', '*', '*'], ..., '*', '*', '*', '*']],\n                              #[['*', '*', '*', '*', '*'], ..., '*', '*', '*', '*']],\n                              #[['*', '*', '*', '*', '*'], ..., '*', '*', '*', '*']]]\n\nprint(array_3d((1, 2, 3))) # Expected output: [(['*'], ['*']), ([', '*'], ['*'], ['*'])]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 332,
+      "total_tokens": 615,
+      "completion_tokens": 283,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869210.3824806
+}

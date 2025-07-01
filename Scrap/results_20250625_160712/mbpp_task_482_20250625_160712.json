@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 482,
+  "problem": {
+    "task_id": 482,
+    "text": "Write a function to find sequences of one upper case letter followed by lower case letters in the given string by using regex.",
+    "code": "import re \r\ndef match(text): \r\n\t\tpattern = '[A-Z]+[a-z]+$'\r\n\t\tif re.search(pattern, text): \r\n\t\t\t\treturn('Yes') \r\n\t\telse: \r\n\t\t\t\treturn('No') ",
+    "test_list": [
+      "assert match(\"Geeks\") == 'Yes'",
+      "assert match(\"geeksforGeeks\") == 'Yes'",
+      "assert match(\"geeks\") == 'No'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find sequences of one upper case letter followed by lower case letters in the given string by using regex.\n\nTask ID: 482\n\nExpected behavior (test cases):\n1. match(\"Geeks\") should return 'Yes'\n2. match(\"geeksforGeeks\") should return 'Yes'\n3. match(\"geeks\") should return 'No'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fc0e47fd69b84363849e8a832253b370",
+    "object": "chat.completion",
+    "created": 1750869802,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef match(s):\n    # Define the regex pattern to match a sequence of one uppercase letter followed by lowercase letters\n    pattern = '[A-Z][a-z]+'\n    \n    # Search for the pattern in the input string\n    if re.search(pattern, s):\n        return 'Yes'\n    else:\n        return 'No'\n\n# Test cases\nprint(match(\"Geeks\"))   # Expected output: Yes\nprint(match(\"geeksforGeeks\"))  # Expected output: Yes\nprint(match(\"geeks\"))   # Expected output: No\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 259,
+      "completion_tokens": 121,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869804.5001447
+}

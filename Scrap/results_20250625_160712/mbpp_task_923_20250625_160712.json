@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 923,
+  "problem": {
+    "task_id": 923,
+    "text": "Write a function to find the length of the shortest string that has both str1 and str2 as subsequences.",
+    "code": "def super_seq(X, Y, m, n):\r\n\tif (not m):\r\n\t\treturn n\r\n\tif (not n):\r\n\t\treturn m\r\n\tif (X[m - 1] == Y[n - 1]):\r\n\t\treturn 1 + super_seq(X, Y, m - 1, n - 1)\r\n\treturn 1 + min(super_seq(X, Y, m - 1, n),\tsuper_seq(X, Y, m, n - 1))",
+    "test_list": [
+      "assert super_seq(\"AGGTAB\", \"GXTXAYB\", 6, 7) == 9",
+      "assert super_seq(\"feek\", \"eke\", 4, 3) == 5",
+      "assert super_seq(\"PARRT\", \"RTA\", 5, 3) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the length of the shortest string that has both str1 and str2 as subsequences.\n\nTask ID: 923\n\nExpected behavior (test cases):\n1. super_seq(\"AGGTAB\", \"GXTXAYB\", 6, 7) should return 9\n2. super_seq(\"feek\", \"eke\", 4, 3) should return 5\n3. super_seq(\"PARRT\", \"RTA\", 5, 3) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-45683e5f3a2a4a94bda919e37869ad78",
+    "object": "chat.completion",
+    "created": 1750868476,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef super_seq(str1, str2, m, n):\n    # Create a DP table with dimensions (m+1) x (n+1)\n    dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n    \n    # Fill the DP table\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if str1[i - 1] == str2[j - 1]:\n                dp[i][j] = dp[i-1][j-1] + 1\n            else:\n                dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n                \n    # The answer is at dp[m][n]\n    return dp[m][n]\n\n# Test cases\nprint(super_seq(\"AGGTAB\", \"GXTXAYB\", 6, 7))  # Expected output: 9\nprint(super_seq(\"feek\", \"eke\", 4, 3))       # Expected output: 5\nprint(super_seq(\"PARRT\", \"RTA\", 5, 3))      # Expected output: 6\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 431,
+      "completion_tokens": 259,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868480.9085073
+}

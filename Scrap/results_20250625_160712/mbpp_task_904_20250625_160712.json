@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 904,
+  "problem": {
+    "task_id": 904,
+    "text": "Write a function to return true if the given number is even else return false.",
+    "code": "def even_num(x):\r\n  if x%2==0:\r\n     return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert even_num(13.5)==False",
+      "assert even_num(0)==True",
+      "assert even_num(-9)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to return true if the given number is even else return false.\n\nTask ID: 904\n\nExpected behavior (test cases):\n1. even_num(13.5)==False\n2. even_num(0)==True\n3. even_num(-9)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4a7ad55a62e041b0954df9490c7595ed",
+    "object": "chat.completion",
+    "created": 1750868419,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef even_num(num):\n    # Check if the number is an integer and divisible by 2\n    return num % 2 == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 121,
+      "total_tokens": 156,
+      "completion_tokens": 35,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868419.9492352
+}

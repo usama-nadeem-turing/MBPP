@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 541,
+  "problem": {
+    "task_id": 541,
+    "text": "Write a function to find if the given number is abundant or not.",
+    "code": "import math \r\ndef get_sum(n): \r\n\tsum = 0\r\n\ti = 1\r\n\twhile i <= (math.sqrt(n)): \r\n\t\tif n%i == 0: \r\n\t\t\tif n/i == i : \r\n\t\t\t\tsum = sum + i \r\n\t\t\telse: \r\n\t\t\t\tsum = sum + i \r\n\t\t\t\tsum = sum + (n / i ) \r\n\t\ti = i + 1\r\n\tsum = sum - n \r\n\treturn sum\r\ndef check_abundant(n): \r\n\tif (get_sum(n) > n): \r\n\t\treturn True\r\n\telse: \r\n\t\treturn False",
+    "test_list": [
+      "assert check_abundant(12) == True",
+      "assert check_abundant(15) == False",
+      "assert check_abundant(18) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find if the given number is abundant or not.\n\nTask ID: 541\n\nExpected behavior (test cases):\n1. check_abundant(12) should return True\n2. check_abundant(15) should return False\n3. check_abundant(18) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-27ebaaa16e9e4e36b623d3582e6b2835",
+    "object": "chat.completion",
+    "created": 1750869957,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_abundant(number):\n    # Calculate the sum of proper divisors of the number\n    def sum_of_divisors(n):\n        total = 0\n        for i in range(1, n // 2 + 1):\n            if n % i == 0:\n                total += i\n        return total\n    \n    # Check if the number is abundant\n    return sum_of_divisors(number) > number\n\n# Test cases\nprint(check_abundant(12))  # Expected output: True\nprint(check_abundant(15))  # Expected output: False\nprint(check_abundant(18))  # Expected output: True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 276,
+      "completion_tokens": 145,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869960.2929451
+}

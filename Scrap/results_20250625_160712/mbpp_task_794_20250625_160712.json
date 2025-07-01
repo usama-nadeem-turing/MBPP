@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 794,
+  "problem": {
+    "task_id": 794,
+    "text": "Write a function that matches a string that has an 'a' followed by anything, ending in 'b'.",
+    "code": "import re\r\ndef text_starta_endb(text):\r\n        patterns = 'a.*?b$'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "test_list": [
+      "assert text_starta_endb(\"aabbbb\")==('Found a match!')",
+      "assert text_starta_endb(\"aabAbbbc\")==('Not matched!')",
+      "assert text_starta_endb(\"accddbbjjj\")==('Not matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a string that has an 'a' followed by anything, ending in 'b'.\n\nTask ID: 794\n\nExpected behavior (test cases):\n1. text_starta_endb(\"aabbbb\")==('Found a match!')\n2. text_starta_endb(\"aabAbbbc\")==('Not matched!')\n3. text_starta_endb(\"accddbbjjj\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ea0f015ca2ac473dbffd91472ec64bcb",
+    "object": "chat.completion",
+    "created": 1750868143,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef text_starta_endb(text):\n    # Check if the first character is 'a' and the last character is 'b'\n    return \"Found a match!\" if text.startswith('a') and text.endswith('b') else \"Not matched!\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "total_tokens": 204,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868144.6705835
+}

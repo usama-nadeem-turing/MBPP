@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 477,
+  "problem": {
+    "task_id": 477,
+    "text": "Write a python function to convert the given string to lower case.",
+    "code": "def is_lower(string):\r\n  return (string.lower())",
+    "test_list": [
+      "assert is_lower(\"InValid\") == \"invalid\"",
+      "assert is_lower(\"TruE\") == \"true\"",
+      "assert is_lower(\"SenTenCE\") == \"sentence\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert the given string to lower case.\n\nTask ID: 477\n\nExpected behavior (test cases):\n1. is_lower(\"InValid\") should return \"invalid\"\n2. is_lower(\"TruE\") should return \"true\"\n3. is_lower(\"SenTenCE\") should return \"sentence\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4a59552c3740412cb7422b6bc1369e63",
+    "object": "chat.completion",
+    "created": 1750869790,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_lower(s):\n    \"\"\"\n    Convert the input string 's' to lowercase.\n    \n    Parameters:\n    s (str): The string to be converted to lowercase.\n    \n    Returns:\n    str: The lowercase version of the input string.\n    \"\"\"\n    return s.lower()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 191,
+      "completion_tokens": 62,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869791.579706
+}

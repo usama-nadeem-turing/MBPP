@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 927,
+  "problem": {
+    "task_id": 927,
+    "text": "Write a function to calculate the height of the given binary tree.",
+    "code": "class Node: \r\n\tdef __init__(self, data): \r\n\t\tself.data = data \r\n\t\tself.left = None\r\n\t\tself.right = None\r\ndef max_height(node): \r\n\tif node is None: \r\n\t\treturn 0 ; \r\n\telse : \r\n\t\tleft_height = max_height(node.left) \r\n\t\tright_height = max_height(node.right) \r\n\t\tif (left_height > right_height): \r\n\t\t\treturn left_height+1\r\n\t\telse: \r\n\t\t\treturn right_height+1",
+    "test_list": [
+      "assert (max_height(root)) == 3",
+      "assert (max_height(root1)) == 5 ",
+      "assert (max_height(root2)) == 4"
+    ],
+    "test_setup_code": "root = Node(1) \r\nroot.left = Node(2) \r\nroot.right = Node(3) \r\nroot.left.left = Node(4) \r\nroot.left.right = Node(5) \r\nroot1 = Node(1);  \r\nroot1.left = Node(2);  \r\nroot1.right = Node(3);  \r\nroot1.left.left = Node(4);  \r\nroot1.right.left = Node(5);  \r\nroot1.right.right = Node(6);  \r\nroot1.right.right.right= Node(7);  \r\nroot1.right.right.right.right = Node(8)\r\nroot2 = Node(1) \r\nroot2.left = Node(2) \r\nroot2.right = Node(3) \r\nroot2.left.left = Node(4) \r\nroot2.left.right = Node(5)\r\nroot2.left.left.left = Node(6)\r\nroot2.left.left.right = Node(7)",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the height of the given binary tree.\n\nTask ID: 927\n\nExpected behavior (test cases):\n1. (max_height(root)) should return 3\n2. (max_height(root1)) should return 5 \n3. (max_height(root2)) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c51d93f343634ecb844080f6f1e89b76",
+    "object": "chat.completion",
+    "created": 1750868487,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_height(node):\n    if node is None:\n        return 0\n    else:\n        left_height = max_height(node.left)\n        right_height = max_height(node.right)\n        return max(left_height, right_height) + 1\n```\n\nThis solution defines a recursive function `max_height` that calculates the maximum height of a binary tree starting from a given root node. It uses recursion to traverse through each level of the tree and returns the maximum height found.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 126,
+      "total_tokens": 226,
+      "completion_tokens": 100,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868489.011015
+}

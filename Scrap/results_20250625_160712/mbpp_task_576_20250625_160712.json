@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 576,
+  "problem": {
+    "task_id": 576,
+    "text": "Write a python function to check whether an array is subarray of another or not.",
+    "code": "def is_Sub_Array(A,B,n,m): \r\n    i = 0; j = 0; \r\n    while (i < n and j < m):  \r\n        if (A[i] == B[j]): \r\n            i += 1; \r\n            j += 1; \r\n            if (j == m): \r\n                return True;  \r\n        else: \r\n            i = i - j + 1; \r\n            j = 0;       \r\n    return False; ",
+    "test_list": [
+      "assert is_Sub_Array([1,4,3,5],[1,2],4,2) == False",
+      "assert is_Sub_Array([1,2,1],[1,2,1],3,3) == True",
+      "assert is_Sub_Array([1,0,2,2],[2,2,0],4,3) ==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether an array is subarray of another or not.\n\nTask ID: 576\n\nExpected behavior (test cases):\n1. is_Sub_Array([1,4,3,5],[1,2],4,2) should return False\n2. is_Sub_Array([1,2,1],[1,2,1],3,3) should return True\n3. is_Sub_Array([1,0,2,2],[2,2,0],4,3) ==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b3ba17033edf4788b49c9cd05d969354",
+    "object": "chat.completion",
+    "created": 1750870043,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_Sub_Array(arr1, arr2, n1, n2):\n    # Check if both arrays have at least one element\n    if n1 <= 0 or n2 <= 0:\n        return False\n    \n    # Initialize pointers for both arrays\n    i = j = 0\n    \n    # Traverse both arrays\n    while i < n1 and j < n2:\n        # If elements match, move both pointers forward\n        if arr1[i] == arr2[j]:\n            i += 1\n            j += 1\n        else:\n            # Move pointer from arr1 forward if no match found\n            i += 1\n            \n    # If all elements of arr2 were found in arr1, return True\n    return j == n2\n```\n\nThis function checks if `arr2` is a subarray of `arr1`. It returns `True` if `arr2` can be obtained by deleting some number of elements from `arr1`, otherwise it returns `False`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 171,
+      "total_tokens": 384,
+      "completion_tokens": 213,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870047.0296257
+}

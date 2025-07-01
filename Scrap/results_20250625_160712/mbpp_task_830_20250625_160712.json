@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 830,
+  "problem": {
+    "task_id": 830,
+    "text": "Write a function to round up a number to specific digits.",
+    "code": "import math\r\ndef round_up(a, digits):\r\n    n = 10**-digits\r\n    return round(math.ceil(a / n) * n, digits)",
+    "test_list": [
+      "assert round_up(123.01247,0)==124",
+      "assert round_up(123.01247,1)==123.1",
+      "assert round_up(123.01247,2)==123.02"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to round up a number to specific digits.\n\nTask ID: 830\n\nExpected behavior (test cases):\n1. round_up(123.01247,0)==124\n2. round_up(123.01247,1)==123.1\n3. round_up(123.01247,2)==123.02\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ed18aa3c5ca64e3aa79628e5286c7559",
+    "object": "chat.completion",
+    "created": 1750868221,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef round_up(number, ndigits):\n    return int(math.ceil(float(number) * 10**ndigits)) / 10**ndigits\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "total_tokens": 195,
+      "completion_tokens": 40,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868222.536527
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 111,
+  "problem": {
+    "task_id": 111,
+    "text": "Write a function to find common elements in given nested lists. * list item * list item * list item * list item",
+    "code": "def common_in_nested_lists(nestedlist):\r\n    result = list(set.intersection(*map(set, nestedlist)))\r\n    return result",
+    "test_list": [
+      "assert common_in_nested_lists([[12, 18, 23, 25, 45], [7, 12, 18, 24, 28], [1, 5, 8, 12, 15, 16, 18]])==[18, 12]",
+      "assert common_in_nested_lists([[12, 5, 23, 25, 45], [7, 11, 5, 23, 28], [1, 5, 8, 18, 23, 16]])==[5,23]",
+      "assert common_in_nested_lists([[2, 3,4, 1], [4, 5], [6,4, 8],[4, 5], [6, 8,4]])==[4]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find common elements in given nested lists. * list item * list item * list item * list item\n\nTask ID: 111\n\nExpected behavior (test cases):\n1. common_in_nested_lists([[12, 18, 23, 25, 45], [7, 12, 18, 24, 28], [1, 5, 8, 12, 15, 16, 18]])==[18, 12]\n2. common_in_nested_lists([[12, 5, 23, 25, 45], [7, 11, 5, 23, 28], [1, 5, 8, 18, 23, 16]])==[5,23]\n3. common_in_nested_lists([[2, 3,4, 1], [4, 5], [6,4, 8],[4, 5], [6, 8,4]])==[4]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-19835d0d62ca43e5b4aef009dd4b84be",
+    "object": "chat.completion",
+    "created": 1750868863,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef common_in_nested_lists(nested_lists):\n    # Flatten the nested lists into one list and remove duplicates\n    flat_list = set(item for sublist in nested_lists for item in sublist)\n    \n    # Convert the set back to a sorted list\n    return sorted(list(flat_list))\n```\n\nThis solution flattens the nested lists into a single list using a generator expression within a set comprehension. The use of `set` automatically removes duplicate values. Finally, it converts the set back to a list and sorts it before returning it.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 298,
+      "total_tokens": 410,
+      "completion_tokens": 112,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868865.788536
+}

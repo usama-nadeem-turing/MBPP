@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 683,
+  "problem": {
+    "task_id": 683,
+    "text": "Write a python function to check whether the given number can be represented by sum of two squares or not.",
+    "code": "def sum_Square(n) : \r\n    i = 1 \r\n    while i*i <= n : \r\n        j = 1\r\n        while (j*j <= n) : \r\n            if (i*i+j*j == n) : \r\n                return True\r\n            j = j+1\r\n        i = i+1     \r\n    return False",
+    "test_list": [
+      "assert sum_Square(25) == True",
+      "assert sum_Square(24) == False",
+      "assert sum_Square(17) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number can be represented by sum of two squares or not.\n\nTask ID: 683\n\nExpected behavior (test cases):\n1. sum_Square(25) should return True\n2. sum_Square(24) should return False\n3. sum_Square(17) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3eb4a7b49ee74558aa7a94bda1bb463c",
+    "object": "chat.completion",
+    "created": 1750867841,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_Square(n):\n    for i in range(int(n**0.5)+1):\n        j = int((n - i*i)**0.5)\n        if i*i + j*j == n:\n            return True\n    return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 192,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867842.5559022
+}

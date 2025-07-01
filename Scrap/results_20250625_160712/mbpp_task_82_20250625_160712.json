@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 82,
+  "problem": {
+    "task_id": 82,
+    "text": "Write a function to find the volume of a sphere.",
+    "code": "import math\r\ndef volume_sphere(r):\r\n  volume=(4/3)*math.pi*r*r*r\r\n  return volume",
+    "test_list": [
+      "assert volume_sphere(10)==4188.790204786391",
+      "assert volume_sphere(25)==65449.84694978735",
+      "assert volume_sphere(20)==33510.32163829113"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the volume of a sphere.\n\nTask ID: 82\n\nExpected behavior (test cases):\n1. volume_sphere(10)==4188.790204786391\n2. volume_sphere(25)==65449.84694978735\n3. volume_sphere(20)==33510.32163829113\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-958f8eca0d4a4625802670fd63650206",
+    "object": "chat.completion",
+    "created": 1750868793,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef volume_sphere(radius):\n    \"\"\"\n    Calculate the volume of a sphere given its radius.\n    \n    Parameters:\n    radius (float): The radius of the sphere.\n    \n    Returns:\n    float: The volume of the sphere.\n    \"\"\"\n    return (4/3) * math.pi * (radius ** 3)\n\n# Test cases\nprint(volume_sphere(10)) # Expected output: 4188.790204786391\nprint(volume_sphere(25)) # Expected output: 65449.84694978735\nprint(volume_sphere(20)) # Expected output: 33510.32163829113\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "total_tokens": 330,
+      "completion_tokens": 167,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868795.9203546
+}

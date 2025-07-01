@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 152,
+  "problem": {
+    "task_id": 152,
+    "text": "Write a function to sort the given array by using merge sort.",
+    "code": "def merge(a,b):\r\n    c = []\r\n    while len(a) != 0 and len(b) != 0:\r\n        if a[0] < b[0]:\r\n            c.append(a[0])\r\n            a.remove(a[0])\r\n        else:\r\n            c.append(b[0])\r\n            b.remove(b[0])\r\n    if len(a) == 0:\r\n        c += b\r\n    else:\r\n        c += a\r\n    return c\r\ndef merge_sort(x):\r\n    if len(x) == 0 or len(x) == 1:\r\n        return x\r\n    else:\r\n        middle = len(x)//2\r\n        a = merge_sort(x[:middle])\r\n        b = merge_sort(x[middle:])\r\n        return merge(a,b)\r\n",
+    "test_list": [
+      "assert merge_sort([3, 4, 2, 6, 5, 7, 1, 9]) == [1, 2, 3, 4, 5, 6, 7, 9]",
+      "assert merge_sort([7, 25, 45, 78, 11, 33, 19]) == [7, 11, 19, 25, 33, 45, 78]",
+      "assert merge_sort([3, 1, 4, 9, 8]) == [1, 3, 4, 8, 9]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort the given array by using merge sort.\n\nTask ID: 152\n\nExpected behavior (test cases):\n1. merge_sort([3, 4, 2, 6, 5, 7, 1, 9]) should return [1, 2, 3, 4, 5, 6, 7, 9]\n2. merge_sort([7, 25, 45, 78, 11, 33, 19]) should return [7, 11, 19, 25, 33, 45, 78]\n3. merge_sort([3, 1, 4, 9, 8]) should return [1, 3, 4, 8, 9]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cd45375e957f46239d09f866238c470c",
+    "object": "chat.completion",
+    "created": 1750868972,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    \n    mid = len(arr) // 2\n    left_half = arr[:mid]\n    right_half = arr[mid:]\n    \n    left_half = merge_sort(left_half)\n    right_half = merge_sort(right_half)\n    \n    return list(merge(left_half, right_half))\n\ndef merge(left, right):\n    merged = []\n    i = j = 0\n    \n    while i < len(left) and j < len(right):\n        if left[i] < right[j]:\n            merged.append(left[i])\n            i += 1\n        else:\n            merged.append(right[j])\n            j += 1\n            \n    while i < len(left):\n        merged.append(left[i])\n        i += 1\n        \n    while j < len(right):\n        merged.append(right[j])\n        j += 1\n        \n    return merged\n\n# Test cases\nprint(merge_sort([3, 4, 2, 6, 5, 7, 1, 9]))  # Expected output: [1, 2, 3, 4, 5, 6, 7, 9]\nprint(merge_sort([7, 25, 45, 78, 11, 33, 19]))  # Expected output: [7, 11, 19, 25, 33, 45, 78]\nprint(merge_sort([3, 1, 4, 9, 8]))  # Expected output: [1, 3, 4, 8, 9]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 238,
+      "total_tokens": 589,
+      "completion_tokens": 351,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868978.5969467
+}

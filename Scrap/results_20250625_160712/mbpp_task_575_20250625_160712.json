@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 575,
+  "problem": {
+    "task_id": 575,
+    "text": "Write a python function to find nth number in a sequence which is not a multiple of a given number.",
+    "code": "def count_no (A,N,L,R): \r\n    count = 0\r\n    for i in range (L,R + 1): \r\n        if (i % A != 0): \r\n            count += 1\r\n        if (count == N): \r\n            break\r\n    return (i) ",
+    "test_list": [
+      "assert count_no(2,3,1,10) == 5",
+      "assert count_no(3,6,4,20) == 11",
+      "assert count_no(5,10,4,20) == 16"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find nth number in a sequence which is not a multiple of a given number.\n\nTask ID: 575\n\nExpected behavior (test cases):\n1. count_no(2,3,1,10) should return 5\n2. count_no(3,6,4,20) should return 11\n3. count_no(5,10,4,20) should return 16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0df54936a55a426aab2a3616f3a39a30",
+    "object": "chat.completion",
+    "created": 1750870038,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_no(n, k, m, limit):\n    \"\"\"\n    This function calculates the nth number in a sequence where each number is not divisible by 'k'.\n    The sequence starts from 1 and goes up to 'limit'. It returns the nth element that does not meet the divisibility condition.\n    \n    :param n: The position in the sequence we want to find.\n    :param k: The divisor used to check if a number is in the sequence.\n    :param m: The starting point for the sequence.\n    :param limit: The upper bound of the sequence.\n    :return: The nth number in the sequence that is not divisible by 'k'.\n    \"\"\"\n    current = m\n    count = 0\n    \n    while True:\n        if current % k != 0:\n            count += 1\n            if count == n:\n                return current\n        current += 1\n\n# Example usage\nprint(count_no(2, 3, 1, 10))  # Expected output: 5\nprint(count_no(3, 6, 4, 20))  # Expected output: 11\nprint(count_no(5, 10, 4, 20)) # Expected output: 16\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "total_tokens": 424,
+      "completion_tokens": 268,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870042.952888
+}

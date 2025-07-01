@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 596,
+  "problem": {
+    "task_id": 596,
+    "text": "Write a function to find the size of the given tuple.",
+    "code": "import sys \r\ndef tuple_size(tuple_list):\r\n  return (sys.getsizeof(tuple_list)) ",
+    "test_list": [
+      "assert tuple_size((\"A\", 1, \"B\", 2, \"C\", 3) ) == sys.getsizeof((\"A\", 1, \"B\", 2, \"C\", 3))",
+      "assert tuple_size((1, \"Raju\", 2, \"Nikhil\", 3, \"Deepanshu\") ) == sys.getsizeof((1, \"Raju\", 2, \"Nikhil\", 3, \"Deepanshu\"))",
+      "assert tuple_size(((1, \"Lion\"), ( 2, \"Tiger\"), (3, \"Fox\"), (4, \"Wolf\"))  ) == sys.getsizeof(((1, \"Lion\"), ( 2, \"Tiger\"), (3, \"Fox\"), (4, \"Wolf\")))"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the size of the given tuple.\n\nTask ID: 596\n\nExpected behavior (test cases):\n1. tuple_size((\"A\", 1, \"B\", 2, \"C\", 3) ) should return sys.getsizeof((\"A\", 1, \"B\", 2, \"C\", 3))\n2. tuple_size((1, \"Raju\", 2, \"Nikhil\", 3, \"Deepanshu\") ) should return sys.getsizeof((1, \"Raju\", 2, \"Nikhil\", 3, \"Deepanshu\"))\n3. tuple_size(((1, \"Lion\"), ( 2, \"Tiger\"), (3, \"Fox\"), (4, \"Wolf\"))  ) should return sys.getsizeof(((1, \"Lion\"), ( 2, \"Tiger\"), (3, \"Fox\"), (4, \"Wolf\")))\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ad742882599a483c994b800f18b6ed82",
+    "object": "chat.completion",
+    "created": 1750870097,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport sys\n\ndef tuple_size(tup):\n    # Calculate and return the size of the given tuple using sys.getsizeof()\n    return sys.getsizeof(tup)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 255,
+      "total_tokens": 293,
+      "completion_tokens": 38,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870098.4878259
+}

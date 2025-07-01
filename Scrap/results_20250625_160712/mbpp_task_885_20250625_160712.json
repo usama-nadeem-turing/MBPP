@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 885,
+  "problem": {
+    "task_id": 885,
+    "text": "Write a python function to check whether the two given strings are isomorphic to each other or not.",
+    "code": "def is_Isomorphic(str1,str2):          \r\n    dict_str1 = {}\r\n    dict_str2 = {}\r\n    for i, value in enumerate(str1):\r\n        dict_str1[value] = dict_str1.get(value,[]) + [i]        \r\n    for j, value in enumerate(str2):\r\n        dict_str2[value] = dict_str2.get(value,[]) + [j]\r\n    if sorted(dict_str1.values()) == sorted(dict_str2.values()):\r\n        return True\r\n    else:\r\n        return False",
+    "test_list": [
+      "assert is_Isomorphic(\"paper\",\"title\") == True",
+      "assert is_Isomorphic(\"ab\",\"ba\") == True",
+      "assert is_Isomorphic(\"ab\",\"aa\") == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the two given strings are isomorphic to each other or not.\n\nTask ID: 885\n\nExpected behavior (test cases):\n1. is_Isomorphic(\"paper\",\"title\") should return True\n2. is_Isomorphic(\"ab\",\"ba\") should return True\n3. is_Isomorphic(\"ab\",\"aa\") should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4dd59a0cde404341bf5e1c2f286b17a0",
+    "object": "chat.completion",
+    "created": 1750868372,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_Isomorphic(str1, str2):\n    if len(str1) != len(str2):\n        return False\n    \n    mapping = {}\n    reverse_mapping = {}\n    \n    for char1, char2 in zip(str1, str2):\n        if char1 in mapping:\n            if mapping[char1] != char2:\n                return False\n        else:\n            mapping[char1] = char2\n        \n        if char2 in reverse_mapping:\n            if reverse_mapping[char2] != char1:\n                return False\n        else:\n            reverse_mapping[char2] = char1\n    \n    return True\n```\n\nThis function checks if two strings `str1` and `str2` are isomorphic by comparing their characters. It uses dictionaries (`mapping` and `reverse_mapping`) to keep track of character mappings between corresponding positions in both strings. If at any point it finds mismatches during these comparisons, it returns `False`. Otherwise, after checking all pairs, it returns `True`, indicating that the strings are indeed isomorphic.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 351,
+      "completion_tokens": 214,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868376.340882
+}

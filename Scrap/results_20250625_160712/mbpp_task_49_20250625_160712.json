@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 49,
+  "problem": {
+    "task_id": 49,
+    "text": "Write a function to extract every first or specified element from a given two-dimensional list.",
+    "code": "def specified_element(nums, N):\r\n    result = [i[N] for i in nums]\r\n    return result\r\n    ",
+    "test_list": [
+      "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]",
+      "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],2)==[3, 6, 9]",
+      "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],1)==[2,5,1]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract every first or specified element from a given two-dimensional list.\n\nTask ID: 49\n\nExpected behavior (test cases):\n1. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]\n2. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],2)==[3, 6, 9]\n3. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],1)==[2,5,1]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4e566f552c2e422b9dc112064934283d",
+    "object": "chat.completion",
+    "created": 1750868704,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef specified_element(matrix, index):\n    return [row[index] for row in matrix if len(row) > index]\n\n# Test cases\nprint(specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]], 0)) # Output: [1, 4, 7]\nprint(specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]], 2)) # Output: [3, 6, 9]\nprint(specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]], 1)) # Output: [2, 5, 1]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 242,
+      "total_tokens": 440,
+      "completion_tokens": 198,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868707.724395
+}

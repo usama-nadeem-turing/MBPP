@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 644,
+  "problem": {
+    "task_id": 644,
+    "text": "Write a python function to reverse an array upto a given position.",
+    "code": "def reverse_Array_Upto_K(input, k): \r\n  return (input[k-1::-1] + input[k:]) ",
+    "test_list": [
+      "assert reverse_Array_Upto_K([1, 2, 3, 4, 5, 6],4) == [4, 3, 2, 1, 5, 6]",
+      "assert reverse_Array_Upto_K([4, 5, 6, 7], 2) == [5, 4, 6, 7]",
+      "assert reverse_Array_Upto_K([9, 8, 7, 6, 5],3) == [7, 8, 9, 6, 5]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to reverse an array upto a given position.\n\nTask ID: 644\n\nExpected behavior (test cases):\n1. reverse_Array_Upto_K([1, 2, 3, 4, 5, 6],4) should return [4, 3, 2, 1, 5, 6]\n2. reverse_Array_Upto_K([4, 5, 6, 7], 2) should return [5, 4, 6, 7]\n3. reverse_Array_Upto_K([9, 8, 7, 6, 5],3) should return [7, 8, 9, 6, 5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-38be7bc709814c62a18c5049ef1bf39b",
+    "object": "chat.completion",
+    "created": 1750867756,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef reverse_Array_Upto_K(arr, k):\n    # Reverse the subarray from index 0 to k-1\n    arr[:k] = reversed(arr[:k])\n    \n    return arr\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 212,
+      "total_tokens": 258,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867757.6311707
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 524,
+  "problem": {
+    "task_id": 524,
+    "text": "Write a function to find the sum of maximum increasing subsequence of the given array.",
+    "code": "def max_sum_increasing_subsequence(arr, n): \r\n\tmax = 0\r\n\tmsis = [0 for x in range(n)] \r\n\tfor i in range(n): \r\n\t\tmsis[i] = arr[i] \r\n\tfor i in range(1, n): \r\n\t\tfor j in range(i): \r\n\t\t\tif (arr[i] > arr[j] and\r\n\t\t\t\tmsis[i] < msis[j] + arr[i]): \r\n\t\t\t\tmsis[i] = msis[j] + arr[i] \r\n\tfor i in range(n): \r\n\t\tif max < msis[i]: \r\n\t\t\tmax = msis[i] \r\n\treturn max",
+    "test_list": [
+      "assert max_sum_increasing_subsequence([1, 101, 2, 3, 100, 4, 5], 7) == 106",
+      "assert max_sum_increasing_subsequence([3, 4, 5, 10], 4) == 22",
+      "assert max_sum_increasing_subsequence([10, 5, 4, 3], 4) == 10"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the sum of maximum increasing subsequence of the given array.\n\nTask ID: 524\n\nExpected behavior (test cases):\n1. max_sum_increasing_subsequence([1, 101, 2, 3, 100, 4, 5], 7) should return 106\n2. max_sum_increasing_subsequence([3, 4, 5, 10], 4) should return 22\n3. max_sum_increasing_subsequence([10, 5, 4, 3], 4) should return 10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2e352e40fbb6492ebaba4334bfd1304b",
+    "object": "chat.completion",
+    "created": 1750869915,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sum_increasing_subsequence(arr, n):\n    # Initialize the dp array where dp[i] represents the sum of the maximum increasing subsequence ending at index i.\n    dp = [arr[0]] * n\n    \n    for i in range(1, n):\n        # Update dp[i] with the maximum value between itself and arr[i] plus the maximum value found so far from the start up to i-1.\n        dp[i] = max(dp[i], arr[i])\n    \n    # Find the maximum value in the dp array which will be the answer as we need the sum of the maximum increasing subsequence.\n    max_val = max(dp)\n    \n    # Calculate the total number of elements in the maximum increasing subsequence.\n    count = 0\n    for num in dp:\n        if num == max_val:\n            count += 1\n            \n    # Return the product of the maximum value and the count of its occurrences.\n    return max_val * count\n```\n\nThis solution uses dynamic programming to keep track of the maximum sum of increasing subsequences ending at each position in the array. It then finds the maximum value in the `dp` array, calculates how many times it appears, and returns their product as required.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 195,
+      "total_tokens": 451,
+      "completion_tokens": 256,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869920.1427824
+}

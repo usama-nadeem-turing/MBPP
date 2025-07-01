@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 864,
+  "problem": {
+    "task_id": 864,
+    "text": "Write a function to find palindromes in a given list of strings using lambda function.",
+    "code": "def palindrome_lambda(texts):\r\n  result = list(filter(lambda x: (x == \"\".join(reversed(x))), texts))\r\n  return result",
+    "test_list": [
+      "assert palindrome_lambda([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])==['php', 'aaa']",
+      "assert palindrome_lambda([\"abcd\", \"Python\", \"abba\", \"aba\"])==['abba', 'aba']",
+      "assert palindrome_lambda([\"abcd\", \"abbccbba\", \"abba\", \"aba\"])==['abbccbba', 'abba', 'aba']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find palindromes in a given list of strings using lambda function.\n\nTask ID: 864\n\nExpected behavior (test cases):\n1. palindrome_lambda([\"php\", \"res\", \"Python\", \"abcd\", \"Java\", \"aaa\"])==['php', 'aaa']\n2. palindrome_lambda([\"abcd\", \"Python\", \"abba\", \"aba\"])==['abba', 'aba']\n3. palindrome_lambda([\"abcd\", \"abbccbba\", \"abba\", \"aba\"])==['abbccbba', 'abba', 'aba']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0a69890769d94621b2888d8b0668bedd",
+    "object": "chat.completion",
+    "created": 1750868326,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef palindrome_lambda(strings):\n    return list(filter(lambda s: s == s[::-1], strings))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 180,
+      "total_tokens": 205,
+      "completion_tokens": 25,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868326.7557795
+}

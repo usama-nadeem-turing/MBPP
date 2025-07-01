@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 458,
+  "problem": {
+    "task_id": 458,
+    "text": "Write a function to find the area of a rectangle.",
+    "code": "def rectangle_area(l,b):\r\n  area=l*b\r\n  return area",
+    "test_list": [
+      "assert rectangle_area(10,20)==200",
+      "assert rectangle_area(10,5)==50",
+      "assert rectangle_area(4,2)==8"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the area of a rectangle.\n\nTask ID: 458\n\nExpected behavior (test cases):\n1. rectangle_area(10,20)==200\n2. rectangle_area(10,5)==50\n3. rectangle_area(4,2)==8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-68a19e001bb74dbc81430ca704466f0d",
+    "object": "chat.completion",
+    "created": 1750869746,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef rectangle_area(length, width):\n    return length * width\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "total_tokens": 143,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869746.6641812
+}

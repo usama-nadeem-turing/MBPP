@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 969,
+  "problem": {
+    "task_id": 969,
+    "text": "Write a function to join the tuples if they have similar initial elements.",
+    "code": "def join_tuples(test_list):\r\n  res = []\r\n  for sub in test_list:\r\n    if res and res[-1][0] == sub[0]:\r\n      res[-1].extend(sub[1:])\r\n    else:\r\n      res.append([ele for ele in sub])\r\n  res = list(map(tuple, res))\r\n  return (res) ",
+    "test_list": [
+      "assert join_tuples([(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)] ) == [(5, 6, 7), (6, 8, 10), (7, 13)]",
+      "assert join_tuples([(6, 7), (6, 8), (7, 9), (7, 11), (8, 14)] ) == [(6, 7, 8), (7, 9, 11), (8, 14)]",
+      "assert join_tuples([(7, 8), (7, 9), (8, 10), (8, 12), (9, 15)] ) == [(7, 8, 9), (8, 10, 12), (9, 15)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to join the tuples if they have similar initial elements.\n\nTask ID: 969\n\nExpected behavior (test cases):\n1. join_tuples([(5, 6), (5, 7), (6, 8), (6, 10), (7, 13)] ) should return [(5, 6, 7), (6, 8, 10), (7, 13)]\n2. join_tuples([(6, 7), (6, 8), (7, 9), (7, 11), (8, 14)] ) should return [(6, 7, 8), (7, 9, 11), (8, 14)]\n3. join_tuples([(7, 8), (7, 9), (8, 10), (8, 12), (9, 15)] ) should return [(7, 8, 9), (8, 10, 12), (9, 15)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4f386b5170d447a197e50d63a2776249",
+    "object": "chat.completion",
+    "created": 1750868594,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef join_tuples(tuples_list):\n    # Sort each tuple based on its first element\n    sorted_tuples = [tuple(sorted(x)) for x in tuples_list]\n    \n    # Group tuples with the same first element together\n    grouped_tuples = {}\n    for tup in sorted_tuples:\n        key = tup[0]\n        if key not in grouped_tuples:\n            grouped_tuples[key] = []\n        grouped_tuples[key].append(tup)\n    \n    # Join groups back into tuples\n    joined_tuples = []\n    for group in grouped_tuples.values():\n        joined_group = ()\n        for i in range(len(group)):\n            joined_group += group[i], \n        joined_tuples.append(joined_group)\n    \n    return joined_tuples\n```\n\nThis solution sorts each tuple within the list based on its first element and then groups them accordingly. It finally joins these groups back into tuples as required.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 287,
+      "total_tokens": 468,
+      "completion_tokens": 181,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868597.4506981
+}

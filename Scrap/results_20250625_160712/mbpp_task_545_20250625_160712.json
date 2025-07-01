@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 545,
+  "problem": {
+    "task_id": 545,
+    "text": "Write a python function to toggle only first and last bits of a given number.",
+    "code": "def take_L_and_F_set_bits(n) : \r\n    n = n | n >> 1\r\n    n = n | n >> 2\r\n    n = n | n >> 4\r\n    n = n | n >> 8\r\n    n = n | n >> 16 \r\n    return ((n + 1) >> 1) + 1      \r\ndef toggle_F_and_L_bits(n) :  \r\n    if (n == 1) : \r\n        return 0 \r\n    return n ^ take_L_and_F_set_bits(n) ",
+    "test_list": [
+      "assert toggle_F_and_L_bits(10) == 3",
+      "assert toggle_F_and_L_bits(15) == 6",
+      "assert toggle_F_and_L_bits(20) == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to toggle only first and last bits of a given number.\n\nTask ID: 545\n\nExpected behavior (test cases):\n1. toggle_F_and_L_bits(10) should return 3\n2. toggle_F_and_L_bits(15) should return 6\n3. toggle_F_and_L_bits(20) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cc368fb017004ab38fec2ba108ddde99",
+    "object": "chat.completion",
+    "created": 1750869966,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef toggle_F_and_L_bits(n):\n    # Toggle the first and last bits using bitwise operations\n    n = ((n & 0xAAAAAAAA) >> 1) | ((n & 0x55555555) << 1)\n    return n\n\n# Test cases\nprint(toggle_F_and_L_bits(10))  # Expected output: 3\nprint(toggle_F_and_L_bits(15))  # Expected output: 6\nprint(toggle_F_and_L_bits(20))  # Expected output: 5\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 264,
+      "completion_tokens": 125,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869968.7080832
+}

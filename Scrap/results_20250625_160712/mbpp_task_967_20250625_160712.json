@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 967,
+  "problem": {
+    "task_id": 967,
+    "text": "Write a python function to accept the strings which contains all vowels.",
+    "code": "def check(string): \r\n  if len(set(string).intersection(\"AEIOUaeiou\"))>=5: \r\n    return ('accepted') \r\n  else: \r\n    return (\"not accepted\") ",
+    "test_list": [
+      "assert check(\"SEEquoiaL\") == 'accepted'",
+      "assert check('program') == \"not accepted\"",
+      "assert check('fine') == \"not accepted\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to accept the strings which contains all vowels.\n\nTask ID: 967\n\nExpected behavior (test cases):\n1. check(\"SEEquoiaL\") should return 'accepted'\n2. check('program') should return \"not accepted\"\n3. check('fine') should return \"not accepted\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c0581b84a41b42fd89c6baaf6314febc",
+    "object": "chat.completion",
+    "created": 1750868589,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check(s):\n    # Define the set of vowels for comparison\n    vowels = {'a', 'e', 'i', 'o', 'u'}\n    \n    # Check if each character in the string is a vowel and all characters are unique\n    if len(set([c.lower() for c in s if c.lower() in vowels])) == len(vowels) and len(set(s)) == len(s):\n        return 'accepted'\n    else:\n        return 'not accepted'\n\n# Test cases\nprint(check(\"SEEquoiaL\"))  # Expected output: 'accepted'\nprint(check('program'))   # Expected output: 'not accepted'\nprint(check('fine'))      # Expected output: 'not accepted'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 280,
+      "completion_tokens": 153,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868592.3814888
+}

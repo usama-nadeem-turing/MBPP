@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 269,
+  "problem": {
+    "task_id": 269,
+    "text": "Write a function to find the ascii value of a character.",
+    "code": "def ascii_value(k):\r\n  ch=k\r\n  return ord(ch)",
+    "test_list": [
+      "assert ascii_value('A')==65",
+      "assert ascii_value('R')==82",
+      "assert ascii_value('S')==83"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the ascii value of a character.\n\nTask ID: 269\n\nExpected behavior (test cases):\n1. ascii_value('A')==65\n2. ascii_value('R')==82\n3. ascii_value('S')==83\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-61c0999fa4cd466eb5d2bff78eab54e6",
+    "object": "chat.completion",
+    "created": 1750869274,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef ascii_value(char):\n    return ord(char)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "total_tokens": 132,
+      "completion_tokens": 15,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869274.2891507
+}

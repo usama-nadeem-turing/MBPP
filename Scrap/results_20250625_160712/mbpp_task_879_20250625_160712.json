@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 879,
+  "problem": {
+    "task_id": 879,
+    "text": "Write a function that matches a string that has an 'a' followed by anything, ending in 'b' by using regex.",
+    "code": "import re\r\ndef text_match(text):\r\n  patterns = 'a.*?b$'\r\n  if re.search(patterns,  text):\r\n    return ('Found a match!')\r\n  else:\r\n    return ('Not matched!')",
+    "test_list": [
+      "assert text_match(\"aabbbbd\") == 'Not matched!'",
+      "assert text_match(\"aabAbbbc\") == 'Not matched!'",
+      "assert text_match(\"accddbbjjjb\") == 'Found a match!'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a string that has an 'a' followed by anything, ending in 'b' by using regex.\n\nTask ID: 879\n\nExpected behavior (test cases):\n1. text_match(\"aabbbbd\") should return 'Not matched!'\n2. text_match(\"aabAbbbc\") should return 'Not matched!'\n3. text_match(\"accddbbjjjb\") should return 'Found a match!'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5ac2b6770cdc4f839f57e31dbe2c5fdb",
+    "object": "chat.completion",
+    "created": 1750868357,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef text_match(text):\n    # Define the regex pattern to match 'a' followed by any characters and ending with 'b'\n    pattern = r'a.*?b$'\n    \n    # Search for the pattern in the given text\n    if re.search(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n\n# Test cases\nprint(text_match(\"aabbbbd\"))   # Expected output: \"Not matched!\"\nprint(text_match(\"aabAbbbc\"))  # Expected output: \"Not matched!\"\nprint(text_match(\"accddbbjjjb\")) # Expected output: \"Found a match!\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "total_tokens": 288,
+      "completion_tokens": 138,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868359.3257315
+}

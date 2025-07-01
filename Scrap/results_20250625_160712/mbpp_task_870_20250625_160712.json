@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 870,
+  "problem": {
+    "task_id": 870,
+    "text": "Write a function to calculate the sum of the positive numbers of a given list of numbers using lambda function.",
+    "code": "def sum_positivenum(nums):\r\n  sum_positivenum = list(filter(lambda nums:nums>0,nums))\r\n  return sum(sum_positivenum)",
+    "test_list": [
+      "assert sum_positivenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==48",
+      "assert sum_positivenum([10,15,-14,13,-18,12,-20])==50",
+      "assert sum_positivenum([19, -65, 57, 39, 152,-639, 121, 44, 90, -190])==522"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the sum of the positive numbers of a given list of numbers using lambda function.\n\nTask ID: 870\n\nExpected behavior (test cases):\n1. sum_positivenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==48\n2. sum_positivenum([10,15,-14,13,-18,12,-20])==50\n3. sum_positivenum([19, -65, 57, 39, 152,-639, 121, 44, 90, -190])==522\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1d6a1a4b6adc4ab2965c16dcfe2d2df0",
+    "object": "chat.completion",
+    "created": 1750868338,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_positivenum(numbers):\n    return sum(filter(lambda x: x > 0, numbers))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 223,
+      "total_tokens": 250,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868338.5970323
+}

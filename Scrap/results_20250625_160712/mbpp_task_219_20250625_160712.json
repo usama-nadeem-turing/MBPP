@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 219,
+  "problem": {
+    "task_id": 219,
+    "text": "Write a function to extract maximum and minimum k elements in the given tuple.",
+    "code": "\r\ndef extract_min_max(test_tup, K):\r\n  res = []\r\n  test_tup = list(test_tup)\r\n  temp = sorted(test_tup)\r\n  for idx, val in enumerate(temp):\r\n    if idx < K or idx >= len(temp) - K:\r\n      res.append(val)\r\n  res = tuple(res)\r\n  return (res) ",
+    "test_list": [
+      "assert extract_min_max((5, 20, 3, 7, 6, 8), 2) == (3, 5, 8, 20)",
+      "assert extract_min_max((4, 5, 6, 1, 2, 7), 3) == (1, 2, 4, 5, 6, 7)",
+      "assert extract_min_max((2, 3, 4, 8, 9, 11, 7), 4) == (2, 3, 4, 7, 8, 9, 11)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract maximum and minimum k elements in the given tuple.\n\nTask ID: 219\n\nExpected behavior (test cases):\n1. extract_min_max((5, 20, 3, 7, 6, 8), 2) should return (3, 5, 8, 20)\n2. extract_min_max((4, 5, 6, 1, 2, 7), 3) should return (1, 2, 4, 5, 6, 7)\n3. extract_min_max((2, 3, 4, 8, 9, 11, 7), 4) should return (2, 3, 4, 7, 8, 9, 11)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0de48664b7bb48e7959f597b9e4b41a6",
+    "object": "chat.completion",
+    "created": 1750869157,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract_min_max(tup, k):\n    # Sort the tuple in ascending order\n    sorted_tup = sorted(tup)\n    \n    # Extract the first k smallest and largest elements from the sorted tuple\n    min_elements = sorted_tup[:k]\n    max_elements = sorted_tup[-k:]\n    \n    # Combine the extracted elements into a new tuple\n    result = min_elements + max_elements\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 232,
+      "total_tokens": 325,
+      "completion_tokens": 93,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869158.713882
+}

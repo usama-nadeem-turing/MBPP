@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 892,
+  "problem": {
+    "task_id": 892,
+    "text": "Write a function to remove multiple spaces in a string.",
+    "code": "import re\r\ndef remove_spaces(text):\r\n return (re.sub(' +',' ',text))",
+    "test_list": [
+      "assert remove_spaces('python  program')==('python program')",
+      "assert remove_spaces('python   programming    language')==('python programming language')",
+      "assert remove_spaces('python                     program')==('python program')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove multiple spaces in a string.\n\nTask ID: 892\n\nExpected behavior (test cases):\n1. remove_spaces('python  program')==('python program')\n2. remove_spaces('python   programming    language')==('python programming language')\n3. remove_spaces('python                     program')==('python program')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-41d1478506074d3f8457983ef8d55a1a",
+    "object": "chat.completion",
+    "created": 1750868388,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_spaces(s):\n    return ' '.join(s.split())\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 146,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868389.0954347
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 266,
+  "problem": {
+    "task_id": 266,
+    "text": "Write a function to find the lateral surface area of a cube.",
+    "code": "def lateralsurface_cube(l):\r\n  LSA = 4 * (l * l)\r\n  return LSA",
+    "test_list": [
+      "assert lateralsurface_cube(5)==100",
+      "assert lateralsurface_cube(9)==324",
+      "assert lateralsurface_cube(10)==400"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the lateral surface area of a cube.\n\nTask ID: 266\n\nExpected behavior (test cases):\n1. lateralsurface_cube(5)==100\n2. lateralsurface_cube(9)==324\n3. lateralsurface_cube(10)==400\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1b5f5405d3704a0c84103943f96e83a8",
+    "object": "chat.completion",
+    "created": 1750869267,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef lateralsurface_cube(side_length):\n    \"\"\"\n    Calculate the lateral surface area of a cube given its side length.\n    \n    Parameters:\n    side_length (int): The length of one side of the cube.\n    \n    Returns:\n    int: The lateral surface area of the cube.\n    \"\"\"\n    return 4 * side_length ** 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 204,
+      "completion_tokens": 76,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869268.7549074
+}

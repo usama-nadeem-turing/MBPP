@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 61,
+  "problem": {
+    "task_id": 61,
+    "text": "Write a python function to count number of substrings with the sum of digits equal to their length.",
+    "code": "from collections import defaultdict\r\ndef count_Substrings(s,n):\r\n    count,sum = 0,0\r\n    mp = defaultdict(lambda : 0)\r\n    mp[0] += 1\r\n    for i in range(n):\r\n        sum += ord(s[i]) - ord('0')\r\n        count += mp[sum - (i + 1)]\r\n        mp[sum - (i + 1)] += 1\r\n    return count",
+    "test_list": [
+      "assert count_Substrings('112112',6) == 6",
+      "assert count_Substrings('111',3) == 6",
+      "assert count_Substrings('1101112',7) == 12"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count number of substrings with the sum of digits equal to their length.\n\nTask ID: 61\n\nExpected behavior (test cases):\n1. count_Substrings('112112',6) should return 6\n2. count_Substrings('111',3) should return 6\n3. count_Substrings('1101112',7) should return 12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d96ec93dc85447399d36e5f12f031d20",
+    "object": "chat.completion",
+    "created": 1750868734,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Substrings(s, n):\n    # Initialize variables\n    count = 0\n    current_sum = 0\n    \n    for i in range(n):\n        if s[i] == '1':\n            current_sum += 1\n        else:\n            current_sum = 0\n        \n        # Check if the current substring's sum equals its length\n        if current_sum * 5 + i + 1 == n:\n            count += 1\n            \n    return count\n```\n\nThis solution iterates through each character of the string `s`, updating the sum based on whether it is '1' or not. It then checks if the current sum multiplied by 5 plus the index equals the total length `n`. If so, it increments the count.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "total_tokens": 312,
+      "completion_tokens": 159,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868737.149967
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 858,
+  "problem": {
+    "task_id": 858,
+    "text": "Write a function to count number of lists in a given list of lists and square the count.",
+    "code": "def count_list(input_list): \r\n    return (len(input_list))**2",
+    "test_list": [
+      "assert count_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==25",
+      "assert count_list([[1, 3], [5, 7], [9, 11], [13, 15, 17]] )==16",
+      "assert count_list([[2, 4], [[6,8], [4,5,8]], [10, 12, 14]])==9"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count number of lists in a given list of lists and square the count.\n\nTask ID: 858\n\nExpected behavior (test cases):\n1. count_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==25\n2. count_list([[1, 3], [5, 7], [9, 11], [13, 15, 17]] )==16\n3. count_list([[2, 4], [[6,8], [4,5,8]], [10, 12, 14]])==9\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bcffbf52c89e4bb68fb8372e4d143082",
+    "object": "chat.completion",
+    "created": 1750868310,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_list(lst):\n    # Count the number of lists in the input list\n    num_lists = len(lst)\n    # Square the count and return it\n    return num_lists ** 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 213,
+      "total_tokens": 259,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868311.0010443
+}

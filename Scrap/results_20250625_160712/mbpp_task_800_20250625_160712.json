@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 800,
+  "problem": {
+    "task_id": 800,
+    "text": "Write a function to remove all whitespaces from a string.",
+    "code": "import re\r\ndef remove_all_spaces(text):\r\n return (re.sub(r'\\s+', '',text))",
+    "test_list": [
+      "assert remove_all_spaces('python  program')==('pythonprogram')",
+      "assert remove_all_spaces('python   programming    language')==('pythonprogramminglanguage')",
+      "assert remove_all_spaces('python                     program')==('pythonprogram')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove all whitespaces from a string.\n\nTask ID: 800\n\nExpected behavior (test cases):\n1. remove_all_spaces('python  program')==('pythonprogram')\n2. remove_all_spaces('python   programming    language')==('pythonprogramminglanguage')\n3. remove_all_spaces('python                     program')==('pythonprogram')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ebce90fb834c477eb761ab9fc3a4af4a",
+    "object": "chat.completion",
+    "created": 1750868159,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_all_spaces(s):\n    return ''.join(s.split())\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 150,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868159.6731622
+}

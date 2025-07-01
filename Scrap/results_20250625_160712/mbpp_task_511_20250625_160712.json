@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 511,
+  "problem": {
+    "task_id": 511,
+    "text": "Write a python function to find minimum sum of factors of a given number.",
+    "code": "def find_Min_Sum(num): \r\n    sum = 0\r\n    i = 2\r\n    while(i * i <= num): \r\n        while(num % i == 0): \r\n            sum += i \r\n            num /= i \r\n        i += 1\r\n    sum += num \r\n    return sum",
+    "test_list": [
+      "assert find_Min_Sum(12) == 7",
+      "assert find_Min_Sum(105) == 15",
+      "assert find_Min_Sum(2) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find minimum sum of factors of a given number.\n\nTask ID: 511\n\nExpected behavior (test cases):\n1. find_Min_Sum(12) should return 7\n2. find_Min_Sum(105) should return 15\n3. find_Min_Sum(2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f30f520b0c2f4b9f994085a217f86485",
+    "object": "chat.completion",
+    "created": 1750869882,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Min_Sum(n):\n    # Initialize variables\n    min_sum = float('inf')\n    current_sum = 0\n    \n    # Iterate through possible divisors starting from 2\n    for i in range(2, n + 1):\n        if n % i == 0:\n            current_sum += i\n            while n % i == 0:\n                n //= i\n            \n            # Update min_sum if current_sum is smaller than previous min_sum\n            if current_sum < min_sum:\n                min_sum = current_sum\n                \n    return min_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 257,
+      "completion_tokens": 121,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869884.1025453
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 854,
+  "problem": {
+    "task_id": 854,
+    "text": "Write a function which accepts an arbitrary list and converts it to a heap using heap queue algorithm.",
+    "code": "import heapq as hq\r\ndef raw_heap(rawheap):\r\n  hq.heapify(rawheap)\r\n  return rawheap",
+    "test_list": [
+      "assert raw_heap([25, 44, 68, 21, 39, 23, 89])==[21, 25, 23, 44, 39, 68, 89]",
+      "assert raw_heap([25, 35, 22, 85, 14, 65, 75, 25, 58])== [14, 25, 22, 25, 35, 65, 75, 85, 58]",
+      "assert raw_heap([4, 5, 6, 2])==[2, 4, 6, 5]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function which accepts an arbitrary list and converts it to a heap using heap queue algorithm.\n\nTask ID: 854\n\nExpected behavior (test cases):\n1. raw_heap([25, 44, 68, 21, 39, 23, 89])==[21, 25, 23, 44, 39, 68, 89]\n2. raw_heap([25, 35, 22, 85, 14, 65, 75, 25, 58])== [14, 25, 22, 25, 35, 65, 75, 85, 58]\n3. raw_heap([4, 5, 6, 2])==[2, 4, 6, 5]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-91d937552b964458b6680c302c438865",
+    "object": "chat.completion",
+    "created": 1750868298,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef raw_heap(lst):\n    # Convert the list into a max-heap in-place\n    n = len(lst)\n    for i in range(n // 2 - 1, -1, -1):\n        sift_down_max(lst, i, n)\n    return lst\n\ndef sift_down_max(heap, startpos, pos):\n    newitem = heap[startpos]\n    endpos = pos\n    childpos = 2 * startpos + 1  # leftmost child position\n    while childpos < endpos:\n        rightpos = childpos + 1  # right child position\n        if rightpos < endpos and not heap[childpos] > heap[rightpos]:\n            childpos = rightpos\n        child = heap[childpos]\n        if child >= newitem:\n            break\n        else:\n            heap[startpos] = child\n            startpos = childpos\n            childpos = 2 * childpos + 1\n    heap[startpos] = newitem\n\n# Test cases\nprint(raw_heap([25, 44, 68, 21, 39, 23, 89]))  # Expected output: [21, 25, 23, 44, 39, 68, 89]\nprint(raw_heap([25, 35, 22, 85, 14, 65, 75, 25, 58]))  # Expected output: [14, 25, 22, 25, 35, 65, 75, 85, 58]\nprint(raw_heap([4, 5, 6, 2]))  # Expected output: [2, 4, 6, 5]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 258,
+      "total_tokens": 649,
+      "completion_tokens": 391,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868305.1495142
+}

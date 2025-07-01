@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 256,
+  "problem": {
+    "task_id": 256,
+    "text": "Write a python function to count the number of prime numbers less than a given non-negative number.",
+    "code": "def count_Primes_nums(n):\r\n    ctr = 0\r\n    for num in range(n):\r\n        if num <= 1:\r\n            continue\r\n        for i in range(2,num):\r\n            if (num % i) == 0:\r\n                break\r\n        else:\r\n            ctr += 1\r\n    return ctr",
+    "test_list": [
+      "assert count_Primes_nums(5) == 2",
+      "assert count_Primes_nums(10) == 4",
+      "assert count_Primes_nums(100) == 25"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of prime numbers less than a given non-negative number.\n\nTask ID: 256\n\nExpected behavior (test cases):\n1. count_Primes_nums(5) should return 2\n2. count_Primes_nums(10) should return 4\n3. count_Primes_nums(100) should return 25\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2518bbd0ee7b4a2e98cbd69b520ae5a7",
+    "object": "chat.completion",
+    "created": 1750869249,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Primes_nums(n):\n    if n <= 2:\n        return 0\n    \n    primes = [True] * n\n    p = 2\n    while p * p < n:\n        if primes[p]:\n            for i in range(p * p, n, p):\n                primes[i] = False\n        p += 1\n    \n    return sum(primes[2:])\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 226,
+      "completion_tokens": 86,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869250.7885377
+}

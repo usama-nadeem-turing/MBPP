@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 293,
+  "problem": {
+    "task_id": 293,
+    "text": "Write a function to find the third side of a right angled triangle.",
+    "code": "import math\r\ndef otherside_rightangle(w,h):\r\n  s=math.sqrt((w*w)+(h*h))\r\n  return s",
+    "test_list": [
+      "assert otherside_rightangle(7,8)==10.63014581273465",
+      "assert otherside_rightangle(3,4)==5",
+      "assert otherside_rightangle(7,15)==16.55294535724685"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the third side of a right angled triangle.\n\nTask ID: 293\n\nExpected behavior (test cases):\n1. otherside_rightangle(7,8)==10.63014581273465\n2. otherside_rightangle(3,4)==5\n3. otherside_rightangle(7,15)==16.55294535724685\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4db46a2d407b4424b5fb8e576febca7e",
+    "object": "chat.completion",
+    "created": 1750869337,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef otherside_rightangle(a, b):\n    \"\"\"\n    Calculate the length of the third side of a right-angled triangle given the lengths of the other two sides.\n    \n    Parameters:\n    a (float): The length of one side of the triangle.\n    b (float): The length of another side of the triangle.\n    \n    Returns:\n    float: The length of the third side of the triangle.\n    \"\"\"\n    return math.sqrt(a**2 + b**2)\n\n# Test cases\nprint(otherside_rightangle(7,8)) # Expected output: 10.63014581273465\nprint(otherside_rightangle(3,4)) # Expected output: 5\nprint(otherside_rightangle(7,15)) # Expected output: 16.55294535724685\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "total_tokens": 357,
+      "completion_tokens": 196,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869340.775363
+}

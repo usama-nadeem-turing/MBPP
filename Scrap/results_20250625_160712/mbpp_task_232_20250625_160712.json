@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 232,
+  "problem": {
+    "task_id": 232,
+    "text": "Write a function to get the n largest items from a dataset.",
+    "code": "import heapq\r\ndef larg_nnum(list1,n):\r\n largest=heapq.nlargest(n,list1)\r\n return largest",
+    "test_list": [
+      "assert larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],2)==[100,90]",
+      "assert larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],5)==[100,90,80,70,60]",
+      "assert larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],3)==[100,90,80]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to get the n largest items from a dataset.\n\nTask ID: 232\n\nExpected behavior (test cases):\n1. larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],2)==[100,90]\n2. larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],5)==[100,90,80,70,60]\n3. larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],3)==[100,90,80]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ce4ae2495fb34fa689be4cdc0ab48b26",
+    "object": "chat.completion",
+    "created": 1750869184,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef larg_nnum(data, n):\n    return sorted(data, reverse=True)[:n]\n\n# Test cases\nprint(larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100], 2))  # Expected output: [100, 90]\nprint(larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100], 5))  # Expected output: [100, 90, 80, 70, 60]\nprint(larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100], 3))  # Expected output: [100, 90, 80]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 280,
+      "total_tokens": 524,
+      "completion_tokens": 244,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869188.6492665
+}

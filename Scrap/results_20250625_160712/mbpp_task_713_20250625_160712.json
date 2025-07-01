@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 713,
+  "problem": {
+    "task_id": 713,
+    "text": "Write a function to check if the given tuple contains all valid values or not.",
+    "code": "def check_valid(test_tup):\r\n  res = not any(map(lambda ele: not ele, test_tup))\r\n  return (res) ",
+    "test_list": [
+      "assert check_valid((True, True, True, True) ) == True",
+      "assert check_valid((True, False, True, True) ) == False",
+      "assert check_valid((True, True, True, True) ) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given tuple contains all valid values or not.\n\nTask ID: 713\n\nExpected behavior (test cases):\n1. check_valid((True, True, True, True) ) should return True\n2. check_valid((True, False, True, True) ) should return False\n3. check_valid((True, True, True, True) ) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-625866bfe27c4abcaeadc9506c5c5946",
+    "object": "chat.completion",
+    "created": 1750867919,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_valid(tup):\n    # Check if all elements in the tuple are of type bool and True\n    return all(isinstance(item, bool) and item for item in tup)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 187,
+      "completion_tokens": 42,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867920.4370775
+}

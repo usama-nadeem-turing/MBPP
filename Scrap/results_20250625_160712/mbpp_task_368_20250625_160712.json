@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 368,
+  "problem": {
+    "task_id": 368,
+    "text": "Write a function to repeat the given tuple n times.",
+    "code": "def repeat_tuples(test_tup, N):\r\n  res = ((test_tup, ) * N)\r\n  return (res) ",
+    "test_list": [
+      "assert repeat_tuples((1, 3), 4) == ((1, 3), (1, 3), (1, 3), (1, 3))",
+      "assert repeat_tuples((1, 2), 3) == ((1, 2), (1, 2), (1, 2))",
+      "assert repeat_tuples((3, 4), 5) == ((3, 4), (3, 4), (3, 4), (3, 4), (3, 4))"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to repeat the given tuple n times.\n\nTask ID: 368\n\nExpected behavior (test cases):\n1. repeat_tuples((1, 3), 4) should return ((1, 3), (1, 3), (1, 3), (1, 3))\n2. repeat_tuples((1, 2), 3) should return ((1, 2), (1, 2), (1, 2))\n3. repeat_tuples((3, 4), 5) should return ((3, 4), (3, 4), (3, 4), (3, 4), (3, 4))\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a58c9260050c4e6eb852d2a3b8102d92",
+    "object": "chat.completion",
+    "created": 1750869538,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef repeat_tuples(tup, n):\n    return tup * n\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 203,
+      "total_tokens": 222,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869538.890016
+}

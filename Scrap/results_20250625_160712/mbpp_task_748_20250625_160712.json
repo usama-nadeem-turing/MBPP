@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 748,
+  "problem": {
+    "task_id": 748,
+    "text": "Write a function to put spaces between words starting with capital letters in a given string by using regex.",
+    "code": "import re\r\ndef capital_words_spaces(str1):\r\n  return re.sub(r\"(\\w)([A-Z])\", r\"\\1 \\2\", str1)",
+    "test_list": [
+      "assert capital_words_spaces(\"Python\") == 'Python'",
+      "assert capital_words_spaces(\"PythonProgrammingExamples\") == 'Python Programming Examples'",
+      "assert capital_words_spaces(\"GetReadyToBeCodingFreak\") == 'Get Ready To Be Coding Freak'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to put spaces between words starting with capital letters in a given string by using regex.\n\nTask ID: 748\n\nExpected behavior (test cases):\n1. capital_words_spaces(\"Python\") should return 'Python'\n2. capital_words_spaces(\"PythonProgrammingExamples\") should return 'Python Programming Examples'\n3. capital_words_spaces(\"GetReadyToBeCodingFreak\") should return 'Get Ready To Be Coding Freak'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-34ac906c142b488e943efa5044054af7",
+    "object": "chat.completion",
+    "created": 1750868017,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef capital_words_spaces(input_string):\n    # Use regex to find all words starting with a capital letter and add space before each word\n    result = re.sub(r'\\b[A-Z][a-z]*', r' \\1', input_string)\n    return result.strip()\n\n# Test cases\nprint(capital_words_spaces(\"Python\"))  # Expected output: \"Python\"\nprint(capital_words_spaces(\"PythonProgrammingExamples\"))  # Expected output: \"Python Programming Examples\"\nprint(capital_words_spaces(\"GetReadyToBeCodingFreak\"))  # Expected output: \"Get Ready To Be Coding Freak\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "total_tokens": 279,
+      "completion_tokens": 130,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868019.7043204
+}

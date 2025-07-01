@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 350,
+  "problem": {
+    "task_id": 350,
+    "text": "Write a python function to minimize the length of the string by removing occurrence of only one character.",
+    "code": "def minimum_Length(s) : \r\n    maxOcc = 0\r\n    n = len(s) \r\n    arr = [0]*26\r\n    for i in range(n) : \r\n        arr[ord(s[i]) -ord('a')] += 1\r\n    for i in range(26) : \r\n        if arr[i] > maxOcc : \r\n            maxOcc = arr[i] \r\n    return n - maxOcc ",
+    "test_list": [
+      "assert minimum_Length(\"mnm\") == 1",
+      "assert minimum_Length(\"abcda\") == 3",
+      "assert minimum_Length(\"abcb\") == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to minimize the length of the string by removing occurrence of only one character.\n\nTask ID: 350\n\nExpected behavior (test cases):\n1. minimum_Length(\"mnm\") should return 1\n2. minimum_Length(\"abcda\") should return 3\n3. minimum_Length(\"abcb\") should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5a68f7be378042aa966b5f06f51a1afa",
+    "object": "chat.completion",
+    "created": 1750869491,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef minimum_Length(s):\n    # Initialize variables to keep track of the count and index for removal\n    count = {}\n    i = 0\n    \n    # Iterate through each character in the string\n    while i < len(s):\n        if s[i] not in count:\n            count[s[i]] = 0\n        \n        # If the character is already counted, increment its count\n        if s[i] in count:\n            count[s[i]] += 1\n            \n            # Check if all occurrences of the current character have been removed\n            if count[s[i]] == 2:\n                del count[s[i]]\n        \n        # Move to the next character after processing it\n        i += 1\n    \n    # Calculate the total number of characters to be removed\n    remove_count = sum(count.values())\n    \n    # Return the original length minus the number of characters to be removed\n    return len(s) - remove_count\n\n# Test cases\nprint(minimum_Length(\"mnm\"))   # Expected output: 1\nprint(minimum_Length(\"abcda\")) # Expected output: 3\nprint(minimum_Length(\"abcb\"))  # Expected output: 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 377,
+      "completion_tokens": 244,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869495.285235
+}

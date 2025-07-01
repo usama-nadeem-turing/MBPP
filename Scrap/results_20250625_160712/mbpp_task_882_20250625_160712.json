@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 882,
+  "problem": {
+    "task_id": 882,
+    "text": "Write a function to caluclate perimeter of a parallelogram.",
+    "code": "def parallelogram_perimeter(b,h):\r\n  perimeter=2*(b*h)\r\n  return perimeter",
+    "test_list": [
+      "assert parallelogram_perimeter(10,20)==400",
+      "assert parallelogram_perimeter(15,20)==600",
+      "assert parallelogram_perimeter(8,9)==144"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to caluclate perimeter of a parallelogram.\n\nTask ID: 882\n\nExpected behavior (test cases):\n1. parallelogram_perimeter(10,20)==400\n2. parallelogram_perimeter(15,20)==600\n3. parallelogram_perimeter(8,9)==144\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-20523a4200cd459a9dc0cff6b983e76a",
+    "object": "chat.completion",
+    "created": 1750868364,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef parallelogram_perimeter(a, b):\n    return 2 * (a + b)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "total_tokens": 167,
+      "completion_tokens": 25,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868365.1677876
+}

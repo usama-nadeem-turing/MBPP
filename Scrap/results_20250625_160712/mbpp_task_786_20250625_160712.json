@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 786,
+  "problem": {
+    "task_id": 786,
+    "text": "Write a function to locate the right insertion point for a specified value in sorted order.",
+    "code": "import bisect\r\ndef right_insertion(a, x):\r\n    i = bisect.bisect_right(a, x)\r\n    return i",
+    "test_list": [
+      "assert right_insertion([1,2,4,5],6)==4",
+      "assert right_insertion([1,2,4,5],3)==2",
+      "assert right_insertion([1,2,4,5],7)==4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to locate the right insertion point for a specified value in sorted order.\n\nTask ID: 786\n\nExpected behavior (test cases):\n1. right_insertion([1,2,4,5],6)==4\n2. right_insertion([1,2,4,5],3)==2\n3. right_insertion([1,2,4,5],7)==4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-10e735a34c0740b2b5b0f39200965fb3",
+    "object": "chat.completion",
+    "created": 1750868120,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef right_insertion(sorted_list, target):\n    left, right = 0, len(sorted_list) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if sorted_list[mid] == target:\n            return mid\n        elif sorted_list[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n            \n    # If not found, `right` will be out of bounds and we can assume it's at the end.\n    return right + 1\n```\n\nThis solution uses binary search to efficiently find the position where the target should be inserted to maintain the list's sorted order.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 291,
+      "completion_tokens": 145,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868123.2072926
+}

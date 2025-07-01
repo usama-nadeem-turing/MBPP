@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 567,
+  "problem": {
+    "task_id": 567,
+    "text": "Write a function to check whether a specified list is sorted or not.",
+    "code": "def issort_list(list1):\r\n    result = all(list1[i] <= list1[i+1] for i in range(len(list1)-1))\r\n    return result",
+    "test_list": [
+      "assert issort_list([1,2,4,6,8,10,12,14,16,17])==True",
+      "assert issort_list([1, 2, 4, 6, 8, 10, 12, 14, 20, 17])==False",
+      "assert issort_list([1, 2, 4, 6, 8, 10,15,14,20])==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether a specified list is sorted or not.\n\nTask ID: 567\n\nExpected behavior (test cases):\n1. issort_list([1,2,4,6,8,10,12,14,16,17])==True\n2. issort_list([1, 2, 4, 6, 8, 10, 12, 14, 20, 17])==False\n3. issort_list([1, 2, 4, 6, 8, 10,15,14,20])==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b79880e4d39b425eaf4a29bf0dcd6ad0",
+    "object": "chat.completion",
+    "created": 1750870022,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef issort_list(lst):\n    return lst == sorted(lst)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 199,
+      "total_tokens": 217,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870023.2305686
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 58,
+  "problem": {
+    "task_id": 58,
+    "text": "Write a python function to check whether the given two integers have opposite sign or not.",
+    "code": "def opposite_Signs(x,y): \r\n    return ((x ^ y) < 0); ",
+    "test_list": [
+      "assert opposite_Signs(1,-2) == True",
+      "assert opposite_Signs(3,2) == False",
+      "assert opposite_Signs(-10,-10) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given two integers have opposite sign or not.\n\nTask ID: 58\n\nExpected behavior (test cases):\n1. opposite_Signs(1,-2) should return True\n2. opposite_Signs(3,2) should return False\n3. opposite_Signs(-10,-10) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5fead653c5e94fcb92d84b5eca60a725",
+    "object": "chat.completion",
+    "created": 1750868728,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef opposite_Signs(num1, num2):\n    # Check if both numbers are negative or both are positive\n    return num1 * num2 < 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 178,
+      "completion_tokens": 40,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868729.3344245
+}

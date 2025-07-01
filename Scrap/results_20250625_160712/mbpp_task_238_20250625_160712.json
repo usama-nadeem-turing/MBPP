@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 238,
+  "problem": {
+    "task_id": 238,
+    "text": "Write a python function to count number of non-empty substrings of a given string.",
+    "code": "def number_of_substrings(str): \r\n\tstr_len = len(str); \r\n\treturn int(str_len * (str_len + 1) / 2); ",
+    "test_list": [
+      "assert number_of_substrings(\"abc\") == 6",
+      "assert number_of_substrings(\"abcd\") == 10",
+      "assert number_of_substrings(\"abcde\") == 15"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count number of non-empty substrings of a given string.\n\nTask ID: 238\n\nExpected behavior (test cases):\n1. number_of_substrings(\"abc\") should return 6\n2. number_of_substrings(\"abcd\") should return 10\n3. number_of_substrings(\"abcde\") should return 15\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c871eea055074a46984a90ad1b5b025b",
+    "object": "chat.completion",
+    "created": 1750869197,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef number_of_substrings(s):\n    n = len(s)\n    total = n * (n + 1) // 2\n    for i in range(n):\n        if s[i] == 'a':\n            total += n - i\n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 197,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869198.8236265
+}

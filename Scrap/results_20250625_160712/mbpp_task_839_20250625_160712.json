@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 839,
+  "problem": {
+    "task_id": 839,
+    "text": "Write a function to sort the tuples alphabetically by the first item of each tuple.",
+    "code": "def sort_tuple(tup): \r\n\tn = len(tup) \r\n\tfor i in range(n): \r\n\t\tfor j in range(n-i-1): \r\n\t\t\tif tup[j][0] > tup[j + 1][0]: \r\n\t\t\t\ttup[j], tup[j + 1] = tup[j + 1], tup[j] \r\n\treturn tup",
+    "test_list": [
+      "assert sort_tuple([(\"Amana\", 28), (\"Zenat\", 30), (\"Abhishek\", 29),(\"Nikhil\", 21), (\"B\", \"C\")]) == [('Abhishek', 29), ('Amana', 28), ('B', 'C'), ('Nikhil', 21), ('Zenat', 30)]",
+      "assert sort_tuple([(\"aaaa\", 28), (\"aa\", 30), (\"bab\", 29), (\"bb\", 21), (\"csa\", \"C\")]) == [('aa', 30), ('aaaa', 28), ('bab', 29), ('bb', 21), ('csa', 'C')]",
+      "assert sort_tuple([(\"Sarala\", 28), (\"Ayesha\", 30), (\"Suman\", 29),(\"Sai\", 21), (\"G\", \"H\")]) == [('Ayesha', 30), ('G', 'H'), ('Sai', 21), ('Sarala', 28), ('Suman', 29)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort the tuples alphabetically by the first item of each tuple.\n\nTask ID: 839\n\nExpected behavior (test cases):\n1. sort_tuple([(\"Amana\", 28), (\"Zenat\", 30), (\"Abhishek\", 29),(\"Nikhil\", 21), (\"B\", \"C\")]) should return [('Abhishek', 29), ('Amana', 28), ('B', 'C'), ('Nikhil', 21), ('Zenat', 30)]\n2. sort_tuple([(\"aaaa\", 28), (\"aa\", 30), (\"bab\", 29), (\"bb\", 21), (\"csa\", \"C\")]) should return [('aa', 30), ('aaaa', 28), ('bab', 29), ('bb', 21), ('csa', 'C')]\n3. sort_tuple([(\"Sarala\", 28), (\"Ayesha\", 30), (\"Suman\", 29),(\"Sai\", 21), (\"G\", \"H\")]) should return [('Ayesha', 30), ('G', 'H'), ('Sai', 21), ('Sarala', 28), ('Suman', 29)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4b4785d1973340b6a93a7f53bec00741",
+    "object": "chat.completion",
+    "created": 1750868246,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_tuple(tuples_list):\n    # Sort the list of tuples based on the first element of each tuple\n    sorted_tuples = sorted(tuples_list)\n    return sorted_tuples\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 347,
+      "total_tokens": 389,
+      "completion_tokens": 42,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868247.631615
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 962,
+  "problem": {
+    "task_id": 962,
+    "text": "Write a python function to find the sum of all even natural numbers within the range l and r.",
+    "code": "def sum_Natural(n): \r\n    sum = (n * (n + 1)) \r\n    return int(sum) \r\ndef sum_Even(l,r): \r\n    return (sum_Natural(int(r / 2)) - sum_Natural(int((l - 1) / 2))) ",
+    "test_list": [
+      "assert sum_Even(2,5) == 6",
+      "assert sum_Even(3,8) == 18",
+      "assert sum_Even(4,6) == 10"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of all even natural numbers within the range l and r.\n\nTask ID: 962\n\nExpected behavior (test cases):\n1. sum_Even(2,5) should return 6\n2. sum_Even(3,8) should return 18\n3. sum_Even(4,6) should return 10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ead8e5a8f928494abf002218904b1a91",
+    "object": "chat.completion",
+    "created": 1750868579,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_Even(l, r):\n    total = 0\n    for num in range(l, r + 1):\n        if num % 2 == 0:\n            total += num\n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "total_tokens": 192,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868580.390627
+}

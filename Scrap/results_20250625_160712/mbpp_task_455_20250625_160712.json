@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 455,
+  "problem": {
+    "task_id": 455,
+    "text": "Write a function to check whether the given month number contains 31 days or not.",
+    "code": "def check_monthnumb_number(monthnum2):\r\n  if(monthnum2==1 or monthnum2==3 or monthnum2==5 or monthnum2==7 or monthnum2==8 or monthnum2==10 or monthnum2==12):\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert check_monthnumb_number(5)==True",
+      "assert check_monthnumb_number(2)==False",
+      "assert check_monthnumb_number(6)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given month number contains 31 days or not.\n\nTask ID: 455\n\nExpected behavior (test cases):\n1. check_monthnumb_number(5)==True\n2. check_monthnumb_number(2)==False\n3. check_monthnumb_number(6)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f467fd3c26b44bc1811a70b6cf1a78b6",
+    "object": "chat.completion",
+    "created": 1750869739,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_monthnumb_number(month_num):\n    \"\"\"\n    This function checks if the given month number has 31 days.\n    \n    Parameters:\n    month_num (int): The month number to be checked.\n    \n    Returns:\n    bool: True if the month has 31 days, False otherwise.\n    \"\"\"\n    # Assuming January is month 1 and December is month 12 for simplicity\n    return month_num in [1, 3, 5, 7, 8, 10, 12]\n\n# Test cases\nprint(check_monthnumb_number(5))  # Expected output: True\nprint(check_monthnumb_number(2))  # Expected output: False\nprint(check_monthnumb_number(6))  # Expected output: False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 297,
+      "completion_tokens": 168,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869742.0129979
+}

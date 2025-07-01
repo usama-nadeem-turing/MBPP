@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 871,
+  "problem": {
+    "task_id": 871,
+    "text": "Write a python function to check whether the given strings are rotations of each other or not.",
+    "code": "def are_Rotations(string1,string2): \r\n    size1 = len(string1) \r\n    size2 = len(string2) \r\n    temp = '' \r\n    if size1 != size2: \r\n        return False\r\n    temp = string1 + string1 \r\n    if (temp.count(string2)> 0): \r\n        return True\r\n    else: \r\n        return False",
+    "test_list": [
+      "assert are_Rotations(\"abc\",\"cba\") == False",
+      "assert are_Rotations(\"abcd\",\"cdba\") == False",
+      "assert are_Rotations(\"abacd\",\"cdaba\") == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given strings are rotations of each other or not.\n\nTask ID: 871\n\nExpected behavior (test cases):\n1. are_Rotations(\"abc\",\"cba\") should return False\n2. are_Rotations(\"abcd\",\"cdba\") should return False\n3. are_Rotations(\"abacd\",\"cdaba\") should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b3f15a0b0ff54eefa5fbf8ebb4fb7dd6",
+    "object": "chat.completion",
+    "created": 1750868339,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef are_Rotations(str1, str2):\n    # Concatenate str1 with itself\n    doubled_str = str1 + str1\n    \n    # Check if str2 is a substring of the doubled string\n    return str2 in doubled_str\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 198,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868340.102147
+}

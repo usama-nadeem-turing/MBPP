@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 651,
+  "problem": {
+    "task_id": 651,
+    "text": "Write a function to check if one tuple is a subset of another tuple.",
+    "code": "def check_subset(test_tup1, test_tup2):\r\n  res = set(test_tup2).issubset(test_tup1)\r\n  return (res) ",
+    "test_list": [
+      "assert check_subset((10, 4, 5, 6), (5, 10)) == True",
+      "assert check_subset((1, 2, 3, 4), (5, 6)) == False",
+      "assert check_subset((7, 8, 9, 10), (10, 8)) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if one tuple is a subset of another tuple.\n\nTask ID: 651\n\nExpected behavior (test cases):\n1. check_subset((10, 4, 5, 6), (5, 10)) should return True\n2. check_subset((1, 2, 3, 4), (5, 6)) should return False\n3. check_subset((7, 8, 9, 10), (10, 8)) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fc000f9e5d334415bb8298a28440b57b",
+    "object": "chat.completion",
+    "created": 1750867769,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_subset(subset, superset):\n    # Check if all elements in subset are present in superset\n    for element in subset:\n        if element not in superset:\n            return False\n    return True\n\n# Test cases\nprint(check_subset((10, 4, 5, 6), (5, 10)))  # Expected output: True\nprint(check_subset((1, 2, 3, 4), (5, 6)))   # Expected output: False\nprint(check_subset((7, 8, 9, 10), (10, 8))) # Expected output: True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 313,
+      "completion_tokens": 141,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867771.8539836
+}

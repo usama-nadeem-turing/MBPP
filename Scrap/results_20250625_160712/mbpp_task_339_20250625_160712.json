@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 339,
+  "problem": {
+    "task_id": 339,
+    "text": "Write a python function to find the maximum occuring divisor in an interval.",
+    "code": "def find_Divisor(x,y):  \r\n    if (x==y): \r\n        return y \r\n    return 2",
+    "test_list": [
+      "assert find_Divisor(2,2) == 2",
+      "assert find_Divisor(2,5) == 2",
+      "assert find_Divisor(5,10) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the maximum occuring divisor in an interval.\n\nTask ID: 339\n\nExpected behavior (test cases):\n1. find_Divisor(2,2) should return 2\n2. find_Divisor(2,5) should return 2\n3. find_Divisor(5,10) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a0d97a888d1b4621b71d9a0f0dead6ed",
+    "object": "chat.completion",
+    "created": 1750869460,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Divisor(start, end):\n    max_divisor = -1\n    for i in range(start, end + 1):\n        divisors = [j for j in range(1, i+1) if i % j == 0]\n        if len(divisors) > 0:\n            max_divisor = max(max_divisor, divisors[0])\n    return max_divisor\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 229,
+      "completion_tokens": 90,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869462.449607
+}

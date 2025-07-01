@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 558,
+  "problem": {
+    "task_id": 558,
+    "text": "Write a python function to find the digit distance between two integers.",
+    "code": "def digit_distance_nums(n1, n2):\r\n         return sum(map(int,str(abs(n1-n2))))",
+    "test_list": [
+      "assert digit_distance_nums(1,2) == 1",
+      "assert digit_distance_nums(23,56) == 6",
+      "assert digit_distance_nums(123,256) == 7"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the digit distance between two integers.\n\nTask ID: 558\n\nExpected behavior (test cases):\n1. digit_distance_nums(1,2) should return 1\n2. digit_distance_nums(23,56) should return 6\n3. digit_distance_nums(123,256) should return 7\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-729f89f6a0d74c348cf6029a72a6294e",
+    "object": "chat.completion",
+    "created": 1750870001,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef digit_distance_nums(num1, num2):\n    # Calculate the absolute difference of their digits\n    diff = abs(sum(int(digit) for digit in str(num1)) - sum(int(digit) for digit in str(num2)))\n    return diff\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 197,
+      "completion_tokens": 58,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870002.198259
+}

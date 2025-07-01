@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 762,
+  "problem": {
+    "task_id": 762,
+    "text": "Write a function to check whether the given month number contains 30 days or not.",
+    "code": "def check_monthnumber_number(monthnum3):\r\n  if(monthnum3==4 or monthnum3==6 or monthnum3==9 or monthnum3==11):\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert check_monthnumber_number(6)==True",
+      "assert check_monthnumber_number(2)==False",
+      "assert check_monthnumber_number(12)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given month number contains 30 days or not.\n\nTask ID: 762\n\nExpected behavior (test cases):\n1. check_monthnumber_number(6)==True\n2. check_monthnumber_number(2)==False\n3. check_monthnumber_number(12)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2bdcb2e59ea64d389bce60f80c4f7243",
+    "object": "chat.completion",
+    "created": 1750868052,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_monthnumber_number(month_number):\n    # Check if the month has 30 days\n    return month_number in [4, 6, 9, 11]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 170,
+      "completion_tokens": 43,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868053.0448148
+}

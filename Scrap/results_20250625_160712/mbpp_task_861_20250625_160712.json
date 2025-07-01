@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 861,
+  "problem": {
+    "task_id": 861,
+    "text": "Write a function to find all anagrams of a string in a given list of strings using lambda function.",
+    "code": "from collections import Counter \r\ndef anagram_lambda(texts,str):\r\n  result = list(filter(lambda x: (Counter(str) == Counter(x)), texts)) \r\n  return result",
+    "test_list": [
+      "assert anagram_lambda([\"bcda\", \"abce\", \"cbda\", \"cbea\", \"adcb\"],\"abcd\")==['bcda', 'cbda', 'adcb']",
+      "assert anagram_lambda([\"recitals\",\" python\"], \"articles\" )==[\"recitals\"]",
+      "assert anagram_lambda([\" keep\",\" abcdef\",\" xyz\"],\" peek\")==[\" keep\"]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find all anagrams of a string in a given list of strings using lambda function.\n\nTask ID: 861\n\nExpected behavior (test cases):\n1. anagram_lambda([\"bcda\", \"abce\", \"cbda\", \"cbea\", \"adcb\"],\"abcd\")==['bcda', 'cbda', 'adcb']\n2. anagram_lambda([\"recitals\",\" python\"], \"articles\" )==[\"recitals\"]\n3. anagram_lambda([\" keep\",\" abcdef\",\" xyz\"],\" peek\")==[\" keep\"]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9e946adc1fb14970950f90a298d05705",
+    "object": "chat.completion",
+    "created": 1750868315,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import Counter\n\ndef anagram_lambda(strings_list, target_string):\n    \"\"\"\n    Finds all anagrams of the target_string within each string in the strings_list.\n    \n    Parameters:\n    - strings_list: List[str], a list of strings to search through for anagrams.\n    - target_string: str, the string whose anagrams we're looking for.\n    \n    Returns:\n    - List[str]: A list containing all strings from strings_list that have anagrams of target_string as substrings.\n    \"\"\"\n    return [s for s in strings_list if any(Counter(s[i:]) == Counter(target_string) for i in range(len(s)))]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 175,
+      "total_tokens": 313,
+      "completion_tokens": 138,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868318.29848
+}

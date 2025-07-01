@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 767,
+  "problem": {
+    "task_id": 767,
+    "text": "Write a python function to count the number of pairs whose sum is equal to ‘sum’.",
+    "code": "def get_Pairs_Count(arr,n,sum):\r\n    count = 0  \r\n    for i in range(0,n):\r\n        for j in range(i + 1,n):\r\n            if arr[i] + arr[j] == sum:\r\n                count += 1\r\n    return count",
+    "test_list": [
+      "assert get_Pairs_Count([1,1,1,1],4,2) == 6",
+      "assert get_Pairs_Count([1,5,7,-1,5],5,6) == 3",
+      "assert get_Pairs_Count([1,-2,3],3,1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of pairs whose sum is equal to ‘sum’.\n\nTask ID: 767\n\nExpected behavior (test cases):\n1. get_Pairs_Count([1,1,1,1],4,2) should return 6\n2. get_Pairs_Count([1,5,7,-1,5],5,6) should return 3\n3. get_Pairs_Count([1,-2,3],3,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2d9fdaf2310246ad8c45b1cbbc0e552a",
+    "object": "chat.completion",
+    "created": 1750868061,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_Pairs_Count(arr, target_sum, n):\n    count = 0\n    for i in range(n-1):\n        for j in range(i+1, n):\n            if arr[i] + arr[j] == target_sum:\n                count += 1\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "total_tokens": 231,
+      "completion_tokens": 66,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868062.7181149
+}

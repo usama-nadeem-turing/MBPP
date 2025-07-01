@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 343,
+  "problem": {
+    "task_id": 343,
+    "text": "Write a function to calculate the number of digits and letters in a string.",
+    "code": "def dig_let(s):\r\n d=l=0\r\n for c in s:\r\n    if c.isdigit():\r\n        d=d+1\r\n    elif c.isalpha():\r\n        l=l+1\r\n    else:\r\n        pass\r\n return (l,d)",
+    "test_list": [
+      "assert dig_let(\"python\")==(6,0)",
+      "assert dig_let(\"program\")==(7,0)",
+      "assert dig_let(\"python3.0\")==(6,2)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the number of digits and letters in a string.\n\nTask ID: 343\n\nExpected behavior (test cases):\n1. dig_let(\"python\")==(6,0)\n2. dig_let(\"program\")==(7,0)\n3. dig_let(\"python3.0\")==(6,2)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ae908711a15c412cb15696b35adf1411",
+    "object": "chat.completion",
+    "created": 1750869475,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef dig_let(s):\n    num_digits = sum(c.isdigit() for c in s)\n    num_letters = sum(c.isalpha() for c in s)\n    return num_digits, num_letters\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 178,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869475.9262657
+}

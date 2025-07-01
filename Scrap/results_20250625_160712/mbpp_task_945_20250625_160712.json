@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 945,
+  "problem": {
+    "task_id": 945,
+    "text": "Write a function to convert the given tuples into set.",
+    "code": "def tuple_to_set(t):\r\n  s = set(t)\r\n  return (s) ",
+    "test_list": [
+      "assert tuple_to_set(('x', 'y', 'z') ) == {'y', 'x', 'z'}",
+      "assert tuple_to_set(('a', 'b', 'c') ) == {'c', 'a', 'b'}",
+      "assert tuple_to_set(('z', 'd', 'e') ) == {'d', 'e', 'z'}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given tuples into set.\n\nTask ID: 945\n\nExpected behavior (test cases):\n1. tuple_to_set(('x', 'y', 'z') ) should return {'y', 'x', 'z'}\n2. tuple_to_set(('a', 'b', 'c') ) should return {'c', 'a', 'b'}\n3. tuple_to_set(('z', 'd', 'e') ) should return {'d', 'e', 'z'}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fafa728c904944848e4a469a7986e512",
+    "object": "chat.completion",
+    "created": 1750868532,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tuple_to_set(tup):\n    \"\"\"\n    Converts a tuple into a set.\n    \n    Parameters:\n    tup (tuple): The input tuple to be converted.\n    \n    Returns:\n    set: A set containing all unique elements from the input tuple.\n    \"\"\"\n    return set(tup)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "total_tokens": 229,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868533.8139665
+}

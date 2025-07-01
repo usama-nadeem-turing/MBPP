@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 461,
+  "problem": {
+    "task_id": 461,
+    "text": "Write a python function to count the upper case characters in a given string.",
+    "code": "def upper_ctr(str):\r\n    upper_ctr = 0\r\n    for i in range(len(str)):\r\n          if str[i] >= 'A' and str[i] <= 'Z': upper_ctr += 1\r\n          return upper_ctr",
+    "test_list": [
+      "assert upper_ctr('PYthon') == 1",
+      "assert upper_ctr('BigData') == 1",
+      "assert upper_ctr('program') == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the upper case characters in a given string.\n\nTask ID: 461\n\nExpected behavior (test cases):\n1. upper_ctr('PYthon') should return 1\n2. upper_ctr('BigData') should return 1\n3. upper_ctr('program') should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e7a14a15666a4a6daee4288b34f317b7",
+    "object": "chat.completion",
+    "created": 1750869751,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef upper_ctr(s):\n    # Initialize counter for uppercase characters\n    upper_count = 0\n    \n    # Iterate through each character in the string\n    for char in s:\n        # Check if the character is an uppercase letter\n        if char >= 'A' and char <= 'Z':\n            upper_count += 1\n            \n    return upper_count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 205,
+      "completion_tokens": 77,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869752.7325792
+}

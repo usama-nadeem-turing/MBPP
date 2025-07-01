@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 362,
+  "problem": {
+    "task_id": 362,
+    "text": "Write a python function to find the item with maximum occurrences in a given list.",
+    "code": "def max_occurrences(nums):\r\n    max_val = 0\r\n    result = nums[0] \r\n    for i in nums:\r\n        occu = nums.count(i)\r\n        if occu > max_val:\r\n            max_val = occu\r\n            result = i \r\n    return result",
+    "test_list": [
+      "assert max_occurrences([1,2,3,1,2,3,12,4,2]) ==  2",
+      "assert max_occurrences([1,2,6,7,0,1,0,1,0]) == 1,0",
+      "assert max_occurrences([1,2,3,1,2,4,1]) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the item with maximum occurrences in a given list.\n\nTask ID: 362\n\nExpected behavior (test cases):\n1. max_occurrences([1,2,3,1,2,3,12,4,2]) should return  2\n2. max_occurrences([1,2,6,7,0,1,0,1,0]) should return 1,0\n3. max_occurrences([1,2,3,1,2,4,1]) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-170aea97878b489fb5c19680ea154ebc",
+    "object": "chat.completion",
+    "created": 1750869519,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import Counter\n\ndef max_occurrences(lst):\n    # Count the occurrences of each element in the list\n    counts = Counter(lst)\n    # Find the maximum occurrence value\n    max_count = max(counts.values())\n    # Return all elements that have the maximum occurrence\n    return [item for item, count in counts.items() if count == max_count]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 178,
+      "total_tokens": 258,
+      "completion_tokens": 80,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869521.1267278
+}

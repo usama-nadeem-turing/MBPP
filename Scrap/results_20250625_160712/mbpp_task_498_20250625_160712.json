@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 498,
+  "problem": {
+    "task_id": 498,
+    "text": "Write a python function to find gcd of two positive integers.",
+    "code": "def gcd(x, y):\r\n    gcd = 1\r\n    if x % y == 0:\r\n        return y\r\n    for k in range(int(y / 2), 0, -1):\r\n        if x % k == 0 and y % k == 0:\r\n            gcd = k\r\n            break  \r\n    return gcd",
+    "test_list": [
+      "assert gcd(12, 17) == 1",
+      "assert gcd(4,6) == 2",
+      "assert gcd(2,9) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find gcd of two positive integers.\n\nTask ID: 498\n\nExpected behavior (test cases):\n1. gcd(12, 17) should return 1\n2. gcd(4,6) should return 2\n3. gcd(2,9) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f82179df1cfa44a9a2cf566065171cf8",
+    "object": "chat.completion",
+    "created": 1750869856,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef gcd(a, b):\n    while(b):\n        a, b = b, a % b\n    return a\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 159,
+      "completion_tokens": 30,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869856.5301642
+}

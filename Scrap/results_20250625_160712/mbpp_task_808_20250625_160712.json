@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 808,
+  "problem": {
+    "task_id": 808,
+    "text": "Write a function to check if the given tuples contain the k or not.",
+    "code": "def check_K(test_tup, K):\r\n  res = False\r\n  for ele in test_tup:\r\n    if ele == K:\r\n      res = True\r\n      break\r\n  return (res) ",
+    "test_list": [
+      "assert check_K((10, 4, 5, 6, 8), 6) == True",
+      "assert check_K((1, 2, 3, 4, 5, 6), 7) == False",
+      "assert check_K((7, 8, 9, 44, 11, 12), 11) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given tuples contain the k or not.\n\nTask ID: 808\n\nExpected behavior (test cases):\n1. check_K((10, 4, 5, 6, 8), 6) should return True\n2. check_K((1, 2, 3, 4, 5, 6), 7) should return False\n3. check_K((7, 8, 9, 44, 11, 12), 11) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b70f12752084413abaa712e8f59eda19",
+    "object": "chat.completion",
+    "created": 1750868174,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_K(tup, k):\n    # Check if 'k' is in the tuple\n    return k in tup\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 179,
+      "total_tokens": 210,
+      "completion_tokens": 31,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868174.981336
+}

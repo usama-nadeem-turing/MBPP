@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 566,
+  "problem": {
+    "task_id": 566,
+    "text": "Write a function to get the sum of a non-negative integer.",
+    "code": "def sum_digits(n):\r\n  if n == 0:\r\n    return 0\r\n  else:\r\n    return n % 10 + sum_digits(int(n / 10))",
+    "test_list": [
+      "assert sum_digits(345)==12",
+      "assert sum_digits(12)==3",
+      "assert sum_digits(97)==16"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to get the sum of a non-negative integer.\n\nTask ID: 566\n\nExpected behavior (test cases):\n1. sum_digits(345)==12\n2. sum_digits(12)==3\n3. sum_digits(97)==16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d86e8475574e434891285beccdf80ac1",
+    "object": "chat.completion",
+    "created": 1750870021,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_digits(n):\n    return sum(int(digit) for digit in str(n))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 121,
+      "total_tokens": 144,
+      "completion_tokens": 23,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870022.3837361
+}

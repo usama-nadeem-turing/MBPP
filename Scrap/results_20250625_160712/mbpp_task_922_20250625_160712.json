@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 922,
+  "problem": {
+    "task_id": 922,
+    "text": "Write a function to find a pair with the highest product from a given array of integers.",
+    "code": "def max_product(arr): \r\n    arr_len = len(arr) \r\n    if (arr_len < 2): \r\n        return None     \r\n    x = arr[0]; y = arr[1]    \r\n    for i in range(0, arr_len): \r\n        for j in range(i + 1, arr_len): \r\n            if (arr[i] * arr[j] > x * y): \r\n                x = arr[i]; y = arr[j] \r\n    return x,y   ",
+    "test_list": [
+      "assert max_product([1, 2, 3, 4, 7, 0, 8, 4])==(7, 8)",
+      "assert max_product([0, -1, -2, -4, 5, 0, -6])==(-4, -6)",
+      "assert max_product([1, 3, 5, 6, 8, 9])==(8,9)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find a pair with the highest product from a given array of integers.\n\nTask ID: 922\n\nExpected behavior (test cases):\n1. max_product([1, 2, 3, 4, 7, 0, 8, 4])==(7, 8)\n2. max_product([0, -1, -2, -4, 5, 0, -6])==(-4, -6)\n3. max_product([1, 3, 5, 6, 8, 9])==(8,9)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ebe3a19b910a4e18aa779c98da265bd9",
+    "object": "chat.completion",
+    "created": 1750868473,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_product(arr):\n    if len(arr) < 2:\n        raise ValueError(\"Array must contain at least two elements\")\n    \n    arr.sort()\n    n = len(arr)\n    return (arr[n-2], arr[n-1])\n\n# Test cases\nprint(max_product([1, 2, 3, 4, 7, 0, 8, 4])) # Expected output: (7, 8)\nprint(max_product([0, -1, -2, -4, 5, 0, -6])) # Expected output: (-4, -6)\nprint(max_product([1, 3, 5, 6, 8, 9])) # Expected output: (8, 9)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 185,
+      "total_tokens": 346,
+      "completion_tokens": 161,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868476.0380714
+}

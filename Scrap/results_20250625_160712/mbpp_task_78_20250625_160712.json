@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 78,
+  "problem": {
+    "task_id": 78,
+    "text": "Write a python function to find number of integers with odd number of set bits.",
+    "code": "def count_With_Odd_SetBits(n): \r\n    if (n % 2 != 0): \r\n        return (n + 1) / 2\r\n    count = bin(n).count('1') \r\n    ans = n / 2\r\n    if (count % 2 != 0): \r\n        ans += 1\r\n    return ans ",
+    "test_list": [
+      "assert count_With_Odd_SetBits(5) == 3",
+      "assert count_With_Odd_SetBits(10) == 5",
+      "assert count_With_Odd_SetBits(15) == 8"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find number of integers with odd number of set bits.\n\nTask ID: 78\n\nExpected behavior (test cases):\n1. count_With_Odd_SetBits(5) should return 3\n2. count_With_Odd_SetBits(10) should return 5\n3. count_With_Odd_SetBits(15) should return 8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f40b1cbad47c421189be6cb4edad3b76",
+    "object": "chat.completion",
+    "created": 1750868785,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_With_Odd_SetBits(n):\n    # Initialize counter for numbers with odd number of set bits\n    odd_count = 0\n    \n    # Iterate through all numbers from 1 to n\n    for i in range(1, n + 1):\n        # Count the number of set bits in the binary representation of i\n        num_set_bits = bin(i).count('1')\n        \n        # If the number of set bits is odd, increment the counter\n        if num_set_bits % 2 != 0:\n            odd_count += 1\n            \n    return odd_count\n```\n\nThis solution iterates through each integer from 1 to `n`, counts the number of set bits in its binary representation using the `bin` function and `count('1')` method, and increments a counter if the number of set bits is odd. Finally, it returns the total count of such numbers.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 143,
+      "total_tokens": 334,
+      "completion_tokens": 191,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868788.2812083
+}

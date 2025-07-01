@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 77,
+  "problem": {
+    "task_id": 77,
+    "text": "Write a python function to find the difference between sum of even and odd digits.",
+    "code": "def is_Diff(n): \r\n    return (n % 11 == 0) ",
+    "test_list": [
+      "assert is_Diff (12345) == False",
+      "assert is_Diff(1212112) == True",
+      "assert is_Diff(1212) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the difference between sum of even and odd digits.\n\nTask ID: 77\n\nExpected behavior (test cases):\n1. is_Diff (12345) should return False\n2. is_Diff(1212112) should return True\n3. is_Diff(1212) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3fd9476e415b4086b769795673734862",
+    "object": "chat.completion",
+    "created": 1750868780,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_Diff(num):\n    # Initialize variables to store sums of even and odd digits\n    even_sum = 0\n    odd_sum = 0\n    \n    # Convert number to string for easy digit extraction\n    num_str = str(num)\n    \n    # Iterate through each digit in the number\n    for digit in num_str:\n        # Check if the digit is even or odd and add it to the respective sum\n        if int(digit) % 2 == 0:\n            even_sum += int(digit)\n        else:\n            odd_sum += int(digit)\n    \n    # Calculate the difference between the sums of even and odd digits\n    diff = abs(even_sum - odd_sum)\n    \n    # Return whether the difference is zero\n    return diff == 0\n```\n\nThis solution defines a function `is_Diff` that takes an integer as input and returns `True` if the sum of its even digits equals the sum of its odd digits, otherwise it returns `False`. The function converts the number to a string to easily access individual digits, calculates the sums of even and odd digits separately, computes their absolute difference, and finally checks if this difference is zero.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 387,
+      "completion_tokens": 248,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868784.5790775
+}

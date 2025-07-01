@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 645,
+  "problem": {
+    "task_id": 645,
+    "text": "Write a function to find the product of it’s kth index in the given tuples.",
+    "code": "def get_product(val) : \r\n\tres = 1\r\n\tfor ele in val: \r\n\t\tres *= ele \r\n\treturn res \r\ndef find_k_product(test_list, K):\r\n  res = get_product([sub[K] for sub in test_list])\r\n  return (res) ",
+    "test_list": [
+      "assert find_k_product([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) == 665",
+      "assert find_k_product([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) == 280",
+      "assert find_k_product([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 0) == 210"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the product of it’s kth index in the given tuples.\n\nTask ID: 645\n\nExpected behavior (test cases):\n1. find_k_product([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) should return 665\n2. find_k_product([(6, 7, 8), (2, 4, 6), (9, 10, 20)], 1) should return 280\n3. find_k_product([(7, 8, 9), (3, 5, 7), (10, 11, 21)], 0) should return 210\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0811ace76f384bcd8308d8e7d85ac549",
+    "object": "chat.completion",
+    "created": 1750867758,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_k_product(tuples_list, k):\n    # Extracting elements at the k-th position from each tuple and multiplying them together\n    result = reduce(lambda x, y: x * y, [t[k] for t in tuples_list])\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 225,
+      "total_tokens": 285,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867759.1761222
+}

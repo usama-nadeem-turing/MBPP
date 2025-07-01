@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 201,
+  "problem": {
+    "task_id": 201,
+    "text": "Write a python function to check whether the elements in a list are same or not.",
+    "code": "def chkList(lst): \r\n    return len(set(lst)) == 1",
+    "test_list": [
+      "assert chkList(['one','one','one']) == True",
+      "assert chkList(['one','Two','Three']) == False",
+      "assert chkList(['bigdata','python','Django']) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the elements in a list are same or not.\n\nTask ID: 201\n\nExpected behavior (test cases):\n1. chkList(['one','one','one']) should return True\n2. chkList(['one','Two','Three']) should return False\n3. chkList(['bigdata','python','Django']) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b5be8dfb2f76414c8b393319288c1db8",
+    "object": "chat.completion",
+    "created": 1750869110,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef chkList(lst):\n    # Check if all elements in the list are the same\n    return len(set(lst)) == 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 172,
+      "completion_tokens": 33,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869111.456163
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 602,
+  "problem": {
+    "task_id": 602,
+    "text": "Write a python function to find the first repeated character in a given string.",
+    "code": "def first_repeated_char(str1):\r\n  for index,c in enumerate(str1):\r\n    if str1[:index+1].count(c) > 1:\r\n      return c \r\n  return \"None\"",
+    "test_list": [
+      "assert first_repeated_char(\"abcabc\") == \"a\"",
+      "assert first_repeated_char(\"abc\") == \"None\"",
+      "assert first_repeated_char(\"123123\") == \"1\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first repeated character in a given string.\n\nTask ID: 602\n\nExpected behavior (test cases):\n1. first_repeated_char(\"abcabc\") should return \"a\"\n2. first_repeated_char(\"abc\") should return \"None\"\n3. first_repeated_char(\"123123\") should return \"1\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c4767c9aa0f041de827d382dfe6d2c63",
+    "object": "chat.completion",
+    "created": 1750867646,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef first_repeated_char(s):\n    char_set = set()\n    for char in s:\n        if char in char_set:\n            return char\n        else:\n            char_set.add(char)\n    return None\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 186,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867646.8228984
+}

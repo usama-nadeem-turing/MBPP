@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 396,
+  "problem": {
+    "task_id": 396,
+    "text": "Write a function to check whether the given string starts and ends with the same character or not using regex.",
+    "code": "import re  \r\nregex = r'^[a-z]$|^([a-z]).*\\1$'\r\ndef check_char(string): \r\n\tif(re.search(regex, string)): \r\n\t\treturn \"Valid\" \r\n\telse: \r\n\t\treturn \"Invalid\" ",
+    "test_list": [
+      "assert check_char(\"abba\") == \"Valid\"",
+      "assert check_char(\"a\") == \"Valid\"",
+      "assert check_char(\"abcd\") == \"Invalid\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given string starts and ends with the same character or not using regex.\n\nTask ID: 396\n\nExpected behavior (test cases):\n1. check_char(\"abba\") should return \"Valid\"\n2. check_char(\"a\") should return \"Valid\"\n3. check_char(\"abcd\") should return \"Invalid\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4b5e06bca8ac4232b35a630b1e4506d1",
+    "object": "chat.completion",
+    "created": 1750869600,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_char(s):\n    # Check if the first and last characters of the string match\n    if s[0] == s[-1]:\n        return \"Valid\"\n    else:\n        return \"Invalid\"\n\n# Test cases\nprint(check_char(\"abba\"))  # Expected output: Valid\nprint(check_char(\"a\"))     # Expected output: Valid\nprint(check_char(\"abcd\"))  # Expected output: Invalid\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 228,
+      "completion_tokens": 95,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869601.660318
+}

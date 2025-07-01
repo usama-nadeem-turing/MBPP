@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 751,
+  "problem": {
+    "task_id": 751,
+    "text": "Write a function to check if the given array represents min heap or not.",
+    "code": "def check_min_heap(arr, i):\r\n    if 2 * i + 2 > len(arr):\r\n        return True\r\n    left_child = (arr[i] <= arr[2 * i + 1]) and check_min_heap(arr, 2 * i + 1)\r\n    right_child = (2 * i + 2 == len(arr)) or (arr[i] <= arr[2 * i + 2] \r\n                                      and check_min_heap(arr, 2 * i + 2))\r\n    return left_child and right_child",
+    "test_list": [
+      "assert check_min_heap([1, 2, 3, 4, 5, 6], 0) == True",
+      "assert check_min_heap([2, 3, 4, 5, 10, 15], 0) == True",
+      "assert check_min_heap([2, 10, 4, 5, 3, 15], 0) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given array represents min heap or not.\n\nTask ID: 751\n\nExpected behavior (test cases):\n1. check_min_heap([1, 2, 3, 4, 5, 6], 0) should return True\n2. check_min_heap([2, 3, 4, 5, 10, 15], 0) should return True\n3. check_min_heap([2, 10, 4, 5, 3, 15], 0) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0294c98a6e1c4789ba43562f893ceed4",
+    "object": "chat.completion",
+    "created": 1750868022,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_min_heap(arr, index=0):\n    n = len(arr)\n    \n    # Base case: if we reach the last node of the heap\n    if index >= n:\n        return True\n    \n    # Get left child's index\n    left_child_index = 2 * index + 1\n    right_child_index = 2 * index + 2\n    \n    # If there is no left child, it's a leaf node and must be smaller than its parent\n    if left_child_index >= n:\n        return arr[index] < arr[0]\n    \n    # Check both children for min heap property\n    if arr[left_child_index] > arr[right_child_index]:\n        return arr[index] < arr[left_child_index]\n    else:\n        return arr[index] < arr[right_child_index]\n\n# Test cases\nprint(check_min_heap([1, 2, 3, 4, 5, 6]))  # Expected output: True\nprint(check_min_heap([2, 3, 4, 5, 10, 15]))  # Expected output: True\nprint(check_min_heap([2, 10, 4, 5, 3, 15]))  # Expected output: False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "total_tokens": 449,
+      "completion_tokens": 265,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868026.505485
+}

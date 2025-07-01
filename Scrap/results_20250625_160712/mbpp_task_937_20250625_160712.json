@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 937,
+  "problem": {
+    "task_id": 937,
+    "text": "Write a function to count the most common character in a given string.",
+    "code": "from collections import Counter \r\ndef max_char(str1):\r\n    temp = Counter(str1) \r\n    max_char = max(temp, key = temp.get)\r\n    return max_char",
+    "test_list": [
+      "assert max_char(\"hello world\")==('l')",
+      "assert max_char(\"hello \")==('l')",
+      "assert max_char(\"python pr\")==('p')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the most common character in a given string.\n\nTask ID: 937\n\nExpected behavior (test cases):\n1. max_char(\"hello world\")==('l')\n2. max_char(\"hello \")==('l')\n3. max_char(\"python pr\")==('p')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fedd9e03913141b3bf5b8ec994a24878",
+    "object": "chat.completion",
+    "created": 1750868509,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_char(s):\n    char_count = {}\n    for char in s:\n        if char != ' ' and char not in char_count:\n            char_count[char] = 0\n        char_count[char] += 1\n    \n    max_char = ''\n    max_count = 0\n    for char, count in char_count.items():\n        if count > max_count:\n            max_count = count\n            max_char = char\n            \n    return max_char\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "total_tokens": 220,
+      "completion_tokens": 98,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868511.5798032
+}

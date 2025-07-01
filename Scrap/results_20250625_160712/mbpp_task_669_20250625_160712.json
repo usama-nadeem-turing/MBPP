@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 669,
+  "problem": {
+    "task_id": 669,
+    "text": "Write a function to check whether the given ip address is valid or not using regex.",
+    "code": "import re \r\nregex = '''^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.( \r\n\t\t\t25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.( \r\n\t\t\t25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.( \r\n\t\t\t25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$'''\r\ndef check_IP(Ip): \r\n\tif(re.search(regex, Ip)): \r\n\t\treturn (\"Valid IP address\") \r\n\telse: \r\n\t\treturn (\"Invalid IP address\") ",
+    "test_list": [
+      "assert check_IP(\"192.168.0.1\") == 'Valid IP address'",
+      "assert check_IP(\"110.234.52.124\") == 'Valid IP address'",
+      "assert check_IP(\"366.1.2.2\") == 'Invalid IP address'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given ip address is valid or not using regex.\n\nTask ID: 669\n\nExpected behavior (test cases):\n1. check_IP(\"192.168.0.1\") should return 'Valid IP address'\n2. check_IP(\"110.234.52.124\") should return 'Valid IP address'\n3. check_IP(\"366.1.2.2\") should return 'Invalid IP address'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0e371bbc1d674d4f818fce148dda09ef",
+    "object": "chat.completion",
+    "created": 1750867814,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_IP(ip_address):\n    # Regular expression for validating an IP address\n    pattern = r'^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'\n    \n    if re.match(pattern, ip_address):\n        return 'Valid IP address'\n    else:\n        return 'Invalid IP address'\n\n# Test cases\nprint(check_IP(\"192.168.0.1\"))  # Expected output: Valid IP address\nprint(check_IP(\"110.234.52.124\"))  # Expected output: Valid IP address\nprint(check_IP(\"366.1.2.2\"))  # Expected output: Invalid IP address\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "total_tokens": 368,
+      "completion_tokens": 203,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867818.038939
+}

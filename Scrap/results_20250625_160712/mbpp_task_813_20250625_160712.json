@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 813,
+  "problem": {
+    "task_id": 813,
+    "text": "Write a function to find length of the string.",
+    "code": "def string_length(str1):\r\n    count = 0\r\n    for char in str1:\r\n        count += 1\r\n    return count",
+    "test_list": [
+      "assert string_length('python')==6",
+      "assert string_length('program')==7",
+      "assert string_length('language')==8"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find length of the string.\n\nTask ID: 813\n\nExpected behavior (test cases):\n1. string_length('python')==6\n2. string_length('program')==7\n3. string_length('language')==8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2decbe0c0f094eeea7aa729883939596",
+    "object": "chat.completion",
+    "created": 1750868180,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef string_length(s):\n    return len(s)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 112,
+      "total_tokens": 127,
+      "completion_tokens": 15,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868180.9327662
+}

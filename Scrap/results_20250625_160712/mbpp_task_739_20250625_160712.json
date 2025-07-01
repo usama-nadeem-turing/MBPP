@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 739,
+  "problem": {
+    "task_id": 739,
+    "text": "Write a python function to find the index of smallest triangular number with n digits.",
+    "code": "import math \r\ndef find_Index(n): \r\n    x = math.sqrt(2 * math.pow(10,(n - 1))); \r\n    return round(x); ",
+    "test_list": [
+      "assert find_Index(2) == 4",
+      "assert find_Index(3) == 14",
+      "assert find_Index(4) == 45"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the index of smallest triangular number with n digits.\n\nTask ID: 739\n\nExpected behavior (test cases):\n1. find_Index(2) should return 4\n2. find_Index(3) should return 14\n3. find_Index(4) should return 45\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e0e57dd3363d435eaa05c568a5f3c052",
+    "object": "chat.completion",
+    "created": 1750867989,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Index(n):\n    # Initialize variables\n    i = 1\n    num = 0\n    \n    # Loop until we find a triangular number with 'n' digits\n    while True:\n        num += i\n        if len(str(num)) == n:\n            break\n        i += 1\n        \n    # Return the index of the smallest triangular number with 'n' digits\n    return i - 1\n```\n\nThis solution iterates through natural numbers starting from 1, calculating each triangular number and checking its length in string form against the required digit count `n`. The loop continues until it finds the first triangular number that meets the criteria, then returns the index of this number minus one as per the task requirements.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 283,
+      "completion_tokens": 154,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867992.295032
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 510,
+  "problem": {
+    "task_id": 510,
+    "text": "Write a function to find the number of subsequences having product smaller than k for the given non negative array.",
+    "code": "def no_of_subsequences(arr, k): \r\n\tn = len(arr) \r\n\tdp = [[0 for i in range(n + 1)] \r\n\t\t\tfor j in range(k + 1)] \r\n\tfor i in range(1, k + 1): \r\n\t\tfor j in range(1, n + 1): \r\n\t\t\tdp[i][j] = dp[i][j - 1] \r\n\t\t\tif arr[j - 1] <= i and arr[j - 1] > 0: \r\n\t\t\t\tdp[i][j] += dp[i // arr[j - 1]][j - 1] + 1\r\n\treturn dp[k][n]",
+    "test_list": [
+      "assert no_of_subsequences([1,2,3,4], 10) == 11",
+      "assert no_of_subsequences([4,8,7,2], 50) == 9",
+      "assert no_of_subsequences([5,6,7,8], 15) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the number of subsequences having product smaller than k for the given non negative array.\n\nTask ID: 510\n\nExpected behavior (test cases):\n1. no_of_subsequences([1,2,3,4], 10) should return 11\n2. no_of_subsequences([4,8,7,2], 50) should return 9\n3. no_of_subsequences([5,6,7,8], 15) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ca28eeb7e5034b8a901d2228c4fc01cc",
+    "object": "chat.completion",
+    "created": 1750869875,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom typing import List\n\ndef no_of_subsequences(arr: List[int], k: int) -> int:\n    count = 0\n    n = len(arr)\n    \n    # Iterate through each element in the array\n    for i in range(n):\n        current_product = arr[i]\n        \n        # Check all possible subarrays ending at index i\n        for j in range(i + 1, n + 1):\n            if current_product * arr[j - 1] < k:\n                count += 1\n            else:\n                break\n    \n    return count\n```\n\nThis solution iterates through each element in the input array and checks all possible subarrays ending at that element to see if their product is less than `k`. It counts how many such subarrays exist and returns the total count.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 170,
+      "total_tokens": 339,
+      "completion_tokens": 169,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869877.9137967
+}

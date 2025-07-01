@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 125,
+  "problem": {
+    "task_id": 125,
+    "text": "Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string.",
+    "code": "def find_length(string, n): \r\n\tcurrent_sum = 0\r\n\tmax_sum = 0\r\n\tfor i in range(n): \r\n\t\tcurrent_sum += (1 if string[i] == '0' else -1) \r\n\t\tif current_sum < 0: \r\n\t\t\tcurrent_sum = 0\r\n\t\tmax_sum = max(current_sum, max_sum) \r\n\treturn max_sum if max_sum else 0",
+    "test_list": [
+      "assert find_length(\"11000010001\", 11) == 6",
+      "assert find_length(\"10111\", 5) == 1",
+      "assert find_length(\"11011101100101\", 14) == 2 "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string.\n\nTask ID: 125\n\nExpected behavior (test cases):\n1. find_length(\"11000010001\", 11) should return 6\n2. find_length(\"10111\", 5) should return 1\n3. find_length(\"11011101100101\", 14) should return 2 \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-effcfbf5567e462c81e9b2ea73d94b2a",
+    "object": "chat.completion",
+    "created": 1750868905,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_length(binary_string, length):\n    max_diff = -1\n    current_diff = 0\n    \n    for i in range(length):\n        if binary_string[i] == '0':\n            current_diff += 1\n        else:\n            current_diff -= 1\n        \n        max_diff = max(max_diff, current_diff)\n    \n    return max_diff * 2\n\n# Test cases\nprint(find_length(\"11000010001\", 11))  # Expected output: 6\nprint(find_length(\"10111\", 5))         # Expected output: 1\nprint(find_length(\"11011101100101\", 14))# Expected output: 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 180,
+      "total_tokens": 344,
+      "completion_tokens": 164,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868908.3009531
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 845,
+  "problem": {
+    "task_id": 845,
+    "text": "Write a python function to count the number of digits in factorial of a given number.",
+    "code": "import math \r\ndef find_Digits(n): \r\n    if (n < 0): \r\n        return 0;\r\n    if (n <= 1): \r\n        return 1; \r\n    x = ((n * math.log10(n / math.e) + math.log10(2 * math.pi * n) /2.0)); \r\n    return math.floor(x) + 1; ",
+    "test_list": [
+      "assert find_Digits(7) == 4",
+      "assert find_Digits(5) == 3",
+      "assert find_Digits(4) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of digits in factorial of a given number.\n\nTask ID: 845\n\nExpected behavior (test cases):\n1. find_Digits(7) should return 4\n2. find_Digits(5) should return 3\n3. find_Digits(4) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e883f991752e49f787bc2a02116b1337",
+    "object": "chat.completion",
+    "created": 1750868274,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Digits(n):\n    fact = 1\n    for i in range(1, n + 1):\n        fact *= i\n    return len(str(fact))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 173,
+      "completion_tokens": 42,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868275.2199574
+}

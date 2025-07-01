@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 710,
+  "problem": {
+    "task_id": 710,
+    "text": "Write a function to access the initial and last data of the given tuple record.",
+    "code": "def front_and_rear(test_tup):\r\n  res = (test_tup[0], test_tup[-1])\r\n  return (res) ",
+    "test_list": [
+      "assert front_and_rear((10, 4, 5, 6, 7)) == (10, 7)",
+      "assert front_and_rear((1, 2, 3, 4, 5)) == (1, 5)",
+      "assert front_and_rear((6, 7, 8, 9, 10)) == (6, 10)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to access the initial and last data of the given tuple record.\n\nTask ID: 710\n\nExpected behavior (test cases):\n1. front_and_rear((10, 4, 5, 6, 7)) should return (10, 7)\n2. front_and_rear((1, 2, 3, 4, 5)) should return (1, 5)\n3. front_and_rear((6, 7, 8, 9, 10)) should return (6, 10)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1f7963da7e6d4f7d87ac8600a002eb25",
+    "object": "chat.completion",
+    "created": 1750867910,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef front_and_rear(tup):\n    # Accessing the first element of the tuple\n    front = tup[0]\n    \n    # Accessing the last element of the tuple\n    rear = tup[-1]\n    \n    return (front, rear)\n\n# Test cases\nprint(front_and_rear((10, 4, 5, 6, 7)))  # Expected output: (10, 7)\nprint(front_and_rear((1, 2, 3, 4, 5)))   # Expected output: (1, 5)\nprint(front_and_rear((6, 7, 8, 9, 10)))  # Expected output: (6, 10)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "total_tokens": 341,
+      "completion_tokens": 159,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867913.3138614
+}

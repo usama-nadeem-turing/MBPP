@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 505,
+  "problem": {
+    "task_id": 505,
+    "text": "Write a function to move all zeroes to the end of the given array.",
+    "code": "def re_order(A):\r\n    k = 0\r\n    for i in A:\r\n        if i:\r\n            A[k] = i\r\n            k = k + 1\r\n    for i in range(k, len(A)):\r\n        A[i] = 0\r\n    return A",
+    "test_list": [
+      "assert re_order([6, 0, 8, 2, 3, 0, 4, 0, 1]) == [6, 8, 2, 3, 4, 1, 0, 0, 0]",
+      "assert re_order([4, 0, 2, 7, 0, 9, 0, 12, 0]) == [4, 2, 7, 9, 12, 0, 0, 0, 0]",
+      "assert re_order([3, 11, 0, 74, 14, 0, 1, 0, 2]) == [3, 11, 74, 14, 1, 2, 0, 0, 0]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to move all zeroes to the end of the given array.\n\nTask ID: 505\n\nExpected behavior (test cases):\n1. re_order([6, 0, 8, 2, 3, 0, 4, 0, 1]) should return [6, 8, 2, 3, 4, 1, 0, 0, 0]\n2. re_order([4, 0, 2, 7, 0, 9, 0, 12, 0]) should return [4, 2, 7, 9, 12, 0, 0, 0, 0]\n3. re_order([3, 11, 0, 74, 14, 0, 1, 0, 2]) should return [3, 11, 74, 14, 1, 2, 0, 0, 0]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3c9ef9656e6d479291909f2d49d8e42a",
+    "object": "chat.completion",
+    "created": 1750869865,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef re_order(arr):\n    # Move non-zero elements to the front and zeros to the back in one pass.\n    arr.sort(key=lambda x: x != 0)\n    return arr\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 278,
+      "total_tokens": 322,
+      "completion_tokens": 44,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869866.4323213
+}

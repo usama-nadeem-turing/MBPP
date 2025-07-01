@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 446,
+  "problem": {
+    "task_id": 446,
+    "text": "Write a python function to count the occurence of all elements of list in a tuple.",
+    "code": "from collections import Counter \r\ndef count_Occurrence(tup, lst): \r\n    count = 0\r\n    for item in tup: \r\n        if item in lst: \r\n            count+= 1 \r\n    return count  ",
+    "test_list": [
+      "assert count_Occurrence(('a', 'a', 'c', 'b', 'd'),['a', 'b'] ) == 3",
+      "assert count_Occurrence((1, 2, 3, 1, 4, 6, 7, 1, 4),[1, 4, 7]) == 6",
+      "assert count_Occurrence((1,2,3,4,5,6),[1,2]) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the occurence of all elements of list in a tuple.\n\nTask ID: 446\n\nExpected behavior (test cases):\n1. count_Occurrence(('a', 'a', 'c', 'b', 'd'),['a', 'b'] ) should return 3\n2. count_Occurrence((1, 2, 3, 1, 4, 6, 7, 1, 4),[1, 4, 7]) should return 6\n3. count_Occurrence((1,2,3,4,5,6),[1,2]) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-624d7bf7a7d74d50afff56d426160ea4",
+    "object": "chat.completion",
+    "created": 1750869720,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Occurrence(lst, tpl):\n    count_dict = {}\n    for item in lst:\n        if item in tpl:\n            count_dict[item] = count_dict.get(item, 0) + 1\n    return count_dict.values()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 202,
+      "total_tokens": 257,
+      "completion_tokens": 55,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869721.1592376
+}

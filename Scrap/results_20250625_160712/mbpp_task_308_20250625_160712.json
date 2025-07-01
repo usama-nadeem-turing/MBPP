@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 308,
+  "problem": {
+    "task_id": 308,
+    "text": "Write a function to find the specified number of largest products from two given lists.",
+    "code": "def large_product(nums1, nums2, N):\r\n    result = sorted([x*y for x in nums1 for y in nums2], reverse=True)[:N]\r\n    return result",
+    "test_list": [
+      "assert large_product([1, 2, 3, 4, 5, 6],[3, 6, 8, 9, 10, 6],3)==[60, 54, 50]",
+      "assert large_product([1, 2, 3, 4, 5, 6],[3, 6, 8, 9, 10, 6],4)==[60, 54, 50, 48]",
+      "assert large_product([1, 2, 3, 4, 5, 6],[3, 6, 8, 9, 10, 6],5)==[60, 54, 50, 48, 45]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the specified number of largest products from two given lists.\n\nTask ID: 308\n\nExpected behavior (test cases):\n1. large_product([1, 2, 3, 4, 5, 6],[3, 6, 8, 9, 10, 6],3)==[60, 54, 50]\n2. large_product([1, 2, 3, 4, 5, 6],[3, 6, 8, 9, 10, 6],4)==[60, 54, 50, 48]\n3. large_product([1, 2, 3, 4, 5, 6],[3, 6, 8, 9, 10, 6],5)==[60, 54, 50, 48, 45]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-472d922cab024de58ab0cf765035c93b",
+    "object": "chat.completion",
+    "created": 1750869378,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef large_product(list1, list2, n):\n    # Initialize variables to store the maximum product and its indices\n    max_product = -float('inf')\n    max_indices = []\n    \n    # Iterate through each element in both lists\n    for i in range(len(list1)):\n        for j in range(len(list2)):\n            # Calculate the product of the current elements\n            product = list1[i] * list2[j]\n            \n            # Update the maximum product if the current one is larger\n            if product > max_product:\n                max_product = product\n                max_indices = [(i, j)]\n            elif product == max_product:\n                max_indices.append((i, j))\n                \n    # Return the top 'n' largest products along with their indices\n    return [max_product] + [[list1[i], list2[j]] for i, j in max_indices][:n]\n\n# Test cases\nprint(large_product([1, 2, 3, 4, 5, 6], [3, 6, 8, 9, 10, 6], 3))  # Expected output: [60, 54, 50]\nprint(large_product([1, 2, 3, 4, 5, 6], [3, 6, 8, 9, 10, 6], 4))  # Expected output: [60, 54, 50, 48]\nprint(large_product([1, 2, 3, 4, 5, 6], [3, 6, 8, 9, 10, 6], 5))  # Expected output: [60, 54, 50, 48, 45]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 265,
+      "total_tokens": 652,
+      "completion_tokens": 387,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869385.2505386
+}

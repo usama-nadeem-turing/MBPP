@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 239,
+  "problem": {
+    "task_id": 239,
+    "text": "Write a function to find the number of possible sequences of length n such that each of the next element is greater than or equal to twice of the previous element but less than or equal to m.",
+    "code": "def get_total_number_of_sequences(m,n): \r\n\tT=[[0 for i in range(n+1)] for i in range(m+1)] \r\n\tfor i in range(m+1): \r\n\t\tfor j in range(n+1): \r\n\t\t\tif i==0 or j==0: \r\n\t\t\t\tT[i][j]=0\r\n\t\t\telif i<j: \r\n\t\t\t\tT[i][j]=0\r\n\t\t\telif j==1: \r\n\t\t\t\tT[i][j]=i \r\n\t\t\telse: \r\n\t\t\t\tT[i][j]=T[i-1][j]+T[i//2][j-1] \r\n\treturn T[m][n]",
+    "test_list": [
+      "assert get_total_number_of_sequences(10, 4) == 4",
+      "assert get_total_number_of_sequences(5, 2) == 6",
+      "assert get_total_number_of_sequences(16, 3) == 84"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the number of possible sequences of length n such that each of the next element is greater than or equal to twice of the previous element but less than or equal to m.\n\nTask ID: 239\n\nExpected behavior (test cases):\n1. get_total_number_of_sequences(10, 4) should return 4\n2. get_total_number_of_sequences(5, 2) should return 6\n3. get_total_number_of_sequences(16, 3) should return 84\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e28e62259d134e02806311651992f402",
+    "object": "chat.completion",
+    "created": 1750869199,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_total_number_of_sequences(n, m):\n    \"\"\"\n    Calculate the total number of sequences of length n where each element is greater than or equal to twice its predecessor and not exceeding m.\n    \n    Parameters:\n    n (int): The length of the sequence.\n    m (int): The maximum value an element in the sequence can take.\n    \n    Returns:\n    int: The total number of valid sequences.\n    \"\"\"\n    dp = [0] * (n + 1)\n    dp[0] = 1\n    \n    for i in range(1, n + 1):\n        for j in range(i - 1, -1, -1):\n            if j % 2 == 0:\n                dp[i] += dp[j]\n        \n        # Ensure the values do not exceed m\n        for k in range(i - 1, -1, -1):\n            if dp[k] > m:\n                break\n            else:\n                dp[i] -= dp[k]\n                \n    return dp[n]\n\n# Test cases\nprint(get_total_number_of_sequences(10, 4))  # Expected output: 4\nprint(get_total_number_of_sequences(5, 2))   # Expected output: 6\nprint(get_total_number_of_sequences(16, 3))  # Expected output: 84\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 171,
+      "total_tokens": 453,
+      "completion_tokens": 282,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869204.080962
+}

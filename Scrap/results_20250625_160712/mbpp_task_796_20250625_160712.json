@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 796,
+  "problem": {
+    "task_id": 796,
+    "text": "Write function to find the sum of all items in the given dictionary.",
+    "code": "def return_sum(dict):\r\n  sum = 0\r\n  for i in dict.values():\r\n    sum = sum + i\r\n  return sum",
+    "test_list": [
+      "assert return_sum({'a': 100, 'b':200, 'c':300}) == 600",
+      "assert return_sum({'a': 25, 'b':18, 'c':45}) == 88",
+      "assert return_sum({'a': 36, 'b':39, 'c':49}) == 124"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write function to find the sum of all items in the given dictionary.\n\nTask ID: 796\n\nExpected behavior (test cases):\n1. return_sum({'a': 100, 'b':200, 'c':300}) should return 600\n2. return_sum({'a': 25, 'b':18, 'c':45}) should return 88\n3. return_sum({'a': 36, 'b':39, 'c':49}) should return 124\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5b4a1fd2a7f641df898b6666e25c57cc",
+    "object": "chat.completion",
+    "created": 1750868151,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef return_sum(dct):\n    # Calculate and return the sum of all values in the dictionary\n    return sum(dct.values())\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "total_tokens": 213,
+      "completion_tokens": 32,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868151.6168597
+}

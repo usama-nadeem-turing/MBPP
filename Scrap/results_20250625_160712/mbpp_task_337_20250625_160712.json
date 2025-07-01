@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 337,
+  "problem": {
+    "task_id": 337,
+    "text": "Write a function that matches a word at the end of a string, with optional punctuation.",
+    "code": "import re\r\ndef text_match_word(text):\r\n        patterns = '\\w+\\S*$'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return 'Not matched!'",
+    "test_list": [
+      "assert text_match_word(\"python.\")==('Found a match!')",
+      "assert text_match_word(\"python.\")==('Found a match!')",
+      "assert text_match_word(\"  lang  .\")==('Not matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a word at the end of a string, with optional punctuation.\n\nTask ID: 337\n\nExpected behavior (test cases):\n1. text_match_word(\"python.\")==('Found a match!')\n2. text_match_word(\"python.\")==('Found a match!')\n3. text_match_word(\"  lang  .\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9d1e9313c535418caa021fa184184294",
+    "object": "chat.completion",
+    "created": 1750869454,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef text_match_word(text):\n    \"\"\"\n    This function checks if the given text ends with a word.\n    \n    Args:\n        text (str): The input text to check.\n        \n    Returns:\n        str: A message indicating whether a match was found or not.\n    \"\"\"\n    pattern = r'\\w+\\.$'\n    if re.search(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n\n# Test cases\nprint(text_match_word(\"python.\")) # Expected output: Found a match!\nprint(text_match_word(\"python.\")) # Expected output: Found a match!\nprint(text_match_word(\"  lang  \")) # Expected output: Not matched!\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 287,
+      "completion_tokens": 150,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869456.7574308
+}

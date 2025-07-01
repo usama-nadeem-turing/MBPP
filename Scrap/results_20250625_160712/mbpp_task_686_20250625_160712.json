@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 686,
+  "problem": {
+    "task_id": 686,
+    "text": "Write a function to find the frequency of each element in the given list.",
+    "code": "from collections import defaultdict \r\ndef freq_element(test_tup):\r\n  res = defaultdict(int)\r\n  for ele in test_tup:\r\n    res[ele] += 1\r\n  return (str(dict(res))) ",
+    "test_list": [
+      "assert freq_element((4, 5, 4, 5, 6, 6, 5, 5, 4) ) == '{4: 3, 5: 4, 6: 2}'",
+      "assert freq_element((7, 8, 8, 9, 4, 7, 6, 5, 4) ) == '{7: 2, 8: 2, 9: 1, 4: 2, 6: 1, 5: 1}'",
+      "assert freq_element((1, 4, 3, 1, 4, 5, 2, 6, 2, 7) ) == '{1: 2, 4: 2, 3: 1, 5: 1, 2: 2, 6: 1, 7: 1}'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the frequency of each element in the given list.\n\nTask ID: 686\n\nExpected behavior (test cases):\n1. freq_element((4, 5, 4, 5, 6, 6, 5, 5, 4) ) should return '{4: 3, 5: 4, 6: 2}'\n2. freq_element((7, 8, 8, 9, 4, 7, 6, 5, 4) ) should return '{7: 2, 8: 2, 9: 1, 4: 2, 6: 1, 5: 1}'\n3. freq_element((1, 4, 3, 1, 4, 5, 2, 6, 2, 7) ) should return '{1: 2, 4: 2, 3: 1, 5: 1, 2: 2, 6: 1, 7: 1}'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6f1a51f3974442b0baba3b23e0e23405",
+    "object": "chat.completion",
+    "created": 1750867848,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef freq_element(lst):\n    from collections import Counter\n    return str(Counter(lst).most_common())\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 292,
+      "total_tokens": 318,
+      "completion_tokens": 26,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867849.2077298
+}

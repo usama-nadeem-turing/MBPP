@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 441,
+  "problem": {
+    "task_id": 441,
+    "text": "Write a function to find the surface area of a cube.",
+    "code": "def surfacearea_cube(l):\r\n  surfacearea= 6*l*l\r\n  return surfacearea",
+    "test_list": [
+      "assert surfacearea_cube(5)==150",
+      "assert surfacearea_cube(3)==54",
+      "assert surfacearea_cube(10)==600"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the surface area of a cube.\n\nTask ID: 441\n\nExpected behavior (test cases):\n1. surfacearea_cube(5)==150\n2. surfacearea_cube(3)==54\n3. surfacearea_cube(10)==600\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-032a1ea095e64cdeb4cebe3661b78d88",
+    "object": "chat.completion",
+    "created": 1750869712,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef surfacearea_cube(side_length):\n    \"\"\"\n    Calculate the surface area of a cube given its side length.\n    \n    Parameters:\n    side_length (int): The length of one side of the cube.\n    \n    Returns:\n    int: The total surface area of the cube.\n    \"\"\"\n    return 6 * side_length ** 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "total_tokens": 197,
+      "completion_tokens": 74,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869713.307636
+}

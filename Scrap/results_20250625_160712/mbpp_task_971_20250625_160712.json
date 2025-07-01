@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 971,
+  "problem": {
+    "task_id": 971,
+    "text": "Write a function to find the maximum number of segments of lengths a, b and c that can be formed from n.",
+    "code": "def maximum_segments(n, a, b, c) : \r\n\tdp = [-1] * (n + 10) \r\n\tdp[0] = 0\r\n\tfor i in range(0, n) : \r\n\t\tif (dp[i] != -1) : \r\n\t\t\tif(i + a <= n ): \r\n\t\t\t\tdp[i + a] = max(dp[i] + 1, \r\n\t\t\t\t\t\t\tdp[i + a]) \r\n\t\t\tif(i + b <= n ): \r\n\t\t\t\tdp[i + b] = max(dp[i] + 1, \r\n\t\t\t\t\t\t\tdp[i + b]) \r\n\t\t\tif(i + c <= n ): \r\n\t\t\t\tdp[i + c] = max(dp[i] + 1, \r\n\t\t\t\t\t\t\tdp[i + c]) \r\n\treturn dp[n]",
+    "test_list": [
+      "assert maximum_segments(7, 5, 2, 5) == 2",
+      "assert maximum_segments(17, 2, 1, 3) == 17",
+      "assert maximum_segments(18, 16, 3, 6) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum number of segments of lengths a, b and c that can be formed from n.\n\nTask ID: 971\n\nExpected behavior (test cases):\n1. maximum_segments(7, 5, 2, 5) should return 2\n2. maximum_segments(17, 2, 1, 3) should return 17\n3. maximum_segments(18, 16, 3, 6) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-da28a4094be74b9ca6d198b7f065de4c",
+    "object": "chat.completion",
+    "created": 1750868598,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef maximum_segments(n, a, b, c):\n    # Calculate the total length of all segments combined\n    total_length = a + b + c\n    \n    # If the total length is less than the required length for n segments,\n    # it's impossible to form n segments with the given lengths.\n    if total_length < n:\n        return 0\n    \n    # The maximum number of segments that can be formed is equal to the total length divided by the sum of the segment lengths.\n    max_segments = total_length // (a + b + c)\n    \n    # Check if the division results in an integer, which means we have enough segments.\n    if total_length % (a + b + c) == 0:\n        return max_segments\n    else:\n        return -1  # This case should not happen based on the problem constraints but included as per requirement.\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 350,
+      "completion_tokens": 184,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868601.9722042
+}

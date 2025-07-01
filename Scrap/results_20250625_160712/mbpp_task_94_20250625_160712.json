@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 94,
+  "problem": {
+    "task_id": 94,
+    "text": "Write a function to extract the index minimum value record from the given tuples.",
+    "code": "from operator import itemgetter \r\ndef index_minimum(test_list):\r\n  res = min(test_list, key = itemgetter(1))[0]\r\n  return (res) ",
+    "test_list": [
+      "assert index_minimum([('Rash', 143), ('Manjeet', 200), ('Varsha', 100)]) == 'Varsha'",
+      "assert index_minimum([('Yash', 185), ('Dawood', 125), ('Sanya', 175)]) == 'Dawood'",
+      "assert index_minimum([('Sai', 345), ('Salman', 145), ('Ayesha', 96)]) == 'Ayesha'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract the index minimum value record from the given tuples.\n\nTask ID: 94\n\nExpected behavior (test cases):\n1. index_minimum([('Rash', 143), ('Manjeet', 200), ('Varsha', 100)]) should return 'Varsha'\n2. index_minimum([('Yash', 185), ('Dawood', 125), ('Sanya', 175)]) should return 'Dawood'\n3. index_minimum([('Sai', 345), ('Salman', 145), ('Ayesha', 96)]) should return 'Ayesha'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a8ddeb5fc84a4d30b03630a4d48b1882",
+    "object": "chat.completion",
+    "created": 1750868818,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef index_minimum(tuples_list):\n    # Extracting the first element of each tuple as it represents the index\n    indices = [index for _, index in tuples_list]\n    # Finding the minimum index among all tuples\n    min_index = min(indices)\n    # Returning the name associated with the minimum index\n    return next((name for name, index in tuples_list if index == min_index), None)\n\n# Test cases\nprint(index_minimum([('Rash', 143), ('Manjeet', 200), ('Varsha', 100)]))  # Output: Varsha\nprint(index_minimum([('Yash', 185), ('Dawood', 125), ('Sanya', 175)]))   # Output: Dawood\nprint(index_minimum([('Sai', 345), ('Salman', 145), ('Ayesha', 96)]))     # Output: Ayesha\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 204,
+      "total_tokens": 413,
+      "completion_tokens": 209,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868821.7256207
+}

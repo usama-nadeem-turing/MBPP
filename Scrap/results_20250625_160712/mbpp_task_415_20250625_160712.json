@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 415,
+  "problem": {
+    "task_id": 415,
+    "text": "Write a python function to find a pair with highest product from a given array of integers.",
+    "code": "def max_Product(arr): \r\n    arr_len = len(arr) \r\n    if (arr_len < 2): \r\n        return (\"No pairs exists\")           \r\n    x = arr[0]; y = arr[1]      \r\n    for i in range(0,arr_len): \r\n        for j in range(i + 1,arr_len): \r\n            if (arr[i] * arr[j] > x * y): \r\n                x = arr[i]; y = arr[j] \r\n    return x,y    ",
+    "test_list": [
+      "assert max_Product([1,2,3,4,7,0,8,4]) == (7,8)",
+      "assert max_Product([0,-1,-2,-4,5,0,-6]) == (-4,-6)",
+      "assert max_Product([1,2,3]) == (2,3)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find a pair with highest product from a given array of integers.\n\nTask ID: 415\n\nExpected behavior (test cases):\n1. max_Product([1,2,3,4,7,0,8,4]) should return (7,8)\n2. max_Product([0,-1,-2,-4,5,0,-6]) should return (-4,-6)\n3. max_Product([1,2,3]) should return (2,3)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bd286dc256d245cca1a79ef6a2422dc3",
+    "object": "chat.completion",
+    "created": 1750869647,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_Product(arr):\n    if len(arr) < 2:\n        raise ValueError(\"Array must contain at least two elements\")\n    \n    # Initialize variables to store the maximum and minimum products\n    max_product = min_product = result = float('-inf')\n    \n    for num in arr:\n        # If current number is negative, swap max and min products\n        if num < 0:\n            max_product, min_product = min_product, max_product\n        \n        # Calculate the product of the current number and both max and min products\n        temp_max = max(num * max_product, num * min_product, num)\n        temp_min = min(num * max_product, num * min_product, num)\n        \n        # Update the overall maximum product found so far\n        result = max(result, temp_max)\n        \n        # Update max and min products for next iteration\n        max_product, min_product = temp_max, temp_min\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "total_tokens": 363,
+      "completion_tokens": 198,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869650.439078
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 851,
+  "problem": {
+    "task_id": 851,
+    "text": "Write a python function to find sum of inverse of divisors.",
+    "code": "def Sum_of_Inverse_Divisors(N,Sum): \r\n    ans = float(Sum)*1.0 /float(N);  \r\n    return round(ans,2); ",
+    "test_list": [
+      "assert Sum_of_Inverse_Divisors(6,12) == 2",
+      "assert Sum_of_Inverse_Divisors(9,13) == 1.44",
+      "assert Sum_of_Inverse_Divisors(1,4) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find sum of inverse of divisors.\n\nTask ID: 851\n\nExpected behavior (test cases):\n1. Sum_of_Inverse_Divisors(6,12) should return 2\n2. Sum_of_Inverse_Divisors(9,13) should return 1.44\n3. Sum_of_Inverse_Divisors(1,4) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-050d620f54cf427da526c2b7e75e3edd",
+    "object": "chat.completion",
+    "created": 1750868290,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef Sum_of_Inverse_Divisors(numerator, denominator):\n    # Calculate the sum of the inverses of all divisors of numerator divided by denominator\n    total_sum = 0\n    for i in range(1, min(numerator, denominator) + 1):\n        if numerator % i == 0 and denominator % i == 0:\n            total_sum += 1 / (i * (numerator // i))\n    return total_sum\n\n# Test cases\nprint(Sum_of_Inverse_Divisors(6, 12))  # Expected output: 2\nprint(Sum_of_Inverse_Divisors(9, 13))  # Expected output: 1.44\nprint(Sum_of_Inverse_Divisors(1, 4))   # Expected output: 4\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "total_tokens": 327,
+      "completion_tokens": 177,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868293.3186789
+}

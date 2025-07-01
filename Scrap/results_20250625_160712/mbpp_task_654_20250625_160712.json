@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 654,
+  "problem": {
+    "task_id": 654,
+    "text": "Write a function to find the perimeter of a rectangle.",
+    "code": "def rectangle_perimeter(l,b):\r\n  perimeter=2*(l+b)\r\n  return perimeter",
+    "test_list": [
+      "assert rectangle_perimeter(10,20)==60",
+      "assert rectangle_perimeter(10,5)==30",
+      "assert rectangle_perimeter(4,2)==12"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the perimeter of a rectangle.\n\nTask ID: 654\n\nExpected behavior (test cases):\n1. rectangle_perimeter(10,20)==60\n2. rectangle_perimeter(10,5)==30\n3. rectangle_perimeter(4,2)==12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ed09dea42f3b4952b4c2f8a0ef710212",
+    "object": "chat.completion",
+    "created": 1750867779,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef rectangle_perimeter(length, width):\n    return 2 * (length + width)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "total_tokens": 151,
+      "completion_tokens": 23,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867779.941035
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 194,
+  "problem": {
+    "task_id": 194,
+    "text": "Write a python function to convert octal number to decimal number.",
+    "code": "def octal_To_Decimal(n):  \r\n    num = n; \r\n    dec_value = 0; \r\n    base = 1; \r\n    temp = num; \r\n    while (temp): \r\n        last_digit = temp % 10; \r\n        temp = int(temp / 10); \r\n        dec_value += last_digit*base; \r\n        base = base * 8; \r\n    return dec_value; ",
+    "test_list": [
+      "assert octal_To_Decimal(25) == 21",
+      "assert octal_To_Decimal(30) == 24",
+      "assert octal_To_Decimal(40) == 32"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert octal number to decimal number.\n\nTask ID: 194\n\nExpected behavior (test cases):\n1. octal_To_Decimal(25) should return 21\n2. octal_To_Decimal(30) should return 24\n3. octal_To_Decimal(40) should return 32\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cf2f433241d04d3b872974b9fbaf7fdf",
+    "object": "chat.completion",
+    "created": 1750869092,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef octal_To_Decimal(octal_number):\n    # Convert the octal string to an integer and then divide it by 8 for each digit in reverse order.\n    decimal_number = int(str(octal_number), 8)\n    return decimal_number\n\n# Test cases\nprint(octal_To_Decimal(25))  # Expected output: 21\nprint(octal_To_Decimal(30))  # Expected output: 24\nprint(octal_To_Decimal(40))  # Expected output: 32\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 257,
+      "completion_tokens": 118,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869094.0566082
+}

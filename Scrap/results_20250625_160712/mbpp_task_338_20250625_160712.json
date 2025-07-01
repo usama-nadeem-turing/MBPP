@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 338,
+  "problem": {
+    "task_id": 338,
+    "text": "Write a python function to count the number of substrings with same first and last characters.",
+    "code": "def check_Equality(s): \r\n    return (ord(s[0]) == ord(s[len(s) - 1])); \r\ndef count_Substring_With_Equal_Ends(s): \r\n    result = 0; \r\n    n = len(s); \r\n    for i in range(n):\r\n        for j in range(1,n-i+1): \r\n            if (check_Equality(s[i:i+j])): \r\n                result+=1; \r\n    return result; ",
+    "test_list": [
+      "assert count_Substring_With_Equal_Ends('aba') == 4",
+      "assert count_Substring_With_Equal_Ends('abcab') == 7",
+      "assert count_Substring_With_Equal_Ends('abc') == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of substrings with same first and last characters.\n\nTask ID: 338\n\nExpected behavior (test cases):\n1. count_Substring_With_Equal_Ends('aba') should return 4\n2. count_Substring_With_Equal_Ends('abcab') should return 7\n3. count_Substring_With_Equal_Ends('abc') should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e3f48d948f5241f5a5ac322e4813fc5e",
+    "object": "chat.completion",
+    "created": 1750869457,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_substring_with_equal_ends(s):\n    \"\"\"\n    Counts the number of substrings where each substring starts and ends with the same character.\n    \n    Parameters:\n    s (str): The input string.\n    \n    Returns:\n    int: The count of substrings with equal first and last characters.\n    \"\"\"\n    count = 0\n    for i in range(len(s)):\n        # Check if all characters from index i onwards are the same as the first character\n        if all(c == s[i] for c in s[i:]):\n            count += 1\n    return count\n\n# Test cases\nprint(count_substring_with_equal_ends('aba'))  # Expected output: 4\nprint(count_substring_with_equal_ends('abcab'))  # Expected output: 7\nprint(count_substring_with_equal_ends('abc'))  # Expected output: 3\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "total_tokens": 335,
+      "completion_tokens": 184,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869460.3802645
+}

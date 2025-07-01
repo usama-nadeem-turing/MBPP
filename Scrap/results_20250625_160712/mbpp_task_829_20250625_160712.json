@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 829,
+  "problem": {
+    "task_id": 829,
+    "text": "Write a function to find out the second most repeated (or frequent) string in the given sequence.",
+    "code": "from collections import Counter \r\n\t\r\ndef second_frequent(input): \r\n\tdict = Counter(input) \r\n\tvalue = sorted(dict.values(), reverse=True)  \r\n\tsecond_large = value[1] \r\n\tfor (key, val) in dict.items(): \r\n\t\tif val == second_large: \r\n\t\t\treturn (key) ",
+    "test_list": [
+      "assert second_frequent(['aaa','bbb','ccc','bbb','aaa','aaa']) == 'bbb'",
+      "assert second_frequent(['abc','bcd','abc','bcd','bcd','bcd']) == 'abc'",
+      "assert second_frequent(['cdma','gsm','hspa','gsm','cdma','cdma']) == 'gsm'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find out the second most repeated (or frequent) string in the given sequence.\n\nTask ID: 829\n\nExpected behavior (test cases):\n1. second_frequent(['aaa','bbb','ccc','bbb','aaa','aaa']) should return 'bbb'\n2. second_frequent(['abc','bcd','abc','bcd','bcd','bcd']) should return 'abc'\n3. second_frequent(['cdma','gsm','hspa','gsm','cdma','cdma']) should return 'gsm'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7dd5c294ec2b46f3bcda49bc54211d82",
+    "object": "chat.completion",
+    "created": 1750868218,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import Counter\n\ndef second_frequent(sequence):\n    # Count the frequency of each element in the sequence\n    freq = Counter(sequence)\n    \n    # Find all elements with the maximum frequency\n    max_freq_elements = [element for element, count in freq.items() if count == max(freq.values())]\n    \n    # Return the second most frequent element\n    return max_freq_elements[1] if len(max_freq_elements) > 1 else None\n```\n\nThis solution uses the `collections.Counter` class to count the occurrences of each element in the input list and then finds the second most frequent element(s). If there is more than one such element, it returns the first one; otherwise, it returns `None`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 171,
+      "total_tokens": 322,
+      "completion_tokens": 151,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868221.292222
+}

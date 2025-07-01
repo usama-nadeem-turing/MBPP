@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 955,
+  "problem": {
+    "task_id": 955,
+    "text": "Write a function to find out, if the given number is abundant.",
+    "code": "def is_abundant(n):\r\n    fctrsum = sum([fctr for fctr in range(1, n) if n % fctr == 0])\r\n    return fctrsum > n",
+    "test_list": [
+      "assert is_abundant(12)==True",
+      "assert is_abundant(13)==False",
+      "assert is_abundant(9)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find out, if the given number is abundant.\n\nTask ID: 955\n\nExpected behavior (test cases):\n1. is_abundant(12)==True\n2. is_abundant(13)==False\n3. is_abundant(9)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bd6c0ae9dab841e29b05afbdc1d406d8",
+    "object": "chat.completion",
+    "created": 1750868558,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_abundant(n):\n    # Calculate the sum of proper divisors of n\n    def sum_of_divisors(num):\n        div_sum = 0\n        for i in range(1, num // 2 + 1):\n            if num % i == 0:\n                div_sum += i\n        return div_sum\n    \n    # Check if the sum of divisors is greater than twice the number itself\n    return sum_of_divisors(n) > 2 * n\n```\n\nThis solution defines a helper function `sum_of_divisors` to calculate the sum of all proper divisors of a given number `n`. It then checks if this sum is greater than twice the original number and returns `True` if it is, indicating that the number is abundant; otherwise, it returns `False`.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 124,
+      "total_tokens": 295,
+      "completion_tokens": 171,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868561.4514596
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 416,
+  "problem": {
+    "task_id": 416,
+    "text": "Write a function to find the maximum sum we can make by dividing number in three parts recursively and summing them up together for the given number.",
+    "code": "MAX = 1000000\r\ndef breakSum(n): \r\n\tdp = [0]*(n+1) \r\n\tdp[0] = 0\r\n\tdp[1] = 1\r\n\tfor i in range(2, n+1): \r\n\t\tdp[i] = max(dp[int(i/2)] + dp[int(i/3)] + dp[int(i/4)], i); \r\n\treturn dp[n]",
+    "test_list": [
+      "assert breakSum(12) == 13",
+      "assert breakSum(24) == 27",
+      "assert breakSum(23) == 23"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum sum we can make by dividing number in three parts recursively and summing them up together for the given number.\n\nTask ID: 416\n\nExpected behavior (test cases):\n1. breakSum(12) should return 13\n2. breakSum(24) should return 27\n3. breakSum(23) should return 23\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2cdef6c96dcd455283b88768fdfc2017",
+    "object": "chat.completion",
+    "created": 1750869650,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef breakSum(n):\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return max(breakSum(n // 3), breakSum(n // 4)) + n % 3\n```\n\nThis solution uses recursion to divide the number into three parts and sums them up based on the division rules provided in the task description.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "total_tokens": 234,
+      "completion_tokens": 88,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869652.4632132
+}

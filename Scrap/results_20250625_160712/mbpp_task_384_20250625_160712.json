@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 384,
+  "problem": {
+    "task_id": 384,
+    "text": "Write a python function to find the frequency of the smallest value in a given array.",
+    "code": "def frequency_Of_Smallest(n,arr): \r\n    mn = arr[0] \r\n    freq = 1\r\n    for i in range(1,n): \r\n        if (arr[i] < mn): \r\n            mn = arr[i] \r\n            freq = 1\r\n        elif (arr[i] == mn): \r\n            freq += 1\r\n    return freq ",
+    "test_list": [
+      "assert frequency_Of_Smallest(5,[1,2,3,4,3]) == 1",
+      "assert frequency_Of_Smallest(7,[3,1,2,5,6,2,3]) == 1",
+      "assert frequency_Of_Smallest(7,[3,3,6,3,7,4,9]) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the frequency of the smallest value in a given array.\n\nTask ID: 384\n\nExpected behavior (test cases):\n1. frequency_Of_Smallest(5,[1,2,3,4,3]) should return 1\n2. frequency_Of_Smallest(7,[3,1,2,5,6,2,3]) should return 1\n3. frequency_Of_Smallest(7,[3,3,6,3,7,4,9]) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9cdfb73b423f43f587ec9e82bc17986b",
+    "object": "chat.completion",
+    "created": 1750869571,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef frequency_Of_Smallest(n, arr):\n    # Find the minimum element in the array\n    min_element = min(arr)\n    \n    # Count how many times the minimum element appears in the array\n    count = arr.count(min_element)\n    \n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 175,
+      "total_tokens": 235,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869572.7088408
+}

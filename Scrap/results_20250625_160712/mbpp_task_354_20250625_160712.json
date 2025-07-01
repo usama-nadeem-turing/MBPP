@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 354,
+  "problem": {
+    "task_id": 354,
+    "text": "Write a function to find t-nth term of arithemetic progression.",
+    "code": "def tn_ap(a,n,d):\r\n  tn = a + (n - 1) * d\r\n  return tn",
+    "test_list": [
+      "assert tn_ap(1,5,2)==9",
+      "assert tn_ap(2,6,4)==22",
+      "assert tn_ap(1,4,5)==16"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find t-nth term of arithemetic progression.\n\nTask ID: 354\n\nExpected behavior (test cases):\n1. tn_ap(1,5,2)==9\n2. tn_ap(2,6,4)==22\n3. tn_ap(1,4,5)==16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c7a869d7797d492d9e6e3b40b5472a26",
+    "object": "chat.completion",
+    "created": 1750869501,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tn_ap(t,n,a,d):\n    return a + d * ((t-1) * n)\n\n# Test cases\nprint(tn_ap(1,5,2)) # Expected output: 9\nprint(tn_ap(2,6,4)) # Expected output: 22\nprint(tn_ap(1,4,5)) # Expected output: 16\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 219,
+      "completion_tokens": 87,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869502.5072362
+}

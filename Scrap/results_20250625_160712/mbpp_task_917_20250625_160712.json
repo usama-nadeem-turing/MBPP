@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 917,
+  "problem": {
+    "task_id": 917,
+    "text": "Write a function to find the sequences of one upper case letter followed by lower case letters.",
+    "code": "import re\r\ndef text_uppercase_lowercase(text):\r\n        patterns = '[A-Z]+[a-z]+$'\r\n        if re.search(patterns, text):\r\n                return 'Found a match!'\r\n        else:\r\n                return ('Not matched!')",
+    "test_list": [
+      "assert text_uppercase_lowercase(\"AaBbGg\")==('Found a match!')",
+      "assert text_uppercase_lowercase(\"aA\")==('Not matched!')",
+      "assert text_uppercase_lowercase(\"PYTHON\")==('Not matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the sequences of one upper case letter followed by lower case letters.\n\nTask ID: 917\n\nExpected behavior (test cases):\n1. text_uppercase_lowercase(\"AaBbGg\")==('Found a match!')\n2. text_uppercase_lowercase(\"aA\")==('Not matched!')\n3. text_uppercase_lowercase(\"PYTHON\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-94759a12d42a464f995f611db26cd40c",
+    "object": "chat.completion",
+    "created": 1750868462,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef text_uppercase_lowercase(text):\n    # Check if the first character is uppercase and the second character is lowercase\n    if text[0].isupper() and text[1].islower():\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 201,
+      "completion_tokens": 61,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868463.40774
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 307,
+  "problem": {
+    "task_id": 307,
+    "text": "Write a function to get a colon of a tuple.",
+    "code": "from copy import deepcopy\r\ndef colon_tuplex(tuplex,m,n):\r\n  tuplex_colon = deepcopy(tuplex)\r\n  tuplex_colon[m].append(n)\r\n  return tuplex_colon",
+    "test_list": [
+      "assert colon_tuplex((\"HELLO\", 5, [], True) ,2,50)==(\"HELLO\", 5, [50], True) ",
+      "assert colon_tuplex((\"HELLO\", 5, [], True) ,2,100)==((\"HELLO\", 5, [100],True))",
+      "assert colon_tuplex((\"HELLO\", 5, [], True) ,2,500)==(\"HELLO\", 5, [500], True)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to get a colon of a tuple.\n\nTask ID: 307\n\nExpected behavior (test cases):\n1. colon_tuplex((\"HELLO\", 5, [], True) ,2,50)==(\"HELLO\", 5, [50], True) \n2. colon_tuplex((\"HELLO\", 5, [], True) ,2,100)==((\"HELLO\", 5, [100],True))\n3. colon_tuplex((\"HELLO\", 5, [], True) ,2,500)==(\"HELLO\", 5, [500], True)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-30fa04916da04d318410b619a7fe5bdc",
+    "object": "chat.completion",
+    "created": 1750869377,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef colon_tuplex(tup, n, val):\n    return tup[:n] + [(val,) * (len(tup) - n)]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 196,
+      "total_tokens": 232,
+      "completion_tokens": 36,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869378.1907594
+}

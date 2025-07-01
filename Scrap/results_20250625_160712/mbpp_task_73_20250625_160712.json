@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 73,
+  "problem": {
+    "task_id": 73,
+    "text": "Write a function to split the given string with multiple delimiters by using regex.",
+    "code": "import re\r\ndef multiple_split(text):\r\n  return (re.split('; |, |\\*|\\n',text))",
+    "test_list": [
+      "assert multiple_split('Forces of the \\ndarkness*are coming into the play.') == ['Forces of the ', 'darkness', 'are coming into the play.']",
+      "assert multiple_split('Mi Box runs on the \\n Latest android*which has google assistance and chromecast.') == ['Mi Box runs on the ', ' Latest android', 'which has google assistance and chromecast.']",
+      "assert multiple_split('Certain services\\nare subjected to change*over the seperate subscriptions.') == ['Certain services', 'are subjected to change', 'over the seperate subscriptions.']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to split the given string with multiple delimiters by using regex.\n\nTask ID: 73\n\nExpected behavior (test cases):\n1. multiple_split('Forces of the \\ndarkness*are coming into the play.') should return ['Forces of the ', 'darkness', 'are coming into the play.']\n2. multiple_split('Mi Box runs on the \\n Latest android*which has google assistance and chromecast.') should return ['Mi Box runs on the ', ' Latest android', 'which has google assistance and chromecast.']\n3. multiple_split('Certain services\\nare subjected to change*over the seperate subscriptions.') should return ['Certain services', 'are subjected to change', 'over the seperate subscriptions.']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7bc6830d6aa34ced8c365b6eb7a82103",
+    "object": "chat.completion",
+    "created": 1750868767,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef multiple_split(input_string):\n    # Use regex to find all substrings separated by the specified delimiters\n    result = re.split(r'[^\\w\\s]', input_string)\n    # Remove empty strings from the list if any\n    result = [item for item in result if item]\n    return result\n\n# Test cases\nprint(multiple_split('Forces of the \\ndarkness*are coming into the play.'))\nprint(multiple_split('Mi Box runs on the \\n Latest android*which has google assistance and chromecast.'))\nprint(multiple_split('Certain services\\nare subjected to change*over the seperate subscriptions.'))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 213,
+      "total_tokens": 352,
+      "completion_tokens": 139,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868770.3042984
+}

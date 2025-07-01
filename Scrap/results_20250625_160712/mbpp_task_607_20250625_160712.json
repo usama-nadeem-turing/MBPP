@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 607,
+  "problem": {
+    "task_id": 607,
+    "text": "Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs by using regex.",
+    "code": "import re\r\npattern = 'fox'\r\ntext = 'The quick brown fox jumps over the lazy dog.'\r\ndef find_literals(text, pattern):\r\n  match = re.search(pattern, text)\r\n  s = match.start()\r\n  e = match.end()\r\n  return (match.re.pattern, s, e)",
+    "test_list": [
+      "assert find_literals('The quick brown fox jumps over the lazy dog.', 'fox') == ('fox', 16, 19)",
+      "assert find_literals('Its been a very crazy procedure right', 'crazy') == ('crazy', 16, 21)",
+      "assert find_literals('Hardest choices required strongest will', 'will') == ('will', 35, 39)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to search a literals string in a string and also find the location within the original string where the pattern occurs by using regex.\n\nTask ID: 607\n\nExpected behavior (test cases):\n1. find_literals('The quick brown fox jumps over the lazy dog.', 'fox') should return ('fox', 16, 19)\n2. find_literals('Its been a very crazy procedure right', 'crazy') should return ('crazy', 16, 21)\n3. find_literals('Hardest choices required strongest will', 'will') should return ('will', 35, 39)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-127c3fbf07f342f391251aa7ae1c3294",
+    "object": "chat.completion",
+    "created": 1750867658,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef find_literals(text, pattern):\n    match = re.search(pattern, text)\n    if match:\n        start_index = match.start()\n        end_index = match.end()\n        return (pattern, start_index, end_index)\n    else:\n        return None\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 193,
+      "total_tokens": 253,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867659.5225549
+}

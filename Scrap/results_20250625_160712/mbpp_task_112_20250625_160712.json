@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 112,
+  "problem": {
+    "task_id": 112,
+    "text": "Write a python function to find the perimeter of a cylinder.",
+    "code": "def perimeter(diameter,height) : \r\n    return 2*(diameter+height)  ",
+    "test_list": [
+      "assert perimeter(2,4) == 12",
+      "assert perimeter(1,2) == 6",
+      "assert perimeter(3,1) == 8"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the perimeter of a cylinder.\n\nTask ID: 112\n\nExpected behavior (test cases):\n1. perimeter(2,4) should return 12\n2. perimeter(1,2) should return 6\n3. perimeter(3,1) should return 8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-28c637bf53704d7bb63f9b3bedf98619",
+    "object": "chat.completion",
+    "created": 1750868866,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef calculate_cylinder_perimeter(radius, height):\n    \"\"\"\n    Calculate the perimeter of a cylinder given its radius and height.\n    \n    Parameters:\n    - radius (float): The radius of the cylinder's base.\n    - height (float): The height of the cylinder.\n    \n    Returns:\n    float: The perimeter of the cylinder.\n    \"\"\"\n    # Perimeter of the circular top/base of the cylinder is 2 * pi * radius\n    # Circumference of the cylindrical side is 2 * pi * radius * height\n    # Total perimeter = 2 * pi * radius + 2 * pi * radius * height\n    total_perimeter = 2 * 3.14159 * radius + 2 * 3.14159 * radius * height\n    return total_perimeter\n\n# Test cases\nprint(calculate_cylinder_perimeter(2, 4))  # Expected output: 12\nprint(calculate_cylinder_perimeter(1, 2))  # Expected output: 6\nprint(calculate_cylinder_perimeter(3, 1))  # Expected output: 8\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 371,
+      "completion_tokens": 244,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868870.393181
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 375,
+  "problem": {
+    "task_id": 375,
+    "text": "Write a function to round the given number to the nearest multiple of a specific number.",
+    "code": "def round_num(n,m):\r\n    a = (n //m) * m\r\n    b = a + m\r\n    return (b if n - a > b - n else a)",
+    "test_list": [
+      "assert round_num(4722,10)==4720",
+      "assert round_num(1111,5)==1110",
+      "assert round_num(219,2)==218"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to round the given number to the nearest multiple of a specific number.\n\nTask ID: 375\n\nExpected behavior (test cases):\n1. round_num(4722,10)==4720\n2. round_num(1111,5)==1110\n3. round_num(219,2)==218\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-356c9afb94394fe9bd2cf759d1d584f8",
+    "object": "chat.completion",
+    "created": 1750869550,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef round_num(num, divisor):\n    return int(divisor * round(float(num) / divisor))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "total_tokens": 167,
+      "completion_tokens": 25,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869550.5022376
+}

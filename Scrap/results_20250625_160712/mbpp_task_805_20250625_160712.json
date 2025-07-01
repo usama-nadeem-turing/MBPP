@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 805,
+  "problem": {
+    "task_id": 805,
+    "text": "Write a function to find the list in a list of lists whose sum of elements is the highest.",
+    "code": "def max_sum_list(lists):\r\n return max(lists, key=sum)",
+    "test_list": [
+      "assert max_sum_list([[1,2,3], [4,5,6], [10,11,12], [7,8,9]])==[10, 11, 12] ",
+      "assert max_sum_list([[3,2,1], [6,5,4], [12,11,10]])==[12,11,10] ",
+      "assert max_sum_list([[2,3,1]])==[2,3,1] "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the list in a list of lists whose sum of elements is the highest.\n\nTask ID: 805\n\nExpected behavior (test cases):\n1. max_sum_list([[1,2,3], [4,5,6], [10,11,12], [7,8,9]])==[10, 11, 12] \n2. max_sum_list([[3,2,1], [6,5,4], [12,11,10]])==[12,11,10] \n3. max_sum_list([[2,3,1]])==[2,3,1] \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1805f5bc14dc44ecbf80be5683032c32",
+    "object": "chat.completion",
+    "created": 1750868170,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sum_list(lst):\n    return max(lst, key=sum)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "total_tokens": 226,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868171.0799434
+}

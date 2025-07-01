@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 320,
+  "problem": {
+    "task_id": 320,
+    "text": "Write a function to calculate the difference between the squared sum of first n natural numbers and the sum of squared first n natural numbers.",
+    "code": "def sum_difference(n):\r\n    sumofsquares = 0\r\n    squareofsum = 0\r\n    for num in range(1, n+1):\r\n        sumofsquares += num * num\r\n        squareofsum += num\r\n    squareofsum = squareofsum ** 2\r\n    return squareofsum - sumofsquares",
+    "test_list": [
+      "assert sum_difference(12)==5434",
+      "assert sum_difference(20)==41230",
+      "assert sum_difference(54)==2151270"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the difference between the squared sum of first n natural numbers and the sum of squared first n natural numbers.\n\nTask ID: 320\n\nExpected behavior (test cases):\n1. sum_difference(12)==5434\n2. sum_difference(20)==41230\n3. sum_difference(54)==2151270\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3e5cdcbbc1f043ebacfddb4ba498e254",
+    "object": "chat.completion",
+    "created": 1750869411,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_difference(n):\n    # Calculate the sum of squares of first n natural numbers\n    sum_of_squares = int((n * (n + 1) * (2 * n + 1)) / 6)\n    \n    # Calculate the square of the sum of first n natural numbers\n    square_of_sum = pow(int((n * (n + 1)) / 2), 2)\n    \n    # Return the difference between the two calculated values\n    return square_of_sum - sum_of_squares\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 257,
+      "completion_tokens": 113,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869413.3676488
+}

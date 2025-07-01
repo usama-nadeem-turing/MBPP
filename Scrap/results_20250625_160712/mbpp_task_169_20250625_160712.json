@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 169,
+  "problem": {
+    "task_id": 169,
+    "text": "Write a function to calculate the nth pell number.",
+    "code": "def get_pell(n): \r\n\tif (n <= 2): \r\n\t\treturn n \r\n\ta = 1\r\n\tb = 2\r\n\tfor i in range(3, n+1): \r\n\t\tc = 2 * b + a \r\n\t\ta = b \r\n\t\tb = c \r\n\treturn b ",
+    "test_list": [
+      "assert get_pell(4) == 12",
+      "assert get_pell(7) == 169",
+      "assert get_pell(8) == 408"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the nth pell number.\n\nTask ID: 169\n\nExpected behavior (test cases):\n1. get_pell(4) should return 12\n2. get_pell(7) should return 169\n3. get_pell(8) should return 408\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b7f661e41c4345608d2cd9b97e193305",
+    "object": "chat.completion",
+    "created": 1750869024,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_pell(n):\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, 2 * b + a\n        return b\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 210,
+      "completion_tokens": 80,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869026.0188158
+}

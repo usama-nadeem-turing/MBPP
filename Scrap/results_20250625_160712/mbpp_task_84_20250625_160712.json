@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 84,
+  "problem": {
+    "task_id": 84,
+    "text": "Write a function to find the n-th number in newman conway sequence.",
+    "code": "def sequence(n): \r\n\tif n == 1 or n == 2: \r\n\t\treturn 1\r\n\telse: \r\n\t\treturn sequence(sequence(n-1)) + sequence(n-sequence(n-1))",
+    "test_list": [
+      "assert sequence(10) == 6",
+      "assert sequence(2) == 1",
+      "assert sequence(3) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n-th number in newman conway sequence.\n\nTask ID: 84\n\nExpected behavior (test cases):\n1. sequence(10) should return 6\n2. sequence(2) should return 1\n3. sequence(3) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4971161ca74344ff8815f9080b28b538",
+    "object": "chat.completion",
+    "created": 1750868799,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sequence(n):\n    if n == 1:\n        return 1\n    elif n == 2:\n        return 1\n    else:\n        a, b = 1, 1\n        for _ in range(3, n + 1):\n            a, b = b, a + b\n        return b\n```\n\nThis solution defines a function `sequence` that calculates the n-th number in the Newman-Conway sequence using dynamic programming. It initializes two variables `a` and `b` with values 1 and 1 respectively, as the first two numbers in the sequence. Then it iterates from 3 to n, updating `a` and `b` accordingly until reaching the desired position `n`. Finally, it returns the value of `b`, which represents the n-th number in the sequence.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 124,
+      "total_tokens": 300,
+      "completion_tokens": 176,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868801.969506
+}

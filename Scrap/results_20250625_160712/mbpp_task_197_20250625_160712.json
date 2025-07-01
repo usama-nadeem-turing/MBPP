@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 197,
+  "problem": {
+    "task_id": 197,
+    "text": "Write a function to perform the exponentiation of the given two tuples.",
+    "code": "def find_exponentio(test_tup1, test_tup2):\r\n  res = tuple(ele1 ** ele2 for ele1, ele2 in zip(test_tup1, test_tup2))\r\n  return (res)\r\n",
+    "test_list": [
+      "assert find_exponentio((10, 4, 5, 6), (5, 6, 7, 5)) == (100000, 4096, 78125, 7776)",
+      "assert find_exponentio((11, 5, 6, 7), (6, 7, 8, 6)) == (1771561, 78125, 1679616, 117649)",
+      "assert find_exponentio((12, 6, 7, 8), (7, 8, 9, 7)) == (35831808, 1679616, 40353607, 2097152)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to perform the exponentiation of the given two tuples.\n\nTask ID: 197\n\nExpected behavior (test cases):\n1. find_exponentio((10, 4, 5, 6), (5, 6, 7, 5)) should return (100000, 4096, 78125, 7776)\n2. find_exponentio((11, 5, 6, 7), (6, 7, 8, 6)) should return (1771561, 78125, 1679616, 117649)\n3. find_exponentio((12, 6, 7, 8), (7, 8, 9, 7)) should return (35831808, 1679616, 40353607, 2097152)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6403c4712ecd43f8bb2503ac774ea8dc",
+    "object": "chat.completion",
+    "created": 1750869099,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_exponentio(tup1, tup2):\n    result = []\n    for i in range(len(tup1)):\n        result.append(pow(tup1[i], tup2[i]))\n    return tuple(result)\n\n# Test cases\nprint(find_exponentio((10, 4, 5, 6), (5, 6, 7, 5))) # Expected output: (100000, 4096, 78125, 7776)\nprint(find_exponentio((11, 5, 6, 7), (6, 7, 8, 6))) # Expected output: (1771561, 78125, 1679616, 117649)\nprint(find_exponentio((12, 6, 7, 8), (7, 8, 9, 7))) # Expected output: (35831808, 1679616, 40353607, 2097152)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 286,
+      "total_tokens": 539,
+      "completion_tokens": 253,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869103.3125737
+}

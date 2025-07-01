@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 209,
+  "problem": {
+    "task_id": 209,
+    "text": "Write a function to delete the smallest element from the given heap and then insert a new item.",
+    "code": "import heapq as hq\r\ndef heap_replace(heap,a):\r\n  hq.heapify(heap)\r\n  hq.heapreplace(heap, a)\r\n  return heap",
+    "test_list": [
+      "assert heap_replace( [25, 44, 68, 21, 39, 23, 89],21)==[21, 25, 23, 44, 39, 68, 89]",
+      "assert heap_replace([25, 44, 68, 21, 39, 23, 89],110)== [23, 25, 68, 44, 39, 110, 89]",
+      "assert heap_replace([25, 44, 68, 21, 39, 23, 89],500)==[23, 25, 68, 44, 39, 500, 89]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to delete the smallest element from the given heap and then insert a new item.\n\nTask ID: 209\n\nExpected behavior (test cases):\n1. heap_replace( [25, 44, 68, 21, 39, 23, 89],21)==[21, 25, 23, 44, 39, 68, 89]\n2. heap_replace([25, 44, 68, 21, 39, 23, 89],110)== [23, 25, 68, 44, 39, 110, 89]\n3. heap_replace([25, 44, 68, 21, 39, 23, 89],500)==[23, 25, 68, 44, 39, 500, 89]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8a7e73974a4848ddbfe480d598a03cd0",
+    "object": "chat.completion",
+    "created": 1750869133,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef heap_replace(heap, value):\n    \"\"\"\n    Deletes the smallest element from the given heap and inserts a new item.\n    \n    Parameters:\n    - heap: List[int] representing the heap.\n    - value: int, the new item to be inserted into the heap.\n    \n    Returns:\n    A list with the updated heap after deleting the smallest element and inserting the new item.\n    \"\"\"\n    # Remove the smallest element\n    min_element = min(heap)\n    index_of_min = heap.index(min_element)\n    del heap[index_of_min]\n\n    # Insert the new item at the end of the heap\n    heap.append(value)\n\n    return heap\n\n# Test cases\nprint(heap_replace([25, 44, 68, 21, 39, 23, 89], 21))  # Expected output: [21, 25, 23, 44, 39, 68, 89]\nprint(heap_replace([25, 44, 68, 21, 39, 23, 89], 110))  # Expected output: [23, 25, 68, 44, 39, 110, 89]\nprint(heap_replace([25, 44, 68, 21, 39, 23, 89], 500))  # Expected output: [23, 25, 68, 44, 39, 500, 89]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 288,
+      "total_tokens": 637,
+      "completion_tokens": 349,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869138.9233005
+}

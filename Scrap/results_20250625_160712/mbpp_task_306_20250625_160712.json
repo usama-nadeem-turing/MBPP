@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 306,
+  "problem": {
+    "task_id": 306,
+    "text": "Write a function to find the maximum sum of increasing subsequence from prefix till ith index and also including a given kth element which is after i, i.e., k > i .",
+    "code": "def max_sum_increasing_subseq(a, n, index, k):\r\n\tdp = [[0 for i in range(n)] \r\n\t\t\tfor i in range(n)]\r\n\tfor i in range(n):\r\n\t\tif a[i] > a[0]:\r\n\t\t\tdp[0][i] = a[i] + a[0]\r\n\t\telse:\r\n\t\t\tdp[0][i] = a[i]\r\n\tfor i in range(1, n):\r\n\t\tfor j in range(n):\r\n\t\t\tif a[j] > a[i] and j > i:\r\n\t\t\t\tif dp[i - 1][i] + a[j] > dp[i - 1][j]:\r\n\t\t\t\t\tdp[i][j] = dp[i - 1][i] + a[j]\r\n\t\t\t\telse:\r\n\t\t\t\t\tdp[i][j] = dp[i - 1][j]\r\n\t\t\telse:\r\n\t\t\t\tdp[i][j] = dp[i - 1][j]\r\n\treturn dp[index][k]",
+    "test_list": [
+      "assert max_sum_increasing_subseq([1, 101, 2, 3, 100, 4, 5 ], 7, 4, 6) == 11",
+      "assert max_sum_increasing_subseq([1, 101, 2, 3, 100, 4, 5 ], 7, 2, 5) == 7",
+      "assert max_sum_increasing_subseq([11, 15, 19, 21, 26, 28, 31], 7, 2, 4) == 71"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum sum of increasing subsequence from prefix till ith index and also including a given kth element which is after i, i.e., k > i .\n\nTask ID: 306\n\nExpected behavior (test cases):\n1. max_sum_increasing_subseq([1, 101, 2, 3, 100, 4, 5 ], 7, 4, 6) should return 11\n2. max_sum_increasing_subseq([1, 101, 2, 3, 100, 4, 5 ], 7, 2, 5) should return 7\n3. max_sum_increasing_subseq([11, 15, 19, 21, 26, 28, 31], 7, 2, 4) should return 71\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f74adf1ebfd9406f83c303a209792195",
+    "object": "chat.completion",
+    "created": 1750869372,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sum_increasing_subseq(arr, n, k, m):\n    dp = [0] * (n + 1)\n    dp[0] = arr[0]\n    \n    for i in range(1, n):\n        dp[i] = max(dp[i-1] + arr[i], arr[i])\n        \n    max_val = dp[n - 1]\n    \n    for j in range(n - 1, k - 1, -1):\n        if dp[j] >= max_val:\n            max_val = dp[j]\n            \n    return max_val\n\n# Test cases\nprint(max_sum_increasing_subseq([1, 101, 2, 3, 100, 4, 5 ], 7, 4, 6)) # Expected output: 11\nprint(max_sum_increasing_subseq([1, 101, 2, 3, 100, 4, 5 ], 7, 2, 5)) # Expected output: 7\nprint(max_sum_increasing_subseq([11, 15, 19, 21, 26, 28, 31], 7, 2, 4)) # Expected output: 71\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 258,
+      "total_tokens": 535,
+      "completion_tokens": 277,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869377.0368893
+}

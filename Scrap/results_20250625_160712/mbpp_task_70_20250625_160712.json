@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 70,
+  "problem": {
+    "task_id": 70,
+    "text": "Write a function to find whether all the given tuples have equal length or not.",
+    "code": "def find_equal_tuple(Input, k):\r\n  flag = 1\r\n  for tuple in Input:\r\n    if len(tuple) != k:\r\n      flag = 0\r\n      break\r\n  return flag\r\ndef get_equal(Input, k):\r\n  if find_equal_tuple(Input, k) == 1:\r\n    return (\"All tuples have same length\")\r\n  else:\r\n    return (\"All tuples do not have same length\")",
+    "test_list": [
+      "assert get_equal([(11, 22, 33), (44, 55, 66)], 3) == 'All tuples have same length'",
+      "assert get_equal([(1, 2, 3), (4, 5, 6, 7)], 3) == 'All tuples do not have same length'",
+      "assert get_equal([(1, 2), (3, 4)], 2) == 'All tuples have same length'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find whether all the given tuples have equal length or not.\n\nTask ID: 70\n\nExpected behavior (test cases):\n1. get_equal([(11, 22, 33), (44, 55, 66)], 3) should return 'All tuples have same length'\n2. get_equal([(1, 2, 3), (4, 5, 6, 7)], 3) should return 'All tuples do not have same length'\n3. get_equal([(1, 2), (3, 4)], 2) should return 'All tuples have same length'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d0c534d0e19345b498d0e35814021b22",
+    "object": "chat.completion",
+    "created": 1750868756,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_equal(tuples_list, expected_length):\n    \"\"\"\n    Check if all tuples in the list have the same length.\n    \n    Parameters:\n    - tuples_list: List of tuples to check.\n    - expected_length: The expected length of each tuple.\n    \n    Returns:\n    A string indicating whether all tuples have the same length as specified,\n    or if they don't.\n    \"\"\"\n    # Checking if all tuples have the same length as expected_length\n    if len(set(map(len, tuples_list))) == 1 and set(map(len, tuples_list)) == {expected_length}:\n        return 'All tuples have same length'\n    else:\n        return 'All tuples do not have same length'\n\n# Test cases\nprint(get_equal([(11, 22, 33), (44, 55, 66)], 3))  # Expected output: \"All tuples have same length\"\nprint(get_equal([(1, 2, 3), (4, 5, 6, 7)], 3))     # Expected output: \"All tuples do not have same length\"\nprint(get_equal([(1, 2), (3, 4)], 2))              # Expected output: \"All tuples have same length\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 197,
+      "total_tokens": 462,
+      "completion_tokens": 265,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868760.449676
+}

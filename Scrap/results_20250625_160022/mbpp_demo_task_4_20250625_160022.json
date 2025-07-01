@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 4,
+  "problem": {
+    "task_id": 4,
+    "text": "Write a function to find the largest integers from a given list of numbers using heap queue algorithm.",
+    "code": "import heapq as hq\r\ndef heap_queue_largest(nums,n):\r\n  largest_nums = hq.nlargest(n, nums)\r\n  return largest_nums",
+    "test_list": [
+      "assert heap_queue_largest( [25, 35, 22, 85, 14, 65, 75, 22, 58],3)==[85, 75, 65] ",
+      "assert heap_queue_largest( [25, 35, 22, 85, 14, 65, 75, 22, 58],2)==[85, 75] ",
+      "assert heap_queue_largest( [25, 35, 22, 85, 14, 65, 75, 22, 58],5)==[85, 75, 65, 58, 35]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest integers from a given list of numbers using heap queue algorithm.\n\nTask ID: 4\n\nExpected behavior (test cases):\n1. heap_queue_largest( [25, 35, 22, 85, 14, 65, 75, 22, 58],3)==[85, 75, 65] \n2. heap_queue_largest( [25, 35, 22, 85, 14, 65, 75, 22, 58],2)==[85, 75] \n3. heap_queue_largest( [25, 35, 22, 85, 14, 65, 75, 22, 58],5)==[85, 75, 65, 58, 35]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0f8fd924895d47b6b3f6265114d0a2cb",
+    "object": "chat.completion",
+    "created": 1750867285,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport heapq\n\ndef heap_queue_largest(nums, k):\n    # Convert all elements in nums into a min-heap\n    heapq.heapify(nums)\n    \n    # Extract the 'k' largest elements from the heap\n    result = sorted(heapq.nlargest(k, nums), reverse=True)\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 269,
+      "total_tokens": 340,
+      "completion_tokens": 71,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867286.9941993
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 453,
+  "problem": {
+    "task_id": 453,
+    "text": "Write a python function to find the sum of even factors of a number.",
+    "code": "import math \r\ndef sumofFactors(n) : \r\n    if (n % 2 != 0) : \r\n        return 0\r\n    res = 1\r\n    for i in range(2, (int)(math.sqrt(n)) + 1) :    \r\n        count = 0\r\n        curr_sum = 1\r\n        curr_term = 1\r\n        while (n % i == 0) : \r\n            count= count + 1\r\n            n = n // i \r\n            if (i == 2 and count == 1) : \r\n                curr_sum = 0\r\n            curr_term = curr_term * i \r\n            curr_sum = curr_sum + curr_term \r\n        res = res * curr_sum  \r\n    if (n >= 2) : \r\n        res = res * (1 + n) \r\n    return res ",
+    "test_list": [
+      "assert sumofFactors(18) == 26",
+      "assert sumofFactors(30) == 48",
+      "assert sumofFactors(6) == 8"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of even factors of a number.\n\nTask ID: 453\n\nExpected behavior (test cases):\n1. sumofFactors(18) should return 26\n2. sumofFactors(30) should return 48\n3. sumofFactors(6) should return 8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1d9ceebcb946434f9258fe19ec523835",
+    "object": "chat.completion",
+    "created": 1750869735,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sumofFactors(n):\n    total = 0\n    for i in range(1, n + 1):\n        if n % i == 0 and i % 2 == 0:\n            total += i\n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 189,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869736.8592694
+}

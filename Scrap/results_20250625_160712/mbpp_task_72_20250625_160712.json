@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 72,
+  "problem": {
+    "task_id": 72,
+    "text": "Write a python function to check whether the given number can be represented as difference of two squares or not.",
+    "code": "def dif_Square(n): \r\n    if (n % 4 != 2): \r\n        return True\r\n    return False",
+    "test_list": [
+      "assert dif_Square(5) == True",
+      "assert dif_Square(10) == False",
+      "assert dif_Square(15) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number can be represented as difference of two squares or not.\n\nTask ID: 72\n\nExpected behavior (test cases):\n1. dif_Square(5) should return True\n2. dif_Square(10) should return False\n3. dif_Square(15) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e7e5a79561794fb497251241662e1b50",
+    "object": "chat.completion",
+    "created": 1750868766,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef dif_Square(n):\n    # Check if n is odd and greater than 1\n    if n % 2 != 0 and n > 1:\n        return True\n    else:\n        return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 183,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868767.4433496
+}

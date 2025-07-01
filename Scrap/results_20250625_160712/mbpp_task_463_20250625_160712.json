@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 463,
+  "problem": {
+    "task_id": 463,
+    "text": "Write a function to find the maximum product subarray of the given array.",
+    "code": "def max_subarray_product(arr):\r\n\tn = len(arr)\r\n\tmax_ending_here = 1\r\n\tmin_ending_here = 1\r\n\tmax_so_far = 0\r\n\tflag = 0\r\n\tfor i in range(0, n):\r\n\t\tif arr[i] > 0:\r\n\t\t\tmax_ending_here = max_ending_here * arr[i]\r\n\t\t\tmin_ending_here = min (min_ending_here * arr[i], 1)\r\n\t\t\tflag = 1\r\n\t\telif arr[i] == 0:\r\n\t\t\tmax_ending_here = 1\r\n\t\t\tmin_ending_here = 1\r\n\t\telse:\r\n\t\t\ttemp = max_ending_here\r\n\t\t\tmax_ending_here = max (min_ending_here * arr[i], 1)\r\n\t\t\tmin_ending_here = temp * arr[i]\r\n\t\tif (max_so_far < max_ending_here):\r\n\t\t\tmax_so_far = max_ending_here\r\n\tif flag == 0 and max_so_far == 0:\r\n\t\treturn 0\r\n\treturn max_so_far",
+    "test_list": [
+      "assert max_subarray_product([1, -2, -3, 0, 7, -8, -2]) == 112",
+      "assert max_subarray_product([6, -3, -10, 0, 2]) == 180 ",
+      "assert max_subarray_product([-2, -40, 0, -2, -3]) == 80"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum product subarray of the given array.\n\nTask ID: 463\n\nExpected behavior (test cases):\n1. max_subarray_product([1, -2, -3, 0, 7, -8, -2]) should return 112\n2. max_subarray_product([6, -3, -10, 0, 2]) should return 180 \n3. max_subarray_product([-2, -40, 0, -2, -3]) should return 80\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7b1545978ce7406084a55ba6fde54c15",
+    "object": "chat.completion",
+    "created": 1750869755,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom typing import List\n\ndef max_subarray_product(arr: List[int]) -> int:\n    if not arr:\n        return 0\n    \n    max_product = float('-inf')\n    current_max = float('-inf')\n    min_product = float('inf')\n    \n    for num in arr:\n        temp = max(num, num * current_max, num * min_product)\n        min_product = min(num, num * current_max, num * min_product)\n        current_max = temp\n        \n        max_product = max(max_product, current_max)\n        \n    return max_product\n```\n\nThis solution uses Kadane's algorithm with an additional check to handle negative numbers and zeros, ensuring it can correctly identify the maximum product subarray.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "total_tokens": 331,
+      "completion_tokens": 150,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869758.2624445
+}

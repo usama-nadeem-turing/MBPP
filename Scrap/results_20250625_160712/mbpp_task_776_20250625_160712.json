@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 776,
+  "problem": {
+    "task_id": 776,
+    "text": "Write a function to count those characters which have vowels as their neighbors in the given string.",
+    "code": "def count_vowels(test_str):\r\n  res = 0\r\n  vow_list = ['a', 'e', 'i', 'o', 'u']\r\n  for idx in range(1, len(test_str) - 1):\r\n    if test_str[idx] not in vow_list and (test_str[idx - 1] in vow_list or test_str[idx + 1] in vow_list):\r\n      res += 1\r\n  if test_str[0] not in vow_list and test_str[1] in vow_list:\r\n    res += 1\r\n  if test_str[-1] not in vow_list and test_str[-2] in vow_list:\r\n    res += 1\r\n  return (res) ",
+    "test_list": [
+      "assert count_vowels('bestinstareels') == 7",
+      "assert count_vowels('partofthejourneyistheend') == 12",
+      "assert count_vowels('amazonprime') == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count those characters which have vowels as their neighbors in the given string.\n\nTask ID: 776\n\nExpected behavior (test cases):\n1. count_vowels('bestinstareels') should return 7\n2. count_vowels('partofthejourneyistheend') should return 12\n3. count_vowels('amazonprime') should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5aaaea1f1df84c539671aa297b72ef1e",
+    "object": "chat.completion",
+    "created": 1750868085,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_vowels(s):\n    # Initialize vowel counter\n    vowel_count = 0\n    \n    # Iterate through each character in the string\n    for i in range(len(s)):\n        # Check if the current character is a vowel and its neighbor is also a vowel\n        if s[i] == 'a' or s[i] == 'e' or s[i] == 'i' or s[i] == 'o' or s[i] == 'u':\n            if i > 0 and s[i-1] == 'a' or s[i-1] == 'e' or s[i-1] == 'i' or s[i-1] == 'o' or s[i-1] == 'u':\n                vowel_count += 1\n            if i < len(s) - 1 and s[i+1] == 'a' or s[i+1] == 'e' or s[i+1] == 'i' or s[i+1] == 'o' or s[i+1] == 'u':\n                vowel_count += 1\n                \n    return vowel_count\n```\n\nThis solution iterates through each character of the input string `s`, checks if it's a vowel, and then counts how many times its neighboring characters are also vowels. It returns the total count of such occurrences.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "total_tokens": 428,
+      "completion_tokens": 281,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868090.3079472
+}

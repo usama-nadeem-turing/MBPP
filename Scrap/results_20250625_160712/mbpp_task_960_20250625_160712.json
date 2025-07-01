@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 960,
+  "problem": {
+    "task_id": 960,
+    "text": "Write a function to solve tiling problem.",
+    "code": "def get_noOfways(n):\r\n    if (n == 0):\r\n        return 0;\r\n    if (n == 1):\r\n        return 1; \r\n    return get_noOfways(n - 1) + get_noOfways(n - 2);",
+    "test_list": [
+      "assert get_noOfways(4)==3",
+      "assert get_noOfways(3)==2",
+      "assert get_noOfways(5)==5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to solve tiling problem.\n\nTask ID: 960\n\nExpected behavior (test cases):\n1. get_noOfways(4)==3\n2. get_noOfways(3)==2\n3. get_noOfways(5)==5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-cd913fce12ef4063b4923571a4f9b4ee",
+    "object": "chat.completion",
+    "created": 1750868572,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_noOfways(n):\n    # Initialize a list to store the number of ways for each length up to n\n    dp = [0] * (n + 1)\n    \n    # Base case: There is one way to tile a single cell\n    dp[1] = 1\n    \n    # Fill the dp array with the number of ways to tile lengths from 2 to n\n    for i in range(2, n + 1):\n        dp[i] = sum(dp[j - 1] for j in range(1, i))\n    \n    return dp[n]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "total_tokens": 245,
+      "completion_tokens": 128,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868574.4742856
+}

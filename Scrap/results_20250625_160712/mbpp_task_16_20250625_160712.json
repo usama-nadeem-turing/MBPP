@@ -1,0 +1,46 @@
+{
+  "mbpp_id": 16,
+  "problem": {
+    "task_id": 16,
+    "text": "Write a function to find sequences of lowercase letters joined with an underscore.",
+    "code": "import re\r\ndef text_lowercase_underscore(text):\r\n        patterns = '^[a-z]+_[a-z]+$'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+    "test_list": [
+      "assert text_lowercase_underscore(\"aab_cbbbc\")==('Found a match!')",
+      "assert text_lowercase_underscore(\"aab_Abbbc\")==('Not matched!')",
+      "assert text_lowercase_underscore(\"Aaab_abbbc\")==('Not matched!')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert text_lowercase_underscore(\"aab-cbbbc\")==('Not matched!')"
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find sequences of lowercase letters joined with an underscore.\n\nTask ID: 16\n\nExpected behavior (test cases):\n1. text_lowercase_underscore(\"aab_cbbbc\")==('Found a match!')\n2. text_lowercase_underscore(\"aab_Abbbc\")==('Not matched!')\n3. text_lowercase_underscore(\"Aaab_abbbc\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-51e97c71f226440daec90340bac50b37",
+    "object": "chat.completion",
+    "created": 1750868624,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef text_lowercase_underscore(text):\n    # Define the pattern to search for lowercase letters followed by an underscore\n    pattern = '[a-z]+_[a-z]+'\n    \n    # Search for the pattern in the given text\n    if re.search(pattern, text):\n        return 'Found a match!'\n    else:\n        return 'Not matched!'\n\n# Test cases\nprint(text_lowercase_underscore(\"aab_cbbbc\"))  # Expected output: Found a match!\nprint(text_lowercase_underscore(\"aab_Abbbc\"))  # Expected output: Not matched!\nprint(text_lowercase_underscore(\"Aaab_abbbc\"))  # Expected output: Not matched!\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 279,
+      "completion_tokens": 141,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868626.7440424
+}

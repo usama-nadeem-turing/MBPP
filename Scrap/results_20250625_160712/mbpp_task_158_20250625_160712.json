@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 158,
+  "problem": {
+    "task_id": 158,
+    "text": "Write a python function to find k number of operations required to make all elements equal.",
+    "code": "def min_Ops(arr,n,k): \r\n    max1 = max(arr) \r\n    res = 0\r\n    for i in range(0,n):  \r\n        if ((max1 - arr[i]) % k != 0): \r\n            return -1 \r\n        else: \r\n            res += (max1 - arr[i]) / k \r\n    return int(res) ",
+    "test_list": [
+      "assert min_Ops([2,2,2,2],4,3) == 0",
+      "assert min_Ops([4,2,6,8],4,3) == -1",
+      "assert min_Ops([21,33,9,45,63],5,6) == 24"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find k number of operations required to make all elements equal.\n\nTask ID: 158\n\nExpected behavior (test cases):\n1. min_Ops([2,2,2,2],4,3) should return 0\n2. min_Ops([4,2,6,8],4,3) should return -1\n3. min_Ops([21,33,9,45,63],5,6) should return 24\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-222d25029c574222a2dd4cbb525c51ab",
+    "object": "chat.completion",
+    "created": 1750868994,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_Ops(arr, n, k):\n    arr.sort()\n    total_sum = sum(arr)\n    if len(arr) < k:\n        return -1\n    target = total_sum // k\n    ops = 0\n    for i in range(k-1, len(arr)):\n        diff = arr[i] - target\n        ops += diff * (i + 1)\n    return ops\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "total_tokens": 257,
+      "completion_tokens": 89,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868996.0738804
+}

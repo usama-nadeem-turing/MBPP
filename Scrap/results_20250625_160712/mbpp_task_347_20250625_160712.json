@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 347,
+  "problem": {
+    "task_id": 347,
+    "text": "Write a python function to count the number of squares in a rectangle.",
+    "code": "def count_Squares(m,n): \r\n    if (n < m): \r\n        temp = m \r\n        m = n \r\n        n = temp \r\n    return n * (n + 1) * (3 * m - n + 1) // 6",
+    "test_list": [
+      "assert count_Squares(4,3) == 20",
+      "assert count_Squares(1,2) == 2",
+      "assert count_Squares(2,2) == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of squares in a rectangle.\n\nTask ID: 347\n\nExpected behavior (test cases):\n1. count_Squares(4,3) should return 20\n2. count_Squares(1,2) should return 2\n3. count_Squares(2,2) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c9b2b67fc8274c5ea4f9b06b608d7c27",
+    "object": "chat.completion",
+    "created": 1750869483,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Squares(length, width):\n    # Calculate the total number of squares\n    total_squares = length * width + (length - 1) * (width - 1)\n    return total_squares\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 185,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869484.6848066
+}

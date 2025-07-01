@@ -1,0 +1,46 @@
+{
+  "mbpp_id": 23,
+  "problem": {
+    "task_id": 23,
+    "text": "Write a python function to find the maximum sum of elements of list in a list of lists.",
+    "code": "def maximum_Sum(list1): \r\n    maxi = -100000\r\n    for x in list1: \r\n        sum = 0 \r\n        for y in x: \r\n            sum+= y      \r\n        maxi = max(sum,maxi)     \r\n    return maxi ",
+    "test_list": [
+      "assert maximum_Sum([[1,2,3],[4,5,6],[10,11,12],[7,8,9]]) == 33",
+      "assert maximum_Sum([[0,1,1],[1,1,2],[3,2,1]]) == 6",
+      "assert maximum_Sum([[0,1,3],[1,2,1],[9,8,2],[0,1,0],[6,4,8]]) == 19"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert maximum_Sum([[0,-1,-1],[-1,-1,-2],[-3,-2,-1]]) == -2"
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the maximum sum of elements of list in a list of lists.\n\nTask ID: 23\n\nExpected behavior (test cases):\n1. maximum_Sum([[1,2,3],[4,5,6],[10,11,12],[7,8,9]]) should return 33\n2. maximum_Sum([[0,1,1],[1,1,2],[3,2,1]]) should return 6\n3. maximum_Sum([[0,1,3],[1,2,1],[9,8,2],[0,1,0],[6,4,8]]) should return 19\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-28f788b65b854962ad07f0ecaf861ee3",
+    "object": "chat.completion",
+    "created": 1750868635,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef maximum_Sum(lists):\n    # Initialize max_sum with the first sublist's sum\n    max_sum = sum(sublist[0] for sublist in lists)\n    \n    # Iterate through each sublist starting from the second one\n    for i in range(1, len(lists)):\n        # Update max_sum if the current sublist's sum is greater than max_sum\n        max_sum = max(max_sum, sum(sublist[i] for sublist in lists))\n        \n    return max_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 203,
+      "total_tokens": 308,
+      "completion_tokens": 105,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868637.2836566
+}

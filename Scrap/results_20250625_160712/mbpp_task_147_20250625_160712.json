@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 147,
+  "problem": {
+    "task_id": 147,
+    "text": "Write a function to find the maximum total path sum in the given triangle.",
+    "code": "def max_path_sum(tri, m, n): \r\n\tfor i in range(m-1, -1, -1): \r\n\t\tfor j in range(i+1): \r\n\t\t\tif (tri[i+1][j] > tri[i+1][j+1]): \r\n\t\t\t\ttri[i][j] += tri[i+1][j] \r\n\t\t\telse: \r\n\t\t\t\ttri[i][j] += tri[i+1][j+1] \r\n\treturn tri[0][0]",
+    "test_list": [
+      "assert max_path_sum([[1, 0, 0], [4, 8, 0], [1, 5, 3]], 2, 2) == 14",
+      "assert max_path_sum([[13, 0, 0], [7, 4, 0], [2, 4, 6]], 2, 2) == 24 ",
+      "assert max_path_sum([[2, 0, 0], [11, 18, 0], [21, 25, 33]], 2, 2) == 53"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum total path sum in the given triangle.\n\nTask ID: 147\n\nExpected behavior (test cases):\n1. max_path_sum([[1, 0, 0], [4, 8, 0], [1, 5, 3]], 2, 2) should return 14\n2. max_path_sum([[13, 0, 0], [7, 4, 0], [2, 4, 6]], 2, 2) should return 24 \n3. max_path_sum([[2, 0, 0], [11, 18, 0], [21, 25, 33]], 2, 2) should return 53\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4112baa07c55485e8c3bd6e4e92dd96c",
+    "object": "chat.completion",
+    "created": 1750868956,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_path_sum(triangle, row, col):\n    # Base case: if we've reached the last row of the triangle\n    if row == len(triangle) - 1:\n        return triangle[row][col]\n    \n    # Recursive call for the next row and both possible choices from the current cell\n    left = max_path_sum(triangle, row + 1, col)\n    right = max_path_sum(triangle, row + 1, col + 1)\n    \n    # Return the maximum value between moving down one step and taking an additional step to the diagonal\n    return triangle[row][col] + max(left, right)\n\n# Example usage:\ntriangle_example = [[1, 0, 0], [4, 8, 0], [1, 5, 3]]\nprint(max_path_sum(triangle_example, 0, 0))  # Expected output: 14\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 228,
+      "total_tokens": 423,
+      "completion_tokens": 195,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868959.9338877
+}

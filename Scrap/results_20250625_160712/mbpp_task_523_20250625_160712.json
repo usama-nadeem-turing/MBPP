@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 523,
+  "problem": {
+    "task_id": 523,
+    "text": "Write a function to check whether a given string has a capital letter, a lower case letter, a number and specified length using lambda function.",
+    "code": "def check_string(str1):\r\n    messg = [\r\n    lambda str1: any(x.isupper() for x in str1) or 'String must have 1 upper case character.',\r\n    lambda str1: any(x.islower() for x in str1) or 'String must have 1 lower case character.',\r\n    lambda str1: any(x.isdigit() for x in str1) or 'String must have 1 number.',\r\n    lambda str1: len(str1) >= 7                 or 'String length should be atleast 8.',]\r\n    result = [x for x in [i(str1) for i in messg] if x != True]\r\n    if not result:\r\n        result.append('Valid string.')\r\n    return result  ",
+    "test_list": [
+      "assert check_string('python')==['String must have 1 upper case character.', 'String must have 1 number.', 'String length should be atleast 8.']",
+      "assert check_string('123python')==['String must have 1 upper case character.']",
+      "assert check_string('123Python')==['Valid string.']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether a given string has a capital letter, a lower case letter, a number and specified length using lambda function.\n\nTask ID: 523\n\nExpected behavior (test cases):\n1. check_string('python')==['String must have 1 upper case character.', 'String must have 1 number.', 'String length should be atleast 8.']\n2. check_string('123python')==['String must have 1 upper case character.']\n3. check_string('123Python')==['Valid string.']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c5e7cc0b8fba4c49a479e41c272e4cfc",
+    "object": "chat.completion",
+    "created": 1750869912,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_string(s):\n    def has_uppercase():\n        return len([c for c in s if c.isupper()]) == 1\n    \n    def has_lowercase():\n        return len([c for c in s if c.islower()]) == 1\n    \n    def has_number():\n        return len([c for c in s if c.isdigit()]) == 1\n    \n    def valid_length():\n        return len(s) >= 8\n    \n    results = [\n        \"String must have 1 upper case character.\" if not has_uppercase() else \"\",\n        \"String must have 1 number.\" if not has_number() else \"\",\n        \"String length should be atleast 8.\" if not valid_length() else \"\"\n    ]\n    \n    return [result for result in results if result != \"\"]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 174,
+      "total_tokens": 342,
+      "completion_tokens": 168,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869915.3226602
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 357,
+  "problem": {
+    "task_id": 357,
+    "text": "Write a function to find the maximum element of all the given tuple records.",
+    "code": "def find_max(test_list):\r\n  res = max(int(j) for i in test_list for j in i)\r\n  return (res) ",
+    "test_list": [
+      "assert find_max([(2, 4), (6, 7), (5, 1), (6, 10), (8, 7)]) == 10",
+      "assert find_max([(3, 5), (7, 8), (6, 2), (7, 11), (9, 8)]) == 11",
+      "assert find_max([(4, 6), (8, 9), (7, 3), (8, 12), (10, 9)]) == 12"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum element of all the given tuple records.\n\nTask ID: 357\n\nExpected behavior (test cases):\n1. find_max([(2, 4), (6, 7), (5, 1), (6, 10), (8, 7)]) should return 10\n2. find_max([(3, 5), (7, 8), (6, 2), (7, 11), (9, 8)]) should return 11\n3. find_max([(4, 6), (8, 9), (7, 3), (8, 12), (10, 9)]) should return 12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-24acb1624976481fb1695d9725093b0d",
+    "object": "chat.completion",
+    "created": 1750869505,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_max(tuples_list):\n    # Initialize max value with the first tuple's first element\n    max_value = tuples_list[0][0]\n    \n    # Iterate through each tuple in the list\n    for tup in tuples_list:\n        # Update max_value if current tuple's first element is greater than max_value\n        if tup[0] > max_value:\n            max_value = tup[0]\n    \n    return max_value\n```\n\nThis solution iterates through each tuple in the provided list and updates the `max_value` variable whenever it finds a tuple whose first element is greater than the current `max_value`. Finally, it returns the highest value found among all tuples.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 214,
+      "total_tokens": 358,
+      "completion_tokens": 144,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869508.395191
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 891,
+  "problem": {
+    "task_id": 891,
+    "text": "Write a python function to check whether the given two numbers have same number of digits or not.",
+    "code": "def same_Length(A,B): \r\n    while (A > 0 and B > 0): \r\n        A = A / 10; \r\n        B = B / 10; \r\n    if (A == 0 and B == 0): \r\n        return True; \r\n    return False; ",
+    "test_list": [
+      "assert same_Length(12,1) == False",
+      "assert same_Length(2,2) == True",
+      "assert same_Length(10,20) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given two numbers have same number of digits or not.\n\nTask ID: 891\n\nExpected behavior (test cases):\n1. same_Length(12,1) should return False\n2. same_Length(2,2) should return True\n3. same_Length(10,20) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-35f2948958b24ed99b0ac55774df3aba",
+    "object": "chat.completion",
+    "created": 1750868387,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef same_Length(num1, num2):\n    # Convert both numbers to strings and compare their lengths\n    return len(str(num1)) == len(str(num2))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 175,
+      "completion_tokens": 39,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868388.2406807
+}

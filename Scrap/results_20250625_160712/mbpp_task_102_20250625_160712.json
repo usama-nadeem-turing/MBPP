@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 102,
+  "problem": {
+    "task_id": 102,
+    "text": "Write a function to convert snake case string to camel case string.",
+    "code": "def snake_to_camel(word):\r\n        import re\r\n        return ''.join(x.capitalize() or '_' for x in word.split('_'))",
+    "test_list": [
+      "assert snake_to_camel('python_program')=='PythonProgram'",
+      "assert snake_to_camel('python_language')==('PythonLanguage')",
+      "assert snake_to_camel('programming_language')==('ProgrammingLanguage')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert snake case string to camel case string.\n\nTask ID: 102\n\nExpected behavior (test cases):\n1. snake_to_camel('python_program')=='PythonProgram'\n2. snake_to_camel('python_language')==('PythonLanguage')\n3. snake_to_camel('programming_language')==('ProgrammingLanguage')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f70aadbda7694892b127c9b6f55c043c",
+    "object": "chat.completion",
+    "created": 1750868838,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef snake_to_camel(snake_str):\n    return ''.join(word.capitalize() or '_' for word in snake_str.split('_'))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 161,
+      "completion_tokens": 31,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868838.9011877
+}

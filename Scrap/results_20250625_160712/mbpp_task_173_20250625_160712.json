@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 173,
+  "problem": {
+    "task_id": 173,
+    "text": "Write a function to remove everything except alphanumeric characters from a string.",
+    "code": "import re\r\ndef remove_splchar(text): \r\n pattern = re.compile('[\\W_]+')\r\n return (pattern.sub('', text))",
+    "test_list": [
+      "assert remove_splchar('python  @#&^%$*program123')==('pythonprogram123')",
+      "assert remove_splchar('python %^$@!^&*()  programming24%$^^()    language')==('pythonprogramming24language')",
+      "assert remove_splchar('python   ^%&^()(+_)(_^&67)                  program')==('python67program')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove everything except alphanumeric characters from a string.\n\nTask ID: 173\n\nExpected behavior (test cases):\n1. remove_splchar('python  @#&^%$*program123')==('pythonprogram123')\n2. remove_splchar('python %^$@!^&*()  programming24%$^^()    language')==('pythonprogramming24language')\n3. remove_splchar('python   ^%&^()(+_)(_^&67)                  program')==('python67program')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-baacfcd3581e4381a271e7b705c34935",
+    "object": "chat.completion",
+    "created": 1750869030,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef remove_splchar(s):\n    return re.sub(r'[^a-zA-Z0-9]', '', s)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "total_tokens": 213,
+      "completion_tokens": 32,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869030.7062497
+}

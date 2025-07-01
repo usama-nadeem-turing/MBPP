@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 513,
+  "problem": {
+    "task_id": 513,
+    "text": "Write a function to convert tuple into list by adding the given string after every element.",
+    "code": "def add_str(test_tup, K):\r\n  res = [ele for sub in test_tup for ele in (sub, K)]\r\n  return (res) ",
+    "test_list": [
+      "assert add_str((5, 6, 7, 4, 9) , \"FDF\") == [5, 'FDF', 6, 'FDF', 7, 'FDF', 4, 'FDF', 9, 'FDF']",
+      "assert add_str((7, 8, 9, 10) , \"PF\") == [7, 'PF', 8, 'PF', 9, 'PF', 10, 'PF']",
+      "assert add_str((11, 14, 12, 1, 4) , \"JH\") == [11, 'JH', 14, 'JH', 12, 'JH', 1, 'JH', 4, 'JH']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert tuple into list by adding the given string after every element.\n\nTask ID: 513\n\nExpected behavior (test cases):\n1. add_str((5, 6, 7, 4, 9) , \"FDF\") should return [5, 'FDF', 6, 'FDF', 7, 'FDF', 4, 'FDF', 9, 'FDF']\n2. add_str((7, 8, 9, 10) , \"PF\") should return [7, 'PF', 8, 'PF', 9, 'PF', 10, 'PF']\n3. add_str((11, 14, 12, 1, 4) , \"JH\") should return [11, 'JH', 14, 'JH', 12, 'JH', 1, 'JH', 4, 'JH']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0aa5d4111ff44c6eb0c1137b46edcdd9",
+    "object": "chat.completion",
+    "created": 1750869886,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef add_str(tup, strng):\n    new_list = []\n    for item in tup:\n        new_list.append(item)\n        new_list.append(strng)\n    return new_list[:-len(strng)]  # Remove the extra added strings at the end\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 268,
+      "total_tokens": 326,
+      "completion_tokens": 58,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869887.8825452
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 421,
+  "problem": {
+    "task_id": 421,
+    "text": "Write a function to concatenate each element of tuple by the delimiter.",
+    "code": "def concatenate_tuple(test_tup):\r\n    delim = \"-\"\r\n    res = ''.join([str(ele) + delim for ele in test_tup])\r\n    res = res[ : len(res) - len(delim)]\r\n    return (str(res)) ",
+    "test_list": [
+      "assert concatenate_tuple((\"ID\", \"is\", 4, \"UTS\") ) == 'ID-is-4-UTS'",
+      "assert concatenate_tuple((\"QWE\", \"is\", 4, \"RTY\") ) == 'QWE-is-4-RTY'",
+      "assert concatenate_tuple((\"ZEN\", \"is\", 4, \"OP\") ) == 'ZEN-is-4-OP'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to concatenate each element of tuple by the delimiter.\n\nTask ID: 421\n\nExpected behavior (test cases):\n1. concatenate_tuple((\"ID\", \"is\", 4, \"UTS\") ) should return 'ID-is-4-UTS'\n2. concatenate_tuple((\"QWE\", \"is\", 4, \"RTY\") ) should return 'QWE-is-4-RTY'\n3. concatenate_tuple((\"ZEN\", \"is\", 4, \"OP\") ) should return 'ZEN-is-4-OP'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4762e6e9dbaf477b8bde48cc85c75fbd",
+    "object": "chat.completion",
+    "created": 1750869661,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef concatenate_tuple(test_tuple):\n    # Concatenate elements in the tuple with a space as the delimiter\n    result = ''.join(test_tuple)\n    return result\n\n# Test cases\nprint(concatenate_tuple((\"ID\", \"is\", 4, \"UTS\")))  # Expected output: 'ID-is-4-UTS'\nprint(concatenate_tuple((\"QWE\", \"is\", 4, \"RTY\")))  # Expected output: 'QWE-is-4-RTY'\nprint(concatenate_tuple((\"ZEN\", \"is\", 4, \"OP\")))   # Expected output: 'ZEN-is-4-OP'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 177,
+      "total_tokens": 314,
+      "completion_tokens": 137,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869663.6261349
+}

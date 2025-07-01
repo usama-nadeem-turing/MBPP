@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 559,
+  "problem": {
+    "task_id": 559,
+    "text": "Write a function to find the largest sum of contiguous subarray in the given array.",
+    "code": "def max_sub_array_sum(a, size):\r\n  max_so_far = 0\r\n  max_ending_here = 0\r\n  for i in range(0, size):\r\n    max_ending_here = max_ending_here + a[i]\r\n    if max_ending_here < 0:\r\n      max_ending_here = 0\r\n    elif (max_so_far < max_ending_here):\r\n      max_so_far = max_ending_here\r\n  return max_so_far",
+    "test_list": [
+      "assert max_sub_array_sum([-2, -3, 4, -1, -2, 1, 5, -3], 8) == 7",
+      "assert max_sub_array_sum([-3, -4, 5, -2, -3, 2, 6, -4], 8) == 8",
+      "assert max_sub_array_sum([-4, -5, 6, -3, -4, 3, 7, -5], 8) == 10"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the largest sum of contiguous subarray in the given array.\n\nTask ID: 559\n\nExpected behavior (test cases):\n1. max_sub_array_sum([-2, -3, 4, -1, -2, 1, 5, -3], 8) should return 7\n2. max_sub_array_sum([-3, -4, 5, -2, -3, 2, 6, -4], 8) should return 8\n3. max_sub_array_sum([-4, -5, 6, -3, -4, 3, 7, -5], 8) should return 10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e9d19b9825d84f9abd9df0baf767b1c2",
+    "object": "chat.completion",
+    "created": 1750870002,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sub_array_sum(arr, n):\n    current_max = arr[0]\n    global_max = arr[0]\n\n    for i in range(1, n):\n        current_max = max(arr[i], current_max + arr[i])\n        if current_max > global_max:\n            global_max = current_max\n\n    return global_max\n\n# Test cases\nprint(max_sub_array_sum([-2, -3, 4, -1, -2, 1, 5, -3], 8)) # Expected output: 7\nprint(max_sub_array_sum([-3, -4, 5, -2, -3, 2, 6, -4], 8)) # Expected output: 8\nprint(max_sub_array_sum([-4, -5, 6, -3, -4, 3, 7, -5], 8)) # Expected output: 10\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "total_tokens": 403,
+      "completion_tokens": 196,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870006.0180979
+}

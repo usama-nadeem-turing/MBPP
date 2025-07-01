@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 938,
+  "problem": {
+    "task_id": 938,
+    "text": "Write a function to find three closest elements from three sorted arrays.",
+    "code": "import sys \r\n\r\ndef find_closet(A, B, C, p, q, r): \r\n\tdiff = sys.maxsize \r\n\tres_i = 0\r\n\tres_j = 0\r\n\tres_k = 0\r\n\ti = 0\r\n\tj = 0\r\n\tk = 0\r\n\twhile(i < p and j < q and k < r): \r\n\t\tminimum = min(A[i], min(B[j], C[k])) \r\n\t\tmaximum = max(A[i], max(B[j], C[k])); \r\n\t\tif maximum-minimum < diff: \r\n\t\t\tres_i = i \r\n\t\t\tres_j = j \r\n\t\t\tres_k = k \r\n\t\t\tdiff = maximum - minimum; \r\n\t\tif diff == 0: \r\n\t\t\tbreak\r\n\t\tif A[i] == minimum: \r\n\t\t\ti = i+1\r\n\t\telif B[j] == minimum: \r\n\t\t\tj = j+1\r\n\t\telse: \r\n\t\t\tk = k+1\r\n\treturn A[res_i],B[res_j],C[res_k]",
+    "test_list": [
+      "assert find_closet([1, 4, 10],[2, 15, 20],[10, 12],3,3,2) == (10, 15, 10)",
+      "assert find_closet([20, 24, 100],[2, 19, 22, 79, 800],[10, 12, 23, 24, 119],3,5,5) == (24, 22, 23)",
+      "assert find_closet([2, 5, 11],[3, 16, 21],[11, 13],3,3,2) == (11, 16, 11)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find three closest elements from three sorted arrays.\n\nTask ID: 938\n\nExpected behavior (test cases):\n1. find_closet([1, 4, 10],[2, 15, 20],[10, 12],3,3,2) should return (10, 15, 10)\n2. find_closet([20, 24, 100],[2, 19, 22, 79, 800],[10, 12, 23, 24, 119],3,5,5) should return (24, 22, 23)\n3. find_closet([2, 5, 11],[3, 16, 21],[11, 13],3,3,2) should return (11, 16, 11)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-668951c0213b4174b1e9df31249bf59a",
+    "object": "chat.completion",
+    "created": 1750868512,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_closet(arr1, arr2, arr3, n, m, k):\n    i = j = 0\n    while i < n and j < m:\n        if abs(arr1[i] - arr2[j]) <= abs(arr1[k] - arr2[j]):\n            if abs(arr1[i] - arr3[j]) <= abs(arr1[k] - arr3[j]):\n                k += 1\n            else:\n                return arr1[i], arr2[j], arr3[j]\n            i += 1\n        elif abs(arr1[i] - arr2[j]) > abs(arr1[k] - arr2[j]):\n            if abs(arr1[i] - arr3[j]) <= abs(arr1[k] - arr3[j]):\n                k += 1\n            else:\n                return arr1[i], arr2[j], arr3[j]\n            j += 1\n        else:\n            return arr1[i], arr2[j], arr3[j]\n\n# Test cases\nprint(find_closet([1, 4, 10],[2, 15, 20],[10, 12],3,3,2)) # Expected output: (10, 15, 10)\nprint(find_closet([20, 24, 100],[2, 19, 22, 79, 800],[10, 12, 23, 24, 119],3,5,5)) # Expected output: (24, 22, 23)\nprint(find_closet([2, 5, 11],[3, 16, 21],[11, 13],3,3,2)) # Expected output: (11, 16, 11)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 272,
+      "total_tokens": 673,
+      "completion_tokens": 401,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868518.8839076
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 190,
+  "problem": {
+    "task_id": 190,
+    "text": "Write a python function to count the number of integral co-ordinates that lie inside a square.",
+    "code": "def count_Intgral_Points(x1,y1,x2,y2): \r\n    return ((y2 - y1 - 1) * (x2 - x1 - 1)) ",
+    "test_list": [
+      "assert count_Intgral_Points(1,1,4,4) == 4",
+      "assert count_Intgral_Points(1,2,1,2) == 1",
+      "assert count_Intgral_Points(4,2,6,4) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of integral co-ordinates that lie inside a square.\n\nTask ID: 190\n\nExpected behavior (test cases):\n1. count_Intgral_Points(1,1,4,4) should return 4\n2. count_Intgral_Points(1,2,1,2) should return 1\n3. count_Intgral_Points(4,2,6,4) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-054d4e78e9aa406db4a0d9ee4e9647aa",
+    "object": "chat.completion",
+    "created": 1750869081,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Intgral_Points(x1, y1, x2, y2):\n    # Calculate the total area of the square\n    total_area = (x2 - x1 + 1) * (y2 - y1 + 1)\n    \n    # The number of integral points is equal to the total area minus the areas of the four corners\n    integral_points = total_area - ((x2 - x1 + 1)**2 + (y2 - y1 + 1)**2 - 1)\n    \n    return integral_points\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 160,
+      "total_tokens": 281,
+      "completion_tokens": 121,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869083.8716302
+}

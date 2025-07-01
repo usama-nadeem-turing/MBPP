@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 492,
+  "problem": {
+    "task_id": 492,
+    "text": "Write a function to search an element in the given array by using binary search.",
+    "code": "def binary_search(item_list,item):\r\n\tfirst = 0\r\n\tlast = len(item_list)-1\r\n\tfound = False\r\n\twhile( first<=last and not found):\r\n\t\tmid = (first + last)//2\r\n\t\tif item_list[mid] == item :\r\n\t\t\tfound = True\r\n\t\telse:\r\n\t\t\tif item < item_list[mid]:\r\n\t\t\t\tlast = mid - 1\r\n\t\t\telse:\r\n\t\t\t\tfirst = mid + 1\t\r\n\treturn found",
+    "test_list": [
+      "assert binary_search([1,2,3,5,8], 6) == False",
+      "assert binary_search([7, 8, 9, 10, 13], 10) == True",
+      "assert binary_search([11, 13, 14, 19, 22, 36], 23) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to search an element in the given array by using binary search.\n\nTask ID: 492\n\nExpected behavior (test cases):\n1. binary_search([1,2,3,5,8], 6) should return False\n2. binary_search([7, 8, 9, 10, 13], 10) should return True\n3. binary_search([11, 13, 14, 19, 22, 36], 23) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-50145ff84e9a4372b52d5dd262e2bd0e",
+    "object": "chat.completion",
+    "created": 1750869833,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef binary_search(arr, target):\n    \"\"\"\n    Searches for the target value within the sorted array arr and returns its index.\n    If the target is not found, it returns -1.\n    \n    Parameters:\n    arr (list): A list of integers sorted in ascending order.\n    target (int): The integer value to search for in the array.\n    \n    Returns:\n    int: The index of the target if found, otherwise -1.\n    \"\"\"\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n            \n    return -1\n```\n\nThis solution implements a binary search algorithm to efficiently find the target value within the given sorted array. It iteratively narrows down the search range until the target is found or the search space is exhausted.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 178,
+      "total_tokens": 393,
+      "completion_tokens": 215,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869837.5853643
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 369,
+  "problem": {
+    "task_id": 369,
+    "text": "Write a function to find the lateral surface area of cuboid",
+    "code": "def lateralsurface_cuboid(l,w,h):\r\n  LSA = 2*h*(l+w)\r\n  return LSA",
+    "test_list": [
+      "assert lateralsurface_cuboid(8,5,6)==156",
+      "assert lateralsurface_cuboid(7,9,10)==320",
+      "assert lateralsurface_cuboid(10,20,30)==1800"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the lateral surface area of cuboid\n\nTask ID: 369\n\nExpected behavior (test cases):\n1. lateralsurface_cuboid(8,5,6)==156\n2. lateralsurface_cuboid(7,9,10)==320\n3. lateralsurface_cuboid(10,20,30)==1800\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-325d1a21b2f74470b5339219e8ddf7c7",
+    "object": "chat.completion",
+    "created": 1750869539,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef lateralsurface_cuboid(length, width, height):\n    return 4 * length * width\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "total_tokens": 177,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869539.8932185
+}

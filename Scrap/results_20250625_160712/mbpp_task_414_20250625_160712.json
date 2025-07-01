@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 414,
+  "problem": {
+    "task_id": 414,
+    "text": "Write a python function to check whether the value exists in a sequence or not.",
+    "code": "def overlapping(list1,list2):  \r\n    c=0\r\n    d=0\r\n    for i in list1: \r\n        c+=1\r\n    for i in list2: \r\n        d+=1\r\n    for i in range(0,c): \r\n        for j in range(0,d): \r\n            if(list1[i]==list2[j]): \r\n                return 1\r\n    return 0",
+    "test_list": [
+      "assert overlapping([1,2,3,4,5],[6,7,8,9]) == False",
+      "assert overlapping([1,2,3],[4,5,6]) == False",
+      "assert overlapping([1,4,5],[1,4,5]) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the value exists in a sequence or not.\n\nTask ID: 414\n\nExpected behavior (test cases):\n1. overlapping([1,2,3,4,5],[6,7,8,9]) should return False\n2. overlapping([1,2,3],[4,5,6]) should return False\n3. overlapping([1,4,5],[1,4,5]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c93f8990a5e34656899409cca3204927",
+    "object": "chat.completion",
+    "created": 1750869645,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef overlapping(sequence1, sequence2):\n    # Check if any element of sequence1 is present in sequence2\n    for item in sequence1:\n        if item in sequence2:\n            return True\n    return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 157,
+      "total_tokens": 207,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869646.584119
+}

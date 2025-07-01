@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 479,
+  "problem": {
+    "task_id": 479,
+    "text": "Write a python function to find the first digit of a given number.",
+    "code": "def first_Digit(n) :  \r\n    while n >= 10:  \r\n        n = n / 10; \r\n    return int(n) ",
+    "test_list": [
+      "assert first_Digit(123) == 1",
+      "assert first_Digit(456) == 4",
+      "assert first_Digit(12) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first digit of a given number.\n\nTask ID: 479\n\nExpected behavior (test cases):\n1. first_Digit(123) should return 1\n2. first_Digit(456) should return 4\n3. first_Digit(12) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3af8312625854a939cec4f1022634de3",
+    "object": "chat.completion",
+    "created": 1750869793,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef first_Digit(n):\n    # Ensure n is positive for simplicity\n    if n < 0:\n        n = -n\n    \n    # If n is less than 10, it's already the first digit\n    if n < 10:\n        return n\n    \n    # Initialize result with the last digit\n    result = n % 10\n    \n    # Remove the last digit from n\n    n //= 10\n    \n    # Continue removing digits until we get a single-digit number\n    while n >= 10:\n        result = n % 10\n        n //= 10\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 271,
+      "completion_tokens": 138,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869795.6095543
+}

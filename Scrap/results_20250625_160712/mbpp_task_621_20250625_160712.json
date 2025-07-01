@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 621,
+  "problem": {
+    "task_id": 621,
+    "text": "Write a function to increment the numeric values in the given strings by k.",
+    "code": "def increment_numerics(test_list, K):\r\n  res = [str(int(ele) + K) if ele.isdigit() else ele for ele in test_list]\r\n  return res ",
+    "test_list": [
+      "assert increment_numerics([\"MSM\", \"234\", \"is\", \"98\", \"123\", \"best\", \"4\"] , 6) == ['MSM', '240', 'is', '104', '129', 'best', '10']",
+      "assert increment_numerics([\"Dart\", \"356\", \"is\", \"88\", \"169\", \"Super\", \"6\"] , 12) == ['Dart', '368', 'is', '100', '181', 'Super', '18']",
+      "assert increment_numerics([\"Flutter\", \"451\", \"is\", \"44\", \"96\", \"Magnificent\", \"12\"] , 33) == ['Flutter', '484', 'is', '77', '129', 'Magnificent', '45']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to increment the numeric values in the given strings by k.\n\nTask ID: 621\n\nExpected behavior (test cases):\n1. increment_numerics([\"MSM\", \"234\", \"is\", \"98\", \"123\", \"best\", \"4\"] , 6) should return ['MSM', '240', 'is', '104', '129', 'best', '10']\n2. increment_numerics([\"Dart\", \"356\", \"is\", \"88\", \"169\", \"Super\", \"6\"] , 12) should return ['Dart', '368', 'is', '100', '181', 'Super', '18']\n3. increment_numerics([\"Flutter\", \"451\", \"is\", \"44\", \"96\", \"Magnificent\", \"12\"] , 33) should return ['Flutter', '484', 'is', '77', '129', 'Magnificent', '45']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e781ea27fe3f49f4a8103f37b685332c",
+    "object": "chat.completion",
+    "created": 1750867691,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef increment_numerics(strings, k):\n    result = []\n    for s in strings:\n        num = int(s)\n        incremented_num = str(num + k)\n        if len(incremented_num) > 1 and incremented_num[0] == '0':\n            incremented_num = incremented_num[1:]\n        result.append(incremented_num)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 292,
+      "total_tokens": 372,
+      "completion_tokens": 80,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867692.9997964
+}

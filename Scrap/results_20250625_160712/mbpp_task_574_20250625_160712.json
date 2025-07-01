@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 574,
+  "problem": {
+    "task_id": 574,
+    "text": "Write a function to find the surface area of a cylinder.",
+    "code": "def surfacearea_cylinder(r,h):\r\n  surfacearea=((2*3.1415*r*r) +(2*3.1415*r*h))\r\n  return surfacearea",
+    "test_list": [
+      "assert surfacearea_cylinder(10,5)==942.45",
+      "assert surfacearea_cylinder(4,5)==226.18800000000002",
+      "assert surfacearea_cylinder(4,10)==351.848"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the surface area of a cylinder.\n\nTask ID: 574\n\nExpected behavior (test cases):\n1. surfacearea_cylinder(10,5)==942.45\n2. surfacearea_cylinder(4,5)==226.18800000000002\n3. surfacearea_cylinder(4,10)==351.848\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0bd228d36d214017aca7b617998d7359",
+    "object": "chat.completion",
+    "created": 1750870035,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef surfacearea_cylinder(radius, height):\n    # Calculate the surface area of a cylinder using the formula:\n    # Surface Area = 2 * π * radius * (radius + height)\n    return round(2 * math.pi * radius * (radius + height), 3)\n\n# Test cases\nprint(surfacearea_cylinder(10, 5))  # Expected output: 942.45\nprint(surfacearea_cylinder(4, 5))   # Expected output: 226.19\nprint(surfacearea_cylinder(4, 10))  # Expected output: 351.85\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "total_tokens": 300,
+      "completion_tokens": 144,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870037.9498713
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 586,
+  "problem": {
+    "task_id": 586,
+    "text": "Write a python function to split the array and add the first part to the end.",
+    "code": "def split_Arr(a,n,k):  \r\n   b = a[:k] \r\n   return (a[k::]+b[::]) ",
+    "test_list": [
+      "assert split_Arr([12,10,5,6,52,36],6,2) == [5,6,52,36,12,10]",
+      "assert split_Arr([1,2,3,4],4,1) == [2,3,4,1]",
+      "assert split_Arr([0,1,2,3,4,5,6,7],8,3) == [3,4,5,6,7,0,1,2]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to split the array and add the first part to the end.\n\nTask ID: 586\n\nExpected behavior (test cases):\n1. split_Arr([12,10,5,6,52,36],6,2) should return [5,6,52,36,12,10]\n2. split_Arr([1,2,3,4],4,1) should return [2,3,4,1]\n3. split_Arr([0,1,2,3,4,5,6,7],8,3) should return [3,4,5,6,7,0,1,2]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-713ceb5ce714402ebd503f60ac8dd692",
+    "object": "chat.completion",
+    "created": 1750870074,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef split_Arr(arr, n, k):\n    # Splitting the array into two parts\n    left_part = arr[:k]\n    right_part = arr[k:]\n    \n    # Adding the first part to the end of the original array\n    result = right_part + left_part\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 211,
+      "total_tokens": 279,
+      "completion_tokens": 68,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870075.4263725
+}

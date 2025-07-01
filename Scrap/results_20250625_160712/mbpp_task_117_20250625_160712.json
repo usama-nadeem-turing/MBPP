@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 117,
+  "problem": {
+    "task_id": 117,
+    "text": "Write a function to convert all possible convertible elements in the list to float.",
+    "code": "def list_to_float(test_list):\r\n  res = []\r\n  for tup in test_list:\r\n    temp = []\r\n    for ele in tup:\r\n      if ele.isalpha():\r\n        temp.append(ele)\r\n      else:\r\n        temp.append(float(ele))\r\n    res.append((temp[0],temp[1])) \r\n  return (str(res)) ",
+    "test_list": [
+      "assert list_to_float( [(\"3\", \"4\"), (\"1\", \"26.45\"), (\"7.32\", \"8\"), (\"4\", \"8\")] ) == '[(3.0, 4.0), (1.0, 26.45), (7.32, 8.0), (4.0, 8.0)]'",
+      "assert list_to_float( [(\"4\", \"4\"), (\"2\", \"27\"), (\"4.12\", \"9\"), (\"7\", \"11\")] ) == '[(4.0, 4.0), (2.0, 27.0), (4.12, 9.0), (7.0, 11.0)]'",
+      "assert list_to_float( [(\"6\", \"78\"), (\"5\", \"26.45\"), (\"1.33\", \"4\"), (\"82\", \"13\")] ) == '[(6.0, 78.0), (5.0, 26.45), (1.33, 4.0), (82.0, 13.0)]'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert all possible convertible elements in the list to float.\n\nTask ID: 117\n\nExpected behavior (test cases):\n1. list_to_float( [(\"3\", \"4\"), (\"1\", \"26.45\"), (\"7.32\", \"8\"), (\"4\", \"8\")] ) should return '[(3.0, 4.0), (1.0, 26.45), (7.32, 8.0), (4.0, 8.0)]'\n2. list_to_float( [(\"4\", \"4\"), (\"2\", \"27\"), (\"4.12\", \"9\"), (\"7\", \"11\")] ) should return '[(4.0, 4.0), (2.0, 27.0), (4.12, 9.0), (7.0, 11.0)]'\n3. list_to_float( [(\"6\", \"78\"), (\"5\", \"26.45\"), (\"1.33\", \"4\"), (\"82\", \"13\")] ) should return '[(6.0, 78.0), (5.0, 26.45), (1.33, 4.0), (82.0, 13.0)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-592b746b86a340e88d1c5ec196de1136",
+    "object": "chat.completion",
+    "created": 1750868876,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef list_to_float(lst):\n    result = []\n    for item in lst:\n        try:\n            # Convert each element of the tuple to float and add it to the result list\n            converted_item = tuple(map(float, item))\n            result.append(converted_item)\n        except ValueError:\n            # If conversion fails, keep the original string representation\n            result.append(item)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 349,
+      "total_tokens": 433,
+      "completion_tokens": 84,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868878.140322
+}

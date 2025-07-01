@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 278,
+  "problem": {
+    "task_id": 278,
+    "text": "Write a function to find the element count that occurs before the record in the given tuple.",
+    "code": "def count_first_elements(test_tup):\r\n  for count, ele in enumerate(test_tup):\r\n    if isinstance(ele, tuple):\r\n      break\r\n  return (count) ",
+    "test_list": [
+      "assert count_first_elements((1, 5, 7, (4, 6), 10) ) == 3",
+      "assert count_first_elements((2, 9, (5, 7), 11) ) == 2",
+      "assert count_first_elements((11, 15, 5, 8, (2, 3), 8) ) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the element count that occurs before the record in the given tuple.\n\nTask ID: 278\n\nExpected behavior (test cases):\n1. count_first_elements((1, 5, 7, (4, 6), 10) ) should return 3\n2. count_first_elements((2, 9, (5, 7), 11) ) should return 2\n3. count_first_elements((11, 15, 5, 8, (2, 3), 8) ) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c001325b881c45d2af468ee2616321c5",
+    "object": "chat.completion",
+    "created": 1750869299,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_first_elements(tuple_like_data):\n    # Initialize a counter for elements occurring before records\n    first_element_count = 0\n    \n    # Iterate through the tuple-like data\n    for item in tuple_like_data:\n        if isinstance(item, int):  # Check if the current item is an integer\n            first_element_count += 1  # Increment the counter for each integer encountered as the first element of a record\n    \n    return first_element_count\n```\n\nThis solution iterates through the input tuple-like data and counts how many integers occur as the first element of a \"record\" within it. A \"record\" is defined here as a non-integer value that follows an integer value. The function returns the total count of such occurrences.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "total_tokens": 339,
+      "completion_tokens": 155,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869301.918689
+}

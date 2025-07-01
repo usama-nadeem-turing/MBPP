@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 637,
+  "problem": {
+    "task_id": 637,
+    "text": "Write a function to check whether the given amount has no profit and no loss",
+    "code": "def noprofit_noloss(actual_cost,sale_amount): \r\n  if(sale_amount == actual_cost):\r\n    return True\r\n  else:\r\n    return False",
+    "test_list": [
+      "assert noprofit_noloss(1500,1200)==False",
+      "assert noprofit_noloss(100,100)==True",
+      "assert noprofit_noloss(2000,5000)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given amount has no profit and no loss\n\nTask ID: 637\n\nExpected behavior (test cases):\n1. noprofit_noloss(1500,1200)==False\n2. noprofit_noloss(100,100)==True\n3. noprofit_noloss(2000,5000)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-2b7597a0af8340b4a4b704f9ef639b04",
+    "object": "chat.completion",
+    "created": 1750867738,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef noprofit_noloss(amount1, amount2):\n    return amount1 == amount2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "total_tokens": 178,
+      "completion_tokens": 26,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867738.590016
+}

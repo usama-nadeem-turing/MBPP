@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 867,
+  "problem": {
+    "task_id": 867,
+    "text": "Write a python function to add a minimum number such that the sum of array becomes even.",
+    "code": "def min_Num(arr,n):  \r\n    odd = 0\r\n    for i in range(n): \r\n        if (arr[i] % 2): \r\n            odd += 1 \r\n    if (odd % 2): \r\n        return 1\r\n    return 2",
+    "test_list": [
+      "assert min_Num([1,2,3,4,5,6,7,8,9],9) == 1",
+      "assert min_Num([1,2,3,4,5,6,7,8],8) == 2",
+      "assert min_Num([1,2,3],3) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to add a minimum number such that the sum of array becomes even.\n\nTask ID: 867\n\nExpected behavior (test cases):\n1. min_Num([1,2,3,4,5,6,7,8,9],9) should return 1\n2. min_Num([1,2,3,4,5,6,7,8],8) should return 2\n3. min_Num([1,2,3],3) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ecdbae3f39074cb1b4505518fc204a47",
+    "object": "chat.completion",
+    "created": 1750868330,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_Num(arr, n):\n    # Calculate the total sum of the array elements\n    total_sum = sum(arr)\n    \n    # If the total sum is already even, no need to add anything\n    if total_sum % 2 == 0:\n        return 0\n    \n    # Find the smallest element in the array\n    min_num = min(arr)\n    \n    # Check if adding the smallest element makes the total sum even\n    if (total_sum + min_num) % 2 == 0:\n        return min_num\n    else:\n        return 2 - min_num\n```\n\nThis solution works as follows:\n\n- It first calculates the total sum of all elements in the array.\n- If the total sum is already even, it returns `0` because no additional value needs to be added.\n- Otherwise, it finds the smallest element in the array and checks if adding this element would make the total sum even.\n- If adding the smallest element does not result in an even sum, it subtracts the smallest element from `2` to find the required addition.\n- Finally, it returns the calculated addition needed to make the sum even.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "total_tokens": 409,
+      "completion_tokens": 240,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868334.224172
+}

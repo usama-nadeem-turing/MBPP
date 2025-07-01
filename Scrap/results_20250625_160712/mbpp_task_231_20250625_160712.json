@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 231,
+  "problem": {
+    "task_id": 231,
+    "text": "Write a function to find the maximum sum in the given right triangle of numbers.",
+    "code": "def max_sum(tri, n): \r\n\tif n > 1: \r\n\t\ttri[1][1] = tri[1][1]+tri[0][0] \r\n\t\ttri[1][0] = tri[1][0]+tri[0][0] \r\n\tfor i in range(2, n): \r\n\t\ttri[i][0] = tri[i][0] + tri[i-1][0] \r\n\t\ttri[i][i] = tri[i][i] + tri[i-1][i-1] \r\n\t\tfor j in range(1, i): \r\n\t\t\tif tri[i][j]+tri[i-1][j-1] >= tri[i][j]+tri[i-1][j]: \r\n\t\t\t\ttri[i][j] = tri[i][j] + tri[i-1][j-1] \r\n\t\t\telse: \r\n\t\t\t\ttri[i][j] = tri[i][j]+tri[i-1][j] \r\n\treturn (max(tri[n-1]))",
+    "test_list": [
+      "assert max_sum([[1], [2,1], [3,3,2]], 3) == 6",
+      "assert max_sum([[1], [1, 2], [4, 1, 12]], 3) == 15 ",
+      "assert max_sum([[2], [3,2], [13,23,12]], 3) == 28"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum sum in the given right triangle of numbers.\n\nTask ID: 231\n\nExpected behavior (test cases):\n1. max_sum([[1], [2,1], [3,3,2]], 3) should return 6\n2. max_sum([[1], [1, 2], [4, 1, 12]], 3) should return 15 \n3. max_sum([[2], [3,2], [13,23,12]], 3) should return 28\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-29431b45c50a42ecbbca6aa274651826",
+    "object": "chat.completion",
+    "created": 1750869180,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_sum(triangle, level):\n    # Base case: if we reach the last row, return its value\n    if level == len(triangle) - 1:\n        return triangle[level][0]\n    \n    # Recursive case: choose the maximum sum from the current level's elements\n    return triangle[level][0] + max(max_sum(triangle, level + 1), max_sum(triangle, level + 1))\n\n# Example usage and test cases\ntriangle = [[1], [2, 1], [3, 3, 2]]\nprint(max_sum(triangle, 0))  # Expected output: 6\n\ntriangle = [[1], [1, 2], [4, 1, 12]]\nprint(max_sum(triangle, 0))  # Expected output: 15\n\ntriangle = [[2], [3, 2], [13, 23, 12]]\nprint(max_sum(triangle, 0))  # Expected output: 28\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "total_tokens": 399,
+      "completion_tokens": 218,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869183.9703333
+}

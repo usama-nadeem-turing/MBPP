@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 292,
+  "problem": {
+    "task_id": 292,
+    "text": "Write a python function to find quotient of two numbers.",
+    "code": "def find(n,m):  \r\n    q = n//m \r\n    return (q)",
+    "test_list": [
+      "assert find(10,3) == 3",
+      "assert find(4,2) == 2",
+      "assert find(20,5) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find quotient of two numbers.\n\nTask ID: 292\n\nExpected behavior (test cases):\n1. find(10,3) should return 3\n2. find(4,2) should return 2\n3. find(20,5) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4c793c804ad54f419399fd80986c6b43",
+    "object": "chat.completion",
+    "created": 1750869336,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find(dividend, divisor):\n    # Calculate the quotient using integer division\n    quotient = dividend // divisor\n    return quotient\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 159,
+      "completion_tokens": 32,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869336.9624033
+}

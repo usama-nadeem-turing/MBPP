@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 901,
+  "problem": {
+    "task_id": 901,
+    "text": "Write a function to find the smallest multiple of the first n numbers.",
+    "code": "def smallest_multiple(n):\r\n    if (n<=2):\r\n      return n\r\n    i = n * 2\r\n    factors = [number  for number in range(n, 1, -1) if number * 2 > n]\r\n    while True:\r\n        for a in factors:\r\n            if i % a != 0:\r\n                i += n\r\n                break\r\n            if (a == factors[-1] and i % a == 0):\r\n                return i",
+    "test_list": [
+      "assert smallest_multiple(13)==360360",
+      "assert smallest_multiple(2)==2",
+      "assert smallest_multiple(1)==1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the smallest multiple of the first n numbers.\n\nTask ID: 901\n\nExpected behavior (test cases):\n1. smallest_multiple(13)==360360\n2. smallest_multiple(2)==2\n3. smallest_multiple(1)==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-77c0f36893614e298e3a444fc4aeaf56",
+    "object": "chat.completion",
+    "created": 1750868408,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef smallest_multiple(n):\n    # Initialize the result with the first number in the sequence\n    result = 1\n    \n    # Iterate through each number from 2 to n\n    for i in range(2, n + 1):\n        # Multiply the result by the current number if it's not already included\n        if result % i != 0:\n            result *= i\n            \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "total_tokens": 210,
+      "completion_tokens": 88,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868409.7862625
+}

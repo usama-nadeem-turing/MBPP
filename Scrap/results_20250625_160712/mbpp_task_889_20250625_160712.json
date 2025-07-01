@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 889,
+  "problem": {
+    "task_id": 889,
+    "text": "Write a function to reverse each list in a given list of lists.",
+    "code": "def reverse_list_lists(lists):\r\n    for l in lists:\r\n        l.sort(reverse = True)\r\n    return lists ",
+    "test_list": [
+      "assert reverse_list_lists([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])==[[4, 3, 2, 1], [8, 7, 6, 5], [12, 11, 10, 9], [16, 15, 14, 13]]",
+      "assert reverse_list_lists([[1,2],[2,3],[3,4]])==[[2,1],[3,2],[4,3]]",
+      "assert reverse_list_lists([[10,20],[30,40]])==[[20,10],[40,30]]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to reverse each list in a given list of lists.\n\nTask ID: 889\n\nExpected behavior (test cases):\n1. reverse_list_lists([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])==[[4, 3, 2, 1], [8, 7, 6, 5], [12, 11, 10, 9], [16, 15, 14, 13]]\n2. reverse_list_lists([[1,2],[2,3],[3,4]])==[[2,1],[3,2],[4,3]]\n3. reverse_list_lists([[10,20],[30,40]])==[[20,10],[40,30]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c4c5e1c3c8c747e7b1c9470141362637",
+    "object": "chat.completion",
+    "created": 1750868382,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef reverse_list_lists(lists):\n    return [[num for num in reversed(lst)] for lst in lists]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 270,
+      "total_tokens": 297,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868382.6076012
+}

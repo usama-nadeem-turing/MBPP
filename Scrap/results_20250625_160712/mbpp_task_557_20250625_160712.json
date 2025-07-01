@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 557,
+  "problem": {
+    "task_id": 557,
+    "text": "Write a function to toggle characters case in a string.",
+    "code": "def toggle_string(string):\r\n string1 = string.swapcase()\r\n return string1",
+    "test_list": [
+      "assert toggle_string(\"Python\")==(\"pYTHON\")",
+      "assert toggle_string(\"Pangram\")==(\"pANGRAM\")",
+      "assert toggle_string(\"LIttLE\")==(\"liTTle\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to toggle characters case in a string.\n\nTask ID: 557\n\nExpected behavior (test cases):\n1. toggle_string(\"Python\")==(\"pYTHON\")\n2. toggle_string(\"Pangram\")==(\"pANGRAM\")\n3. toggle_string(\"LIttLE\")==(\"liTTle\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-88adc64580574e318505c87ae2fd75f6",
+    "object": "chat.completion",
+    "created": 1750870000,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef toggle_string(s):\n    return s.swapcase()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 143,
+      "completion_tokens": 16,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870000.7012541
+}

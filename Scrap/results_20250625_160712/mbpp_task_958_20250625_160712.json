@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 958,
+  "problem": {
+    "task_id": 958,
+    "text": "Write a function to convert an integer into a roman numeral.",
+    "code": "def int_to_roman( num):\r\n        val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4,1]\r\n        syb = [\"M\", \"CM\", \"D\", \"CD\",\"C\", \"XC\", \"L\", \"XL\",\"X\", \"IX\", \"V\", \"IV\",\"I\"]\r\n        roman_num = ''\r\n        i = 0\r\n        while  num > 0:\r\n            for _ in range(num // val[i]):\r\n                roman_num += syb[i]\r\n                num -= val[i]\r\n            i += 1\r\n        return roman_num",
+    "test_list": [
+      "assert int_to_roman(1)==(\"I\")",
+      "assert int_to_roman(50)==(\"L\")",
+      "assert int_to_roman(4)==(\"IV\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert an integer into a roman numeral.\n\nTask ID: 958\n\nExpected behavior (test cases):\n1. int_to_roman(1)==(\"I\")\n2. int_to_roman(50)==(\"L\")\n3. int_to_roman(4)==(\"IV\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-72535be26bd8457e99816932dc2c1d5a",
+    "object": "chat.completion",
+    "created": 1750868567,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef int_to_roman(num):\n    val = [\n        1000, 900, 500, 400,\n        100, 90, 50, 40,\n        10, 9, 5, 4,\n        1\n        ]\n    syb = [\n        \"M\", \"CM\", \"D\", \"CD\",\n        \"C\", \"XC\", \"L\", \"XL\",\n        \"X\", \"IX\", \"V\", \"IV\",\n        \"I\"\n        ]\n    roman_num = ''\n    i = 0\n    while num > 0:\n        for _ in range(num // val[i]):\n            roman_num += syb[i]\n            num -= val[i]\n        i += 1\n    return roman_num\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 124,
+      "total_tokens": 303,
+      "completion_tokens": 179,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868570.23661
+}

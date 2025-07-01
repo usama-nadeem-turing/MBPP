@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 483,
+  "problem": {
+    "task_id": 483,
+    "text": "Write a python function to find the first natural number whose factorial is divisible by x.",
+    "code": "def first_Factorial_Divisible_Number(x): \r\n    i = 1;\r\n    fact = 1; \r\n    for i in range(1,x): \r\n        fact = fact * i \r\n        if (fact % x == 0): \r\n            break\r\n    return i ",
+    "test_list": [
+      "assert first_Factorial_Divisible_Number(10) == 5",
+      "assert first_Factorial_Divisible_Number(15) == 5",
+      "assert first_Factorial_Divisible_Number(5) == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first natural number whose factorial is divisible by x.\n\nTask ID: 483\n\nExpected behavior (test cases):\n1. first_Factorial_Divisible_Number(10) should return 5\n2. first_Factorial_Divisible_Number(15) should return 5\n3. first_Factorial_Divisible_Number(5) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b273827d4d064022b72da1b56aca613a",
+    "object": "chat.completion",
+    "created": 1750869805,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef first_Factorial_Divisible_Number(x):\n    n = 1\n    while True:\n        if factorial(n) % x == 0:\n            return n\n        n += 1\n    \ndef factorial(num):\n    if num == 0:\n        return 1\n    else:\n        return num * factorial(num - 1)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "total_tokens": 224,
+      "completion_tokens": 76,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869806.3306892
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 325,
+  "problem": {
+    "task_id": 325,
+    "text": "Write a python function to find the minimum number of squares whose sum is equal to a given number.",
+    "code": "def get_Min_Squares(n):\r\n    if n <= 3:\r\n        return n;\r\n    res = n \r\n    for x in range(1,n + 1):\r\n        temp = x * x;\r\n        if temp > n:\r\n            break\r\n        else:\r\n            res = min(res,1 + get_Min_Squares(n  - temp)) \r\n    return res;",
+    "test_list": [
+      "assert get_Min_Squares(6) == 3",
+      "assert get_Min_Squares(2) == 2",
+      "assert get_Min_Squares(4) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum number of squares whose sum is equal to a given number.\n\nTask ID: 325\n\nExpected behavior (test cases):\n1. get_Min_Squares(6) should return 3\n2. get_Min_Squares(2) should return 2\n3. get_Min_Squares(4) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9313c5fe2c7945d1bbd67e87d62c5857",
+    "object": "chat.completion",
+    "created": 1750869426,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef get_Min_Squares(n):\n    # Initialize variables\n    count = 0\n    current_sum = 0\n    \n    # Iterate until the current sum equals n\n    while current_sum < n:\n        # Find the largest square less than or equal to the remaining sum\n        for i in range(int(n**0.5), 0, -1):\n            if n % i == 0:\n                current_sum += i\n                count += 1\n                break\n                \n    return count\n```\n\nThis solution iterates through possible square numbers starting from the largest and works its way down until it finds a combination that sums up to `n`. It uses a nested loop where the outer loop starts at the integer part of the square root of `n` and decreases towards zero, checking each potential square number against the remaining sum needed to reach `n`. If a match is found, it increments the count and breaks out of the inner loop.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 335,
+      "completion_tokens": 198,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869429.7255387
+}

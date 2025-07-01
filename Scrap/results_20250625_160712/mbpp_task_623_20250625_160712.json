@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 623,
+  "problem": {
+    "task_id": 623,
+    "text": "Write a function to find the n-th power of individual elements in a list using lambda function.",
+    "code": "def nth_nums(nums,n):\r\n nth_nums = list(map(lambda x: x ** n, nums))\r\n return nth_nums",
+    "test_list": [
+      "assert nth_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2)==[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]",
+      "assert nth_nums([10,20,30],3)==([1000, 8000, 27000])",
+      "assert nth_nums([12,15],5)==([248832, 759375])"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n-th power of individual elements in a list using lambda function.\n\nTask ID: 623\n\nExpected behavior (test cases):\n1. nth_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],2)==[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]\n2. nth_nums([10,20,30],3)==([1000, 8000, 27000])\n3. nth_nums([12,15],5)==([248832, 759375])\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-86c63c42510640dcb13c8cdb23e686b1",
+    "object": "chat.completion",
+    "created": 1750867696,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\nfrom typing import List\n\ndef nth_nums(nums: List[int], n: int) -> List[int]:\n    return [math.pow(num, n) for num in nums]\n\n# Test cases\nprint(nth_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2)) # Expected output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]\nprint(nth_nums([10,20,30], 3)) # Expected output: [1000, 8000, 27000]\nprint(nth_nums([12,15], 5)) # Expected output: [248832, 759375]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 233,
+      "total_tokens": 434,
+      "completion_tokens": 201,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867699.4605355
+}

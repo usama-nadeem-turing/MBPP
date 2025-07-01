@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 773,
+  "problem": {
+    "task_id": 773,
+    "text": "Write a function to find the occurrence and position of the substrings within a string.",
+    "code": "import re\r\ndef occurance_substring(text,pattern):\r\n for match in re.finditer(pattern, text):\r\n    s = match.start()\r\n    e = match.end()\r\n    return (text[s:e], s, e)",
+    "test_list": [
+      "assert occurance_substring('python programming, python language','python')==('python', 0, 6)",
+      "assert occurance_substring('python programming,programming language','programming')==('programming', 7, 18)",
+      "assert occurance_substring('python programming,programming language','language')==('language', 31, 39)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the occurrence and position of the substrings within a string.\n\nTask ID: 773\n\nExpected behavior (test cases):\n1. occurance_substring('python programming, python language','python')==('python', 0, 6)\n2. occurance_substring('python programming,programming language','programming')==('programming', 7, 18)\n3. occurance_substring('python programming,programming language','language')==('language', 31, 39)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b17684b33f554e7bb2d22749397fef39",
+    "object": "chat.completion",
+    "created": 1750868077,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef occurance_substring(string, substring):\n    start = 0\n    while True:\n        pos = string.find(substring, start)\n        if pos == -1:\n            break\n        yield substring, pos, pos + len(substring)\n        start = pos + 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "total_tokens": 231,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868078.8210557
+}

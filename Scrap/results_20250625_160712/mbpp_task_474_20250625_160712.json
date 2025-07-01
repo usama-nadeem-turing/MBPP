@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 474,
+  "problem": {
+    "task_id": 474,
+    "text": "Write a function to replace characters in a string.",
+    "code": "def replace_char(str1,ch,newch):\r\n str2 = str1.replace(ch, newch)\r\n return str2",
+    "test_list": [
+      "assert replace_char(\"polygon\",'y','l')==(\"pollgon\")",
+      "assert replace_char(\"character\",'c','a')==(\"aharaater\")",
+      "assert replace_char(\"python\",'l','a')==(\"python\")"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to replace characters in a string.\n\nTask ID: 474\n\nExpected behavior (test cases):\n1. replace_char(\"polygon\",'y','l')==(\"pollgon\")\n2. replace_char(\"character\",'c','a')==(\"aharaater\")\n3. replace_char(\"python\",'l','a')==(\"python\")\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c5b19af5be6a44fd9387a0b9c9e844a3",
+    "object": "chat.completion",
+    "created": 1750869786,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef replace_char(s, old_char, new_char):\n    return s.replace(old_char, new_char)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 130,
+      "total_tokens": 156,
+      "completion_tokens": 26,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869787.4335225
+}

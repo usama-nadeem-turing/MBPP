@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 257,
+  "problem": {
+    "task_id": 257,
+    "text": "Write a function to swap two numbers.",
+    "code": "def swap_numbers(a,b):\r\n temp = a\r\n a = b\r\n b = temp\r\n return (a,b)",
+    "test_list": [
+      "assert swap_numbers(10,20)==(20,10)",
+      "assert swap_numbers(15,17)==(17,15)",
+      "assert swap_numbers(100,200)==(200,100)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to swap two numbers.\n\nTask ID: 257\n\nExpected behavior (test cases):\n1. swap_numbers(10,20)==(20,10)\n2. swap_numbers(15,17)==(17,15)\n3. swap_numbers(100,200)==(200,100)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6db5fcf7073b487c9eb17ef93054c411",
+    "object": "chat.completion",
+    "created": 1750869251,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef swap_numbers(a, b):\n    return(b, a)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 159,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869251.6380887
+}

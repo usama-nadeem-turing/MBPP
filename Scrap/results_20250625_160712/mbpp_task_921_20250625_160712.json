@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 921,
+  "problem": {
+    "task_id": 921,
+    "text": "Write a function to perform chunking of tuples each of size n.",
+    "code": "def chunk_tuples(test_tup, N):\r\n  res = [test_tup[i : i + N] for i in range(0, len(test_tup), N)]\r\n  return (res) ",
+    "test_list": [
+      "assert chunk_tuples((10, 4, 5, 6, 7, 6, 8, 3, 4), 3) == [(10, 4, 5), (6, 7, 6), (8, 3, 4)]",
+      "assert chunk_tuples((1, 2, 3, 4, 5, 6, 7, 8, 9), 2) == [(1, 2), (3, 4), (5, 6), (7, 8), (9,)]",
+      "assert chunk_tuples((11, 14, 16, 17, 19, 21, 22, 25), 4) == [(11, 14, 16, 17), (19, 21, 22, 25)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to perform chunking of tuples each of size n.\n\nTask ID: 921\n\nExpected behavior (test cases):\n1. chunk_tuples((10, 4, 5, 6, 7, 6, 8, 3, 4), 3) should return [(10, 4, 5), (6, 7, 6), (8, 3, 4)]\n2. chunk_tuples((1, 2, 3, 4, 5, 6, 7, 8, 9), 2) should return [(1, 2), (3, 4), (5, 6), (7, 8), (9,)]\n3. chunk_tuples((11, 14, 16, 17, 19, 21, 22, 25), 4) should return [(11, 14, 16, 17), (19, 21, 22, 25)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c8e8e1dba8dc405b9eb177e2e0ce0e4a",
+    "object": "chat.completion",
+    "created": 1750868468,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef chunk_tuples(tup, n):\n    # Use list comprehension and slicing to create chunks of size n\n    return [tup[i:i+n] for i in range(0, len(tup), n)]\n\n# Test cases\nprint(chunk_tuples((10, 4, 5, 6, 7, 6, 8, 3, 4), 3))  # Expected output: [(10, 4, 5), (6, 7, 6), (8, 3, 4)]\nprint(chunk_tuples((1, 2, 3, 4, 5, 6, 7, 8, 9), 2))   # Expected output: [(1, 2), (3, 4), (5, 6), (7, 8), (9,)]\nprint(chunk_tuples((11, 14, 16, 17, 19, 21, 22, 25), 4))  # Expected output: [(11, 14, 16, 17), (19, 21, 22, 25)]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 292,
+      "total_tokens": 553,
+      "completion_tokens": 261,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868472.8036401
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 80,
+  "problem": {
+    "task_id": 80,
+    "text": "Write a function to find the nth tetrahedral number.",
+    "code": "def tetrahedral_number(n): \r\n\treturn (n * (n + 1) * (n + 2)) / 6",
+    "test_list": [
+      "assert tetrahedral_number(5) == 35.0",
+      "assert tetrahedral_number(6) == 56.0",
+      "assert tetrahedral_number(7) == 84.0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the nth tetrahedral number.\n\nTask ID: 80\n\nExpected behavior (test cases):\n1. tetrahedral_number(5) should return 35.0\n2. tetrahedral_number(6) should return 56.0\n3. tetrahedral_number(7) should return 84.0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6be27d4019294194b03ab6aa9fca771e",
+    "object": "chat.completion",
+    "created": 1750868789,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tetrahedral_number(n):\n    \"\"\"\n    Calculate the nth tetrahedral number.\n    \n    Parameters:\n    n (int): The position in the sequence of tetrahedral numbers.\n    \n    Returns:\n    float: The nth tetrahedral number.\n    \"\"\"\n    return n * (n + 1) * (n + 2) / 6.0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 219,
+      "completion_tokens": 82,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868791.2765408
+}

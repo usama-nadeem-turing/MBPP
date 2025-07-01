@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 675,
+  "problem": {
+    "task_id": 675,
+    "text": "Write a function to add two integers. however, if the sum is between the given range it will return 20.",
+    "code": "def sum_nums(x, y,m,n):\r\n    sum_nums= x + y\r\n    if sum_nums in range(m, n):\r\n        return 20\r\n    else:\r\n        return sum_nums",
+    "test_list": [
+      "assert sum_nums(2,10,11,20)==20",
+      "assert sum_nums(15,17,1,10)==32",
+      "assert sum_nums(10,15,5,30)==20"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to add two integers. however, if the sum is between the given range it will return 20.\n\nTask ID: 675\n\nExpected behavior (test cases):\n1. sum_nums(2,10,11,20)==20\n2. sum_nums(15,17,1,10)==32\n3. sum_nums(10,15,5,30)==20\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c27c8cf0b508444e8dd721ac7535ad17",
+    "object": "chat.completion",
+    "created": 1750867827,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_nums(a, b, min_val, max_val):\n    total = a + b\n    if min_val <= total <= max_val:\n        return 20\n    else:\n        return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 157,
+      "total_tokens": 205,
+      "completion_tokens": 48,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867828.779941
+}

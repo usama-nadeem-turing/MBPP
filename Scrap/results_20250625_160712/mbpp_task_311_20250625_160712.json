@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 311,
+  "problem": {
+    "task_id": 311,
+    "text": "Write a python function to set the left most unset bit.",
+    "code": "def set_left_most_unset_bit(n): \r\n    if not (n & (n + 1)): \r\n        return n \r\n    pos, temp, count = 0, n, 0 \r\n    while temp: \r\n        if not (temp & 1): \r\n            pos = count      \r\n        count += 1; temp>>=1\r\n    return (n | (1 << (pos))) ",
+    "test_list": [
+      "assert set_left_most_unset_bit(10) == 14",
+      "assert set_left_most_unset_bit(12) == 14",
+      "assert set_left_most_unset_bit(15) == 15"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to set the left most unset bit.\n\nTask ID: 311\n\nExpected behavior (test cases):\n1. set_left_most_unset_bit(10) should return 14\n2. set_left_most_unset_bit(12) should return 14\n3. set_left_most_unset_bit(15) should return 15\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d516852a4a4640aeaaa928de9813583d",
+    "object": "chat.completion",
+    "created": 1750869387,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef set_left_most_unset_bit(n):\n    # Find the first unset bit from the right and shift it to the leftmost position\n    mask = n & -n\n    return n | mask\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 184,
+      "completion_tokens": 46,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869388.4026084
+}

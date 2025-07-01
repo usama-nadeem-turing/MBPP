@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 856,
+  "problem": {
+    "task_id": 856,
+    "text": "Write a python function to find minimum adjacent swaps required to sort binary array.",
+    "code": "def find_Min_Swaps(arr,n) : \r\n    noOfZeroes = [0] * n \r\n    count = 0 \r\n    noOfZeroes[n - 1] = 1 - arr[n - 1] \r\n    for i in range(n-2,-1,-1) : \r\n        noOfZeroes[i] = noOfZeroes[i + 1] \r\n        if (arr[i] == 0) : \r\n            noOfZeroes[i] = noOfZeroes[i] + 1\r\n    for i in range(0,n) : \r\n        if (arr[i] == 1) : \r\n            count = count + noOfZeroes[i] \r\n    return count ",
+    "test_list": [
+      "assert find_Min_Swaps([1,0,1,0],4) == 3",
+      "assert find_Min_Swaps([0,1,0],3) == 1",
+      "assert find_Min_Swaps([0,0,1,1,0],5) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find minimum adjacent swaps required to sort binary array.\n\nTask ID: 856\n\nExpected behavior (test cases):\n1. find_Min_Swaps([1,0,1,0],4) should return 3\n2. find_Min_Swaps([0,1,0],3) should return 1\n3. find_Min_Swaps([0,0,1,1,0],5) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b5ed093300f24b518d9fbf94cef7402a",
+    "object": "chat.completion",
+    "created": 1750868307,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Min_Swaps(arr, n):\n    count = 0\n    for i in range(n-1):\n        if arr[i] > arr[i+1]:\n            count += 1\n            j = i + 1\n            while j < n and arr[j] <= arr[i]:\n                j += 1\n            arr[i+1:j+1] = reversed(arr[i+1:j+1])\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "total_tokens": 256,
+      "completion_tokens": 97,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868308.7607005
+}

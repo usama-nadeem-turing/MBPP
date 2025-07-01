@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 242,
+  "problem": {
+    "task_id": 242,
+    "text": "Write a function to count total characters in a string.",
+    "code": "def count_charac(str1):\r\n total = 0\r\n for i in str1:\r\n    total = total + 1\r\n return total",
+    "test_list": [
+      "assert count_charac(\"python programming\")==18",
+      "assert count_charac(\"language\")==8",
+      "assert count_charac(\"words\")==5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count total characters in a string.\n\nTask ID: 242\n\nExpected behavior (test cases):\n1. count_charac(\"python programming\")==18\n2. count_charac(\"language\")==8\n3. count_charac(\"words\")==5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3472ee7970234f17ba525b69c69af309",
+    "object": "chat.completion",
+    "created": 1750869210,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_charac(s):\n    return len(s)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 118,
+      "total_tokens": 134,
+      "completion_tokens": 16,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869211.196686
+}

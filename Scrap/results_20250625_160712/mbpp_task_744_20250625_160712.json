@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 744,
+  "problem": {
+    "task_id": 744,
+    "text": "Write a function to check if the given tuple has any none value or not.",
+    "code": "def check_none(test_tup):\r\n  res = any(map(lambda ele: ele is None, test_tup))\r\n  return (res) ",
+    "test_list": [
+      "assert check_none((10, 4, 5, 6, None)) == True",
+      "assert check_none((7, 8, 9, 11, 14)) == False",
+      "assert check_none((1, 2, 3, 4, None)) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given tuple has any none value or not.\n\nTask ID: 744\n\nExpected behavior (test cases):\n1. check_none((10, 4, 5, 6, None)) should return True\n2. check_none((7, 8, 9, 11, 14)) should return False\n3. check_none((1, 2, 3, 4, None)) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-768bf1751b5f4c47aca4b8b9e78282c4",
+    "object": "chat.completion",
+    "created": 1750868004,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_none(tup):\n    # Check each element in the tuple for None values\n    for item in tup:\n        if item is None:\n            return True\n    return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "total_tokens": 204,
+      "completion_tokens": 43,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868005.6751082
+}

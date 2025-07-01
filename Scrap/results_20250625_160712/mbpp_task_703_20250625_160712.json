@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 703,
+  "problem": {
+    "task_id": 703,
+    "text": "Write a function to check whether the given key is present in the dictionary or not.",
+    "code": "def is_key_present(d,x):\r\n  if x in d:\r\n    return True\r\n  else:\r\n     return False",
+    "test_list": [
+      "assert is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},5)==True",
+      "assert is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},6)==True",
+      "assert is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},10)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given key is present in the dictionary or not.\n\nTask ID: 703\n\nExpected behavior (test cases):\n1. is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},5)==True\n2. is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},6)==True\n3. is_key_present({1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60},10)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-6e13b2be6d8b4294b66a24944cf8f612",
+    "object": "chat.completion",
+    "created": 1750867892,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_key_present(dictionary, key):\n    return key in dictionary.keys()\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 246,
+      "total_tokens": 266,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867893.2001488
+}

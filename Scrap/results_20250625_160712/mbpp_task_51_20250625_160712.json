@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 51,
+  "problem": {
+    "task_id": 51,
+    "text": "Write a function to print check if the triangle is equilateral or not.",
+    "code": "def check_equilateral(x,y,z):\r\n  if x == y == z:\r\n\t   return True\r\n  else:\r\n     return False",
+    "test_list": [
+      "assert check_equilateral(6,8,12)==False ",
+      "assert check_equilateral(6,6,12)==False",
+      "assert check_equilateral(6,6,6)==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to print check if the triangle is equilateral or not.\n\nTask ID: 51\n\nExpected behavior (test cases):\n1. check_equilateral(6,8,12)==False \n2. check_equilateral(6,6,12)==False\n3. check_equilateral(6,6,6)==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c0f8160ad43d4c38a7013dd27d140c31",
+    "object": "chat.completion",
+    "created": 1750868711,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_equilateral(a, b, c):\n    # Check if all sides of the triangle are equal\n    return a == b and b == c\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 170,
+      "completion_tokens": 37,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868712.2996337
+}

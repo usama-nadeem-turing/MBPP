@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 378,
+  "problem": {
+    "task_id": 378,
+    "text": "Write a python function to shift last element to first position in the given list.",
+    "code": "def move_first(test_list):\r\n  test_list = test_list[-1:] + test_list[:-1]  \r\n  return test_list",
+    "test_list": [
+      "assert move_first([1,2,3,4]) == [4,1,2,3]",
+      "assert move_first([0,1,2,3]) == [3,0,1,2]",
+      "assert move_first([9,8,7,1]) == [1,9,8,7]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to shift last element to first position in the given list.\n\nTask ID: 378\n\nExpected behavior (test cases):\n1. move_first([1,2,3,4]) should return [4,1,2,3]\n2. move_first([0,1,2,3]) should return [3,0,1,2]\n3. move_first([9,8,7,1]) should return [1,9,8,7]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-40620eb7bfd8441589c081c85c624f56",
+    "object": "chat.completion",
+    "created": 1750869558,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef move_first(lst):\n    if not lst:\n        return []\n    \n    # Move the last element to the front of the list\n    last_element = lst.pop()\n    lst.insert(0, last_element)\n    \n    return lst\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "total_tokens": 216,
+      "completion_tokens": 53,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869559.5510383
+}

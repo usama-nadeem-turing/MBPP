@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 924,
+  "problem": {
+    "task_id": 924,
+    "text": "Write a function to find maximum of two numbers.",
+    "code": "def max_of_two( x, y ):\r\n    if x > y:\r\n        return x\r\n    return y",
+    "test_list": [
+      "assert max_of_two(10,20)==20",
+      "assert max_of_two(19,15)==19",
+      "assert max_of_two(-10,-20)==-10"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find maximum of two numbers.\n\nTask ID: 924\n\nExpected behavior (test cases):\n1. max_of_two(10,20)==20\n2. max_of_two(19,15)==19\n3. max_of_two(-10,-20)==-10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b5e810fd4f8c44eca181fbff70a4c008",
+    "object": "chat.completion",
+    "created": 1750868481,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_of_two(a, b):\n    return max(a, b)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "total_tokens": 151,
+      "completion_tokens": 20,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868481.7957535
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 406,
+  "problem": {
+    "task_id": 406,
+    "text": "Write a python function to find the parity of a given number.",
+    "code": "def find_Parity(x): \r\n    y = x ^ (x >> 1); \r\n    y = y ^ (y >> 2); \r\n    y = y ^ (y >> 4); \r\n    y = y ^ (y >> 8); \r\n    y = y ^ (y >> 16); \r\n    if (y & 1): \r\n        return (\"Odd Parity\"); \r\n    return (\"Even Parity\"); ",
+    "test_list": [
+      "assert find_Parity(12) == \"Even Parity\"",
+      "assert find_Parity(7) == \"Odd Parity\"",
+      "assert find_Parity(10) == \"Even Parity\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the parity of a given number.\n\nTask ID: 406\n\nExpected behavior (test cases):\n1. find_Parity(12) should return \"Even Parity\"\n2. find_Parity(7) should return \"Odd Parity\"\n3. find_Parity(10) should return \"Even Parity\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-93230d10eef24c2ead39472430d50574",
+    "object": "chat.completion",
+    "created": 1750869622,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Parity(number):\n    # Initialize parity as even\n    parity = 'Even Parity'\n    \n    # Check if the number is odd\n    if number % 2 != 0:\n        parity = 'Odd Parity'\n    \n    return parity\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 194,
+      "completion_tokens": 59,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869623.5985518
+}

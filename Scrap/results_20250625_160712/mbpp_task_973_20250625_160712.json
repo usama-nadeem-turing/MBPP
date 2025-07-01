@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 973,
+  "problem": {
+    "task_id": 973,
+    "text": "Write a python function to left rotate the string.",
+    "code": "def left_rotate(s,d):\r\n    tmp = s[d : ] + s[0 : d]\r\n    return tmp  ",
+    "test_list": [
+      "assert left_rotate(\"python\",2) == \"thonpy\"   ",
+      "assert left_rotate(\"bigdata\",3 ) == \"databig\" ",
+      "assert left_rotate(\"hadoop\",1 ) == \"adooph\" "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to left rotate the string.\n\nTask ID: 973\n\nExpected behavior (test cases):\n1. left_rotate(\"python\",2) should return \"thonpy\"   \n2. left_rotate(\"bigdata\",3 ) should return \"databig\" \n3. left_rotate(\"hadoop\",1 ) should return \"adooph\" \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-00b33f40826a45af8577c9a74d108410",
+    "object": "chat.completion",
+    "created": 1750868603,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef left_rotate(s, n):\n    # Rotate the string s by n positions to the left\n    return s[n:] + s[:n]\n\n# Test cases\nprint(left_rotate(\"python\", 2))  # Expected output: \"thonpy\"\nprint(left_rotate(\"bigdata\", 3))  # Expected output: \"databig\"\nprint(left_rotate(\"hadoop\", 1))   # Expected output: \"adooph\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 232,
+      "completion_tokens": 96,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868605.3579776
+}

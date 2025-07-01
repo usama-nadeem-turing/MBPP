@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 460,
+  "problem": {
+    "task_id": 460,
+    "text": "Write a python function to get the first element of each sublist.",
+    "code": "def Extract(lst): \r\n    return [item[0] for item in lst] ",
+    "test_list": [
+      "assert Extract([[1, 2], [3, 4, 5], [6, 7, 8, 9]]) == [1, 3, 6]",
+      "assert Extract([[1,2,3],[4, 5]]) == [1,4]",
+      "assert Extract([[9,8,1],[1,2]]) == [9,1]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to get the first element of each sublist.\n\nTask ID: 460\n\nExpected behavior (test cases):\n1. Extract([[1, 2], [3, 4, 5], [6, 7, 8, 9]]) should return [1, 3, 6]\n2. Extract([[1,2,3],[4, 5]]) should return [1,4]\n3. Extract([[9,8,1],[1,2]]) should return [9,1]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d99e7984ca7642eda58ff6b27e8e6274",
+    "object": "chat.completion",
+    "created": 1750869748,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract(lst):\n    # Use list comprehension to iterate over each sublist and select the first element\n    return [sublist[0] for sublist in lst]\n\n# Test cases\nprint(extract([[1, 2], [3, 4, 5], [6, 7, 8, 9]]))  # Output: [1, 3, 6]\nprint(extract([[1,2,3],[4, 5]]))                  # Output: [1, 4]\nprint(extract([[9,8,1],[1,2]]))                   # Output: [9, 1]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "total_tokens": 309,
+      "completion_tokens": 137,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869750.8825228
+}

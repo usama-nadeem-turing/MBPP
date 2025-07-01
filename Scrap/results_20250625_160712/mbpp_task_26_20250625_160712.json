@@ -1,0 +1,46 @@
+{
+  "mbpp_id": 26,
+  "problem": {
+    "task_id": 26,
+    "text": "Write a function to check if the given tuple list has all k elements.",
+    "code": "def check_k_elements(test_list, K):\r\n  res = True\r\n  for tup in test_list:\r\n    for ele in tup:\r\n      if ele != K:\r\n        res = False\r\n  return (res) ",
+    "test_list": [
+      "assert check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 4, 4), (4, )], 4) == True",
+      "assert check_k_elements([(7, 7, 7), (7, 7)], 7) == True",
+      "assert check_k_elements([(9, 9), (9, 9, 9, 9)], 7) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 6, 4), (4, )], 4) == False"
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given tuple list has all k elements.\n\nTask ID: 26\n\nExpected behavior (test cases):\n1. check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 4, 4), (4, )], 4) should return True\n2. check_k_elements([(7, 7, 7), (7, 7)], 7) should return True\n3. check_k_elements([(9, 9), (9, 9, 9, 9)], 7) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-37846cf60807434f9702b2e4e067c709",
+    "object": "chat.completion",
+    "created": 1750868641,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_k_elements(tuple_list, k):\n    # Check if each element in the tuple list is equal to k\n    for t in tuple_list:\n        if len(t) != k:\n            return False\n        else:\n            for i in range(k-1):\n                if t[i] != t[i+1]:\n                    return False\n    return True\n\n# Test cases\nprint(check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 4, 4), (4, )], 4))  # Expected output: True\nprint(check_k_elements([(7, 7, 7), (7, 7)], 7))  # Expected output: True\nprint(check_k_elements([(9, 9), (9, 9, 9, 9)], 7))  # Expected output: False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 196,
+      "total_tokens": 392,
+      "completion_tokens": 196,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868645.296123
+}

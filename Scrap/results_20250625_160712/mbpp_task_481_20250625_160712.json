@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 481,
+  "problem": {
+    "task_id": 481,
+    "text": "Write a function to determine if there is a subset of the given set with sum equal to the given sum.",
+    "code": "def is_subset_sum(set, n, sum):\r\n\tif (sum == 0):\r\n\t\treturn True\r\n\tif (n == 0):\r\n\t\treturn False\r\n\tif (set[n - 1] > sum):\r\n\t\treturn is_subset_sum(set, n - 1, sum)\r\n\treturn is_subset_sum(set, n-1, sum) or is_subset_sum(set, n-1, sum-set[n-1])",
+    "test_list": [
+      "assert is_subset_sum([3, 34, 4, 12, 5, 2], 6, 9) == True",
+      "assert is_subset_sum([3, 34, 4, 12, 5, 2], 6, 30) == False",
+      "assert is_subset_sum([3, 34, 4, 12, 5, 2], 6, 15) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to determine if there is a subset of the given set with sum equal to the given sum.\n\nTask ID: 481\n\nExpected behavior (test cases):\n1. is_subset_sum([3, 34, 4, 12, 5, 2], 6, 9) should return True\n2. is_subset_sum([3, 34, 4, 12, 5, 2], 6, 30) should return False\n3. is_subset_sum([3, 34, 4, 12, 5, 2], 6, 15) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0dab402df4b94e9cbb927e3482d0aac0",
+    "object": "chat.completion",
+    "created": 1750869798,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_subset_sum(nums, target, total):\n    dp = [False] * (total + 1)\n    dp[0] = True\n    \n    for num in nums:\n        for i in range(total, num - 1, -1):\n            dp[i] = dp[i] or dp[i - num]\n    \n    return dp[target]\n\n# Test cases\nprint(is_subset_sum([3, 34, 4, 12, 5, 2], 6, 9))  # Expected output: True\nprint(is_subset_sum([3, 34, 4, 12, 5, 2], 6, 30))  # Expected output: False\nprint(is_subset_sum([3, 34, 4, 12, 5, 2], 6, 15))  # Expected output: True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 204,
+      "total_tokens": 398,
+      "completion_tokens": 194,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869801.9198332
+}

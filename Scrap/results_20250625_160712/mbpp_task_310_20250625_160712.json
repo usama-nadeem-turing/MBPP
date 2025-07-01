@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 310,
+  "problem": {
+    "task_id": 310,
+    "text": "Write a function to convert a given string to a tuple.",
+    "code": "def string_to_tuple(str1):\r\n    result = tuple(x for x in str1 if not x.isspace()) \r\n    return result",
+    "test_list": [
+      "assert string_to_tuple(\"python 3.0\")==('p', 'y', 't', 'h', 'o', 'n', '3', '.', '0')",
+      "assert string_to_tuple(\"item1\")==('i', 't', 'e', 'm', '1')",
+      "assert string_to_tuple(\"15.10\")==('1', '5', '.', '1', '0')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert a given string to a tuple.\n\nTask ID: 310\n\nExpected behavior (test cases):\n1. string_to_tuple(\"python 3.0\")==('p', 'y', 't', 'h', 'o', 'n', '3', '.', '0')\n2. string_to_tuple(\"item1\")==('i', 't', 'e', 'm', '1')\n3. string_to_tuple(\"15.10\")==('1', '5', '.', '1', '0')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-512ee8db1fc440dca7a7055aa43c7198",
+    "object": "chat.completion",
+    "created": 1750869386,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef string_to_tuple(s):\n    return tuple(s)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 173,
+      "total_tokens": 189,
+      "completion_tokens": 16,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869387.0915775
+}

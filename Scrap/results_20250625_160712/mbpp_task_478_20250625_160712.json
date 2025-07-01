@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 478,
+  "problem": {
+    "task_id": 478,
+    "text": "Write a function to remove lowercase substrings from a given string.",
+    "code": "import re\r\ndef remove_lowercase(str1):\r\n remove_lower = lambda text: re.sub('[a-z]', '', text)\r\n result =  remove_lower(str1)\r\n return result",
+    "test_list": [
+      "assert remove_lowercase(\"PYTHon\")==('PYTH')",
+      "assert remove_lowercase(\"FInD\")==('FID')",
+      "assert remove_lowercase(\"STRinG\")==('STRG')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove lowercase substrings from a given string.\n\nTask ID: 478\n\nExpected behavior (test cases):\n1. remove_lowercase(\"PYTHon\")==('PYTH')\n2. remove_lowercase(\"FInD\")==('FID')\n3. remove_lowercase(\"STRinG\")==('STRG')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0c4ebd690fd745d29f4546bb90d7161e",
+    "object": "chat.completion",
+    "created": 1750869792,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_lowercase(s):\n    # Remove all lowercase letters from the input string\n    return ''.join([char for char in s if not char.islower()])\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 164,
+      "completion_tokens": 37,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869792.7610033
+}

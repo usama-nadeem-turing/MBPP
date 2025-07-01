@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 806,
+  "problem": {
+    "task_id": 806,
+    "text": "Write a function to find maximum run of uppercase characters in the given string.",
+    "code": "def max_run_uppercase(test_str):\r\n  cnt = 0\r\n  res = 0\r\n  for idx in range(0, len(test_str)):\r\n    if test_str[idx].isupper():\r\n      cnt += 1\r\n    else:\r\n      res = cnt\r\n      cnt = 0\r\n  if test_str[len(test_str) - 1].isupper():\r\n    res = cnt\r\n  return (res)",
+    "test_list": [
+      "assert max_run_uppercase('GeMKSForGERksISBESt') == 5",
+      "assert max_run_uppercase('PrECIOusMOVemENTSYT') == 6",
+      "assert max_run_uppercase('GooGLEFluTTER') == 4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find maximum run of uppercase characters in the given string.\n\nTask ID: 806\n\nExpected behavior (test cases):\n1. max_run_uppercase('GeMKSForGERksISBESt') should return 5\n2. max_run_uppercase('PrECIOusMOVemENTSYT') should return 6\n3. max_run_uppercase('GooGLEFluTTER') should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9d830945cd824069816aa98c895563ee",
+    "object": "chat.completion",
+    "created": 1750868171,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_run_uppercase(s):\n    max_length = 0\n    current_length = 0\n    \n    for char in s:\n        if char.isupper():\n            current_length += 1\n            max_length = max(max_length, current_length)\n        else:\n            current_length = 0\n            \n    return max_length\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "total_tokens": 225,
+      "completion_tokens": 71,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868172.808785
+}

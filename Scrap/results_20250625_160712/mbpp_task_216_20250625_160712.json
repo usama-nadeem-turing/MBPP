@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 216,
+  "problem": {
+    "task_id": 216,
+    "text": "Write a function to check if a nested list is a subset of another nested list.",
+    "code": "def check_subset_list(list1, list2): \r\n    l1, l2 = list1[0], list2[0] \r\n    exist = True\r\n    for i in list2: \r\n        if i not in list1: \r\n            exist = False\r\n    return exist ",
+    "test_list": [
+      "assert check_subset_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],[[12, 18, 23, 25, 45], [7, 11, 19, 24, 28], [1, 5, 8, 18, 15, 16]])==False",
+      "assert check_subset_list([[2, 3, 1], [4, 5], [6, 8]],[[4, 5], [6, 8]])==True",
+      "assert check_subset_list([['a', 'b'], ['e'], ['c', 'd']],[['g']])==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a nested list is a subset of another nested list.\n\nTask ID: 216\n\nExpected behavior (test cases):\n1. check_subset_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],[[12, 18, 23, 25, 45], [7, 11, 19, 24, 28], [1, 5, 8, 18, 15, 16]])==False\n2. check_subset_list([[2, 3, 1], [4, 5], [6, 8]],[[4, 5], [6, 8]])==True\n3. check_subset_list([['a', 'b'], ['e'], ['c', 'd']],[['g']])==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a4da1569ab064c65b77fe8880f67d5a2",
+    "object": "chat.completion",
+    "created": 1750869150,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_subset_list(subset, superset):\n    for sub in subset:\n        found = False\n        for sup in superset:\n            if set(sub).issubset(set(sup)):\n                found = True\n                break\n        if not found:\n            return False\n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 277,
+      "total_tokens": 343,
+      "completion_tokens": 66,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869151.9572222
+}

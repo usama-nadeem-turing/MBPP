@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 122,
+  "problem": {
+    "task_id": 122,
+    "text": "Write a function to find n’th smart number.",
+    "code": "MAX = 3000 \r\ndef smartNumber(n): \r\n\tprimes = [0] * MAX \r\n\tresult = [] \r\n\tfor i in range(2, MAX): \r\n\t\tif (primes[i] == 0): \r\n\t\t\tprimes[i] = 1 \r\n\t\t\tj = i * 2 \r\n\t\t\twhile (j < MAX): \r\n\t\t\t\tprimes[j] -= 1 \r\n\t\t\t\tif ( (primes[j] + 3) == 0): \r\n\t\t\t\t\tresult.append(j) \r\n\t\t\t\tj = j + i \r\n\tresult.sort() \r\n\treturn result[n - 1] ",
+    "test_list": [
+      "assert smartNumber(1) == 30",
+      "assert smartNumber(50) == 273",
+      "assert smartNumber(1000) == 2664"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find n’th smart number.\n\nTask ID: 122\n\nExpected behavior (test cases):\n1. smartNumber(1) should return 30\n2. smartNumber(50) should return 273\n3. smartNumber(1000) should return 2664\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-261dae4ec52a4c71a946d6aa56a72236",
+    "object": "chat.completion",
+    "created": 1750868892,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef smartNumber(n):\n    count = 0\n    num = 1\n    while True:\n        if isSmart(num):\n            count += 1\n            if count == n:\n                return num\n        num += 1\n\ndef isSmart(number):\n    digits = [int(digit) for digit in str(number)]\n    for i in range(len(digits)):\n        for j in range(i + 1, len(digits)):\n            if abs(digits[i] - digits[j]) > 2:\n                return False\n    return True\n```\n\nThis solution defines two functions: `smartNumber` and `isSmart`. The `smartNumber` function iterates through numbers starting from 1 until it finds the nth smart number, which is determined by checking if each pair of adjacent digits has an absolute difference greater than 2. The `isSmart` function checks if a given number meets the criteria for being a smart number based on its digits' differences.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 332,
+      "completion_tokens": 200,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868895.401213
+}

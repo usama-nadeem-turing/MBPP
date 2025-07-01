@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 929,
+  "problem": {
+    "task_id": 929,
+    "text": "Write a function to count repeated items of a tuple.",
+    "code": "def count_tuplex(tuplex,value):  \r\n  count = tuplex.count(value)\r\n  return count",
+    "test_list": [
+      "assert count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),4)==3",
+      "assert count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),2)==2",
+      "assert count_tuplex((2, 4, 7, 7, 7, 3, 4, 4, 7),7)==4"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count repeated items of a tuple.\n\nTask ID: 929\n\nExpected behavior (test cases):\n1. count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),4)==3\n2. count_tuplex((2, 4, 5, 6, 2, 3, 4, 4, 7),2)==2\n3. count_tuplex((2, 4, 7, 7, 7, 3, 4, 4, 7),7)==4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4049961e0c594e5eb8fc8761c4560945",
+    "object": "chat.completion",
+    "created": 1750868493,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_tuplex(tup, item):\n    return tup.count(item)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 197,
+      "total_tokens": 218,
+      "completion_tokens": 21,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868493.6825836
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 582,
+  "problem": {
+    "task_id": 582,
+    "text": "Write a function to check if a dictionary is empty or not.",
+    "code": "def my_dict(dict1):\r\n  if bool(dict1):\r\n     return False\r\n  else:\r\n     return True",
+    "test_list": [
+      "assert my_dict({10})==False",
+      "assert my_dict({11})==False",
+      "assert my_dict({})==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a dictionary is empty or not.\n\nTask ID: 582\n\nExpected behavior (test cases):\n1. my_dict({10})==False\n2. my_dict({11})==False\n3. my_dict({})==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-febbf9aec0e24ed9a88ee126a840e3c2",
+    "object": "chat.completion",
+    "created": 1750870060,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef my_dict(d):\n    return len(d) == 0\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "total_tokens": 138,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870060.8587148
+}

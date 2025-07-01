@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 133,
+  "problem": {
+    "task_id": 133,
+    "text": "Write a function to calculate the sum of the negative numbers of a given list of numbers using lambda function.",
+    "code": "def sum_negativenum(nums):\r\n  sum_negativenum = list(filter(lambda nums:nums<0,nums))\r\n  return sum(sum_negativenum)",
+    "test_list": [
+      "assert sum_negativenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==-32",
+      "assert sum_negativenum([10,15,-14,13,-18,12,-20])==-52",
+      "assert sum_negativenum([19, -65, 57, 39, 152,-639, 121, 44, 90, -190])==-894"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the sum of the negative numbers of a given list of numbers using lambda function.\n\nTask ID: 133\n\nExpected behavior (test cases):\n1. sum_negativenum([2, 4, -6, -9, 11, -12, 14, -5, 17])==-32\n2. sum_negativenum([10,15,-14,13,-18,12,-20])==-52\n3. sum_negativenum([19, -65, 57, 39, 152,-639, 121, 44, 90, -190])==-894\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0c1f7e1b661b4025ba040b11571f0a40",
+    "object": "chat.completion",
+    "created": 1750868927,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_negativenum(nums):\n    return sum(filter(lambda x: x < 0, nums))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 226,
+      "total_tokens": 253,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868927.59576
+}

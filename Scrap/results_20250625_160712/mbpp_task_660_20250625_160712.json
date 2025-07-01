@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 660,
+  "problem": {
+    "task_id": 660,
+    "text": "Write a python function to choose points from two ranges such that no point lies in both the ranges.",
+    "code": "def find_Points(l1,r1,l2,r2): \r\n    x = min(l1,l2) if (l1 != l2) else -1\r\n    y = max(r1,r2) if (r1 != r2) else -1\r\n    return (x,y)",
+    "test_list": [
+      "assert find_Points(5,10,1,5) == (1,10)",
+      "assert find_Points(3,5,7,9) == (3,9)",
+      "assert find_Points(1,5,2,8) == (1,8)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to choose points from two ranges such that no point lies in both the ranges.\n\nTask ID: 660\n\nExpected behavior (test cases):\n1. find_Points(5,10,1,5) should return (1,10)\n2. find_Points(3,5,7,9) should return (3,9)\n3. find_Points(1,5,2,8) should return (1,8)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-54e69d5ea99a4c05b80d79bebcc17e99",
+    "object": "chat.completion",
+    "created": 1750867792,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_Points(range1_start, range1_end, range2_start, range2_end):\n    # Find the maximum start of the two ranges\n    max_start = max(range1_start, range2_start)\n    \n    # Find the minimum end of the two ranges\n    min_end = min(range1_end, range2_end)\n    \n    # If there is an overlap between the two ranges, adjust the ends accordingly\n    if max_start < min_end:\n        return (max_start, min_end)\n    else:\n        return ()\n\n# Test cases\nprint(find_Points(5,10,1,5))  # Expected output: (1, 10)\nprint(find_Points(3,5,7,9))   # Expected output: (3, 9)\nprint(find_Points(1,5,2,8))   # Expected output: (1, 8)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 160,
+      "total_tokens": 353,
+      "completion_tokens": 193,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867795.9585497
+}

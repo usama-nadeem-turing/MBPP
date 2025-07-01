@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 521,
+  "problem": {
+    "task_id": 521,
+    "text": "Write a function to print check if the triangle is scalene or not.",
+    "code": "def check_isosceles(x,y,z):\r\n  if x!=y & y!=z & z!=x:\r\n\t   return True\r\n  else:\r\n     return False",
+    "test_list": [
+      "assert check_isosceles(6,8,12)==True",
+      "assert check_isosceles(6,6,12)==False",
+      "assert check_isosceles(6,15,20)==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to print check if the triangle is scalene or not.\n\nTask ID: 521\n\nExpected behavior (test cases):\n1. check_isosceles(6,8,12)==True\n2. check_isosceles(6,6,12)==False\n3. check_isosceles(6,15,20)==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-b6d104cb81684e35970be8977aed13c1",
+    "object": "chat.completion",
+    "created": 1750869905,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_isosceles(a, b, c):\n    # Check if all sides are different\n    return len(set([a, b, c])) == 3\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "total_tokens": 183,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869905.9251242
+}

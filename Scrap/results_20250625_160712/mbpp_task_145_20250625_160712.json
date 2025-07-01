@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 145,
+  "problem": {
+    "task_id": 145,
+    "text": "Write a python function to find the maximum difference between any two elements in a given array.",
+    "code": "def max_Abs_Diff(arr,n): \r\n    minEle = arr[0] \r\n    maxEle = arr[0] \r\n    for i in range(1, n): \r\n        minEle = min(minEle,arr[i]) \r\n        maxEle = max(maxEle,arr[i]) \r\n    return (maxEle - minEle) ",
+    "test_list": [
+      "assert max_Abs_Diff((2,1,5,3),4) == 4",
+      "assert max_Abs_Diff((9,3,2,5,1),5) == 8",
+      "assert max_Abs_Diff((3,2,1),3) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the maximum difference between any two elements in a given array.\n\nTask ID: 145\n\nExpected behavior (test cases):\n1. max_Abs_Diff((2,1,5,3),4) should return 4\n2. max_Abs_Diff((9,3,2,5,1),5) should return 8\n3. max_Abs_Diff((3,2,1),3) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ade70cae69d149958b22e86cd082ffee",
+    "object": "chat.completion",
+    "created": 1750868952,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_Abs_Diff(arr, k):\n    # Sort the array to easily find the minimum and maximum values within the range [arr[i] - k, arr[i] + k]\n    sorted_arr = sorted(arr)\n    \n    # Calculate the absolute difference for the first element after sorting\n    abs_diff_first = abs(sorted_arr[0] - sorted_arr[-1])\n    \n    # Iterate through the sorted array to find the maximum absolute difference\n    for i in range(len(sorted_arr)):\n        if i > 0:\n            current_abs_diff = abs(sorted_arr[i] - sorted_arr[i-1])\n            if current_abs_diff > abs_diff_first:\n                abs_diff_first = current_abs_diff\n    \n    return abs_diff_first\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "total_tokens": 317,
+      "completion_tokens": 155,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868954.985464
+}

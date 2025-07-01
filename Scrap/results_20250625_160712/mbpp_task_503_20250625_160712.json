@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 503,
+  "problem": {
+    "task_id": 503,
+    "text": "Write a function to add consecutive numbers of a given list.",
+    "code": "def add_consecutive_nums(nums):\r\n    result = [b+a for a, b in zip(nums[:-1], nums[1:])]\r\n    return result",
+    "test_list": [
+      "assert add_consecutive_nums([1, 1, 3, 4, 4, 5, 6, 7])==[2, 4, 7, 8, 9, 11, 13]",
+      "assert add_consecutive_nums([4, 5, 8, 9, 6, 10])==[9, 13, 17, 15, 16]",
+      "assert add_consecutive_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[3, 5, 7, 9, 11, 13, 15, 17, 19]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to add consecutive numbers of a given list.\n\nTask ID: 503\n\nExpected behavior (test cases):\n1. add_consecutive_nums([1, 1, 3, 4, 4, 5, 6, 7])==[2, 4, 7, 8, 9, 11, 13]\n2. add_consecutive_nums([4, 5, 8, 9, 6, 10])==[9, 13, 17, 15, 16]\n3. add_consecutive_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[3, 5, 7, 9, 11, 13, 15, 17, 19]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c227e54a65c24d9891513a8299b2a5b6",
+    "object": "chat.completion",
+    "created": 1750869862,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef add_consecutive_nums(nums):\n    result = []\n    current_sum = 0\n    for num in nums:\n        current_sum += num\n        if len(result) == 0 or result[-1] != current_sum - 1:\n            result.append(current_sum)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 253,
+      "total_tokens": 318,
+      "completion_tokens": 65,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869863.232882
+}

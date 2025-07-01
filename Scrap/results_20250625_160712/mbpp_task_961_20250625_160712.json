@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 961,
+  "problem": {
+    "task_id": 961,
+    "text": "Write a function to convert a roman numeral to an integer.",
+    "code": "def roman_to_int(s):\r\n        rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\r\n        int_val = 0\r\n        for i in range(len(s)):\r\n            if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:\r\n                int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]\r\n            else:\r\n                int_val += rom_val[s[i]]\r\n        return int_val",
+    "test_list": [
+      "assert roman_to_int('MMMCMLXXXVI')==3986",
+      "assert roman_to_int('MMMM')==4000",
+      "assert roman_to_int('C')==100"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert a roman numeral to an integer.\n\nTask ID: 961\n\nExpected behavior (test cases):\n1. roman_to_int('MMMCMLXXXVI')==3986\n2. roman_to_int('MMMM')==4000\n3. roman_to_int('C')==100\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-056047c3da3f4127822456d8a1d131a9",
+    "object": "chat.completion",
+    "created": 1750868575,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef roman_to_int(s):\n    # Define Roman numerals and their corresponding values\n    rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    \n    # Initialize result variable\n    num = 0\n    \n    # Iterate through the string in reverse order\n    for i in range(len(s) - 1, -1, -1):\n        if i > 0 and rom_val[s[i]] < rom_val[s[i-1]]:\n            num -= rom_val[s[i]]\n        else:\n            num += rom_val[s[i]]\n    \n    return num\n```\n\nThis solution defines a function `roman_to_int` that takes a string representing a Roman numeral as input and returns its integer equivalent. The function uses a dictionary to map each Roman numeral character to its value and iterates over the string from right to left, adjusting the accumulated number based on whether the current numeral is less than the previous one according to the rules of Roman numeral notation.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "total_tokens": 368,
+      "completion_tokens": 239,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868579.0026186
+}

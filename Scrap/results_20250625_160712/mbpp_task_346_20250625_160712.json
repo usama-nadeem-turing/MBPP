@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 346,
+  "problem": {
+    "task_id": 346,
+    "text": "Write a function to find entringer number e(n, k).",
+    "code": "def zigzag(n, k): \r\n\tif (n == 0 and k == 0): \r\n\t\treturn 1\r\n\tif (k == 0): \r\n\t\treturn 0\r\n\treturn zigzag(n, k - 1) + zigzag(n - 1, n - k)",
+    "test_list": [
+      "assert zigzag(4, 3) == 5",
+      "assert zigzag(4, 2) == 4",
+      "assert zigzag(3, 1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find entringer number e(n, k).\n\nTask ID: 346\n\nExpected behavior (test cases):\n1. zigzag(4, 3) should return 5\n2. zigzag(4, 2) should return 4\n3. zigzag(3, 1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0e80f71763014f7982147c5b7437c248",
+    "object": "chat.completion",
+    "created": 1750869481,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef zigzag(n, k):\n    if n == 0:\n        return 0\n    result = []\n    for i in range(k):\n        temp = [i] * i + [k - 1 - i] * (k - 1 - i)\n        result.append(temp)\n    return sum(result)\n\n# Test cases\nprint(zigzag(4, 3))  # Expected output: 5\nprint(zigzag(4, 2))  # Expected output: 4\nprint(zigzag(3, 1))  # Expected output: 1\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "total_tokens": 262,
+      "completion_tokens": 129,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869483.2816718
+}

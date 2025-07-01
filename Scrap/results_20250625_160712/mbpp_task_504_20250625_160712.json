@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 504,
+  "problem": {
+    "task_id": 504,
+    "text": "Write a python function to find the cube sum of first n natural numbers.",
+    "code": "def sum_Of_Series(n): \r\n    sum = 0\r\n    for i in range(1,n + 1): \r\n        sum += i * i*i       \r\n    return sum",
+    "test_list": [
+      "assert sum_Of_Series(5) == 225",
+      "assert sum_Of_Series(2) == 9",
+      "assert sum_Of_Series(3) == 36"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the cube sum of first n natural numbers.\n\nTask ID: 504\n\nExpected behavior (test cases):\n1. sum_Of_Series(5) should return 225\n2. sum_Of_Series(2) should return 9\n3. sum_Of_Series(3) should return 36\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-90c02a29fee54180b15d3db448a4bf4d",
+    "object": "chat.completion",
+    "created": 1750869863,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_of_series(n):\n    # Initialize sum to 0\n    total_sum = 0\n    \n    # Loop through each number from 1 to n\n    for i in range(1, n + 1):\n        # Add the square of the current number to the total sum\n        total_sum += i ** 3\n    \n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 214,
+      "completion_tokens": 79,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869865.11438
+}

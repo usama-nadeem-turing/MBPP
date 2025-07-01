@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 284,
+  "problem": {
+    "task_id": 284,
+    "text": "Write a function to check whether all items of a list are equal to a given string.",
+    "code": "def check_element(list,element):\r\n  check_element=all(v== element for v in list)\r\n  return check_element",
+    "test_list": [
+      "assert check_element([\"green\", \"orange\", \"black\", \"white\"],'blue')==False",
+      "assert check_element([1,2,3,4],7)==False",
+      "assert check_element([\"green\", \"green\", \"green\", \"green\"],'green')==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether all items of a list are equal to a given string.\n\nTask ID: 284\n\nExpected behavior (test cases):\n1. check_element([\"green\", \"orange\", \"black\", \"white\"],'blue')==False\n2. check_element([1,2,3,4],7)==False\n3. check_element([\"green\", \"green\", \"green\", \"green\"],'green')==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-19c10d6cc73143cfa2085d8c424eb429",
+    "object": "chat.completion",
+    "created": 1750869312,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_element(lst, target):\n    return len(set(lst)) == 1 and lst[0] == target\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "total_tokens": 181,
+      "completion_tokens": 29,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869313.4695358
+}

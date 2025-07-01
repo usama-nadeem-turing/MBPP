@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 476,
+  "problem": {
+    "task_id": 476,
+    "text": "Write a python function to find the sum of the largest and smallest value in a given array.",
+    "code": "def big_sum(nums):\r\n      sum= max(nums)+min(nums)\r\n      return sum",
+    "test_list": [
+      "assert big_sum([1,2,3]) == 4",
+      "assert big_sum([-1,2,3,4]) == 3",
+      "assert big_sum([2,3,6]) == 8"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of the largest and smallest value in a given array.\n\nTask ID: 476\n\nExpected behavior (test cases):\n1. big_sum([1,2,3]) should return 4\n2. big_sum([-1,2,3,4]) should return 3\n3. big_sum([2,3,6]) should return 8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1f4b5d20cfbc4a11b08c2a7f92f56798",
+    "object": "chat.completion",
+    "created": 1750869789,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef big_sum(arr):\n    # Find the maximum and minimum values in the array\n    max_val = max(arr)\n    min_val = min(arr)\n    \n    # Return the sum of the maximum and minimum values\n    return max_val + min_val\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 201,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869789.9850626
+}

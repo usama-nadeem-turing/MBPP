@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 218,
+  "problem": {
+    "task_id": 218,
+    "text": "Write a python function to find the minimum operations required to make two numbers equal.",
+    "code": "import math   \r\ndef min_Operations(A,B):  \r\n    if (A > B): \r\n        swap(A,B)  \r\n    B = B // math.gcd(A,B);  \r\n    return B - 1",
+    "test_list": [
+      "assert min_Operations(2,4) == 1",
+      "assert min_Operations(4,10) == 4",
+      "assert min_Operations(1,4) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the minimum operations required to make two numbers equal.\n\nTask ID: 218\n\nExpected behavior (test cases):\n1. min_Operations(2,4) should return 1\n2. min_Operations(4,10) should return 4\n3. min_Operations(1,4) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8414a6e8335749d2bdd37729b28abca1",
+    "object": "chat.completion",
+    "created": 1750869153,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef min_Operations(x, y):\n    # Calculate the difference between x and y\n    diff = abs(x - y)\n    \n    # If x is greater than y, subtract x from y until they are equal\n    if x > y:\n        while x != y:\n            x -= 1\n    \n    # If y is greater than x, add y to x until they are equal\n    elif y > x:\n        while y != x:\n            y += 1\n    \n    # Return the number of operations performed\n    return diff\n```\n\nThis solution calculates the absolute difference between two integers `x` and `y`. It then determines which integer is larger and performs the necessary subtraction or addition to make them equal. The total number of operations performed is returned as the result.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 306,
+      "completion_tokens": 166,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869156.6121082
+}

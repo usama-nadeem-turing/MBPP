@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 698,
+  "problem": {
+    "task_id": 698,
+    "text": "Write a function to sort dictionary items by tuple product of keys for the given dictionary with tuple keys.",
+    "code": "def sort_dict_item(test_dict):\r\n  res = {key: test_dict[key] for key in sorted(test_dict.keys(), key = lambda ele: ele[1] * ele[0])}\r\n  return  (res) \r\n",
+    "test_list": [
+      "assert sort_dict_item({(5, 6) : 3, (2, 3) : 9, (8, 4): 10, (6, 4): 12} ) == {(2, 3): 9, (6, 4): 12, (5, 6): 3, (8, 4): 10}",
+      "assert sort_dict_item({(6, 7) : 4, (3, 4) : 10, (9, 5): 11, (7, 5): 13} ) == {(3, 4): 10, (7, 5): 13, (6, 7): 4, (9, 5): 11}",
+      "assert sort_dict_item({(7, 8) : 5, (4, 5) : 11, (10, 6): 12, (8, 6): 14} ) == {(4, 5): 11, (8, 6): 14, (7, 8): 5, (10, 6): 12}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort dictionary items by tuple product of keys for the given dictionary with tuple keys.\n\nTask ID: 698\n\nExpected behavior (test cases):\n1. sort_dict_item({(5, 6) : 3, (2, 3) : 9, (8, 4): 10, (6, 4): 12} ) should return {(2, 3): 9, (6, 4): 12, (5, 6): 3, (8, 4): 10}\n2. sort_dict_item({(6, 7) : 4, (3, 4) : 10, (9, 5): 11, (7, 5): 13} ) should return {(3, 4): 10, (7, 5): 13, (6, 7): 4, (9, 5): 11}\n3. sort_dict_item({(7, 8) : 5, (4, 5) : 11, (10, 6): 12, (8, 6): 14} ) should return {(4, 5): 11, (8, 6): 14, (7, 8): 5, (10, 6): 12}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7e88d23305524c3eba1e2343b9adfae4",
+    "object": "chat.completion",
+    "created": 1750867883,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sort_dict_item(dct):\n    # Sort the dictionary based on the product of tuples in descending order\n    sorted_items = dict(sorted(dct.items(), key=lambda item: item[0][0]*item[0][1], reverse=True))\n    return sorted_items\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 362,
+      "total_tokens": 423,
+      "completion_tokens": 61,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867884.6063209
+}

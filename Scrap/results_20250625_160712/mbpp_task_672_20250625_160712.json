@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 672,
+  "problem": {
+    "task_id": 672,
+    "text": "Write a function to find maximum of three numbers.",
+    "code": "def max_of_three(num1,num2,num3): \r\n    if (num1 >= num2) and (num1 >= num3):\r\n       lnum = num1\r\n    elif (num2 >= num1) and (num2 >= num3):\r\n       lnum = num2\r\n    else:\r\n       lnum = num3\r\n    return lnum",
+    "test_list": [
+      "assert max_of_three(10,20,30)==30",
+      "assert max_of_three(55,47,39)==55",
+      "assert max_of_three(10,49,30)==49"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find maximum of three numbers.\n\nTask ID: 672\n\nExpected behavior (test cases):\n1. max_of_three(10,20,30)==30\n2. max_of_three(55,47,39)==55\n3. max_of_three(10,49,30)==49\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-0b2340b71f12449680961c2bb6489490",
+    "object": "chat.completion",
+    "created": 1750867823,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_of_three(a, b, c):\n    return max(a, b, c)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 163,
+      "completion_tokens": 24,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867823.982329
+}

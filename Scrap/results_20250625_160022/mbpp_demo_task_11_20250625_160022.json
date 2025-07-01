@@ -1,0 +1,47 @@
+{
+  "mbpp_id": 11,
+  "problem": {
+    "task_id": 11,
+    "text": "Write a python function to remove first and last occurrence of a given character from the string.",
+    "code": "def remove_Occ(s,ch): \r\n    for i in range(len(s)): \r\n        if (s[i] == ch): \r\n            s = s[0 : i] + s[i + 1:] \r\n            break\r\n    for i in range(len(s) - 1,-1,-1):  \r\n        if (s[i] == ch): \r\n            s = s[0 : i] + s[i + 1:] \r\n            break\r\n    return s ",
+    "test_list": [
+      "assert remove_Occ(\"hello\",\"l\") == \"heo\"",
+      "assert remove_Occ(\"abcda\",\"a\") == \"bcd\"",
+      "assert remove_Occ(\"PHP\",\"P\") == \"H\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": [
+      "assert remove_Occ(\"hellolloll\",\"l\") == \"helollol\"",
+      "assert remove_Occ(\"\",\"l\") == \"\""
+    ]
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove first and last occurrence of a given character from the string.\n\nTask ID: 11\n\nExpected behavior (test cases):\n1. remove_Occ(\"hello\",\"l\") should return \"heo\"\n2. remove_Occ(\"abcda\",\"a\") should return \"bcd\"\n3. remove_Occ(\"PHP\",\"P\") should return \"H\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d318f647407143759a8ecca41d4c63ff",
+    "object": "chat.completion",
+    "created": 1750867249,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_Occ(s, ch):\n    # Remove the first occurrence of 'ch'\n    s = s.replace(ch, '', 1)\n    \n    # Remove the last occurrence of 'ch' if it was not removed in the previous step\n    while s.endswith(ch):\n        s = s[:-1]\n    \n    return s\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "total_tokens": 212,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867250.9932606
+}

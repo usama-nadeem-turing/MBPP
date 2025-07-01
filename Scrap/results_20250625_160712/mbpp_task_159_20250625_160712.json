@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 159,
+  "problem": {
+    "task_id": 159,
+    "text": "Write a function to print the season for the given month and day.",
+    "code": "def month_season(month,days):\r\n if month in ('January', 'February', 'March'):\r\n\t season = 'winter'\r\n elif month in ('April', 'May', 'June'):\r\n\t season = 'spring'\r\n elif month in ('July', 'August', 'September'):\r\n\t season = 'summer'\r\n else:\r\n\t season = 'autumn'\r\n if (month == 'March') and (days > 19):\r\n\t season = 'spring'\r\n elif (month == 'June') and (days > 20):\r\n\t season = 'summer'\r\n elif (month == 'September') and (days > 21):\r\n\t season = 'autumn'\r\n elif (month == 'October') and (days > 21):\r\n\t season = 'autumn'\r\n elif (month == 'November') and (days > 21):\r\n\t season = 'autumn'\r\n elif (month == 'December') and (days > 20):\r\n\t season = 'winter'\r\n return season",
+    "test_list": [
+      "assert month_season('January',4)==('winter')",
+      "assert month_season('October',28)==('autumn')",
+      "assert month_season('June',6)==('spring')"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to print the season for the given month and day.\n\nTask ID: 159\n\nExpected behavior (test cases):\n1. month_season('January',4)==('winter')\n2. month_season('October',28)==('autumn')\n3. month_season('June',6)==('spring')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ff382d9950b947aab83d68342cfe9c38",
+    "object": "chat.completion",
+    "created": 1750868996,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef month_season(month, day):\n    if month in ['December', 'January', 'February']:\n        return 'winter'\n    elif month in ['March', 'April', 'May']:\n        return 'spring'\n    elif month in ['June', 'July', 'August']:\n        return 'summer'\n    else:\n        return 'fall'\n\n# Test cases\nprint(month_season('January', 4))  # Expected output: 'winter'\nprint(month_season('October', 28))  # Expected output: 'autumn'\nprint(month_season('June', 6))  # Expected output: 'spring'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 258,
+      "completion_tokens": 131,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868998.790227
+}

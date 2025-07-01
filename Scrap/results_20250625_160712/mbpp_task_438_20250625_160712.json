@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 438,
+  "problem": {
+    "task_id": 438,
+    "text": "Write a function to count bidirectional tuple pairs.",
+    "code": "def count_bidirectional(test_list):\r\n  res = 0\r\n  for idx in range(0, len(test_list)):\r\n    for iidx in range(idx + 1, len(test_list)):\r\n      if test_list[iidx][0] == test_list[idx][1] and test_list[idx][1] == test_list[iidx][0]:\r\n        res += 1\r\n  return (str(res)) ",
+    "test_list": [
+      "assert count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 1), (6, 5), (2, 1)] ) == '3'",
+      "assert count_bidirectional([(5, 6), (1, 3), (6, 5), (9, 1), (6, 5), (2, 1)] ) == '2'",
+      "assert count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 2), (6, 5), (2, 1)] ) == '4'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count bidirectional tuple pairs.\n\nTask ID: 438\n\nExpected behavior (test cases):\n1. count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 1), (6, 5), (2, 1)] ) should return '3'\n2. count_bidirectional([(5, 6), (1, 3), (6, 5), (9, 1), (6, 5), (2, 1)] ) should return '2'\n3. count_bidirectional([(5, 6), (1, 2), (6, 5), (9, 2), (6, 5), (2, 1)] ) should return '4'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7974883ec5224c3b9e6327343bad37f6",
+    "object": "chat.completion",
+    "created": 1750869704,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_bidirectional(tuples_list):\n    # Create a set of tuples for quick lookup\n    seen = set()\n    \n    # Initialize the result counter\n    count = 0\n    \n    # Iterate through each tuple in the list\n    for tup in tuples_list:\n        # Check if the reverse tuple is already seen\n        if tup[::-1] in seen:\n            count += 1\n        # Add the current tuple to the set\n        seen.add(tup)\n    \n    return count\n```\n\nThis solution uses a set to keep track of seen tuples and iterates through the given list of tuples, checking for bidirectional pairs by verifying if their reversed form has been seen before. The `count` variable keeps track of the number of such pairs found.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 226,
+      "total_tokens": 386,
+      "completion_tokens": 160,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869707.0676568
+}

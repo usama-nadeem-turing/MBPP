@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 211,
+  "problem": {
+    "task_id": 211,
+    "text": "Write a python function to count numbers whose oth and nth bits are set.",
+    "code": "def count_Num(n): \r\n    if (n == 1): \r\n        return 1\r\n    count = pow(2,n - 2) \r\n    return count ",
+    "test_list": [
+      "assert count_Num(2) == 1",
+      "assert count_Num(3) == 2",
+      "assert count_Num(1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count numbers whose oth and nth bits are set.\n\nTask ID: 211\n\nExpected behavior (test cases):\n1. count_Num(2) should return 1\n2. count_Num(3) should return 2\n3. count_Num(1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3f75f8d3faba4255bc656b2d80aa72ee",
+    "object": "chat.completion",
+    "created": 1750869141,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Num(others, others_n):\n    # Initialize counter\n    count = 0\n    \n    # Iterate through all possible numbers from 1 to 2^others - 1\n    for i in range(1, 2**others):\n        # Check if both the ith bit and the ith + others_n bit are set\n        if ((i & (1 << others)) != 0) and ((i + others_n) & (1 << others_n) != 0):\n            count += 1\n            \n    return count\n```\n\nThis solution iterates through all possible numbers with `others` number of bits set, checks if they also have `others_n` number of bits set, and counts how many such numbers exist.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 284,
+      "completion_tokens": 157,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869143.7591493
+}

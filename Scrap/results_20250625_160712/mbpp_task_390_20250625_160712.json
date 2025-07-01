@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 390,
+  "problem": {
+    "task_id": 390,
+    "text": "Write a function to insert a given string at the beginning of all items in a list.",
+    "code": "def add_string(list,string):\r\n add_string=[string.format(i) for i in  list]\r\n return add_string",
+    "test_list": [
+      "assert add_string([1,2,3,4],'temp{0}')==['temp1', 'temp2', 'temp3', 'temp4']",
+      "assert add_string(['a','b','c','d'], 'python{0}')==[ 'pythona', 'pythonb', 'pythonc', 'pythond']",
+      "assert add_string([5,6,7,8],'string{0}')==['string5', 'string6', 'string7', 'string8']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to insert a given string at the beginning of all items in a list.\n\nTask ID: 390\n\nExpected behavior (test cases):\n1. add_string([1,2,3,4],'temp{0}')==['temp1', 'temp2', 'temp3', 'temp4']\n2. add_string(['a','b','c','d'], 'python{0}')==[ 'pythona', 'pythonb', 'pythonc', 'pythond']\n3. add_string([5,6,7,8],'string{0}')==['string5', 'string6', 'string7', 'string8']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9d5efe3d8e774596bc2bb6b662754f21",
+    "object": "chat.completion",
+    "created": 1750869586,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef add_string(lst, s):\n    return [s + str(item) for item in lst]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 198,
+      "total_tokens": 223,
+      "completion_tokens": 25,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869586.4650557
+}

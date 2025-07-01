@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 27,
+  "problem": {
+    "task_id": 27,
+    "text": "Write a python function to remove all digits from a list of strings.",
+    "code": "import re  \r\ndef remove(list): \r\n    pattern = '[0-9]'\r\n    list = [re.sub(pattern, '', i) for i in list] \r\n    return list",
+    "test_list": [
+      "assert remove(['4words', '3letters', '4digits']) == ['words', 'letters', 'digits']",
+      "assert remove(['28Jan','12Jan','11Jan']) == ['Jan','Jan','Jan']",
+      "assert remove(['wonder1','wonder2','wonder3']) == ['wonder','wonder','wonder']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove all digits from a list of strings.\n\nTask ID: 27\n\nExpected behavior (test cases):\n1. remove(['4words', '3letters', '4digits']) should return ['words', 'letters', 'digits']\n2. remove(['28Jan','12Jan','11Jan']) should return ['Jan','Jan','Jan']\n3. remove(['wonder1','wonder2','wonder3']) should return ['wonder','wonder','wonder']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-bacf772ece3540718b75f608f8ebe8a1",
+    "object": "chat.completion",
+    "created": 1750868645,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove(lst):\n    # Use list comprehension to filter out numbers and keep only alphabetic strings\n    result = [s for s in lst if not any(c.isdigit() for c in s)]\n    return result\n\n# Test cases\nprint(remove(['4words', '3letters', '4digits']))  # Expected output: ['words', 'letters', 'digits']\nprint(remove(['28Jan', '12Jan', '11Jan']))        # Expected output: ['Jan', 'Jan', 'Jan']\nprint(remove(['wonder1', 'wonder2', 'wonder3']))  # Expected output: ['wonder', 'wonder', 'wonder']\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "total_tokens": 313,
+      "completion_tokens": 146,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868648.2596374
+}

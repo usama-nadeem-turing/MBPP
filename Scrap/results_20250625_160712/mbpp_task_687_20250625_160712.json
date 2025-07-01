@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 687,
+  "problem": {
+    "task_id": 687,
+    "text": "Write a function to find the greatest common divisor (gcd) of two integers by using recursion.",
+    "code": "def recur_gcd(a, b):\r\n\tlow = min(a, b)\r\n\thigh = max(a, b)\r\n\tif low == 0:\r\n\t\treturn high\r\n\telif low == 1:\r\n\t\treturn 1\r\n\telse:\r\n\t\treturn recur_gcd(low, high%low)",
+    "test_list": [
+      "assert recur_gcd(12,14) == 2",
+      "assert recur_gcd(13,17) == 1",
+      "assert recur_gcd(9, 3) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the greatest common divisor (gcd) of two integers by using recursion.\n\nTask ID: 687\n\nExpected behavior (test cases):\n1. recur_gcd(12,14) should return 2\n2. recur_gcd(13,17) should return 1\n3. recur_gcd(9, 3) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-84c931b862b34a78b60b35aa5aee6aed",
+    "object": "chat.completion",
+    "created": 1750867849,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef recur_gcd(a, b):\n    if b == 0:\n        return abs(a)\n    else:\n        return recur_gcd(b, a % b)\n\n# Test cases\nprint(recur_gcd(12, 14))  # Expected output: 2\nprint(recur_gcd(13, 17))  # Expected output: 1\nprint(recur_gcd(9, 3))    # Expected output: 3\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "total_tokens": 248,
+      "completion_tokens": 104,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867851.4727595
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 295,
+  "problem": {
+    "task_id": 295,
+    "text": "Write a function to return the sum of all divisors of a number.",
+    "code": "def sum_div(number):\r\n    divisors = [1]\r\n    for i in range(2, number):\r\n        if (number % i)==0:\r\n            divisors.append(i)\r\n    return sum(divisors)",
+    "test_list": [
+      "assert sum_div(8)==7",
+      "assert sum_div(12)==16",
+      "assert sum_div(7)==1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to return the sum of all divisors of a number.\n\nTask ID: 295\n\nExpected behavior (test cases):\n1. sum_div(8)==7\n2. sum_div(12)==16\n3. sum_div(7)==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-a36d3d80ff8846819208e8311c1d93c6",
+    "object": "chat.completion",
+    "created": 1750869342,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_div(n):\n    total = 0\n    for i in range(1, n + 1):\n        if n % i == 0:\n            total += i\n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "total_tokens": 166,
+      "completion_tokens": 47,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869342.9275608
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 706,
+  "problem": {
+    "task_id": 706,
+    "text": "Write a function to find whether an array is subset of another array.",
+    "code": "def is_subset(arr1, m, arr2, n): \r\n\thashset = set() \r\n\tfor i in range(0, m): \r\n\t\thashset.add(arr1[i]) \r\n\tfor i in range(0, n): \r\n\t\tif arr2[i] in hashset: \r\n\t\t\tcontinue\r\n\t\telse: \r\n\t\t\treturn False\r\n\treturn True\t\t",
+    "test_list": [
+      "assert is_subset([11, 1, 13, 21, 3, 7], 6, [11, 3, 7, 1], 4) == True",
+      "assert is_subset([1, 2, 3, 4, 5, 6], 6, [1, 2, 4], 3) == True",
+      "assert is_subset([10, 5, 2, 23, 19], 5, [19, 5, 3], 3) == False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find whether an array is subset of another array.\n\nTask ID: 706\n\nExpected behavior (test cases):\n1. is_subset([11, 1, 13, 21, 3, 7], 6, [11, 3, 7, 1], 4) should return True\n2. is_subset([1, 2, 3, 4, 5, 6], 6, [1, 2, 4], 3) should return True\n3. is_subset([10, 5, 2, 23, 19], 5, [19, 5, 3], 3) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e21687b3ca6e49289df1bb76779a2b4a",
+    "object": "chat.completion",
+    "created": 1750867895,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_subset(arr1, n1, arr2, n2):\n    # Check if all elements in arr2 exist in arr1\n    for num in arr2:\n        found = False\n        for i in range(n1):\n            if arr1[i] == num:\n                found = True\n                break\n        if not found:\n            return False\n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 220,
+      "total_tokens": 304,
+      "completion_tokens": 84,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867897.1243627
+}

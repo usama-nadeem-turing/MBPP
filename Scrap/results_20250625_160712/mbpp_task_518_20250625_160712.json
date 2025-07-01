@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 518,
+  "problem": {
+    "task_id": 518,
+    "text": "Write a function to find the square root of a perfect number.",
+    "code": "import math\r\ndef sqrt_root(num):\r\n sqrt_root = math.pow(num, 0.5)\r\n return sqrt_root ",
+    "test_list": [
+      "assert sqrt_root(4)==2",
+      "assert sqrt_root(16)==4",
+      "assert sqrt_root(400)==20"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the square root of a perfect number.\n\nTask ID: 518\n\nExpected behavior (test cases):\n1. sqrt_root(4)==2\n2. sqrt_root(16)==4\n3. sqrt_root(400)==20\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3e078f9e76db4e26b6cd5616f308c625",
+    "object": "chat.completion",
+    "created": 1750869899,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef sqrt_root(num):\n    \"\"\"\n    This function takes an integer as input and returns its square root.\n    \n    Parameters:\n    num (int): The number whose square root is to be found.\n    \n    Returns:\n    int: The square root of the given number.\n    \"\"\"\n    return int(math.sqrt(num))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "total_tokens": 191,
+      "completion_tokens": 72,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869901.0912218
+}

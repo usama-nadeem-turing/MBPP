@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 418,
+  "problem": {
+    "task_id": 418,
+    "text": "Write a python function to find the sublist having maximum length.",
+    "code": "def Find_Max(lst): \r\n    maxList = max((x) for x in lst) \r\n    return maxList",
+    "test_list": [
+      "assert Find_Max([['A'],['A','B'],['A','B','C']]) == ['A','B','C']",
+      "assert Find_Max([[1],[1,2],[1,2,3]]) == [1,2,3]",
+      "assert Find_Max([[1,1],[1,2,3],[1,5,6,1]]) == [1,5,6,1]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sublist having maximum length.\n\nTask ID: 418\n\nExpected behavior (test cases):\n1. Find_Max([['A'],['A','B'],['A','B','C']]) should return ['A','B','C']\n2. Find_Max([[1],[1,2],[1,2,3]]) should return [1,2,3]\n3. Find_Max([[1,1],[1,2,3],[1,5,6,1]]) should return [1,5,6,1]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7be2f9292f9c45eeb9e250c23e6f00fb",
+    "object": "chat.completion",
+    "created": 1750869656,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_max(lst):\n    max_length = 0\n    result = []\n    \n    for sub_list in lst:\n        if len(sub_list) > max_length:\n            max_length = len(sub_list)\n            result = sub_list\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 175,
+      "total_tokens": 232,
+      "completion_tokens": 57,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869657.4528596
+}

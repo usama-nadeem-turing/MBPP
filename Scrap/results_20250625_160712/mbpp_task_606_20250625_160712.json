@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 606,
+  "problem": {
+    "task_id": 606,
+    "text": "Write a function to convert degrees to radians.",
+    "code": "import math\r\ndef radian_degree(degree):\r\n radian = degree*(math.pi/180)\r\n return radian",
+    "test_list": [
+      "assert radian_degree(90)==1.5707963267948966",
+      "assert radian_degree(60)==1.0471975511965976",
+      "assert radian_degree(120)==2.0943951023931953"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert degrees to radians.\n\nTask ID: 606\n\nExpected behavior (test cases):\n1. radian_degree(90)==1.5707963267948966\n2. radian_degree(60)==1.0471975511965976\n3. radian_degree(120)==2.0943951023931953\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9659627691c444ba865d83eb983fe4bc",
+    "object": "chat.completion",
+    "created": 1750867657,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport math\n\ndef radian_degree(degree):\n    return degree * (math.pi / 180)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "total_tokens": 197,
+      "completion_tokens": 28,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867657.9707854
+}

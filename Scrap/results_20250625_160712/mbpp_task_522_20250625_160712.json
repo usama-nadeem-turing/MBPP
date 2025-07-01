@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 522,
+  "problem": {
+    "task_id": 522,
+    "text": "Write a function to find the longest bitonic subsequence for the given array.",
+    "code": "def lbs(arr): \r\n\tn = len(arr) \r\n\tlis = [1 for i in range(n+1)] \r\n\tfor i in range(1 , n): \r\n\t\tfor j in range(0 , i): \r\n\t\t\tif ((arr[i] > arr[j]) and (lis[i] < lis[j] +1)): \r\n\t\t\t\tlis[i] = lis[j] + 1\r\n\tlds = [1 for i in range(n+1)] \r\n\tfor i in reversed(range(n-1)): \r\n\t\tfor j in reversed(range(i-1 ,n)): \r\n\t\t\tif(arr[i] > arr[j] and lds[i] < lds[j] + 1): \r\n\t\t\t\tlds[i] = lds[j] + 1\r\n\tmaximum = lis[0] + lds[0] - 1\r\n\tfor i in range(1 , n): \r\n\t\tmaximum = max((lis[i] + lds[i]-1), maximum) \r\n\treturn maximum",
+    "test_list": [
+      "assert lbs([0 , 8 , 4, 12, 2, 10 , 6 , 14 , 1 , 9 , 5 , 13, 3, 11 , 7 , 15]) == 7",
+      "assert lbs([1, 11, 2, 10, 4, 5, 2, 1]) == 6",
+      "assert lbs([80, 60, 30, 40, 20, 10]) == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the longest bitonic subsequence for the given array.\n\nTask ID: 522\n\nExpected behavior (test cases):\n1. lbs([0 , 8 , 4, 12, 2, 10 , 6 , 14 , 1 , 9 , 5 , 13, 3, 11 , 7 , 15]) should return 7\n2. lbs([1, 11, 2, 10, 4, 5, 2, 1]) should return 6\n3. lbs([80, 60, 30, 40, 20, 10]) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-24c64fad0da44ecdb2c68e185000931f",
+    "object": "chat.completion",
+    "created": 1750869906,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef lbs(arr):\n    n = len(arr)\n    inc = [1]*n\n    dec = [1]*n\n    \n    # Compute LIS values from left to right\n    for i in range(1, n):\n        for j in range(i):\n            if arr[i] > arr[j]:\n                inc[i] = max(inc[i], inc[j]+1)\n    \n    # Compute LDS values from right to left\n    for i in range(n-2, -1, -1):\n        for j in range(n-1, i, -1):\n            if arr[i] > arr[j]:\n                dec[i] = max(dec[i], dec[j]+1)\n                \n    # Find the maximum value of both LIS and LDS\n    ans = 0\n    for i in range(n):\n        ans = max(ans, inc[i]+dec[i]-1)\n        \n    return ans\n\n# Test cases\nprint(lbs([0 , 8 , 4, 12, 2, 10 , 6 , 14 , 1 , 9 , 5 , 13, 3, 11 , 7 , 15]))  # Expected output: 7\nprint(lbs([1, 11, 2, 10, 4, 5, 2, 1]))  # Expected output: 6\nprint(lbs([80, 60, 30, 40, 20, 10]))  # Expected output: 5\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 219,
+      "total_tokens": 550,
+      "completion_tokens": 331,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869911.9987345
+}

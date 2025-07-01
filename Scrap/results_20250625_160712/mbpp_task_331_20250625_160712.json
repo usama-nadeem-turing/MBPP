@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 331,
+  "problem": {
+    "task_id": 331,
+    "text": "Write a python function to count unset bits of a given number.",
+    "code": "def count_unset_bits(n): \r\n    count = 0\r\n    x = 1\r\n    while(x < n + 1): \r\n        if ((x & n) == 0): \r\n            count += 1\r\n        x = x << 1\r\n    return count  ",
+    "test_list": [
+      "assert count_unset_bits(2) == 1",
+      "assert count_unset_bits(4) == 2",
+      "assert count_unset_bits(6) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count unset bits of a given number.\n\nTask ID: 331\n\nExpected behavior (test cases):\n1. count_unset_bits(2) should return 1\n2. count_unset_bits(4) should return 2\n3. count_unset_bits(6) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-72ac1007edba404bb9fa718a88acc174",
+    "object": "chat.completion",
+    "created": 1750869442,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_unset_bits(n):\n    # Initialize counter for unset bits\n    unset_count = 0\n    \n    # Loop until n becomes zero\n    while n:\n        # Increment if least significant bit is not set\n        if n & 1 == 0:\n            unset_count += 1\n        # Right shift n by one position\n        n >>= 1\n    \n    return unset_count\n```\n\nThis solution defines a function `count_unset_bits` that takes an integer `n` as input and returns the count of unset bits in its binary representation. It uses bitwise operations to efficiently determine which bits are unset.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 257,
+      "completion_tokens": 130,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869444.8774104
+}

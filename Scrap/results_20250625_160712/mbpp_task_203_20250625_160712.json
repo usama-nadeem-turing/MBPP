@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 203,
+  "problem": {
+    "task_id": 203,
+    "text": "Write a python function to find the hamming distance between given two integers.",
+    "code": "def hamming_Distance(n1,n2) : \r\n    x = n1 ^ n2  \r\n    setBits = 0\r\n    while (x > 0) : \r\n        setBits += x & 1\r\n        x >>= 1\r\n    return setBits  ",
+    "test_list": [
+      "assert hamming_Distance(4,8) == 2",
+      "assert hamming_Distance(2,4) == 2",
+      "assert hamming_Distance(1,2) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the hamming distance between given two integers.\n\nTask ID: 203\n\nExpected behavior (test cases):\n1. hamming_Distance(4,8) should return 2\n2. hamming_Distance(2,4) should return 2\n3. hamming_Distance(1,2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-548d43abd6554928b92d5c1c6a80803c",
+    "object": "chat.completion",
+    "created": 1750869113,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef hamming_Distance(x, y):\n    # Convert both numbers to binary strings and compare character by character\n    return sum(c1 != c2 for c1, c2 in zip(bin(x)[2:], bin(y)[2:]))\n\n# Test cases\nprint(hamming_Distance(4, 8))  # Expected output: 2\nprint(hamming_Distance(2, 4))  # Expected output: 2\nprint(hamming_Distance(1, 2))  # Expected output: 2\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "total_tokens": 257,
+      "completion_tokens": 119,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869115.218844
+}

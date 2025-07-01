@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 667,
+  "problem": {
+    "task_id": 667,
+    "text": "Write a python function to count number of vowels in the string.",
+    "code": "def Check_Vow(string, vowels): \r\n    final = [each for each in string if each in vowels] \r\n    return(len(final)) \r\n",
+    "test_list": [
+      "assert Check_Vow('corner','AaEeIiOoUu') == 2",
+      "assert Check_Vow('valid','AaEeIiOoUu') == 2",
+      "assert Check_Vow('true','AaEeIiOoUu') ==2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count number of vowels in the string.\n\nTask ID: 667\n\nExpected behavior (test cases):\n1. Check_Vow('corner','AaEeIiOoUu') should return 2\n2. Check_Vow('valid','AaEeIiOoUu') should return 2\n3. Check_Vow('true','AaEeIiOoUu') ==2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-3a5a5662af664968a793b6b42276594d",
+    "object": "chat.completion",
+    "created": 1750867810,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef Check_Vow(s, target):\n    # Count the number of vowels in the given string\n    vowel_count = sum(1 for char in s if char.lower() in 'aeiou')\n    # Return the count of vowels found\n    return vowel_count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "total_tokens": 217,
+      "completion_tokens": 59,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867811.9415247
+}

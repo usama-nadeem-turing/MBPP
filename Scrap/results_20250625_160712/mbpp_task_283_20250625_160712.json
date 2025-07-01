@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 283,
+  "problem": {
+    "task_id": 283,
+    "text": "Write a python function to check whether the frequency of each digit is less than or equal to the digit itself.",
+    "code": "def validate(n): \r\n    for i in range(10): \r\n        temp = n;  \r\n        count = 0; \r\n        while (temp): \r\n            if (temp % 10 == i): \r\n                count+=1;  \r\n            if (count > i): \r\n                return False\r\n            temp //= 10; \r\n    return True",
+    "test_list": [
+      "assert validate(1234) == True",
+      "assert validate(51241) == False",
+      "assert validate(321) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the frequency of each digit is less than or equal to the digit itself.\n\nTask ID: 283\n\nExpected behavior (test cases):\n1. validate(1234) should return True\n2. validate(51241) should return False\n3. validate(321) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c839e9ec381f4024a12ab166956a32e4",
+    "object": "chat.completion",
+    "created": 1750869311,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef validate(num):\n    # Convert number to string for easy iteration\n    num_str = str(num)\n    \n    # Iterate through each character in the string\n    for i in range(len(num_str)):\n        # Check if the current digit's value is greater than its index plus one\n        if int(num_str[i]) > (i + 1):\n            return False\n    \n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 221,
+      "completion_tokens": 85,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869312.4307609
+}

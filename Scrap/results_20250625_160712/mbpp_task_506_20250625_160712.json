@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 506,
+  "problem": {
+    "task_id": 506,
+    "text": "Write a function to calculate the permutation coefficient of given p(n, k).",
+    "code": "def permutation_coefficient(n, k): \r\n\tP = [[0 for i in range(k + 1)] \r\n\t\t\tfor j in range(n + 1)] \r\n\tfor i in range(n + 1): \r\n\t\tfor j in range(min(i, k) + 1): \r\n\t\t\tif (j == 0): \r\n\t\t\t\tP[i][j] = 1\r\n\t\t\telse: \r\n\t\t\t\tP[i][j] = P[i - 1][j] + ( \r\n\t\t\t\t\t\tj * P[i - 1][j - 1]) \r\n\t\t\tif (j < k): \r\n\t\t\t\tP[i][j + 1] = 0\r\n\treturn P[n][k] ",
+    "test_list": [
+      "assert permutation_coefficient(10, 2) == 90",
+      "assert permutation_coefficient(10, 3) == 720",
+      "assert permutation_coefficient(10, 1) == 10"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the permutation coefficient of given p(n, k).\n\nTask ID: 506\n\nExpected behavior (test cases):\n1. permutation_coefficient(10, 2) should return 90\n2. permutation_coefficient(10, 3) should return 720\n3. permutation_coefficient(10, 1) should return 10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8b37f33bdf79422388f6c7084810af6a",
+    "object": "chat.completion",
+    "created": 1750869866,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef permutation_coefficient(p, k):\n    \"\"\"\n    Calculate the permutation coefficient of n choose k.\n    \n    Parameters:\n    p (int): The total number of items.\n    k (int): The number of items to choose.\n    \n    Returns:\n    int: The permutation coefficient of p choose k.\n    \"\"\"\n    if k > p:\n        return 0\n    result = 1\n    for i in range(k):\n        result *= (p - i)\n        result //= (i + 1)\n    return result\n\n# Test cases\nprint(permutation_coefficient(10, 2))  # Expected output: 90\nprint(permutation_coefficient(10, 3))  # Expected output: 720\nprint(permutation_coefficient(10, 1))  # Expected output: 10\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 327,
+      "completion_tokens": 182,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869870.0142093
+}

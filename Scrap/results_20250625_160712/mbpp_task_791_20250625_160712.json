@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 791,
+  "problem": {
+    "task_id": 791,
+    "text": "Write a function to remove the nested record from the given tuple.",
+    "code": "def remove_nested(test_tup):\r\n  res = tuple()\r\n  for count, ele in enumerate(test_tup):\r\n    if not isinstance(ele, tuple):\r\n      res = res + (ele, )\r\n  return (res) ",
+    "test_list": [
+      "assert remove_nested((1, 5, 7, (4, 6), 10)) == (1, 5, 7, 10)",
+      "assert remove_nested((2, 6, 8, (5, 7), 11)) == (2, 6, 8, 11)",
+      "assert remove_nested((3, 7, 9, (6, 8), 12)) == (3, 7, 9, 12)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove the nested record from the given tuple.\n\nTask ID: 791\n\nExpected behavior (test cases):\n1. remove_nested((1, 5, 7, (4, 6), 10)) should return (1, 5, 7, 10)\n2. remove_nested((2, 6, 8, (5, 7), 11)) should return (2, 6, 8, 11)\n3. remove_nested((3, 7, 9, (6, 8), 12)) should return (3, 7, 9, 12)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-60a515419793426f82f18b43f56877ed",
+    "object": "chat.completion",
+    "created": 1750868134,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_nested(tup):\n    # Initialize an empty list to store non-nested elements\n    result = []\n    \n    # Iterate through each element in the tuple\n    for item in tup:\n        if isinstance(item, int):  # Check if the current item is not a tuple\n            result.append(item)   # Add it directly to the result list\n        else:\n            # Recursively call the function on the nested tuple and append its results\n            result.extend(remove_nested(item))\n    \n    return tuple(result)\n\n# Test cases\nprint(remove_nested((1, 5, 7, (4, 6), 10)))  # Expected output: (1, 5, 7, 10)\nprint(remove_nested((2, 6, 8, (5, 7), 11)))  # Expected output: (2, 6, 8, 11)\nprint(remove_nested((3, 7, 9, (6, 8), 12)))  # Expected output: (3, 7, 9, 12)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 202,
+      "total_tokens": 437,
+      "completion_tokens": 235,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868138.1009111
+}

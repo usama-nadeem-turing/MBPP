@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 618,
+  "problem": {
+    "task_id": 618,
+    "text": "Write a function to divide two lists using map and lambda function.",
+    "code": "def div_list(nums1,nums2):\r\n  result = map(lambda x, y: x / y, nums1, nums2)\r\n  return list(result)",
+    "test_list": [
+      "assert div_list([4,5,6],[1, 2, 3])==[4.0,2.5,2.0]",
+      "assert div_list([3,2],[1,4])==[3.0, 0.5]",
+      "assert div_list([90,120],[50,70])==[1.8, 1.7142857142857142]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to divide two lists using map and lambda function.\n\nTask ID: 618\n\nExpected behavior (test cases):\n1. div_list([4,5,6],[1, 2, 3])==[4.0,2.5,2.0]\n2. div_list([3,2],[1,4])==[3.0, 0.5]\n3. div_list([90,120],[50,70])==[1.8, 1.7142857142857142]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-463a930676f7447d956b3801f1cdb688",
+    "object": "chat.completion",
+    "created": 1750867684,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom typing import List\nimport operator\n\ndef div_list(list1: List[int], list2: List[int]) -> List[float]:\n    return list(map(lambda x, y: round(x / y, 2), list1, list2))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "total_tokens": 241,
+      "completion_tokens": 55,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867685.595033
+}

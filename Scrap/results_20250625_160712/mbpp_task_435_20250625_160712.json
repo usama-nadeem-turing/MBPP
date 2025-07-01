@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 435,
+  "problem": {
+    "task_id": 435,
+    "text": "Write a python function to find the last digit of a given number.",
+    "code": "def last_Digit(n) :\r\n    return (n % 10) ",
+    "test_list": [
+      "assert last_Digit(123) == 3",
+      "assert last_Digit(25) == 5",
+      "assert last_Digit(30) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the last digit of a given number.\n\nTask ID: 435\n\nExpected behavior (test cases):\n1. last_Digit(123) should return 3\n2. last_Digit(25) should return 5\n3. last_Digit(30) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-23b7d4d82888452ea035f6452d3c566a",
+    "object": "chat.completion",
+    "created": 1750869700,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef last_Digit(n):\n    # Return the last digit of n\n    return str(n)[-1]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 159,
+      "completion_tokens": 27,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869701.2749882
+}

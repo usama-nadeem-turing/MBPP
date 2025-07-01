@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 968,
+  "problem": {
+    "task_id": 968,
+    "text": "Write a python function to find maximum possible value for the given periodic function.",
+    "code": "def floor_Max(A,B,N):\r\n    x = min(B - 1,N)\r\n    return (A*x) // B",
+    "test_list": [
+      "assert floor_Max(11,10,9) == 9",
+      "assert floor_Max(5,7,4) == 2",
+      "assert floor_Max(2,2,1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find maximum possible value for the given periodic function.\n\nTask ID: 968\n\nExpected behavior (test cases):\n1. floor_Max(11,10,9) should return 9\n2. floor_Max(5,7,4) should return 2\n3. floor_Max(2,2,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c3d77a53b5a9407bb275dca208edb221",
+    "object": "chat.completion",
+    "created": 1750868592,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef floor_Max(a, b, c):\n    # Calculate the maximum of three numbers using max() function\n    result = max(a, b, c)\n    return result - 1 if result % 2 == 0 else result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 140,
+      "total_tokens": 194,
+      "completion_tokens": 54,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868593.8360772
+}

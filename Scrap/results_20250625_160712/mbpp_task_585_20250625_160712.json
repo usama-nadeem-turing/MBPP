@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 585,
+  "problem": {
+    "task_id": 585,
+    "text": "Write a function to find the n - expensive price items from a given dataset using heap queue algorithm.",
+    "code": "import heapq\r\ndef expensive_items(items,n):\r\n  expensive_items = heapq.nlargest(n, items, key=lambda s: s['price'])\r\n  return expensive_items",
+    "test_list": [
+      "assert expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}],1)==[{'name': 'Item-2', 'price': 555.22}]",
+      "assert expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-3', 'price': 45.09}],2)==[{'name': 'Item-2', 'price': 555.22},{'name': 'Item-1', 'price': 101.1}]",
+      "assert expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-3', 'price': 45.09},{'name': 'Item-4', 'price': 22.75}],1)==[{'name': 'Item-2', 'price': 555.22}]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n - expensive price items from a given dataset using heap queue algorithm.\n\nTask ID: 585\n\nExpected behavior (test cases):\n1. expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}],1)==[{'name': 'Item-2', 'price': 555.22}]\n2. expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-3', 'price': 45.09}],2)==[{'name': 'Item-2', 'price': 555.22},{'name': 'Item-1', 'price': 101.1}]\n3. expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-3', 'price': 45.09},{'name': 'Item-4', 'price': 22.75}],1)==[{'name': 'Item-2', 'price': 555.22}]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-149acdd0a097437da58f0ac9bfc94724",
+    "object": "chat.completion",
+    "created": 1750870067,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport heapq\n\ndef expensive_items(items, k):\n    # Convert each item into a tuple with its price as the first element and name as the second element.\n    # Use a custom comparator for max heap based on the price in descending order.\n    return heapq.nlargest(k, items, key=lambda x: x['price'])\n\n# Test cases\nprint(expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}],1))  # [{'name': 'Item-2', 'price': 555.22}]\nprint(expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-3', 'price': 45.09}],2))  # [{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-1', 'price': 101.1}]\nprint(expensive_items([{'name': 'Item-1', 'price': 101.1},{'name': 'Item-2', 'price': 555.22}, {'name': 'Item-3', 'price': 45.09},{'name': 'Item-4', 'price': 22.75}],1))  # [{'name': 'Item-2', 'price': 555.22}]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 360,
+      "total_tokens": 703,
+      "completion_tokens": 343,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870073.7483451
+}

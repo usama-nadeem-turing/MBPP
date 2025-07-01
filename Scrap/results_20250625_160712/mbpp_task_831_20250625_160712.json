@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 831,
+  "problem": {
+    "task_id": 831,
+    "text": "Write a python function to count equal element pairs from the given array.",
+    "code": "def count_Pairs(arr,n): \r\n    cnt = 0; \r\n    for i in range(n): \r\n        for j in range(i + 1,n): \r\n            if (arr[i] == arr[j]): \r\n                cnt += 1; \r\n    return cnt; ",
+    "test_list": [
+      "assert count_Pairs([1,1,1,1],4) == 6",
+      "assert count_Pairs([1,5,1],3) == 1",
+      "assert count_Pairs([3,2,1,7,8,9],6) == 0"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count equal element pairs from the given array.\n\nTask ID: 831\n\nExpected behavior (test cases):\n1. count_Pairs([1,1,1,1],4) should return 6\n2. count_Pairs([1,5,1],3) should return 1\n3. count_Pairs([3,2,1,7,8,9],6) should return 0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-c3d608934ed04d3dbc34acc6e82998ae",
+    "object": "chat.completion",
+    "created": 1750868223,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef count_Pairs(arr, n):\n    # Initialize counters for unique elements and their counts\n    unique_count = 0\n    pair_count = 0\n    \n    # Count unique elements in the array\n    for num in arr:\n        if arr.count(num) == 1:\n            unique_count += 1\n            \n    # Calculate total number of pairs possible with unique elements\n    total_pairs = unique_count * (unique_count - 1)\n    \n    # Subtract pairs formed by duplicate elements\n    for i in range(n):\n        if arr[i] > 1:\n            total_pairs -= arr[i]\n            \n    return total_pairs\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "total_tokens": 289,
+      "completion_tokens": 135,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868225.3360438
+}

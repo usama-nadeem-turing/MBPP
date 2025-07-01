@@ -1,0 +1,18 @@
+{
+  "timestamp": "20250625_160022",
+  "run_config": {
+    "demo_mode": true,
+    "split": "train",
+    "max_problems": null,
+    "model_url": "http://localhost:18000/v1/chat/completions",
+    "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+    "temperature": 0.2,
+    "max_tokens": 512,
+    "debug": false
+  },
+  "dataset_info": {
+    "total_problems_loaded": 374,
+    "problems_to_process": 4
+  },
+  "results_directory": "results_20250625_160022"
+}

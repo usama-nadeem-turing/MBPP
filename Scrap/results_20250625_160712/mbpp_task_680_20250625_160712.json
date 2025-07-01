@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 680,
+  "problem": {
+    "task_id": 680,
+    "text": "Write a python function to check whether a sequence of numbers has an increasing trend or not.",
+    "code": "def increasing_trend(nums):\r\n    if (sorted(nums)== nums):\r\n        return True\r\n    else:\r\n        return False",
+    "test_list": [
+      "assert increasing_trend([1,2,3,4]) == True",
+      "assert increasing_trend([4,3,2,1]) == False",
+      "assert increasing_trend([0,1,4,9]) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether a sequence of numbers has an increasing trend or not.\n\nTask ID: 680\n\nExpected behavior (test cases):\n1. increasing_trend([1,2,3,4]) should return True\n2. increasing_trend([4,3,2,1]) should return False\n3. increasing_trend([0,1,4,9]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1e8b9e28698b423b8280876e100677b0",
+    "object": "chat.completion",
+    "created": 1750867834,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef increasing_trend(sequence):\n    # Check if each element in the sequence is greater than its predecessor\n    for i in range(1, len(sequence)):\n        if sequence[i] <= sequence[i-1]:\n            return False\n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "total_tokens": 203,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867835.9284675
+}

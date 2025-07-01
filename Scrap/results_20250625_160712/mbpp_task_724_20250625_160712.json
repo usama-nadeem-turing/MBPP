@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 724,
+  "problem": {
+    "task_id": 724,
+    "text": "Write a function to calculate the sum of all digits of the base to the specified power.",
+    "code": "def power_base_sum(base, power):\r\n    return sum([int(i) for i in str(pow(base, power))])",
+    "test_list": [
+      "assert power_base_sum(2,100)==115",
+      "assert power_base_sum(8,10)==37",
+      "assert power_base_sum(8,15)==62"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the sum of all digits of the base to the specified power.\n\nTask ID: 724\n\nExpected behavior (test cases):\n1. power_base_sum(2,100)==115\n2. power_base_sum(8,10)==37\n3. power_base_sum(8,15)==62\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-1e417865ea694f6d8e36453e5c0e59a0",
+    "object": "chat.completion",
+    "created": 1750867946,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef power_base_sum(base, exponent):\n    \"\"\"\n    Calculate the sum of all digits in base raised to the power of exponent.\n    \n    Parameters:\n    - base: The base number.\n    - exponent: The exponent to which the base is raised.\n    \n    Returns:\n    - The sum of all digits in base^exponent as an integer.\n    \"\"\"\n    result = base ** exponent\n    return sum(int(digit) for digit in str(result))\n\n# Test cases\nprint(power_base_sum(2, 100)) # Expected output: 115\nprint(power_base_sum(8, 10))  # Expected output: 37\nprint(power_base_sum(8, 15))  # Expected output: 62\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 300,
+      "completion_tokens": 163,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867948.7643278
+}

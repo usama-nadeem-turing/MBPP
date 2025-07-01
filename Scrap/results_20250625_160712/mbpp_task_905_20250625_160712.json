@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 905,
+  "problem": {
+    "task_id": 905,
+    "text": "Write a python function to find the sum of squares of binomial co-efficients.",
+    "code": "def factorial(start,end): \r\n    res = 1 \r\n    for i in range(start,end + 1): \r\n        res *= i      \r\n    return res \r\ndef sum_of_square(n): \r\n   return int(factorial(n + 1, 2 * n)  /factorial(1, n)) ",
+    "test_list": [
+      "assert sum_of_square(4) == 70",
+      "assert sum_of_square(5) == 252",
+      "assert sum_of_square(2) == 6"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of squares of binomial co-efficients.\n\nTask ID: 905\n\nExpected behavior (test cases):\n1. sum_of_square(4) should return 70\n2. sum_of_square(5) should return 252\n3. sum_of_square(2) should return 6\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-85bf3939adaf4374a7079512dd62fd17",
+    "object": "chat.completion",
+    "created": 1750868420,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_of_square(n):\n    # Initialize variables for calculation\n    total = 0\n    for i in range(n + 1):\n        # Calculate square of each coefficient and add it to the total\n        total += pow(binomial_coefficient(i, n // 2), 2)\n    return total\n\n# Helper function to calculate binomial coefficient\ndef binomial_coefficient(n, k):\n    if k > n - k:\n        k = n - k\n    res = 1\n    for i in range(k):\n        res *= (n - i)\n        res //= (i + 1)\n    return res\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "total_tokens": 271,
+      "completion_tokens": 137,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868422.7718246
+}

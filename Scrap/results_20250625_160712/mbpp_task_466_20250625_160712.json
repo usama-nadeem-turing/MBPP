@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 466,
+  "problem": {
+    "task_id": 466,
+    "text": "Write a function to find the peak element in the given array.",
+    "code": "def find_peak_util(arr, low, high, n): \r\n\tmid = low + (high - low)/2\r\n\tmid = int(mid) \r\n\tif ((mid == 0 or arr[mid - 1] <= arr[mid]) and\r\n\t\t(mid == n - 1 or arr[mid + 1] <= arr[mid])): \r\n\t\treturn mid \r\n\telif (mid > 0 and arr[mid - 1] > arr[mid]): \r\n\t\treturn find_peak_util(arr, low, (mid - 1), n) \r\n\telse: \r\n\t\treturn find_peak_util(arr, (mid + 1), high, n) \r\ndef find_peak(arr, n): \r\n\treturn find_peak_util(arr, 0, n - 1, n) ",
+    "test_list": [
+      "assert find_peak([1, 3, 20, 4, 1, 0], 6) == 2",
+      "assert find_peak([2, 3, 4, 5, 6], 5) == 4",
+      "assert find_peak([8, 9, 11, 12, 14, 15], 6) == 5 "
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the peak element in the given array.\n\nTask ID: 466\n\nExpected behavior (test cases):\n1. find_peak([1, 3, 20, 4, 1, 0], 6) should return 2\n2. find_peak([2, 3, 4, 5, 6], 5) should return 4\n3. find_peak([8, 9, 11, 12, 14, 15], 6) should return 5 \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-42f2de8cead64a23801a9d02c26ad4bb",
+    "object": "chat.completion",
+    "created": 1750869760,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find_peak(arr, n):\n    left, right = 0, n - 1\n    \n    while left < right:\n        mid = (left + right) // 2\n        \n        if arr[mid] > arr[mid + 1]:\n            right = mid\n        else:\n            left = mid + 1\n            \n    return arr[left]\n\n# Test cases\nprint(find_peak([1, 3, 20, 4, 1, 0], 6))  # Expected output: 2\nprint(find_peak([2, 3, 4, 5, 6], 5))      # Expected output: 4\nprint(find_peak([8, 9, 11, 12, 14, 15], 6))  # Expected output: 5\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 180,
+      "total_tokens": 358,
+      "completion_tokens": 178,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869763.8814852
+}

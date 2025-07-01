@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 502,
+  "problem": {
+    "task_id": 502,
+    "text": "Write a python function to find remainder of two numbers.",
+    "code": "def find(n,m):\r\n  r = n%m\r\n  return (r)",
+    "test_list": [
+      "assert find(3,3) == 0",
+      "assert find(10,3) == 1",
+      "assert find(16,5) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find remainder of two numbers.\n\nTask ID: 502\n\nExpected behavior (test cases):\n1. find(3,3) should return 0\n2. find(10,3) should return 1\n3. find(16,5) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5fce5001314a4848a78b628a5ce547c2",
+    "object": "chat.completion",
+    "created": 1750869861,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef find(a, b):\n    return a % b\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "total_tokens": 144,
+      "completion_tokens": 17,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869861.5666294
+}

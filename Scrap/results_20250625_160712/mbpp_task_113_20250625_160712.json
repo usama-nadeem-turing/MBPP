@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 113,
+  "problem": {
+    "task_id": 113,
+    "text": "Write a function to check if a string represents an integer or not.",
+    "code": "def check_integer(text):\r\n text = text.strip()\r\n if len(text) < 1:\r\n    return None\r\n else:\r\n     if all(text[i] in \"0123456789\" for i in range(len(text))):\r\n          return True\r\n     elif (text[0] in \"+-\") and \\\r\n         all(text[i] in \"0123456789\" for i in range(1,len(text))):\r\n         return True\r\n     else:\r\n        return False",
+    "test_list": [
+      "assert check_integer(\"python\")==False",
+      "assert check_integer(\"1\")==True",
+      "assert check_integer(\"12345\")==True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a string represents an integer or not.\n\nTask ID: 113\n\nExpected behavior (test cases):\n1. check_integer(\"python\")==False\n2. check_integer(\"1\")==True\n3. check_integer(\"12345\")==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-9ade395e1e4f4aabbd5ef0ff047ddc15",
+    "object": "chat.completion",
+    "created": 1750868870,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_integer(s):\n    try:\n        int(s)\n        return True\n    except ValueError:\n        return False\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 120,
+      "total_tokens": 149,
+      "completion_tokens": 29,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868871.4111452
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 299,
+  "problem": {
+    "task_id": 299,
+    "text": "Write a function to calculate the maximum aggregate from the list of tuples.",
+    "code": "from collections import defaultdict\r\ndef max_aggregate(stdata):\r\n    temp = defaultdict(int)\r\n    for name, marks in stdata:\r\n        temp[name] += marks\r\n    return max(temp.items(), key=lambda x: x[1])",
+    "test_list": [
+      "assert max_aggregate([('Juan Whelan',90),('Sabah Colley',88),('Peter Nichols',7),('Juan Whelan',122),('Sabah Colley',84)])==('Juan Whelan', 212)",
+      "assert max_aggregate([('Juan Whelan',50),('Sabah Colley',48),('Peter Nichols',37),('Juan Whelan',22),('Sabah Colley',14)])==('Juan Whelan', 72)",
+      "assert max_aggregate([('Juan Whelan',10),('Sabah Colley',20),('Peter Nichols',30),('Juan Whelan',40),('Sabah Colley',50)])==('Sabah Colley', 70)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the maximum aggregate from the list of tuples.\n\nTask ID: 299\n\nExpected behavior (test cases):\n1. max_aggregate([('Juan Whelan',90),('Sabah Colley',88),('Peter Nichols',7),('Juan Whelan',122),('Sabah Colley',84)])==('Juan Whelan', 212)\n2. max_aggregate([('Juan Whelan',50),('Sabah Colley',48),('Peter Nichols',37),('Juan Whelan',22),('Sabah Colley',14)])==('Juan Whelan', 72)\n3. max_aggregate([('Juan Whelan',10),('Sabah Colley',20),('Peter Nichols',30),('Juan Whelan',40),('Sabah Colley',50)])==('Sabah Colley', 70)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4ec0766bfd214923a64426f1c3938975",
+    "object": "chat.completion",
+    "created": 1750869353,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_aggregate(lst):\n    # Find the tuple with the highest sum in each group and return it along with its sum\n    return max((sum(tup[1]), tup) for tup in lst)[1]\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 259,
+      "total_tokens": 309,
+      "completion_tokens": 50,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869354.137421
+}

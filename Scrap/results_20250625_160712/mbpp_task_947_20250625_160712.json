@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 947,
+  "problem": {
+    "task_id": 947,
+    "text": "Write a python function to find the length of the shortest word.",
+    "code": "def len_log(list1):\r\n    min=len(list1[0])\r\n    for i in list1:\r\n        if len(i)<min:\r\n            min=len(i)\r\n    return min",
+    "test_list": [
+      "assert len_log([\"win\",\"lose\",\"great\"]) == 3",
+      "assert len_log([\"a\",\"ab\",\"abc\"]) == 1",
+      "assert len_log([\"12\",\"12\",\"1234\"]) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the length of the shortest word.\n\nTask ID: 947\n\nExpected behavior (test cases):\n1. len_log([\"win\",\"lose\",\"great\"]) should return 3\n2. len_log([\"a\",\"ab\",\"abc\"]) should return 1\n3. len_log([\"12\",\"12\",\"1234\"]) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-53e3026775e0491a95053975c652544c",
+    "object": "chat.completion",
+    "created": 1750868540,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef len_log(words):\n    # Find the maximum length among all words in the list\n    max_length = max(len(word) for word in words)\n    return max_length\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "total_tokens": 182,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868541.4908578
+}

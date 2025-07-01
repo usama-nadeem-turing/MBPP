@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 580,
+  "problem": {
+    "task_id": 580,
+    "text": "Write a function to extract the even elements in the nested mixed tuple.",
+    "code": "def even_ele(test_tuple, even_fnc): \r\n\tres = tuple() \r\n\tfor ele in test_tuple: \r\n\t\tif isinstance(ele, tuple): \r\n\t\t\tres += (even_ele(ele, even_fnc), ) \r\n\t\telif even_fnc(ele): \r\n\t\t\tres += (ele, ) \r\n\treturn res \r\ndef extract_even(test_tuple):\r\n  res = even_ele(test_tuple, lambda x: x % 2 == 0)\r\n  return (res) ",
+    "test_list": [
+      "assert extract_even((4, 5, (7, 6, (2, 4)), 6, 8)) == (4, (6, (2, 4)), 6, 8)",
+      "assert extract_even((5, 6, (8, 7, (4, 8)), 7, 9)) == (6, (8, (4, 8)))",
+      "assert extract_even((5, 6, (9, 8, (4, 6)), 8, 10)) == (6, (8, (4, 6)), 8, 10)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract the even elements in the nested mixed tuple.\n\nTask ID: 580\n\nExpected behavior (test cases):\n1. extract_even((4, 5, (7, 6, (2, 4)), 6, 8)) should return (4, (6, (2, 4)), 6, 8)\n2. extract_even((5, 6, (8, 7, (4, 8)), 7, 9)) should return (6, (8, (4, 8)))\n3. extract_even((5, 6, (9, 8, (4, 6)), 8, 10)) should return (6, (8, (4, 6)), 8, 10)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-73027a436ba94fe290970e8c2c62e09d",
+    "object": "chat.completion",
+    "created": 1750870056,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef extract_even(tup):\n    result = ()\n    for element in tup:\n        if isinstance(element, int) and element % 2 == 0:\n            result += (element,)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 229,
+      "total_tokens": 276,
+      "completion_tokens": 47,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870057.6341684
+}

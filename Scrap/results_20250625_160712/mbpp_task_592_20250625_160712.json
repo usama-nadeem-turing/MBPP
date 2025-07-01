@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 592,
+  "problem": {
+    "task_id": 592,
+    "text": "Write a python function to find sum of product of binomial co-efficients.",
+    "code": "def binomial_Coeff(n,k): \r\n    C = [0] * (k + 1); \r\n    C[0] = 1; # nC0 is 1 \r\n    for i in range(1,n + 1):  \r\n        for j in range(min(i, k),0,-1): \r\n            C[j] = C[j] + C[j - 1]; \r\n    return C[k]; \r\ndef sum_Of_product(n): \r\n    return binomial_Coeff(2 * n,n - 1); ",
+    "test_list": [
+      "assert sum_Of_product(3) == 15",
+      "assert sum_Of_product(4) == 56",
+      "assert sum_Of_product(1) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find sum of product of binomial co-efficients.\n\nTask ID: 592\n\nExpected behavior (test cases):\n1. sum_Of_product(3) should return 15\n2. sum_Of_product(4) should return 56\n3. sum_Of_product(1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-ff34320be3cb4ce4b3b0865960ede726",
+    "object": "chat.completion",
+    "created": 1750870087,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_Of_product(n):\n    # Initialize result as 0\n    res = 0\n    \n    # Calculate the sum of products using binomial coefficients\n    for i in range(n + 1):\n        for j in range(i + 1):\n            res += ((i - j) * j)\n    \n    return res\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 205,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870088.5225616
+}

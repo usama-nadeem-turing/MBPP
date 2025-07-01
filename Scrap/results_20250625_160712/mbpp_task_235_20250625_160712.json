@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 235,
+  "problem": {
+    "task_id": 235,
+    "text": "Write a python function to set all even bits of a given number.",
+    "code": "def even_bit_set_number(n): \r\n    count = 0;res = 0;temp = n \r\n    while(temp > 0): \r\n        if (count % 2 == 1): \r\n            res |= (1 << count)\r\n        count+=1\r\n        temp >>= 1\r\n    return (n | res) ",
+    "test_list": [
+      "assert even_bit_set_number(10) == 10",
+      "assert even_bit_set_number(20) == 30",
+      "assert even_bit_set_number(30) == 30"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to set all even bits of a given number.\n\nTask ID: 235\n\nExpected behavior (test cases):\n1. even_bit_set_number(10) should return 10\n2. even_bit_set_number(20) should return 30\n3. even_bit_set_number(30) should return 30\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4a9b9022478c4b34876e5afa84d9d1c3",
+    "object": "chat.completion",
+    "created": 1750869191,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef even_bit_set_number(n):\n    # Create a mask with all odd bits turned off\n    mask = n & -n\n    \n    # Apply the mask to the input number\n    result = n | mask\n    \n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "total_tokens": 190,
+      "completion_tokens": 53,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869192.0518734
+}

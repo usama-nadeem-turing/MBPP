@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 130,
+  "problem": {
+    "task_id": 130,
+    "text": "Write a function to find the item with maximum frequency in a given list.",
+    "code": "from collections import defaultdict\r\ndef max_occurrences(nums):\r\n    dict = defaultdict(int)\r\n    for i in nums:\r\n        dict[i] += 1\r\n    result = max(dict.items(), key=lambda x: x[1]) \r\n    return result",
+    "test_list": [
+      "assert max_occurrences([2,3,8,4,7,9,8,2,6,5,1,6,1,2,3,2,4,6,9,1,2])==(2, 5)",
+      "assert max_occurrences([2,3,8,4,7,9,8,7,9,15,14,10,12,13,16,16,18])==(8, 2)",
+      "assert max_occurrences([10,20,20,30,40,90,80,50,30,20,50,10])==(20, 3)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the item with maximum frequency in a given list.\n\nTask ID: 130\n\nExpected behavior (test cases):\n1. max_occurrences([2,3,8,4,7,9,8,2,6,5,1,6,1,2,3,2,4,6,9,1,2])==(2, 5)\n2. max_occurrences([2,3,8,4,7,9,8,7,9,15,14,10,12,13,16,16,18])==(8, 2)\n3. max_occurrences([10,20,20,30,40,90,80,50,30,20,50,10])==(20, 3)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-030862b286cc4e6095761a8f5a3aa0d7",
+    "object": "chat.completion",
+    "created": 1750868920,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom collections import Counter\n\ndef max_occurrences(lst):\n    # Count the occurrences of each element in the list\n    counts = Counter(lst)\n    # Find the element(s) with the highest count\n    most_common = counts.most_common(1)[0]\n    return most_common\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 247,
+      "total_tokens": 311,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868921.7946293
+}

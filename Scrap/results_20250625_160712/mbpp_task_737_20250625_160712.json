@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 737,
+  "problem": {
+    "task_id": 737,
+    "text": "Write a function to check whether the given string is starting with a vowel or not using regex.",
+    "code": "import re \r\nregex = '^[aeiouAEIOU][A-Za-z0-9_]*'\r\ndef check_str(string): \r\n\tif(re.search(regex, string)): \r\n\t\treturn (\"Valid\") \r\n\telse: \r\n\t\treturn (\"Invalid\") ",
+    "test_list": [
+      "assert check_str(\"annie\") == 'Valid'",
+      "assert check_str(\"dawood\") == 'Invalid'",
+      "assert check_str(\"Else\") == 'Valid'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether the given string is starting with a vowel or not using regex.\n\nTask ID: 737\n\nExpected behavior (test cases):\n1. check_str(\"annie\") should return 'Valid'\n2. check_str(\"dawood\") should return 'Invalid'\n3. check_str(\"Else\") should return 'Valid'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7f8f8c50c2e04fb38a7ad1cb26fc71b3",
+    "object": "chat.completion",
+    "created": 1750867983,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nimport re\n\ndef check_str(str_):\n    \"\"\"\n    This function checks if the input string starts with a vowel.\n    \n    Parameters:\n    str_ (str): The string to be checked.\n    \n    Returns:\n    str: \"Valid\" if the string starts with a vowel, otherwise \"Invalid\".\n    \"\"\"\n    # Regular expression pattern to match strings starting with a vowel\n    pattern = r'^[aeiouAEIOU]'\n    \n    # Search for the pattern in the input string\n    result = re.search(pattern, str_)\n    \n    # If a match is found, it means the string starts with a vowel and returns 'Valid', else 'Invalid'\n    return 'Valid' if result else 'Invalid'\n\n# Test cases to verify the correctness of the function\nassert check_str(\"annie\") == 'Valid'\nassert check_str(\"dawood\") == 'Invalid'\nassert check_str(\"Else\") == 'Valid'\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 327,
+      "completion_tokens": 195,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867986.6075368
+}

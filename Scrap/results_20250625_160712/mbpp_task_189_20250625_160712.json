@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 189,
+  "problem": {
+    "task_id": 189,
+    "text": "Write a python function to find the first missing positive number.",
+    "code": "def first_Missing_Positive(arr,n): \r\n    ptr = 0\r\n    for i in range(n):\r\n        if arr[i] == 1:\r\n            ptr = 1\r\n            break\r\n    if ptr == 0:\r\n        return(1)\r\n    for i in range(n):\r\n        if arr[i] <= 0 or arr[i] > n:\r\n            arr[i] = 1\r\n    for i in range(n):\r\n        arr[(arr[i] - 1) % n] += n\r\n    for i in range(n):\r\n        if arr[i] <= n:\r\n            return(i + 1)\r\n    return(n + 1)",
+    "test_list": [
+      "assert first_Missing_Positive([1,2,3,-1,5],5) == 4",
+      "assert first_Missing_Positive([0,-1,-2,1,5,8],6) == 2",
+      "assert first_Missing_Positive([0,1,2,5,-8],5) == 3"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the first missing positive number.\n\nTask ID: 189\n\nExpected behavior (test cases):\n1. first_Missing_Positive([1,2,3,-1,5],5) should return 4\n2. first_Missing_Positive([0,-1,-2,1,5,8],6) should return 2\n3. first_Missing_Positive([0,1,2,5,-8],5) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-d7ec57e640e34fba94fc120670b736fd",
+    "object": "chat.completion",
+    "created": 1750869076,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef first_Missing_Positive(nums):\n    n = len(nums)\n    for i in range(n):\n        while nums[i] > 0 and nums[i] <= n and nums[nums[i]-1] != nums[i]:\n            nums[nums[i]-1], nums[i] = nums[i], nums[nums[i]-1]\n    \n    for i in range(n):\n        if nums[i] != i+1:\n            return i+1\n    \n    return n+1\n```\n\nThis solution works as follows:\n\n- It iterates through each element of the input list `nums`.\n- For each element at index `i`, it checks if the value is within bounds (`0` to `n`) and not already swapped.\n- If so, it swaps the current element with the one at its correct position (the index equal to the value plus one).\n- After all elements have been processed, it scans the list again to find the first position where an element does not match its expected value (i.e., the index plus one). This indicates the first missing positive integer.\n- If no such position is found after scanning, it means all numbers from `1` to `n` were present, hence the next integer (i.e., `n + 1`) is missing.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 164,
+      "total_tokens": 430,
+      "completion_tokens": 266,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869081.307628
+}

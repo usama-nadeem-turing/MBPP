@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 533,
+  "problem": {
+    "task_id": 533,
+    "text": "Write a function to remove particular data type elements from the given tuple.",
+    "code": "def remove_datatype(test_tuple, data_type):\r\n  res = []\r\n  for ele in test_tuple:\r\n    if not isinstance(ele, data_type):\r\n      res.append(ele)\r\n  return (res) ",
+    "test_list": [
+      "assert remove_datatype((4, 5, 4, 7.7, 1.2), int) == [7.7, 1.2]",
+      "assert remove_datatype((7, 8, 9, \"SR\"), str) == [7, 8, 9]",
+      "assert remove_datatype((7, 1.1, 2, 2.2), float) == [7, 2]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove particular data type elements from the given tuple.\n\nTask ID: 533\n\nExpected behavior (test cases):\n1. remove_datatype((4, 5, 4, 7.7, 1.2), int) should return [7.7, 1.2]\n2. remove_datatype((7, 8, 9, \"SR\"), str) should return [7, 8, 9]\n3. remove_datatype((7, 1.1, 2, 2.2), float) should return [7, 2]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-5b26834bacb74708a0f14065ed3cf863",
+    "object": "chat.completion",
+    "created": 1750869939,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_datatype(tup, datatype):\n    result = []\n    for item in tup:\n        if not isinstance(item, datatype):\n            result.append(item)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "total_tokens": 229,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869940.01386
+}

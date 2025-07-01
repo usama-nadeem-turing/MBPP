@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 520,
+  "problem": {
+    "task_id": 520,
+    "text": "Write a function to find the lcm of the given array elements.",
+    "code": "def find_lcm(num1, num2): \r\n\tif(num1>num2): \r\n\t\tnum = num1 \r\n\t\tden = num2 \r\n\telse: \r\n\t\tnum = num2 \r\n\t\tden = num1 \r\n\trem = num % den \r\n\twhile (rem != 0): \r\n\t\tnum = den \r\n\t\tden = rem \r\n\t\trem = num % den \r\n\tgcd = den \r\n\tlcm = int(int(num1 * num2)/int(gcd)) \r\n\treturn lcm \r\ndef get_lcm(l):\r\n  num1 = l[0]\r\n  num2 = l[1]\r\n  lcm = find_lcm(num1, num2)\r\n  for i in range(2, len(l)):\r\n    lcm = find_lcm(lcm, l[i])\r\n  return lcm ",
+    "test_list": [
+      "assert get_lcm([2, 7, 3, 9, 4]) == 252",
+      "assert get_lcm([1, 2, 8, 3]) == 24",
+      "assert get_lcm([3, 8, 4, 10, 5]) == 120"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the lcm of the given array elements.\n\nTask ID: 520\n\nExpected behavior (test cases):\n1. get_lcm([2, 7, 3, 9, 4]) should return 252\n2. get_lcm([1, 2, 8, 3]) should return 24\n3. get_lcm([3, 8, 4, 10, 5]) should return 120\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4e68d5a4bec34d559cf441d50baa28cc",
+    "object": "chat.completion",
+    "created": 1750869903,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\nfrom math import gcd\n\ndef get_lcm(arr):\n    def lcm(x, y):\n        return x * y // gcd(x, y)\n    \n    result = arr[0]\n    for num in arr[1:]:\n        result = lcm(result, num)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "total_tokens": 228,
+      "completion_tokens": 62,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869904.7117562
+}

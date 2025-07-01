@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 859,
+  "problem": {
+    "task_id": 859,
+    "text": "Write a function to generate all sublists of a given list.",
+    "code": "from itertools import combinations\r\ndef sub_lists(my_list):\r\n\tsubs = []\r\n\tfor i in range(0, len(my_list)+1):\r\n\t  temp = [list(x) for x in combinations(my_list, i)]\r\n\t  if len(temp)>0:\r\n\t    subs.extend(temp)\r\n\treturn subs",
+    "test_list": [
+      "assert sub_lists([10, 20, 30, 40])==[[], [10], [20], [30], [40], [10, 20], [10, 30], [10, 40], [20, 30], [20, 40], [30, 40], [10, 20, 30], [10, 20, 40], [10, 30, 40], [20, 30, 40], [10, 20, 30, 40]]",
+      "assert sub_lists(['X', 'Y', 'Z'])==[[], ['X'], ['Y'], ['Z'], ['X', 'Y'], ['X', 'Z'], ['Y', 'Z'], ['X', 'Y', 'Z']]",
+      "assert sub_lists([1,2,3])==[[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to generate all sublists of a given list.\n\nTask ID: 859\n\nExpected behavior (test cases):\n1. sub_lists([10, 20, 30, 40])==[[], [10], [20], [30], [40], [10, 20], [10, 30], [10, 40], [20, 30], [20, 40], [30, 40], [10, 20, 30], [10, 20, 40], [10, 30, 40], [20, 30, 40], [10, 20, 30, 40]]\n2. sub_lists(['X', 'Y', 'Z'])==[[], ['X'], ['Y'], ['Z'], ['X', 'Y'], ['X', 'Z'], ['Y', 'Z'], ['X', 'Y', 'Z']]\n3. sub_lists([1,2,3])==[[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-79f006d732544e6897464ca882cc9192",
+    "object": "chat.completion",
+    "created": 1750868311,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sub_lists(lst):\n    if not lst:\n        return [[]]\n    \n    first_element = lst[0]\n    rest_sublists = sub_lists(lst[1:])\n    all_sublists = []\n    \n    for sublist in rest_sublists:\n        new_sublist = [first_element] + sublist\n        all_sublists.append(new_sublist)\n    \n    all_sublists.extend(rest_sublists)\n    \n    return all_sublists\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 329,
+      "total_tokens": 421,
+      "completion_tokens": 92,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868313.1111054
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 514,
+  "problem": {
+    "task_id": 514,
+    "text": "Write a function to find the summation of tuple elements in the given tuple list.",
+    "code": "def sum_elements(test_tup):\r\n  res = sum(list(test_tup))\r\n  return (res) ",
+    "test_list": [
+      "assert sum_elements((7, 8, 9, 1, 10, 7)) == 42",
+      "assert sum_elements((1, 2, 3, 4, 5, 6)) == 21",
+      "assert sum_elements((11, 12 ,13 ,45, 14)) == 95"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the summation of tuple elements in the given tuple list.\n\nTask ID: 514\n\nExpected behavior (test cases):\n1. sum_elements((7, 8, 9, 1, 10, 7)) should return 42\n2. sum_elements((1, 2, 3, 4, 5, 6)) should return 21\n3. sum_elements((11, 12 ,13 ,45, 14)) should return 95\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-4e08110c49274979b62075e1934129d7",
+    "object": "chat.completion",
+    "created": 1750869888,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_elements(tuples_list):\n    total_sum = 0\n    for tup in tuples_list:\n        for num in tup:\n            total_sum += num\n    return total_sum\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 177,
+      "total_tokens": 220,
+      "completion_tokens": 43,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869889.123709
+}

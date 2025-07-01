@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 850,
+  "problem": {
+    "task_id": 850,
+    "text": "Write a function to check if a triangle of positive area is possible with the given angles.",
+    "code": "def is_triangleexists(a,b,c): \r\n    if(a != 0 and b != 0 and c != 0 and (a + b + c)== 180): \r\n        if((a + b)>= c or (b + c)>= a or (a + c)>= b): \r\n            return True \r\n        else:\r\n            return False\r\n    else:\r\n        return False",
+    "test_list": [
+      "assert is_triangleexists(50,60,70)==True",
+      "assert is_triangleexists(90,45,45)==True",
+      "assert is_triangleexists(150,30,70)==False"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if a triangle of positive area is possible with the given angles.\n\nTask ID: 850\n\nExpected behavior (test cases):\n1. is_triangleexists(50,60,70)==True\n2. is_triangleexists(90,45,45)==True\n3. is_triangleexists(150,30,70)==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8632fce4e03e4f97b01e05e8b6bf064e",
+    "object": "chat.completion",
+    "created": 1750868288,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef is_triangleexists(angle1, angle2, angle3):\n    # Check if the sum of all angles equals 180 degrees\n    return abs((angle1 + angle2 + angle3) - 180) < 1e-6\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 205,
+      "completion_tokens": 60,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868289.8419178
+}

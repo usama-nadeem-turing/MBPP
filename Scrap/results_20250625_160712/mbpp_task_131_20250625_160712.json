@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 131,
+  "problem": {
+    "task_id": 131,
+    "text": "Write a python function to reverse only the vowels of a given string.",
+    "code": "def reverse_vowels(str1):\r\n\tvowels = \"\"\r\n\tfor char in str1:\r\n\t\tif char in \"aeiouAEIOU\":\r\n\t\t\tvowels += char\r\n\tresult_string = \"\"\r\n\tfor char in str1:\r\n\t\tif char in \"aeiouAEIOU\":\r\n\t\t\tresult_string += vowels[-1]\r\n\t\t\tvowels = vowels[:-1]\r\n\t\telse:\r\n\t\t\tresult_string += char\r\n\treturn result_string",
+    "test_list": [
+      "assert reverse_vowels(\"Python\") == \"Python\"",
+      "assert reverse_vowels(\"USA\") == \"ASU\"",
+      "assert reverse_vowels(\"ab\") == \"ab\""
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to reverse only the vowels of a given string.\n\nTask ID: 131\n\nExpected behavior (test cases):\n1. reverse_vowels(\"Python\") should return \"Python\"\n2. reverse_vowels(\"USA\") should return \"ASU\"\n3. reverse_vowels(\"ab\") should return \"ab\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-7c351fb1ad4a433697cb31fc07e5b27a",
+    "object": "chat.completion",
+    "created": 1750868922,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef reverse_vowels(s):\n    # Convert the input string into a list for easier manipulation\n    s_list = list(s)\n    \n    # List to hold vowel indices in their original positions\n    vowel_indices = [i for i, char in enumerate(s) if char.lower() in 'aeiou']\n    \n    # Reverse the order of vowel indices\n    vowel_indices.reverse()\n    \n    # Swap characters at each vowel index with the next vowel from the end\n    for idx in vowel_indices:\n        s_list[idx], s_list[idx + 1] = s_list[idx + 1], s_list[idx]\n    \n    # Join the list back into a string and return it\n    return ''.join(s_list)\n\n# Test cases\nprint(reverse_vowels(\"Python\"))  # Expected output: \"Python\"\nprint(reverse_vowels(\"USA\"))     # Expected output: \"ASU\"\nprint(reverse_vowels(\"ab\"))      # Expected output: \"ab\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 132,
+      "total_tokens": 337,
+      "completion_tokens": 205,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868925.7535636
+}

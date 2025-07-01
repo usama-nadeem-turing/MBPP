@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 811,
+  "problem": {
+    "task_id": 811,
+    "text": "Write a function to check if two lists of tuples are identical or not.",
+    "code": "def check_identical(test_list1, test_list2):\r\n  res = test_list1 == test_list2\r\n  return (res) ",
+    "test_list": [
+      "assert check_identical([(10, 4), (2, 5)], [(10, 4), (2, 5)]) == True",
+      "assert check_identical([(1, 2), (3, 7)], [(12, 14), (12, 45)]) == False",
+      "assert check_identical([(2, 14), (12, 25)], [(2, 14), (12, 25)]) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if two lists of tuples are identical or not.\n\nTask ID: 811\n\nExpected behavior (test cases):\n1. check_identical([(10, 4), (2, 5)], [(10, 4), (2, 5)]) should return True\n2. check_identical([(1, 2), (3, 7)], [(12, 14), (12, 45)]) should return False\n3. check_identical([(2, 14), (12, 25)], [(2, 14), (12, 25)]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-fdeda6725b4e4429bd82c6f848d54535",
+    "object": "chat.completion",
+    "created": 1750868178,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_identical(list1, list2):\n    # Check if both lists have the same number of elements and corresponding elements are equal\n    return len(list1) == len(list2) and all(x == y for x, y in zip(list1, list2))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 201,
+      "total_tokens": 262,
+      "completion_tokens": 61,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868179.2359283
+}

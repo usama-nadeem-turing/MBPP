@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 156,
+  "problem": {
+    "task_id": 156,
+    "text": "Write a function to convert a tuple of string values to a tuple of integer values.",
+    "code": "def tuple_int_str(tuple_str):\r\n    result = tuple((int(x[0]), int(x[1])) for x in tuple_str)\r\n    return result",
+    "test_list": [
+      "assert tuple_int_str((('333', '33'), ('1416', '55')))==((333, 33), (1416, 55))",
+      "assert tuple_int_str((('999', '99'), ('1000', '500')))==((999, 99), (1000, 500))",
+      "assert tuple_int_str((('666', '66'), ('1500', '555')))==((666, 66), (1500, 555))"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert a tuple of string values to a tuple of integer values.\n\nTask ID: 156\n\nExpected behavior (test cases):\n1. tuple_int_str((('333', '33'), ('1416', '55')))==((333, 33), (1416, 55))\n2. tuple_int_str((('999', '99'), ('1000', '500')))==((999, 99), (1000, 500))\n3. tuple_int_str((('666', '66'), ('1500', '555')))==((666, 66), (1500, 555))\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-004deefe99f6458b9289ca8505701dd5",
+    "object": "chat.completion",
+    "created": 1750868989,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef tuple_int_str(tup):\n    return tuple(map(int, tup))\n\n# Test cases\nprint(tuple_int_str((('333', '33'), ('1416', '55')))) # Expected output: ((333, 33), (1416, 55))\nprint(tuple_int_str((('999', '99'), ('1000', '500')))) # Expected output: ((999, 99), (1000, 500))\nprint(tuple_int_str((('666', '66'), ('1500', '555')))) # Expected output: ((666, 66), (1500, 555))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 231,
+      "total_tokens": 403,
+      "completion_tokens": 172,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868992.1284535
+}

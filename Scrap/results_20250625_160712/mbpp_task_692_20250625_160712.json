@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 692,
+  "problem": {
+    "task_id": 692,
+    "text": "Write a python function to find the last two digits in factorial of a given number.",
+    "code": "def last_Two_Digits(N): \r\n    if (N >= 10): \r\n        return\r\n    fac = 1\r\n    for i in range(1,N + 1): \r\n        fac = (fac * i) % 100\r\n    return (fac) ",
+    "test_list": [
+      "assert last_Two_Digits(7) == 40",
+      "assert last_Two_Digits(5) == 20",
+      "assert last_Two_Digits(2) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the last two digits in factorial of a given number.\n\nTask ID: 692\n\nExpected behavior (test cases):\n1. last_Two_Digits(7) should return 40\n2. last_Two_Digits(5) should return 20\n3. last_Two_Digits(2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-efeeb0cd618a48db868efb47b4dedf2f",
+    "object": "chat.completion",
+    "created": 1750867863,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef last_Two_Digits(n):\n    # Calculate n! and then get the last two digits\n    result = pow(n, 2, 10)\n    return str(result)[-2:]\n\n# Test cases\nprint(last_Two_Digits(7))  # Expected output: \"40\"\nprint(last_Two_Digits(5))  # Expected output: \"20\"\nprint(last_Two_Digits(2))  # Expected output: \"2\"\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 235,
+      "completion_tokens": 99,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867864.7147105
+}

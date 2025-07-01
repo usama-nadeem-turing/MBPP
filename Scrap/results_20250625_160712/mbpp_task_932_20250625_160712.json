@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 932,
+  "problem": {
+    "task_id": 932,
+    "text": "Write a function to remove duplicate words from a given list of strings.",
+    "code": "def remove_duplic_list(l):\r\n    temp = []\r\n    for x in l:\r\n        if x not in temp:\r\n            temp.append(x)\r\n    return temp",
+    "test_list": [
+      "assert remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\"])==['Python', 'Exercises', 'Practice', 'Solution']",
+      "assert remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\",\"Java\"])==['Python', 'Exercises', 'Practice', 'Solution', 'Java']",
+      "assert remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\",\"C++\",\"C\",\"C++\"])==['Python', 'Exercises', 'Practice', 'Solution','C++','C']"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove duplicate words from a given list of strings.\n\nTask ID: 932\n\nExpected behavior (test cases):\n1. remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\"])==['Python', 'Exercises', 'Practice', 'Solution']\n2. remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\",\"Java\"])==['Python', 'Exercises', 'Practice', 'Solution', 'Java']\n3. remove_duplic_list([\"Python\", \"Exercises\", \"Practice\", \"Solution\", \"Exercises\",\"C++\",\"C\",\"C++\"])==['Python', 'Exercises', 'Practice', 'Solution','C++','C']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-506b982fd43c4188843914dfaf8627c5",
+    "object": "chat.completion",
+    "created": 1750868498,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef remove_duplic_list(lst):\n    return list(set(lst))\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 218,
+      "total_tokens": 236,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868498.6429393
+}

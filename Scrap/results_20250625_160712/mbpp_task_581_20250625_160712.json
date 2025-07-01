@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 581,
+  "problem": {
+    "task_id": 581,
+    "text": "Write a python function to find the surface area of the square pyramid.",
+    "code": "def surface_Area(b,s): \r\n    return 2 * b * s + pow(b,2) ",
+    "test_list": [
+      "assert surface_Area(3,4) == 33",
+      "assert surface_Area(4,5) == 56",
+      "assert surface_Area(1,2) == 5"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the surface area of the square pyramid.\n\nTask ID: 581\n\nExpected behavior (test cases):\n1. surface_Area(3,4) should return 33\n2. surface_Area(4,5) should return 56\n3. surface_Area(1,2) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-312a3142c9e149feafb0e2474f3dbf6c",
+    "object": "chat.completion",
+    "created": 1750870058,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef surface_Area(base_edge, slant_height):\n    # Calculate the base area\n    base_area = base_edge ** 2\n    \n    # Calculate the four triangular faces' areas using the formula for the area of a triangle\n    triangles_area = 2 * ((base_edge / 2) * slant_height)\n    \n    # The total surface area is the sum of the base area and the areas of the four triangular faces\n    total_surface_area = base_area + triangles_area\n    \n    return total_surface_area\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "total_tokens": 247,
+      "completion_tokens": 111,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750870060.0060244
+}

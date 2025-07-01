@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 429,
+  "problem": {
+    "task_id": 429,
+    "text": "Write a function to extract the elementwise and tuples from the given two tuples.",
+    "code": "def and_tuples(test_tup1, test_tup2):\r\n  res = tuple(ele1 & ele2 for ele1, ele2 in zip(test_tup1, test_tup2))\r\n  return (res) ",
+    "test_list": [
+      "assert and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) == (0, 0, 2, 1)",
+      "assert and_tuples((1, 2, 3, 4), (5, 6, 7, 8)) == (1, 2, 3, 0)",
+      "assert and_tuples((8, 9, 11, 12), (7, 13, 14, 17)) == (0, 9, 10, 0)"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract the elementwise and tuples from the given two tuples.\n\nTask ID: 429\n\nExpected behavior (test cases):\n1. and_tuples((10, 4, 6, 9), (5, 2, 3, 3)) should return (0, 0, 2, 1)\n2. and_tuples((1, 2, 3, 4), (5, 6, 7, 8)) should return (1, 2, 3, 0)\n3. and_tuples((8, 9, 11, 12), (7, 13, 14, 17)) should return (0, 9, 10, 0)\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-976165f94d4a4d8c9ad567527dad2a5b",
+    "object": "chat.completion",
+    "created": 1750869688,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef and_tuples(tup1, tup2):\n    # Extracting elements at the same index from both tuples\n    result = tuple(x for x in tup1 if x is not None) + tuple(y for y in tup2 if y is not None)\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "total_tokens": 286,
+      "completion_tokens": 62,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869689.3947225
+}

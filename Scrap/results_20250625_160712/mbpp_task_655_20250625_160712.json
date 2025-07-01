@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 655,
+  "problem": {
+    "task_id": 655,
+    "text": "Write a python function to find the sum of fifth power of n natural numbers.",
+    "code": "def fifth_Power_Sum(n) : \r\n    sm = 0 \r\n    for i in range(1,n+1) : \r\n        sm = sm + (i*i*i*i*i) \r\n    return sm ",
+    "test_list": [
+      "assert fifth_Power_Sum(2) == 33",
+      "assert fifth_Power_Sum(4) == 1300",
+      "assert fifth_Power_Sum(3) == 276"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of fifth power of n natural numbers.\n\nTask ID: 655\n\nExpected behavior (test cases):\n1. fifth_Power_Sum(2) should return 33\n2. fifth_Power_Sum(4) should return 1300\n3. fifth_Power_Sum(3) should return 276\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-928017cc323e483f85f83de3013e28fc",
+    "object": "chat.completion",
+    "created": 1750867780,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef fifth_Power_Sum(n):\n    # Calculate the sum of the fifth powers of the first n natural numbers\n    result = sum(i**5 for i in range(1, n+1))\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "total_tokens": 193,
+      "completion_tokens": 51,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867781.311543
+}

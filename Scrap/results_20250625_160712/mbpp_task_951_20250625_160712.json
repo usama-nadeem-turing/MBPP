@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 951,
+  "problem": {
+    "task_id": 951,
+    "text": "Write a function to find the maximum of similar indices in two lists of tuples.",
+    "code": "def max_similar_indices(test_list1, test_list2):\r\n  res = [(max(x[0], y[0]), max(x[1], y[1]))\r\n   for x, y in zip(test_list1, test_list2)]\r\n  return (res) ",
+    "test_list": [
+      "assert max_similar_indices([(2, 4), (6, 7), (5, 1)],[(5, 4), (8, 10), (8, 14)]) == [(5, 4), (8, 10), (8, 14)]",
+      "assert max_similar_indices([(3, 5), (7, 8), (6, 2)],[(6, 5), (9, 11), (9, 15)]) == [(6, 5), (9, 11), (9, 15)]",
+      "assert max_similar_indices([(4, 6), (8, 9), (7, 3)],[(7, 6), (10, 12), (10, 16)]) == [(7, 6), (10, 12), (10, 16)]"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum of similar indices in two lists of tuples.\n\nTask ID: 951\n\nExpected behavior (test cases):\n1. max_similar_indices([(2, 4), (6, 7), (5, 1)],[(5, 4), (8, 10), (8, 14)]) should return [(5, 4), (8, 10), (8, 14)]\n2. max_similar_indices([(3, 5), (7, 8), (6, 2)],[(6, 5), (9, 11), (9, 15)]) should return [(6, 5), (9, 11), (9, 15)]\n3. max_similar_indices([(4, 6), (8, 9), (7, 3)],[(7, 6), (10, 12), (10, 16)]) should return [(7, 6), (10, 12), (10, 16)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-64117056aad548f58abc2df22211d0ca",
+    "object": "chat.completion",
+    "created": 1750868548,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef max_similar_indices(list1, list2):\n    result = []\n    for i, j in zip(list1, list2):\n        if i[1] == j[1]:\n            result.append((i, j))\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 294,
+      "total_tokens": 350,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868549.2397997
+}

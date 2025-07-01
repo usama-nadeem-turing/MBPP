@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 379,
+  "problem": {
+    "task_id": 379,
+    "text": "Write a function to find the surface area of a cuboid.",
+    "code": "def surfacearea_cuboid(l,w,h):\r\n  SA = 2*(l*w + l * h + w * h)\r\n  return SA",
+    "test_list": [
+      "assert surfacearea_cuboid(1,2,3)==22",
+      "assert surfacearea_cuboid(5,7,9)==286",
+      "assert surfacearea_cuboid(10,15,21)==1350"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the surface area of a cuboid.\n\nTask ID: 379\n\nExpected behavior (test cases):\n1. surfacearea_cuboid(1,2,3)==22\n2. surfacearea_cuboid(5,7,9)==286\n3. surfacearea_cuboid(10,15,21)==1350\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8435ce66f08c439ca516564fd873275e",
+    "object": "chat.completion",
+    "created": 1750869560,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef surfacearea_cuboid(length, width, height):\n    # Calculate the surface area of a cuboid\n    return 2 * (length*width + length*height + width*height)\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "total_tokens": 190,
+      "completion_tokens": 45,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869560.8544886
+}

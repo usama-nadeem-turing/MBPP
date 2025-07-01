@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 931,
+  "problem": {
+    "task_id": 931,
+    "text": "Write a function to calculate the sum of series 1³+2³+3³+….+n³.",
+    "code": "import math \r\ndef sum_series(number):\r\n total = 0\r\n total = math.pow((number * (number + 1)) /2, 2)\r\n return total",
+    "test_list": [
+      "assert sum_series(7)==784",
+      "assert sum_series(5)==225",
+      "assert sum_series(15)==14400"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to calculate the sum of series 1³+2³+3³+….+n³.\n\nTask ID: 931\n\nExpected behavior (test cases):\n1. sum_series(7)==784\n2. sum_series(5)==225\n3. sum_series(15)==14400\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-8f02cf0160944a0baf33826606c68062",
+    "object": "chat.completion",
+    "created": 1750868497,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef sum_series(n):\n    total = 0\n    for i in range(1, n + 1):\n        total += i ** 3\n    return total\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "total_tokens": 176,
+      "completion_tokens": 41,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868497.7809305
+}

@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 619,
+  "problem": {
+    "task_id": 619,
+    "text": "Write a function to move all the numbers in it to the given string.",
+    "code": "def move_num(test_str):\r\n  res = ''\r\n  dig = ''\r\n  for ele in test_str:\r\n    if ele.isdigit():\r\n      dig += ele\r\n    else:\r\n      res += ele\r\n  res += dig\r\n  return (res) ",
+    "test_list": [
+      "assert move_num('I1love143you55three3000thousand') == 'Iloveyouthreethousand1143553000'",
+      "assert move_num('Avengers124Assemble') == 'AvengersAssemble124'",
+      "assert move_num('Its11our12path13to14see15things16do17things') == 'Itsourpathtoseethingsdothings11121314151617'"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to move all the numbers in it to the given string.\n\nTask ID: 619\n\nExpected behavior (test cases):\n1. move_num('I1love143you55three3000thousand') should return 'Iloveyouthreethousand1143553000'\n2. move_num('Avengers124Assemble') should return 'AvengersAssemble124'\n3. move_num('Its11our12path13to14see15things16do17things') should return 'Itsourpathtoseethingsdothings11121314151617'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e1f8fc82c7084942a27592c04e74b757",
+    "object": "chat.completion",
+    "created": 1750867686,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef move_num(s):\n    num = ''\n    for c in s:\n        if c.isdigit():\n            num += c\n        else:\n            break\n    result = ''.join(sorted(num + s[num:], key=lambda x: int(x) if x.isdigit() else x))\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 212,
+      "total_tokens": 277,
+      "completion_tokens": 65,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867687.2139943
+}

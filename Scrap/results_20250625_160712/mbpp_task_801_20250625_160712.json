@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 801,
+  "problem": {
+    "task_id": 801,
+    "text": "Write a python function to count the number of equal numbers from three given integers.",
+    "code": "def test_three_equal(x,y,z):\r\n  result= set([x,y,z])\r\n  if len(result)==3:\r\n    return 0\r\n  else:\r\n    return (4-len(result))",
+    "test_list": [
+      "assert test_three_equal(1,1,1) == 3",
+      "assert test_three_equal(-1,-2,-3) == 0",
+      "assert test_three_equal(1,2,2) == 2"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of equal numbers from three given integers.\n\nTask ID: 801\n\nExpected behavior (test cases):\n1. test_three_equal(1,1,1) should return 3\n2. test_three_equal(-1,-2,-3) should return 0\n3. test_three_equal(1,2,2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f72241e90d0c435c81a7901687164996",
+    "object": "chat.completion",
+    "created": 1750868160,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef test_three_equal(a, b, c):\n    \"\"\"\n    Counts how many times 'a' is equal to either 'b' or 'c'.\n    \n    Parameters:\n    a (int): The first integer.\n    b (int): The second integer.\n    c (int): The third integer.\n    \n    Returns:\n    int: The count of occurrences where 'a' equals 'b' or 'c'.\n    \"\"\"\n    # Counting occurrences where 'a' equals 'b' or 'c'\n    count = sum([1 for x in [a,b,c] if x == a])\n    return count\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "total_tokens": 274,
+      "completion_tokens": 132,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868162.4164174
+}

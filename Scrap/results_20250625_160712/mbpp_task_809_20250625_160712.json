@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 809,
+  "problem": {
+    "task_id": 809,
+    "text": "Write a function to check if each element of second tuple is smaller than its corresponding index in first tuple.",
+    "code": "def check_smaller(test_tup1, test_tup2):\r\n  res = all(x > y for x, y in zip(test_tup1, test_tup2))\r\n  return (res) ",
+    "test_list": [
+      "assert check_smaller((1, 2, 3), (2, 3, 4)) == False",
+      "assert check_smaller((4, 5, 6), (3, 4, 5)) == True",
+      "assert check_smaller((11, 12, 13), (10, 11, 12)) == True"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if each element of second tuple is smaller than its corresponding index in first tuple.\n\nTask ID: 809\n\nExpected behavior (test cases):\n1. check_smaller((1, 2, 3), (2, 3, 4)) should return False\n2. check_smaller((4, 5, 6), (3, 4, 5)) should return True\n3. check_smaller((11, 12, 13), (10, 11, 12)) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-15547b1b0b6e43a3b51e08c6f660848c",
+    "object": "chat.completion",
+    "created": 1750868175,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef check_smaller(tup1, tup2):\n    for i in range(len(tup1)):\n        if tup1[i] >= tup2[i]:\n            return False\n    return True\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 183,
+      "total_tokens": 228,
+      "completion_tokens": 45,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750868176.2743137
+}

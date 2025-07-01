@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 691,
+  "problem": {
+    "task_id": 691,
+    "text": "Write a function to group the 1st elements on the basis of 2nd elements in the given tuple list.",
+    "code": "from itertools import groupby \r\ndef group_element(test_list):\r\n  res = dict()\r\n  for key, val in groupby(sorted(test_list, key = lambda ele: ele[1]), key = lambda ele: ele[1]):\r\n    res[key] = [ele[0] for ele in val] \r\n  return (res)\r\n",
+    "test_list": [
+      "assert group_element([(6, 5), (2, 7), (2, 5), (8, 7), (9, 8), (3, 7)]) == {5: [6, 2], 7: [2, 8, 3], 8: [9]}",
+      "assert group_element([(7, 6), (3, 8), (3, 6), (9, 8), (10, 9), (4, 8)]) == {6: [7, 3], 8: [3, 9, 4], 9: [10]}",
+      "assert group_element([(8, 7), (4, 9), (4, 7), (10, 9), (11, 10), (5, 9)]) == {7: [8, 4], 9: [4, 10, 5], 10: [11]}"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to group the 1st elements on the basis of 2nd elements in the given tuple list.\n\nTask ID: 691\n\nExpected behavior (test cases):\n1. group_element([(6, 5), (2, 7), (2, 5), (8, 7), (9, 8), (3, 7)]) should return {5: [6, 2], 7: [2, 8, 3], 8: [9]}\n2. group_element([(7, 6), (3, 8), (3, 6), (9, 8), (10, 9), (4, 8)]) should return {6: [7, 3], 8: [3, 9, 4], 9: [10]}\n3. group_element([(8, 7), (4, 9), (4, 7), (10, 9), (11, 10), (5, 9)]) should return {7: [8, 4], 9: [4, 10, 5], 10: [11]}\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-f166302e3e3944ee9a0031492236e6c5",
+    "object": "chat.completion",
+    "created": 1750867861,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef group_element(lst):\n    result = {}\n    for item in lst:\n        key = item[1]\n        if key not in result:\n            result[key] = []\n        result[key].append(item[0])\n    return result\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 315,
+      "total_tokens": 368,
+      "completion_tokens": 53,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750867862.5242908
+}

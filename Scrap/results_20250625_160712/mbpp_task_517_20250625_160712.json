@@ -1,0 +1,44 @@
+{
+  "mbpp_id": 517,
+  "problem": {
+    "task_id": 517,
+    "text": "Write a python function to find the largest postive number from the given list.",
+    "code": "def largest_pos(list1): \r\n    max = list1[0] \r\n    for x in list1: \r\n        if x > max : \r\n             max = x  \r\n    return max",
+    "test_list": [
+      "assert largest_pos([1,2,3,4,-1]) == 4",
+      "assert largest_pos([0,1,2,-5,-1,6]) == 6",
+      "assert largest_pos([0,0,1,0]) == 1"
+    ],
+    "test_setup_code": "",
+    "challenge_test_list": []
+  },
+  "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the largest postive number from the given list.\n\nTask ID: 517\n\nExpected behavior (test cases):\n1. largest_pos([1,2,3,4,-1]) should return 4\n2. largest_pos([0,1,2,-5,-1,6]) should return 6\n3. largest_pos([0,0,1,0]) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+  "model_response": {
+    "id": "chatcmpl-e9ef27f425d647a8b258fbb320ad3929",
+    "object": "chat.completion",
+    "created": 1750869898,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "```python\ndef largest_pos(nums):\n    # Initialize max_num with the smallest possible integer value\n    max_num = float('-inf')\n    \n    for num in nums:\n        if num > max_num:\n            max_num = num\n    \n    return max_num\n```",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "total_tokens": 206,
+      "completion_tokens": 55,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  },
+  "timestamp": 1750869899.373925
+}
