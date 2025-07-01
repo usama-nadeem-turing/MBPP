@@ -11,6 +11,7 @@ This project provides a comprehensive solution to load the MBPP (Mostly Basic Py
 - **Incremental Saving**: Save results after each task to prevent data loss
 - **Multi-split Processing**: Process train, validation, and test splits individually or all at once
 - **Demo Mode**: Quick testing with 3-4 problems
+- **Clean Output Structure**: Organized results with split-specific files and no individual task clutter
 - **Comprehensive Logging**: Detailed logging with debug mode support
 - **Robust Error Handling**: Handle connection errors, API failures, and dataset issues
 
@@ -208,14 +209,13 @@ python run_multiple_inference.py
 
 The script runs `inference.py` 9 times with the **same configuration**:
 
-- **Demo mode**: Process only 4 problems per run
-- **Test split**: Use the test split of the dataset
-- **Temperature**: 0.5 (medium temperature)
-- **Max tokens**: 512
+- **Split**: All splits (train, validation, test - excluding "prompt")
+- **Full Mode**: Process all problems in each split (no demo mode)
+- **Default Parameters**: Uses default temperature and max_tokens from inference.py
 
 #### Features
 
-- ✅ **Consistency Testing**: Runs the same configuration 9 times to test reproducibility
+- ✅ **Comprehensive Testing**: Runs the same configuration 9 times to test reproducibility across all dataset splits
 - ✅ **Progress Tracking**: Shows which run is currently executing (1/9, 2/9, etc.)
 - ✅ **Error Handling**: Handles timeouts, crashes, and failures gracefully
 - ✅ **Comprehensive Logging**: Shows progress, success/failure, and timing for each run
@@ -239,25 +239,25 @@ Each individual run creates its own timestamped folder: `results_YYYYMMDD_HHMMSS
 ============================================================
 🔄 Running inference 1/9
 ============================================================
-Running command: python inference.py --demo --split test --temperature 0.5 --max-tokens 512
+Running command: python inference.py --split all
 ✅ Run 1/9 completed successfully
-✅ Run 1 completed in 45.23 seconds
+✅ Run 1 completed in 245.23 seconds
 ⏳ Waiting 5 seconds before next run...
 
 ============================================================
 🔄 Running inference 2/9
 ============================================================
-Running command: python inference.py --demo --split test --temperature 0.5 --max-tokens 512
+Running command: python inference.py --split all
 ✅ Run 2/9 completed successfully
-✅ Run 2 completed in 42.18 seconds
+✅ Run 2 completed in 242.18 seconds
 ```
 
 #### Use Cases
 
-- **Reproducibility Testing**: Verify that the same configuration produces consistent results
-- **Performance Analysis**: Compare execution times across multiple runs
-- **Stability Testing**: Check if the model server and inference pipeline are stable
-- **Data Collection**: Gather multiple samples for statistical analysis
+- **Reproducibility Testing**: Verify that the same configuration produces consistent results across all splits
+- **Performance Analysis**: Compare execution times across multiple comprehensive runs
+- **Stability Testing**: Check if the model server and inference pipeline are stable with full dataset processing
+- **Data Collection**: Gather multiple samples for statistical analysis across all dataset splits
 
 ## 📊 Output Files
 
@@ -283,13 +283,11 @@ The scripts create timestamped results folders for each run:
 
 #### Demo Mode
 - `mbpp_demo_results_{split}.json`: Complete results for each split
-- `mbpp_demo_task_{id}.json`: Individual task results
 - `analysis_demo_{split}.json`: Analysis statistics
 - `run_metadata_{split}.json`: Run configuration and metadata
 
 #### Full Mode
 - `mbpp_results_final_{split}.json`: Complete results for each split
-- `mbpp_task_{id}.json`: Individual task results
 - `analysis_final_{split}.json`: Analysis statistics
 - `run_metadata_{split}.json`: Run configuration and metadata
 
@@ -474,7 +472,7 @@ python eval_converter.py "evaluation_results_20241225_144530/evaluation_results_
 ```bash
 python run_multiple_inference.py
 ```
-*Creates: `multiple_inference_run_20241225_150000/` with 9 runs of the same configuration*
+*Creates: `multiple_inference_run_20241225_150000/` with 9 runs processing all splits*
 
 ## 📝 License
 
