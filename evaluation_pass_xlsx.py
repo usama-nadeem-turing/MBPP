@@ -265,9 +265,28 @@ except Exception as e:
             logger.debug(f"Script return code: {result.returncode}")
             logger.debug(f"Found test outputs: {test_outputs}")
             
+            # Handle assertion errors and other failures
+            if result.returncode != 0:
+                if "AssertionError" in result.stderr:
+                    # Extract the assertion error message
+                    stderr_lines = result.stderr.strip().split('\n')
+                    for line in stderr_lines:
+                        if "AssertionError:" in line:
+                            error_msg = line.split("AssertionError:", 1)[1].strip()
+                            test_outputs = [f"Test 1: FAIL - Assertion failed: {error_msg}"]
+                            break
+                    if not test_outputs:
+                        test_outputs = ["Test 1: FAIL - Assertion failed"]
+                elif result.stderr.strip():
+                    # Other errors
+                    error_msg = result.stderr.strip().split('\n')[-1]  # Get last error line
+                    test_outputs = [f"Test 1: FAIL - {error_msg}"]
+                else:
+                    test_outputs = ["Test 1: FAIL - Script failed with return code 1"]
+            
             # If no test outputs were found but the script ran successfully (no stderr),
             # it might mean the generated code had assertions that passed silently
-            if not test_outputs and result.returncode == 0 and not result.stderr.strip():
+            elif not test_outputs and result.returncode == 0 and not result.stderr.strip():
                 # Check if the script contains assertions that might have passed
                 if 'assert ' in script:
                     test_outputs = ["Test 1: PASS - All assertions passed silently"]
