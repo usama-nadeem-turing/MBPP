@@ -81,6 +81,13 @@ curl http://localhost:18000/v1/chat/completions \
 
 ####### QWEN 2.5 1.5B Instruct
 
+export HUGGING_FACE_HUB_TOKEN=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
+
+tmux new -s vllm
+source qwen-env/bin/activate
+ss -ltnp | grep ':18000' || echo "✓ 18000 looks free"
+
+
 ## for smaller machines
 # --- start vLLM -------------------------------------------------
 

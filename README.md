@@ -8,6 +8,8 @@ This project provides a comprehensive solution to load the MBPP (Mostly Basic Py
 - **Model Inference**: Send problems to local model server (vLLM) with configurable parameters
 - **Code Evaluation**: Test generated code against original MBPP test cases
 - **Excel Export**: Convert evaluation results to formatted Excel files for analysis
+- **Results Aggregation**: Aggregate evaluation results across multiple model runs
+- **Pivot Table Generation**: Create pivot tables for cross-run analysis
 - **Incremental Saving**: Save results after each task to prevent data loss
 - **Multi-split Processing**: Process train, validation, and test splits individually or all at once
 - **Demo Mode**: Quick testing with 3-4 problems
@@ -21,18 +23,30 @@ This project provides a comprehensive solution to load the MBPP (Mostly Basic Py
 MBPP/
 ├── inference.py                 # Main inference script
 ├── evaluation_pass_xlsx.py      # Evaluation script with Excel export
+├── aggregate_evaluations.py     # Aggregate results across model runs
+├── create_pivot_table.py        # Create pivot tables for analysis
 ├── eval_converter.py           # JSON to Excel converter
 ├── run_multiple_inference.py   # Run inference 9 times with different configs
 ├── test_inference.py           # Model server connection test
 ├── host model.py               # Model hosting utilities
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
-└── Results_no_1/              # Example results directory
-    ├── Evaluation/
-    │   └── evaluation_results_test_split.json
-    ├── mbpp_results_final_test.json
-    ├── mbpp_results_final_train.json
-    └── mbpp_results_final_validation.json
+├── Model Runs/                 # Directory containing multiple model run results
+│   ├── 01/                    # Model run 1
+│   │   ├── evaluations/
+│   │   │   ├── evaluation_results_all.json
+│   │   │   └── evaluation_results_all.xlsx
+│   │   ├── mbpp_results_final_test.json
+│   │   ├── mbpp_results_final_train.json
+│   │   └── mbpp_results_final_validation.json
+│   ├── 02/                    # Model run 2
+│   └── ...                    # Additional model runs
+├── aggregated_evaluations.json # Aggregated results across all runs
+├── aggregated_evaluations.csv  # CSV format of aggregated results
+├── aggregated_evaluations.xlsx # Excel format of aggregated results
+├── pivot_evaluations.json      # Pivot table format
+├── pivot_evaluations.csv       # CSV pivot table
+└── pivot_evaluations.xlsx      # Excel pivot table
 ```
 
 ## 📋 Prerequisites
@@ -155,6 +169,12 @@ python evaluation_pass_xlsx.py --mbpp-id 11
 python evaluation_pass_xlsx.py --debug
 ```
 
+#### New Features in Evaluation
+- **Problem Statement Inclusion**: Evaluation results now include the problem statement for better context
+- **Improved Error Handling**: Better handling of assertion errors and silent test failures
+- **Enhanced Debug Logging**: More detailed logging for troubleshooting test execution
+- **Organized Output**: Results are saved in `evaluations/` subdirectory within the results directory
+
 #### Command Line Options for Evaluation
 ```bash
 python evaluation_pass_xlsx.py [OPTIONS]
@@ -196,7 +216,66 @@ Options:
   --help               Show this message and exit
 ```
 
-### 7. Run Multiple Experiments (Optional)
+### 7. Aggregate Results Across Model Runs
+
+After running multiple model runs and evaluations, aggregate the results for cross-run analysis:
+
+#### Basic Aggregation
+```bash
+# Aggregate all evaluation results from Model Runs directory
+python aggregate_evaluations.py
+```
+
+This creates:
+- `aggregated_evaluations.json`: All results in JSON format
+- `aggregated_evaluations.csv`: CSV format for analysis
+- `aggregated_evaluations.xlsx`: Excel format with formatting
+
+#### Command Line Options for Aggregation
+```bash
+python aggregate_evaluations.py [OPTIONS]
+
+Options:
+  --model-runs-dir TEXT  Path to Model Runs directory (default: "Model Runs")
+  --output-dir TEXT      Output directory for results (default: current directory)
+  --help                 Show this message and exit
+```
+
+### 8. Create Pivot Tables for Analysis
+
+Create pivot tables for easier cross-run analysis:
+
+#### Basic Pivot Table Creation
+```bash
+# Create pivot table from all model runs
+python create_pivot_table.py
+```
+
+This creates:
+- `pivot_evaluations.json`: Pivot table in JSON format
+- `pivot_evaluations.csv`: CSV pivot table
+- `pivot_evaluations.xlsx`: Excel pivot table with color coding
+
+#### Pivot Table Format
+The pivot table has the following structure:
+```csv
+mbpp_id,run_01_pass,run_02_pass,run_03_pass,...,run_12_pass
+11,False,False,True,False,False,False,False,False,False,False,False,True
+12,False,False,True,True,True,True,False,False,True,True,True,False
+13,False,False,False,False,False,False,False,False,False,False,False,False
+```
+
+#### Command Line Options for Pivot Table
+```bash
+python create_pivot_table.py [OPTIONS]
+
+Options:
+  --model-runs-dir TEXT  Path to Model Runs directory (default: "Model Runs")
+  --output-dir TEXT      Output directory for results (default: current directory)
+  --help                 Show this message and exit
+```
+
+### 9. Run Multiple Experiments (Optional)
 
 Run the same inference configuration 9 times for consistency testing:
 
@@ -333,6 +412,7 @@ The Excel files contain the following columns:
 ```json
 {
   "mbpp_id": 11,
+  "problem_statement": "Write a python function to remove first and last occurrence of a given character from the string.",
   "passed": true,
   "error": null,
   "test_outputs": [
@@ -359,6 +439,34 @@ The Excel files contain the following columns:
   "average_tokens": 150.5,
   "total_tokens": 602,
   "mbpp_ids": ["1", "2", "3", "4"]
+}
+```
+
+### Aggregated Results Format
+```json
+{
+  "model_run_id": "01",
+  "mbpp_id": 11,
+  "pass": false
+}
+```
+
+### Pivot Table Format
+```json
+{
+  "mbpp_id": 11,
+  "run_01_pass": false,
+  "run_02_pass": false,
+  "run_03_pass": true,
+  "run_04_pass": false,
+  "run_05_pass": false,
+  "run_06_pass": false,
+  "run_07_pass": false,
+  "run_08_pass": false,
+  "run_09_pass": false,
+  "run_10_pass": false,
+  "run_11_pass": false,
+  "run_12_pass": true
 }
 ```
 
@@ -447,6 +555,33 @@ vllm serve "Qwen/Qwen2.5-1.5B-Instruct" --port 18000
 
 2. **Test Connection**:
 ```bash
+python test_inference.py
+```
+
+3. **Run Inference**:
+```bash
+python inference.py --split all
+```
+
+4. **Evaluate Results**:
+```bash
+python evaluation_pass_xlsx.py --results-dir "results_YYYYMMDD_HHMMSS"
+```
+
+5. **Aggregate Multiple Runs** (after running multiple experiments):
+```bash
+python aggregate_evaluations.py
+```
+
+6. **Create Pivot Table**:
+```bash
+python create_pivot_table.py
+```
+
+7. **Analyze Results**:
+- Open `pivot_evaluations.xlsx` for cross-run analysis
+- Use `aggregated_evaluations.csv` for statistical analysis
+- Check individual run results in `Model Runs/XX/evaluations/`
 python test_inference.py
 ```
 
