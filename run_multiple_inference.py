@@ -14,7 +14,7 @@ def run_inference(run_number):
     Run inference.py with the same configuration.
     
     Args:
-        run_number: Current run number (1-6)
+        run_number: Current run number (1-12)
         
     Returns:
         bool: True if successful, False otherwise
@@ -33,26 +33,26 @@ def run_inference(run_number):
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)  # 1 hour timeout
         
         if result.returncode == 0:
-            logger.info(f"✅ Run {run_number}/6 completed successfully")
+            logger.info(f"✅ Run {run_number}/12 completed successfully")
             if result.stdout:
                 logger.debug(f"Output: {result.stdout}")
             return True
         else:
-            logger.error(f"❌ Run {run_number}/6 failed with return code {result.returncode}")
+            logger.error(f"❌ Run {run_number}/12 failed with return code {result.returncode}")
             if result.stderr:
                 logger.error(f"Error output: {result.stderr}")
             return False
             
     except subprocess.TimeoutExpired:
-        logger.error(f"⏰ Run {run_number}/6 timed out after 1 hour")
+        logger.error(f"⏰ Run {run_number}/12 timed out after 1 hour")
         return False
     except Exception as e:
-        logger.error(f"💥 Run {run_number}/6 failed with exception: {e}")
+        logger.error(f"💥 Run {run_number}/12 failed with exception: {e}")
         return False
 
 def main():
     """
-    Main function to run inference.py 6 times with the same configuration.
+    Main function to run inference.py 12 times with the same configuration.
     """
     # Configuration used for all runs
     config = {
@@ -64,7 +64,7 @@ def main():
     summary_dir = f"multiple_inference_run_{timestamp}"
     os.makedirs(summary_dir, exist_ok=True)
     
-    logger.info(f"🚀 Starting multiple inference run - 6 times with same configuration")
+    logger.info(f"🚀 Starting multiple inference run - 12 times with same configuration")
     logger.info(f"📁 Summary directory: {summary_dir}")
     logger.info(f"⚙️  Configuration: Split=all (process all splits)")
     
@@ -73,10 +73,10 @@ def main():
     successful_runs = 0
     failed_runs = 0
     
-    # Run inference 6 times
-    for run_number in range(1, 7):
+    # Run inference 12 times
+    for run_number in range(1, 13):
         logger.info(f"\n{'='*60}")
-        logger.info(f"🔄 Running inference {run_number}/6")
+        logger.info(f"🔄 Running inference {run_number}/12")
         logger.info(f"{'='*60}")
         
         start_time = time.time()
@@ -102,7 +102,7 @@ def main():
             logger.error(f"❌ Run {run_number} failed after {duration:.2f} seconds")
         
         # Add a small delay between runs
-        if run_number < 6:
+        if run_number < 12:
             logger.info("⏳ Waiting 5 seconds before next run...")
             time.sleep(5)
     
@@ -110,10 +110,10 @@ def main():
     summary_file = os.path.join(summary_dir, "run_summary.json")
     summary_data = {
         'timestamp': timestamp,
-        'total_runs': 6,
+        'total_runs': 12,
         'successful_runs': successful_runs,
         'failed_runs': failed_runs,
-        'success_rate': successful_runs / 6,
+        'success_rate': successful_runs / 12,
         'configuration': config,
         'results': results
     }
@@ -130,10 +130,10 @@ def main():
     logger.info(f"\n{'='*60}")
     logger.info("🎯 FINAL SUMMARY")
     logger.info(f"{'='*60}")
-    logger.info(f"Total runs: 6")
+    logger.info(f"Total runs: 12")
     logger.info(f"Successful runs: {successful_runs}")
     logger.info(f"Failed runs: {failed_runs}")
-    logger.info(f"Success rate: {successful_runs/6:.2%}")
+    logger.info(f"Success rate: {successful_runs/12:.2%}")
     
     # Print individual results
     logger.info(f"\n📋 Individual Results:")

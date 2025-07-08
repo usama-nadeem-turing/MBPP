@@ -1,7 +1,5 @@
 
 """
-# hugging face token
-## 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
 
 # fresh venv (optional)
 python -m venv qwen-env 
@@ -17,7 +15,6 @@ pip install "vllm[serve]>=0.8.5"  # pulls in ray, starlette, etc. :contentRefere
 ###############################################################################################################################################################################
 # HF_TOKEN is only needed if the machine is rate-limited by the Hub
 
-export HUGGING_FACE_HUB_TOKEN=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
 
 tmux new -s vllm
 source qwen-env/bin/activate
@@ -81,7 +78,6 @@ curl http://localhost:18000/v1/chat/completions \
 
 ####### QWEN 2.5 1.5B Instruct
 
-export HUGGING_FACE_HUB_TOKEN=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
 
 tmux new -s vllm
 source qwen-env/bin/activate
