@@ -1,7 +1,15 @@
+
 """
+pip install 'ms-swift[llm]' -U
+
+new_train.jsonl:
+{"instruction": "Translate to French: 'Hello world'", "output": "Bonjour le monde"}
+
+
+
 swift sft \
   --model Qwen/Qwen2.5-1.5B-Instruct \
-  --dataset new_train.jsonl \
+  --dataset ModelRuns/datasets_for_FT/dataset_balanced.jsonl \
   --train_type full \
   --torch_dtype bfloat16 \
   --num_train_epochs 3 \
@@ -16,4 +24,6 @@ swift sft \
   --eval_steps 50 \
   --warmup_ratio 0.05 \
   --dataloader_num_workers 4
+
+
 """
