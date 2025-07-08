@@ -31,23 +31,63 @@ MBPP/
 ├── host model.py               # Model hosting utilities
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
-├── Model Runs/                 # Directory containing multiple model run results
-│   ├── 01/                    # Model run 1
+├── ModelRuns/                  # Directory containing multiple model run results
+│   ├── README.md               # Documentation for model runs directory
+│   ├── 01/                     # Model run 1
+│   │   ├── README.md           # Documentation for run 01
 │   │   ├── evaluations/
 │   │   │   ├── evaluation_results_all.json
 │   │   │   └── evaluation_results_all.xlsx
 │   │   ├── mbpp_results_final_test.json
 │   │   ├── mbpp_results_final_train.json
 │   │   └── mbpp_results_final_validation.json
-│   ├── 02/                    # Model run 2
-│   └── ...                    # Additional model runs
-├── aggregated_evaluations.json # Aggregated results across all runs
-├── aggregated_evaluations.csv  # CSV format of aggregated results
-├── aggregated_evaluations.xlsx # Excel format of aggregated results
-├── pivot_evaluations.json      # Pivot table format
-├── pivot_evaluations.csv       # CSV pivot table
-└── pivot_evaluations.xlsx      # Excel pivot table
+│   ├── 02/ through 12/         # Additional model runs (02-12)
+│   ├── analysis/               # Aggregated analysis across all runs
+│   │   ├── README.md           # Documentation for analysis directory
+│   │   ├── aggregated_evaluations.json
+│   │   ├── aggregated_evaluations.csv
+│   │   ├── aggregated_evaluations.xlsx
+│   │   ├── pivot_evaluations.json
+│   │   ├── pivot_evaluations.csv
+│   │   └── pivot_evaluations.xlsx
+│   ├── datasets_for_FT/        # Fine-tuning datasets
+│   │   ├── README.md           # Documentation for fine-tuning datasets
+│   │   ├── dataset_balanced.jsonl
+│   │   ├── dataset_easy_heavy.jsonl
+│   │   ├── dataset_medium_heavy.jsonl
+│   │   └── dataset_hard_heavy.jsonl
+│   └── pass@k.csv             # Pass@k metrics summary
+├── FineTuning/                 # Fine-tuning scripts and data
+│   ├── README.md               # Documentation for fine-tuning directory
+│   ├── code.py                 # Fine-tuning implementation
+│   ├── create jsonl.py         # JSONL dataset creation
+│   └── new_train.jsonl         # Training dataset
+├── Sample Results/             # Sample outputs and reference data
+│   ├── README.md               # Documentation for sample results
+│   ├── Evaluation/
+│   │   └── evaluation_results_test_split.json
+│   ├── mbpp_results_final_test.json
+│   ├── mbpp_results_final_train.json
+│   └── mbpp_results_final_validation.json
+└── Scrap/                      # Experimental and discarded results
+    ├── Faulty Run/             # Results from runs with errors
+    ├── results_YYYYMMDD_HHMMSS/ # Experimental runs
+    └── Results_no_1_0/         # Early version results
 ```
+
+## 📚 Documentation Structure
+
+This project includes comprehensive documentation for each directory:
+
+- **`README.md`** (this file) - Main project overview and usage guide
+- **`ModelRuns/README.md`** - Documentation for model run results and structure
+- **`ModelRuns/analysis/README.md`** - Guide to aggregated analysis tools and results
+- **`ModelRuns/datasets_for_FT/README.md`** - Fine-tuning dataset creation and usage
+- **`ModelRuns/01/README.md`** - Template for individual model run documentation
+- **`FineTuning/README.md`** - Fine-tuning process and implementation guide
+- **`Sample Results/README.md`** - Sample outputs and reference data documentation
+
+Each README provides detailed information about file structures, usage examples, and specific workflows for that directory.
 
 ## 📋 Prerequisites
 
@@ -358,6 +398,18 @@ The scripts create timestamped results folders for each run:
 - **Folder**: `multiple_inference_run_YYYYMMDD_HHMMSS/`
 - **Contents**: Summary of all 9 runs
 
+### Aggregated Results (`aggregate_evaluations.py`)
+- **Location**: `ModelRuns/analysis/`
+- **Files**: `aggregated_evaluations.json`, `aggregated_evaluations.csv`, `aggregated_evaluations.xlsx`
+
+### Pivot Tables (`create_pivot_table.py`)
+- **Location**: `ModelRuns/analysis/`
+- **Files**: `pivot_evaluations.json`, `pivot_evaluations.csv`, `pivot_evaluations.xlsx`
+
+### Fine-tuning Datasets (`create_datasets.py`)
+- **Location**: `ModelRuns/datasets_for_FT/`
+- **Files**: Various JSONL and CSV datasets for fine-tuning
+
 ### Inference Output Files
 
 #### Demo Mode
@@ -579,9 +631,17 @@ python create_pivot_table.py
 ```
 
 7. **Analyze Results**:
-- Open `pivot_evaluations.xlsx` for cross-run analysis
-- Use `aggregated_evaluations.csv` for statistical analysis
-- Check individual run results in `Model Runs/XX/evaluations/`
+- Open `ModelRuns/analysis/pivot_evaluations.xlsx` for cross-run analysis
+- Use `ModelRuns/analysis/aggregated_evaluations.csv` for statistical analysis
+- Check individual run results in `ModelRuns/XX/evaluations/`
+- Review detailed analysis in `ModelRuns/analysis/analysis_notebook.ipynb`
+
+8. **Create Fine-tuning Datasets** (optional):
+```bash
+cd ModelRuns/datasets_for_FT/
+python create_datasets.py
+python create_jsonl_datasets.py
+```
 python test_inference.py
 ```
 
@@ -612,6 +672,16 @@ python run_multiple_inference.py
 ## 📝 License
 
 This project is open source and available under the MIT License.
+
+## 📖 Additional Documentation
+
+For detailed information about specific components of this project, refer to the README files in each directory:
+
+- **Model Runs**: See `ModelRuns/README.md` for complete documentation of model run results, analysis tools, and fine-tuning datasets
+- **Individual Runs**: Each run directory (01-12) contains detailed results and can be documented using `ModelRuns/01/README.md` as a template
+- **Analysis Tools**: See `ModelRuns/analysis/README.md` for comprehensive analysis capabilities and statistical tools
+- **Fine-tuning**: See `FineTuning/README.md` and `ModelRuns/datasets_for_FT/README.md` for fine-tuning workflows
+- **Sample Data**: See `Sample Results/README.md` for reference examples and data formats
 
 ## 🤝 Contributing
 
