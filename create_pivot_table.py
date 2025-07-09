@@ -9,10 +9,10 @@ def load_evaluation_results(model_runs_dir: str) -> List[Dict[str, Any]]:
     
     # Get all subdirectories in Model Runs
     model_run_folders = [d for d in os.listdir(model_runs_dir) 
-                        if os.path.isdir(os.path.join(model_runs_dir, d)) and d.isdigit()]
+                        if os.path.isdir(os.path.join(model_runs_dir, d))]
     
-    # Sort folders numerically
-    model_run_folders.sort(key=int)
+    # Sort folders alphabetically
+    model_run_folders.sort()
     
     print(f"Found {len(model_run_folders)} model run folders: {model_run_folders}")
     
@@ -170,7 +170,8 @@ def generate_pivot_statistics(df: pd.DataFrame):
 
 def main():
     """Main function to create pivot table from all Model Runs."""
-    model_runs_dir = 'Model Runs'
+    #model_runs_dir = 'Model Runs'
+    model_runs_dir = 'FineTuning\ModelRuns'
     
     try:
         # Check if Model Runs directory exists
