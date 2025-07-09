@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class MBPPInference:
-    def __init__(self, model_path: str = "/home/jupyter/MBPP/FineTunedModels/qwen2.5-easy-heavy/v2-20250707-182332/checkpoint-48"):
+    def __init__(self, model_path: str = "/home/jupyter/FineTunedModels/qwen2.5-easy-heavy/v2-20250707-182332/checkpoint-48"):
         """
         Initialize the MBPP inference class.
         
@@ -415,7 +415,7 @@ def main():
     parser.add_argument('--max-problems', type=int, default=None,
                        help='Maximum number of problems to process')
     parser.add_argument('--model-path', type=str, 
-                       default='/home/jupyter/MBPP/FineTunedModels/qwen2.5-easy-heavy/v2-20250707-182332/checkpoint-48',
+                       default='/home/jupyter/FineTunedModels/qwen2.5-easy-heavy/v2-20250707-182332/checkpoint-48',
                        help='Path to the fine-tuned model checkpoint')
     parser.add_argument('--temperature', type=float, default=1.0,
                        help='Sampling temperature')
