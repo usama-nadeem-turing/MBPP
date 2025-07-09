@@ -23,6 +23,13 @@ class MBPPInference:
         """
         self.model_path = model_path
         
+        # Check if model path exists
+        if not os.path.exists(model_path):
+            logger.error(f"Model path does not exist: {model_path}")
+            raise FileNotFoundError(f"Model path not found: {model_path}")
+        
+        logger.info(f"Model path exists: {model_path}")
+        
         # Load model & tokenizer
         logger.info(f"Loading tokenizer from Qwen/Qwen2.5-1.5B-Instruct...")
         self.tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct", trust_remote_code=True)
@@ -31,7 +38,8 @@ class MBPPInference:
         self.model = AutoModelForCausalLM.from_pretrained(
             model_path, 
             torch_dtype=torch.bfloat16, 
-            trust_remote_code=True
+            trust_remote_code=True,
+            local_files_only=True
         ).to("cuda")
         
         logger.info("Model and tokenizer loaded successfully!")
