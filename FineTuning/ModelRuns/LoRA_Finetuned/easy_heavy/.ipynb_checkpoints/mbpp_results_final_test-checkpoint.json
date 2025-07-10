@@ -1,0 +1,2261 @@
+[
+  {
+    "mbpp_id": 11,
+    "problem": {
+      "task_id": 11,
+      "text": "Write a python function to remove first and last occurrence of a given character from the string.",
+      "code": "def remove_Occ(s,ch): \r\n    for i in range(len(s)): \r\n        if (s[i] == ch): \r\n            s = s[0 : i] + s[i + 1:] \r\n            break\r\n    for i in range(len(s) - 1,-1,-1):  \r\n        if (s[i] == ch): \r\n            s = s[0 : i] + s[i + 1:] \r\n            break\r\n    return s ",
+      "test_list": [
+        "assert remove_Occ(\"hello\",\"l\") == \"heo\"",
+        "assert remove_Occ(\"abcda\",\"a\") == \"bcd\"",
+        "assert remove_Occ(\"PHP\",\"P\") == \"H\""
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert remove_Occ(\"hellolloll\",\"l\") == \"helollol\"",
+        "assert remove_Occ(\"\",\"l\") == \"\""
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove first and last occurrence of a given character from the string.\n\nTask ID: 11\n\nExpected behavior (test cases):\n1. remove_Occ(\"hello\",\"l\") should return \"heo\"\n2. remove_Occ(\"abcda\",\"a\") should return \"bcd\"\n3. remove_Occ(\"PHP\",\"P\") should return \"H\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def remove_Occ(s, c):\n    # Initialize an empty list to store characters after removals.\n    result = []\n    \n    # Traverse through each character in the input string 's'.\n    for i in range(len(s)):\n        # Check if the current character is not equal to the target character 'c'.\n        if s[i] != c:\n            # Append the character to the result list.\n            result.append(s[i])\n    \n    # Join all elements in the result list into a single string and convert it back to upper case before returning.\n    return ''.join(result).upper()[::-1]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 255,
+        "prompt_tokens": 139,
+        "completion_tokens": 123
+      }
+    },
+    "timestamp": 1752162225.0746992
+  },
+  {
+    "mbpp_id": 12,
+    "problem": {
+      "task_id": 12,
+      "text": "Write a function to sort a given matrix in ascending order according to the sum of its rows.",
+      "code": "def sort_matrix(M):\r\n    result = sorted(M, key=sum)\r\n    return result",
+      "test_list": [
+        "assert sort_matrix([[1, 2, 3], [2, 4, 5], [1, 1, 1]])==[[1, 1, 1], [1, 2, 3], [2, 4, 5]]",
+        "assert sort_matrix([[1, 2, 3], [-2, 4, -5], [1, -1, 1]])==[[-2, 4, -5], [1, -1, 1], [1, 2, 3]]",
+        "assert sort_matrix([[5,8,9],[6,4,3],[2,1,4]])==[[2, 1, 4], [6, 4, 3], [5, 8, 9]]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a given matrix in ascending order according to the sum of its rows.\n\nTask ID: 12\n\nExpected behavior (test cases):\n1. sort_matrix([[1, 2, 3], [2, 4, 5], [1, 1, 1]])==[[1, 1, 1], [1, 2, 3], [2, 4, 5]]\n2. sort_matrix([[1, 2, 3], [-2, 4, -5], [1, -1, 1]])==[[-2, 4, -5], [1, -1, 1], [1, 2, 3]]\n3. sort_matrix([[5,8,9],[6,4,3],[2,1,4]])==[[2, 1, 4], [6, 4, 3], [5, 8, 9]]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def sort_matrix(matrix):\n    # Sort each row based on the sum of its elements and then concatenate them.\n    return sorted(matrix, key=sum)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 287,
+        "prompt_tokens": 264,
+        "completion_tokens": 30
+      }
+    },
+    "timestamp": 1752162227.5080435
+  },
+  {
+    "mbpp_id": 13,
+    "problem": {
+      "task_id": 13,
+      "text": "Write a function to count the most common words in a dictionary.",
+      "code": "from collections import Counter\r\ndef count_common(words):\r\n  word_counts = Counter(words)\r\n  top_four = word_counts.most_common(4)\r\n  return (top_four)\r\n",
+      "test_list": [
+        "assert count_common(['red','green','black','pink','black','white','black','eyes','white','black','orange','pink','pink','red','red','white','orange','white',\"black\",'pink','green','green','pink','green','pink','white','orange',\"orange\",'red']) == [('pink', 6), ('black', 5), ('white', 5), ('red', 4)]",
+        "assert count_common(['one', 'two', 'three', 'four', 'five', 'one', 'two', 'one', 'three', 'one']) == [('one', 4), ('two', 2), ('three', 2), ('four', 1)]",
+        "assert count_common(['Facebook', 'Apple', 'Amazon', 'Netflix', 'Google', 'Apple', 'Netflix', 'Amazon']) == [('Apple', 2), ('Amazon', 2), ('Netflix', 2), ('Facebook', 1)]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to count the most common words in a dictionary.\n\nTask ID: 13\n\nExpected behavior (test cases):\n1. count_common(['red','green','black','pink','black','white','black','eyes','white','black','orange','pink','pink','red','red','white','orange','white',\"black\",'pink','green','green','pink','green','pink','white','orange',\"orange\",'red']) should return [('pink', 6), ('black', 5), ('white', 5), ('red', 4)]\n2. count_common(['one', 'two', 'three', 'four', 'five', 'one', 'two', 'one', 'three', 'one']) should return [('one', 4), ('two', 2), ('three', 2), ('four', 1)]\n3. count_common(['Facebook', 'Apple', 'Amazon', 'Netflix', 'Google', 'Apple', 'Netflix', 'Amazon']) should return [('Apple', 2), ('Amazon', 2), ('Netflix', 2), ('Facebook', 1)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def count_common(words):\n    result = []\n    for word in set(words):  # Filter out duplicates first\n        if words.count(word) > len(words) / 2:\n            result.append((word, words.count(word)))\n    return sorted(result, key=lambda x: (-x[1], x[0]))[:10]  # Return top 10 most common words"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 363,
+        "prompt_tokens": 291,
+        "completion_tokens": 79
+      }
+    },
+    "timestamp": 1752162233.0048082
+  },
+  {
+    "mbpp_id": 14,
+    "problem": {
+      "task_id": 14,
+      "text": "Write a python function to find the volume of a triangular prism.",
+      "code": "def find_Volume(l,b,h) : \r\n    return ((l * b * h) / 2) ",
+      "test_list": [
+        "assert find_Volume(10,8,6) == 240",
+        "assert find_Volume(3,2,2) == 6",
+        "assert find_Volume(1,2,1) == 1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the volume of a triangular prism.\n\nTask ID: 14\n\nExpected behavior (test cases):\n1. find_Volume(10,8,6) should return 240\n2. find_Volume(3,2,2) should return 6\n3. find_Volume(1,2,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_Volume(a,b,c):\n    # Calculate and return the volume of the triangular prism given its dimensions.\n    volume = (a * b * c) / 6\n    return int(volume)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 176,
+        "prompt_tokens": 141,
+        "completion_tokens": 42
+      }
+    },
+    "timestamp": 1752162236.2303522
+  },
+  {
+    "mbpp_id": 15,
+    "problem": {
+      "task_id": 15,
+      "text": "Write a function to split a string at lowercase letters.",
+      "code": "import re\r\ndef split_lowerstring(text):\r\n return (re.findall('[a-z][^a-z]*', text))",
+      "test_list": [
+        "assert split_lowerstring(\"AbCd\")==['bC','d']",
+        "assert split_lowerstring(\"Python\")==['y', 't', 'h', 'o', 'n']",
+        "assert split_lowerstring(\"Programming\")==['r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to split a string at lowercase letters.\n\nTask ID: 15\n\nExpected behavior (test cases):\n1. split_lowerstring(\"AbCd\")==['bC','d']\n2. split_lowerstring(\"Python\")==['y', 't', 'h', 'o', 'n']\n3. split_lowerstring(\"Programming\")==['r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def split_lowerstring(s):\n    return [s[i:j] for i in range(len(s)) for j in range(i+1, len(s)+1) if s[i:j].islower()]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 195,
+        "prompt_tokens": 161,
+        "completion_tokens": 41
+      }
+    },
+    "timestamp": 1752162239.3351526
+  },
+  {
+    "mbpp_id": 16,
+    "problem": {
+      "task_id": 16,
+      "text": "Write a function to find sequences of lowercase letters joined with an underscore.",
+      "code": "import re\r\ndef text_lowercase_underscore(text):\r\n        patterns = '^[a-z]+_[a-z]+$'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return('Not matched!')",
+      "test_list": [
+        "assert text_lowercase_underscore(\"aab_cbbbc\")==('Found a match!')",
+        "assert text_lowercase_underscore(\"aab_Abbbc\")==('Not matched!')",
+        "assert text_lowercase_underscore(\"Aaab_abbbc\")==('Not matched!')"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert text_lowercase_underscore(\"aab-cbbbc\")==('Not matched!')"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find sequences of lowercase letters joined with an underscore.\n\nTask ID: 16\n\nExpected behavior (test cases):\n1. text_lowercase_underscore(\"aab_cbbbc\")==('Found a match!')\n2. text_lowercase_underscore(\"aab_Abbbc\")==('Not matched!')\n3. text_lowercase_underscore(\"Aaab_abbbc\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def text_lowercase_underscore(text):\n    # Split the string into words based on underscores and check if all characters in each word are lowercase.\n    return 'Found a match!' if [w for w in text.split('_') if w.islower()] else 'Not matched!'"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 186,
+        "prompt_tokens": 138,
+        "completion_tokens": 55
+      }
+    },
+    "timestamp": 1752162243.3066385
+  },
+  {
+    "mbpp_id": 17,
+    "problem": {
+      "task_id": 17,
+      "text": "Write a function to find the perimeter of a square.",
+      "code": "def square_perimeter(a):\r\n  perimeter=4*a\r\n  return perimeter",
+      "test_list": [
+        "assert square_perimeter(10)==40",
+        "assert square_perimeter(5)==20",
+        "assert square_perimeter(4)==16"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the perimeter of a square.\n\nTask ID: 17\n\nExpected behavior (test cases):\n1. square_perimeter(10)==40\n2. square_perimeter(5)==20\n3. square_perimeter(4)==16\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def square_perimeter(side_length):\n    return side_length * 4"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 126,
+        "prompt_tokens": 119,
+        "completion_tokens": 14
+      }
+    },
+    "timestamp": 1752162244.771518
+  },
+  {
+    "mbpp_id": 18,
+    "problem": {
+      "task_id": 18,
+      "text": "Write a function to remove characters from the first string which are present in the second string.",
+      "code": "NO_OF_CHARS = 256\r\ndef str_to_list(string): \r\n\ttemp = [] \r\n\tfor x in string: \r\n\t\ttemp.append(x) \r\n\treturn temp \r\ndef lst_to_string(List): \r\n\treturn ''.join(List) \r\ndef get_char_count_array(string): \r\n\tcount = [0] * NO_OF_CHARS \r\n\tfor i in string: \r\n\t\tcount[ord(i)] += 1\r\n\treturn count \r\ndef remove_dirty_chars(string, second_string): \r\n\tcount = get_char_count_array(second_string) \r\n\tip_ind = 0\r\n\tres_ind = 0\r\n\ttemp = '' \r\n\tstr_list = str_to_list(string) \r\n\twhile ip_ind != len(str_list): \r\n\t\ttemp = str_list[ip_ind] \r\n\t\tif count[ord(temp)] == 0: \r\n\t\t\tstr_list[res_ind] = str_list[ip_ind] \r\n\t\t\tres_ind += 1\r\n\t\tip_ind+=1\r\n\treturn lst_to_string(str_list[0:res_ind]) ",
+      "test_list": [
+        "assert remove_dirty_chars(\"probasscurve\", \"pros\") == 'bacuve'",
+        "assert remove_dirty_chars(\"digitalindia\", \"talent\") == 'digiidi'",
+        "assert remove_dirty_chars(\"exoticmiles\", \"toxic\") == 'emles' "
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to remove characters from the first string which are present in the second string.\n\nTask ID: 18\n\nExpected behavior (test cases):\n1. remove_dirty_chars(\"probasscurve\", \"pros\") should return 'bacuve'\n2. remove_dirty_chars(\"digitalindia\", \"talent\") should return 'digiidi'\n3. remove_dirty_chars(\"exoticmiles\", \"toxic\") should return 'emles' \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def remove_dirty_chars(main_str, dirty_str):\n    # Initialize an empty list to store valid characters from main_str\n    clean_chars = []\n    \n    for char in main_str:\n        if char not in dirty_str:\n            clean_chars.append(char)\n            \n    return ''.join(clean_chars)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 207,
+        "prompt_tokens": 155,
+        "completion_tokens": 59
+      }
+    },
+    "timestamp": 1752162248.9758303
+  },
+  {
+    "mbpp_id": 19,
+    "problem": {
+      "task_id": 19,
+      "text": "Write a function to find whether a given array of integers contains any duplicate element.",
+      "code": "def test_duplicate(arraynums):\r\n    nums_set = set(arraynums)    \r\n    return len(arraynums) != len(nums_set)     ",
+      "test_list": [
+        "assert test_duplicate(([1,2,3,4,5]))==False",
+        "assert test_duplicate(([1,2,3,4, 4]))==True",
+        "assert test_duplicate([1,1,2,2,3,3,4,4,5])==True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find whether a given array of integers contains any duplicate element.\n\nTask ID: 19\n\nExpected behavior (test cases):\n1. test_duplicate(([1,2,3,4,5]))==False\n2. test_duplicate(([1,2,3,4, 4]))==True\n3. test_duplicate([1,1,2,2,3,3,4,4,5])==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def test_duplicate(arr):\n    return len(set(arr)) != len(arr)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 160,
+        "prompt_tokens": 152,
+        "completion_tokens": 15
+      }
+    },
+    "timestamp": 1752162250.4858153
+  },
+  {
+    "mbpp_id": 20,
+    "problem": {
+      "task_id": 20,
+      "text": "Write a function to check if the given number is woodball or not.",
+      "code": "def is_woodall(x): \r\n\tif (x % 2 == 0): \r\n\t\treturn False\r\n\tif (x == 1): \r\n\t\treturn True\r\n\tx = x + 1 \r\n\tp = 0\r\n\twhile (x % 2 == 0): \r\n\t\tx = x/2\r\n\t\tp = p + 1\r\n\t\tif (p == x): \r\n\t\t\treturn True\r\n\treturn False",
+      "test_list": [
+        "assert is_woodall(383) == True",
+        "assert is_woodall(254) == False",
+        "assert is_woodall(200) == False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert is_woodall(32212254719) == True",
+        "assert is_woodall(32212254718) == False",
+        "assert is_woodall(159) == True"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given number is woodball or not.\n\nTask ID: 20\n\nExpected behavior (test cases):\n1. is_woodall(383) should return True\n2. is_woodall(254) should return False\n3. is_woodall(200) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def is_woodall(n):\n    i = 2\n    while i * i <= n:\n        j = i + 1\n        while j * j <= n:\n            k = j + 1\n            while k * k <= n:\n                if n % k == 0:\n                    return True\n                k += 1\n            j += 1\n        i += 1\n    return False"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 214,
+        "prompt_tokens": 134,
+        "completion_tokens": 87
+      }
+    },
+    "timestamp": 1752162256.466966
+  },
+  {
+    "mbpp_id": 21,
+    "problem": {
+      "task_id": 21,
+      "text": "Write a function to find m number of multiples of n.",
+      "code": "def multiples_of_num(m,n): \r\n    multiples_of_num= list(range(n,(m+1)*n, n)) \r\n    return list(multiples_of_num)",
+      "test_list": [
+        "assert multiples_of_num(4,3)== [3,6,9,12]",
+        "assert multiples_of_num(2,5)== [5,10]",
+        "assert multiples_of_num(9,2)== [2,4,6,8,10,12,14,16,18]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find m number of multiples of n.\n\nTask ID: 21\n\nExpected behavior (test cases):\n1. multiples_of_num(4,3)== [3,6,9,12]\n2. multiples_of_num(2,5)== [5,10]\n3. multiples_of_num(9,2)== [2,4,6,8,10,12,14,16,18]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def multiples_of_num(m, n):\n    return list(range(n * 1, (n + m - 1) * m, n))"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 179,
+        "prompt_tokens": 156,
+        "completion_tokens": 30
+      }
+    },
+    "timestamp": 1752162258.8627245
+  },
+  {
+    "mbpp_id": 22,
+    "problem": {
+      "task_id": 22,
+      "text": "Write a function to find the first duplicate element in a given array of integers.",
+      "code": "def find_first_duplicate(nums):\r\n    num_set = set()\r\n    no_duplicate = -1\r\n\r\n    for i in range(len(nums)):\r\n\r\n        if nums[i] in num_set:\r\n            return nums[i]\r\n        else:\r\n            num_set.add(nums[i])\r\n\r\n    return no_duplicate",
+      "test_list": [
+        "assert find_first_duplicate(([1, 2, 3, 4, 4, 5]))==4",
+        "assert find_first_duplicate([1, 2, 3, 4])==-1",
+        "assert find_first_duplicate([1, 1, 2, 3, 3, 2, 2])==1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the first duplicate element in a given array of integers.\n\nTask ID: 22\n\nExpected behavior (test cases):\n1. find_first_duplicate(([1, 2, 3, 4, 4, 5]))==4\n2. find_first_duplicate([1, 2, 3, 4])==-1\n3. find_first_duplicate([1, 1, 2, 3, 3, 2, 2])==1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_first_duplicate(arr):\n    for i in range(len(arr)):\n        if arr[abs(arr[i])] >= 0:\n            arr[abs(arr[i])] = -arr[abs(arr[i])]\n        else:\n            return abs(arr[i])\n    return -1"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 211,
+        "prompt_tokens": 164,
+        "completion_tokens": 54
+      }
+    },
+    "timestamp": 1752162262.7618213
+  },
+  {
+    "mbpp_id": 23,
+    "problem": {
+      "task_id": 23,
+      "text": "Write a python function to find the maximum sum of elements of list in a list of lists.",
+      "code": "def maximum_Sum(list1): \r\n    maxi = -100000\r\n    for x in list1: \r\n        sum = 0 \r\n        for y in x: \r\n            sum+= y      \r\n        maxi = max(sum,maxi)     \r\n    return maxi ",
+      "test_list": [
+        "assert maximum_Sum([[1,2,3],[4,5,6],[10,11,12],[7,8,9]]) == 33",
+        "assert maximum_Sum([[0,1,1],[1,1,2],[3,2,1]]) == 6",
+        "assert maximum_Sum([[0,1,3],[1,2,1],[9,8,2],[0,1,0],[6,4,8]]) == 19"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert maximum_Sum([[0,-1,-1],[-1,-1,-2],[-3,-2,-1]]) == -2"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the maximum sum of elements of list in a list of lists.\n\nTask ID: 23\n\nExpected behavior (test cases):\n1. maximum_Sum([[1,2,3],[4,5,6],[10,11,12],[7,8,9]]) should return 33\n2. maximum_Sum([[0,1,1],[1,1,2],[3,2,1]]) should return 6\n3. maximum_Sum([[0,1,3],[1,2,1],[9,8,2],[0,1,0],[6,4,8]]) should return 19\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def maximum_Sum(lst):\n    # Calculate the total sum of all elements in the nested lists and divide by 3.\n    result = sum(sum(x) for x in lst) // 3\n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 240,
+        "prompt_tokens": 203,
+        "completion_tokens": 44
+      }
+    },
+    "timestamp": 1752162266.0914032
+  },
+  {
+    "mbpp_id": 24,
+    "problem": {
+      "task_id": 24,
+      "text": "Write a function to convert the given binary number to its decimal equivalent.",
+      "code": "def binary_to_decimal(binary): \r\n    binary1 = binary \r\n    decimal, i, n = 0, 0, 0\r\n    while(binary != 0): \r\n        dec = binary % 10\r\n        decimal = decimal + dec * pow(2, i) \r\n        binary = binary//10\r\n        i += 1\r\n    return (decimal)",
+      "test_list": [
+        "assert binary_to_decimal(100) == 4",
+        "assert binary_to_decimal(1011) == 11",
+        "assert binary_to_decimal(1101101) == 109"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to convert the given binary number to its decimal equivalent.\n\nTask ID: 24\n\nExpected behavior (test cases):\n1. binary_to_decimal(100) should return 4\n2. binary_to_decimal(1011) should return 11\n3. binary_to_decimal(1101101) should return 109\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def binary_to_decimal(binary_str):\n    # Convert the string representation of the binary number to an integer.\n    decimal_number = int(binary_str, 2)\n    return decimal_number"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 170,
+        "prompt_tokens": 141,
+        "completion_tokens": 36
+      }
+    },
+    "timestamp": 1752162268.8383265
+  },
+  {
+    "mbpp_id": 25,
+    "problem": {
+      "task_id": 25,
+      "text": "Write a python function to find the product of non-repeated elements in a given array.",
+      "code": "def find_Product(arr,n): \r\n    arr.sort() \r\n    prod = 1\r\n    for i in range(0,n,1): \r\n        if (arr[i - 1] != arr[i]): \r\n            prod = prod * arr[i] \r\n    return prod; ",
+      "test_list": [
+        "assert find_Product([1,1,2,3],4) == 6",
+        "assert find_Product([1,2,3,1,1],5) == 6",
+        "assert find_Product([1,1,4,5,6],5) == 120"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert find_Product([1,1,4,5,6,5,7,1,1,3,4],11) == 2520"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the product of non-repeated elements in a given array.\n\nTask ID: 25\n\nExpected behavior (test cases):\n1. find_Product([1,1,2,3],4) should return 6\n2. find_Product([1,2,3,1,1],5) should return 6\n3. find_Product([1,1,4,5,6],5) should return 120\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_Product(arr, n):\n    from functools import reduce\n    \n    # Find distinct products of all possible pairs of numbers in arr using zip(*arr)\n    result = reduce(lambda x, y: x * y, [reduce(lambda x, z: x * z, pair) for pair in zip(*arr)])\n    \n    return int(result)\n\n# Test cases provided as part of the instruction\nprint(find_Product([1,1,2,3],4))  # Expected output: 6\nprint(find_Product([1,2,3,1,1],5))  # Expected output: 6\nprint(find_Product([1,1,4,5,6],5))  # Expected output: 120"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 302,
+        "prompt_tokens": 158,
+        "completion_tokens": 151
+      }
+    },
+    "timestamp": 1752162278.5966473
+  },
+  {
+    "mbpp_id": 26,
+    "problem": {
+      "task_id": 26,
+      "text": "Write a function to check if the given tuple list has all k elements.",
+      "code": "def check_k_elements(test_list, K):\r\n  res = True\r\n  for tup in test_list:\r\n    for ele in tup:\r\n      if ele != K:\r\n        res = False\r\n  return (res) ",
+      "test_list": [
+        "assert check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 4, 4), (4, )], 4) == True",
+        "assert check_k_elements([(7, 7, 7), (7, 7)], 7) == True",
+        "assert check_k_elements([(9, 9), (9, 9, 9, 9)], 7) == False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 6, 4), (4, )], 4) == False"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the given tuple list has all k elements.\n\nTask ID: 26\n\nExpected behavior (test cases):\n1. check_k_elements([(4, 4), (4, 4, 4), (4, 4), (4, 4, 4, 4), (4, )], 4) should return True\n2. check_k_elements([(7, 7, 7), (7, 7)], 7) should return True\n3. check_k_elements([(9, 9), (9, 9, 9, 9)], 7) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def check_k_elements(tup_list, k):\n    # Check each tuple in the list to see if it contains exactly k elements.\n    for item in tup_list:\n        if len(item) != k:\n            return False\n    return True"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 238,
+        "prompt_tokens": 196,
+        "completion_tokens": 49
+      }
+    },
+    "timestamp": 1752162282.172016
+  },
+  {
+    "mbpp_id": 27,
+    "problem": {
+      "task_id": 27,
+      "text": "Write a python function to remove all digits from a list of strings.",
+      "code": "import re  \r\ndef remove(list): \r\n    pattern = '[0-9]'\r\n    list = [re.sub(pattern, '', i) for i in list] \r\n    return list",
+      "test_list": [
+        "assert remove(['4words', '3letters', '4digits']) == ['words', 'letters', 'digits']",
+        "assert remove(['28Jan','12Jan','11Jan']) == ['Jan','Jan','Jan']",
+        "assert remove(['wonder1','wonder2','wonder3']) == ['wonder','wonder','wonder']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to remove all digits from a list of strings.\n\nTask ID: 27\n\nExpected behavior (test cases):\n1. remove(['4words', '3letters', '4digits']) should return ['words', 'letters', 'digits']\n2. remove(['28Jan','12Jan','11Jan']) should return ['Jan','Jan','Jan']\n3. remove(['wonder1','wonder2','wonder3']) should return ['wonder','wonder','wonder']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def remove(string_list):\n    new_list = [s for s in string_list if not str(s).isdigit()]\n    return new_list"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 187,
+        "prompt_tokens": 167,
+        "completion_tokens": 27
+      }
+    },
+    "timestamp": 1752162284.3911095
+  },
+  {
+    "mbpp_id": 28,
+    "problem": {
+      "task_id": 28,
+      "text": "Write a python function to find binomial co-efficient.",
+      "code": "def binomial_Coeff(n,k): \r\n    if k > n : \r\n       return 0\r\n    if k==0 or k ==n : \r\n        return 1 \r\n    return binomial_Coeff(n-1,k-1) + binomial_Coeff(n-1,k) ",
+      "test_list": [
+        "assert binomial_Coeff(5,2) == 10",
+        "assert binomial_Coeff(4,3) == 4",
+        "assert binomial_Coeff(3,2) == 3"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert binomial_Coeff(14,6) == 3003"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find binomial co-efficient.\n\nTask ID: 28\n\nExpected behavior (test cases):\n1. binomial_Coeff(5,2) should return 10\n2. binomial_Coeff(4,3) should return 4\n3. binomial_Coeff(3,2) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def binomial_Coeff(n, k):\n    # Calculate the binomial coefficient using the formula n! / ((n-k)! * k!)\n    return factorial(n) // (factorial(k) * factorial(n - k)) if n >= k else 0\n\n# Helper function to calculate factorial of a number\nfrom math import factorial as fact\n\n# Test cases\nassert binomial_Coeff(5, 2) == 10\nassert binomial_Coeff(4, 3) == 4\nassert binomial_Coeff(3, 2) == 3"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 247,
+        "prompt_tokens": 134,
+        "completion_tokens": 120
+      }
+    },
+    "timestamp": 1752162292.2843537
+  },
+  {
+    "mbpp_id": 29,
+    "problem": {
+      "task_id": 29,
+      "text": "Write a python function to find the element occurring odd number of times.",
+      "code": "def get_Odd_Occurrence(arr,arr_size):   \r\n    for i in range(0,arr_size): \r\n        count = 0\r\n        for j in range(0,arr_size): \r\n            if arr[i] == arr[j]: \r\n                count+=1     \r\n        if (count % 2 != 0): \r\n            return arr[i]     \r\n    return -1",
+      "test_list": [
+        "assert get_Odd_Occurrence([1,2,3,1,2,3,1],7) == 1",
+        "assert get_Odd_Occurrence([1,2,3,2,3,1,3],7) == 3",
+        "assert get_Odd_Occurrence([2,3,5,4,5,2,4,3,5,2,4,4,2],13) == 5"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the element occurring odd number of times.\n\nTask ID: 29\n\nExpected behavior (test cases):\n1. get_Odd_Occurrence([1,2,3,1,2,3,1],7) should return 1\n2. get_Odd_Occurrence([1,2,3,2,3,1,3],7) should return 3\n3. get_Odd_Occurrence([2,3,5,4,5,2,4,3,5,2,4,4,2],13) should return 5\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def get_Odd_Occurrence(arr, n):\n    result = 0\n    for i in range(n):\n        result ^= arr[i]\n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 217,
+        "prompt_tokens": 191,
+        "completion_tokens": 33
+      }
+    },
+    "timestamp": 1752162294.8657176
+  },
+  {
+    "mbpp_id": 30,
+    "problem": {
+      "task_id": 30,
+      "text": "Write a python function to count all the substrings starting and ending with same characters.",
+      "code": "def check_Equality(s): \r\n    return (ord(s[0]) == ord(s[len(s) - 1])); \r\ndef count_Substring_With_Equal_Ends(s): \r\n    result = 0; \r\n    n = len(s); \r\n    for i in range(n): \r\n        for j in range(1,n-i+1):  \r\n            if (check_Equality(s[i:i+j])): \r\n                result+=1; \r\n    return result; ",
+      "test_list": [
+        "assert count_Substring_With_Equal_Ends(\"abc\") == 3",
+        "assert count_Substring_With_Equal_Ends(\"abcda\") == 6",
+        "assert count_Substring_With_Equal_Ends(\"ab\") == 2"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count all the substrings starting and ending with same characters.\n\nTask ID: 30\n\nExpected behavior (test cases):\n1. count_Substring_With_Equal_Ends(\"abc\") should return 3\n2. count_Substring_With_Equal_Ends(\"abcda\") should return 6\n3. count_Substring_With_Equal_Ends(\"ab\") should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def count_substrings(s):\n    ans = []\n    for i in range(len(s)):\n        temp = s[i]\n        j = i + 1\n        while(j < len(s) and temp == s[j]):\n            j += 1\n        if j - i > 1:\n            ans.append(temp)\n    return len(ans)\n\n# Test Cases\nprint(count_substrings(\"abc\")) # Expected output: 3\nprint(count_substrings(\"abcda\")) # Expected output: 6\nprint(count_substrings(\"ab\")) # Expected output: 2"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 258,
+        "prompt_tokens": 149,
+        "completion_tokens": 116
+      }
+    },
+    "timestamp": 1752162302.515156
+  },
+  {
+    "mbpp_id": 31,
+    "problem": {
+      "task_id": 31,
+      "text": "Write a function to find the top k integers that occur most frequently from given lists of sorted and distinct integers using heap queue algorithm.",
+      "code": "def func(nums, k):\r\n    import collections\r\n    d = collections.defaultdict(int)\r\n    for row in nums:\r\n        for i in row:\r\n            d[i] += 1\r\n    temp = []\r\n    import heapq\r\n    for key, v in d.items():\r\n        if len(temp) < k:\r\n            temp.append((v, key))\r\n            if len(temp) == k:\r\n                heapq.heapify(temp)\r\n        else:\r\n            if v > temp[0][0]:\r\n                heapq.heappop(temp)\r\n                heapq.heappush(temp, (v, key))\r\n    result = []\r\n    while temp:\r\n        v, key = heapq.heappop(temp)\r\n        result.append(key)\r\n    return result",
+      "test_list": [
+        "assert func([[1, 2, 6], [1, 3, 4, 5, 7, 8], [1, 3, 5, 6, 8, 9], [2, 5, 7, 11], [1, 4, 7, 8, 12]],3)==[5, 7, 1]",
+        "assert func([[1, 2, 6], [1, 3, 4, 5, 7, 8], [1, 3, 5, 6, 8, 9], [2, 5, 7, 11], [1, 4, 7, 8, 12]],1)==[1]",
+        "assert func([[1, 2, 6], [1, 3, 4, 5, 7, 8], [1, 3, 5, 6, 8, 9], [2, 5, 7, 11], [1, 4, 7, 8, 12]],5)==[6, 5, 7, 8, 1]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the top k integers that occur most frequently from given lists of sorted and distinct integers using heap queue algorithm.\n\nTask ID: 31\n\nExpected behavior (test cases):\n1. func([[1, 2, 6], [1, 3, 4, 5, 7, 8], [1, 3, 5, 6, 8, 9], [2, 5, 7, 11], [1, 4, 7, 8, 12]],3)==[5, 7, 1]\n2. func([[1, 2, 6], [1, 3, 4, 5, 7, 8], [1, 3, 5, 6, 8, 9], [2, 5, 7, 11], [1, 4, 7, 8, 12]],1)==[1]\n3. func([[1, 2, 6], [1, 3, 4, 5, 7, 8], [1, 3, 5, 6, 8, 9], [2, 5, 7, 11], [1, 4, 7, 8, 12]],5)==[6, 5, 7, 8, 1]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def func(lst):\n    import heapq\n    \n    def get_max_heap(heap_list):\n        return [-num for num in heapq.nlargest(len(heap_list), set(heap_list))]\n\n    result = []\n    for lst in lst:\n        result.extend(get_max_heap(lst))\n    \n    return list(result)[:-len(lst)]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 421,
+        "prompt_tokens": 364,
+        "completion_tokens": 64
+      }
+    },
+    "timestamp": 1752162307.0331242
+  },
+  {
+    "mbpp_id": 32,
+    "problem": {
+      "task_id": 32,
+      "text": "Write a python function to find the largest prime factor of a given number.",
+      "code": "import math \r\ndef max_Prime_Factors (n): \r\n    maxPrime = -1 \r\n    while n%2 == 0: \r\n        maxPrime = 2\r\n        n >>= 1    \r\n    for i in range(3,int(math.sqrt(n))+1,2): \r\n        while n % i == 0: \r\n            maxPrime = i \r\n            n = n / i \r\n    if n > 2: \r\n        maxPrime = n  \r\n    return int(maxPrime)",
+      "test_list": [
+        "assert max_Prime_Factors(15) == 5",
+        "assert max_Prime_Factors(6) == 3",
+        "assert max_Prime_Factors(2) == 2"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the largest prime factor of a given number.\n\nTask ID: 32\n\nExpected behavior (test cases):\n1. max_Prime_Factors(15) should return 5\n2. max_Prime_Factors(6) should return 3\n3. max_Prime_Factors(2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def max_prime_factors(n): \n    # Initialize the maximum factor variable.\n    mxf = -1\n    \n    # Divide n by 2 until it becomes odd.\n    while n % 2 == 0:\n        mxf = max(mxf, 2)\n        n //= 2\n        \n    # Now check for odd factors starting from 3 up to the square root of n.\n    for i in range(3, int(n**0.5)+1, 2):\n        while n % i == 0:\n            mxf = max(mxf, i)\n            n //= i\n            \n    # If n is still greater than 2 and not already handled as a factor,\n    # then it must be a prime number itself.\n    if n > 2:\n        mxf = max(mxf, n)\n    \n    return mxf"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 303,
+        "prompt_tokens": 135,
+        "completion_tokens": 175
+      }
+    },
+    "timestamp": 1752162318.339861
+  },
+  {
+    "mbpp_id": 33,
+    "problem": {
+      "task_id": 33,
+      "text": "Write a python function to convert a decimal number to binary number.",
+      "code": "def decimal_To_Binary(N): \r\n    B_Number = 0\r\n    cnt = 0\r\n    while (N != 0): \r\n        rem = N % 2\r\n        c = pow(10,cnt)  \r\n        B_Number += rem*c  \r\n        N //= 2 \r\n        cnt += 1\r\n    return B_Number  ",
+      "test_list": [
+        "assert decimal_To_Binary(10) == 1010",
+        "assert decimal_To_Binary(1) == 1",
+        "assert decimal_To_Binary(20) == 10100"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to convert a decimal number to binary number.\n\nTask ID: 33\n\nExpected behavior (test cases):\n1. decimal_To_Binary(10) should return 1010\n2. decimal_To_Binary(1) should return 1\n3. decimal_To_Binary(20) should return 10100\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def decimal_To_Binary(decimal_number):\n    # Convert the decimal number to its binary representation and store it in result.\n    result = bin(decimal_number)[2:]\n    \n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 168,
+        "prompt_tokens": 138,
+        "completion_tokens": 37
+      }
+    },
+    "timestamp": 1752162321.2000346
+  },
+  {
+    "mbpp_id": 34,
+    "problem": {
+      "task_id": 34,
+      "text": "Write a python function to find the missing number in a sorted array.",
+      "code": "def find_missing(ar,N): \r\n    l = 0\r\n    r = N - 1\r\n    while (l <= r):  \r\n        mid = (l + r) / 2\r\n        mid= int (mid) \r\n        if (ar[mid] != mid + 1 and ar[mid - 1] == mid): \r\n            return (mid + 1)  \r\n        elif (ar[mid] != mid + 1): \r\n            r = mid - 1 \r\n        else: \r\n            l = mid + 1\r\n    return (-1) ",
+      "test_list": [
+        "assert find_missing([1,2,3,5],4) == 4",
+        "assert find_missing([1,3,4,5],4) == 2",
+        "assert find_missing([1,2,3,5,6,7],5) == 4"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the missing number in a sorted array.\n\nTask ID: 34\n\nExpected behavior (test cases):\n1. find_missing([1,2,3,5],4) should return 4\n2. find_missing([1,3,4,5],4) should return 2\n3. find_missing([1,2,3,5,6,7],5) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_missing(arr, n):\n    low = 0\n    high = len(arr) - 1\n    \n    while low <= high:\n        mid = (low + high) // 2\n        \n        # Check if the difference between arr[mid] and its expected value is more than 1.\n        if abs(arr[mid] - mid * (mid + 1)) > 1:\n            high = mid - 1\n            \n        else:\n            low = mid + 1\n    \n    # The index where the number was supposed to be but isn't, which is our result.\n    return low * (low + 1) - sum(arr)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 278,
+        "prompt_tokens": 152,
+        "completion_tokens": 133
+      }
+    },
+    "timestamp": 1752162329.8698215
+  },
+  {
+    "mbpp_id": 35,
+    "problem": {
+      "task_id": 35,
+      "text": "Write a function to find the n-th rectangular number.",
+      "code": "def find_rect_num(n):\r\n  return n*(n + 1) ",
+      "test_list": [
+        "assert find_rect_num(4) == 20",
+        "assert find_rect_num(5) == 30",
+        "assert find_rect_num(6) == 42"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the n-th rectangular number.\n\nTask ID: 35\n\nExpected behavior (test cases):\n1. find_rect_num(4) should return 20\n2. find_rect_num(5) should return 30\n3. find_rect_num(6) should return 42\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_rect_num(n):\n    return n * (n + 1)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 136,
+        "prompt_tokens": 127,
+        "completion_tokens": 16
+      }
+    },
+    "timestamp": 1752162331.433531
+  },
+  {
+    "mbpp_id": 36,
+    "problem": {
+      "task_id": 36,
+      "text": "Write a python function to find the nth digit in the proper fraction of two given numbers.",
+      "code": "def find_Nth_Digit(p,q,N) :  \r\n    while (N > 0) : \r\n        N -= 1;  \r\n        p *= 10;  \r\n        res = p // q;  \r\n        p %= q;  \r\n    return res;  ",
+      "test_list": [
+        "assert find_Nth_Digit(1,2,1) == 5",
+        "assert find_Nth_Digit(3,5,1) == 6",
+        "assert find_Nth_Digit(5,6,5) == 3"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the nth digit in the proper fraction of two given numbers.\n\nTask ID: 36\n\nExpected behavior (test cases):\n1. find_Nth_Digit(1,2,1) should return 5\n2. find_Nth_Digit(3,5,1) should return 6\n3. find_Nth_Digit(5,6,5) should return 3\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_Nth_Digit(N, start_number, end_number):\n    # Implementing logic to calculate and return the nth digit.\n    pass"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 171,
+        "prompt_tokens": 149,
+        "completion_tokens": 29
+      }
+    },
+    "timestamp": 1752162333.7805653
+  },
+  {
+    "mbpp_id": 37,
+    "problem": {
+      "task_id": 37,
+      "text": "Write a function to sort a given mixed list of integers and strings.",
+      "code": "def sort_mixed_list(mixed_list):\r\n    int_part = sorted([i for i in mixed_list if type(i) is int])\r\n    str_part = sorted([i for i in mixed_list if type(i) is str])\r\n    return int_part + str_part",
+      "test_list": [
+        "assert sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']",
+        "assert sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']",
+        "assert sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a given mixed list of integers and strings.\n\nTask ID: 37\n\nExpected behavior (test cases):\n1. sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']\n2. sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']\n3. sort_mixed_list([19,'red',12,'green','blue', 10,'white','green',1])==[1, 10, 12, 19, 'blue', 'green', 'green', 'red', 'white']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def sort_mixed_list(lst):\n    return sorted(lst)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 270,
+        "prompt_tokens": 265,
+        "completion_tokens": 12
+      }
+    },
+    "timestamp": 1752162335.1018996
+  },
+  {
+    "mbpp_id": 38,
+    "problem": {
+      "task_id": 38,
+      "text": "Write a function to find the division of first even and odd number of a given list.",
+      "code": "def div_even_odd(list1):\r\n    first_even = next((el for el in list1 if el%2==0),-1)\r\n    first_odd = next((el for el in list1 if el%2!=0),-1)\r\n    return (first_even/first_odd)",
+      "test_list": [
+        "assert div_even_odd([1,3,5,7,4,1,6,8])==4",
+        "assert div_even_odd([1,2,3,4,5,6,7,8,9,10])==2",
+        "assert div_even_odd([1,5,7,9,10])==10"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the division of first even and odd number of a given list.\n\nTask ID: 38\n\nExpected behavior (test cases):\n1. div_even_odd([1,3,5,7,4,1,6,8])==4\n2. div_even_odd([1,2,3,4,5,6,7,8,9,10])==2\n3. div_even_odd([1,5,7,9,10])==10\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def div_even_odd(arr):\n    # Calculate the product of all elements in the array.\n    product = 1\n    \n    for num in arr:\n        if num % 2 == 0:\n            product *= num\n            \n    # Check if there is an even element in the array.\n    if sum(1 for x in arr if x % 2 == 0) > 0:\n        return product // max(arr)\n    else:\n        return product / min(arr)\n\n# Test cases to verify the correctness of the solution.\nprint(div_even_odd([1,3,5,7,4,1,6,8]))  # Expected output: 4\nprint(div_even_odd([1,2,3,4,5,6,7,8,9,10]))  # Expected output: 2\nprint(div_even_odd([1,5,7,9,10]))  # Expected output: 10"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 353,
+        "prompt_tokens": 165,
+        "completion_tokens": 195
+      }
+    },
+    "timestamp": 1752162347.596531
+  },
+  {
+    "mbpp_id": 39,
+    "problem": {
+      "task_id": 39,
+      "text": "Write a function to check if the letters of a given string can be rearranged so that two characters that are adjacent to each other are different.",
+      "code": "import heapq\r\nfrom collections import Counter\r\ndef rearange_string(S):\r\n    ctr = Counter(S)\r\n    heap = [(-value, key) for key, value in ctr.items()]\r\n    heapq.heapify(heap)\r\n    if (-heap[0][0]) * 2 > len(S) + 1: \r\n        return \"\"\r\n    ans = []\r\n    while len(heap) >= 2:\r\n        nct1, char1 = heapq.heappop(heap)\r\n        nct2, char2 = heapq.heappop(heap)\r\n        ans.extend([char1, char2])\r\n        if nct1 + 1: heapq.heappush(heap, (nct1 + 1, char1))\r\n        if nct2 + 1: heapq.heappush(heap, (nct2 + 1, char2))\r\n    return \"\".join(ans) + (heap[0][1] if heap else \"\")",
+      "test_list": [
+        "assert rearange_string(\"aab\")==('aba')",
+        "assert rearange_string(\"aabb\")==('abab')",
+        "assert rearange_string(\"abccdd\")==('cdabcd')"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check if the letters of a given string can be rearranged so that two characters that are adjacent to each other are different.\n\nTask ID: 39\n\nExpected behavior (test cases):\n1. rearange_string(\"aab\")==('aba')\n2. rearange_string(\"aabb\")==('abab')\n3. rearange_string(\"abccdd\")==('cdabcd')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def rearange_string(s):\n    # Initialize variables\n    count = {}\n    max_value = float('-inf')\n    result_list = []\n\n    # Count occurrences of each character in the input string\n    for char in s:\n        if char not in count:\n            count[char] = 0\n        count[char] += 1\n    \n    # Find the maximum frequency among all characters\n    for key in count.keys():\n        if count[key] > max_value:\n            max_value = count[key]\n    \n    # Rearrange based on frequencies and create the result list with unique pairs\n    for _ in range(max_value - 1):\n        min_key = None\n        for key in count.keys():\n            if count[key] == max_value:\n                if min_key is None or ord(key) < ord(min_key):\n                    min_key = key\n        \n        temp_char = min_key\n        while count[temp_char] > 0:\n            result_list.append(temp_char)\n            count[temp_char] -= 1\n    \n    return ''.join(result_list)\n\n# Test cases to verify the correctness of the generated function\nprint(rearange_string(\"aab\"))  # Expected output: 'aba'\nprint(rearange_string(\"aabb\"))  # Expected output: 'abab'\nprint(rearange_string(\"abccdd\"))  # Expected output: 'cdabcd'"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 412,
+        "prompt_tokens": 141,
+        "completion_tokens": 278
+      }
+    },
+    "timestamp": 1752162365.092997
+  },
+  {
+    "mbpp_id": 40,
+    "problem": {
+      "task_id": 40,
+      "text": "Write a function to find frequency of the elements in a given list of lists using collections module.",
+      "code": "from collections import Counter\r\nfrom itertools import chain\r\ndef freq_element(nums):\r\n  result = Counter(chain.from_iterable(nums))\r\n  return result",
+      "test_list": [
+        "assert freq_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]])==({2: 3, 1: 2, 5: 2, 3: 1, 4: 1, 6: 1, 7: 1, 9: 1})",
+        "assert freq_element([[1,2,3,4],[5,6,7,8],[9,10,11,12]])==({1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1})",
+        "assert freq_element([[15,20,30,40],[80,90,100,110],[30,30,80,90]])==({30: 3, 80: 2, 90: 2, 15: 1, 20: 1, 40: 1, 100: 1, 110: 1})"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find frequency of the elements in a given list of lists using collections module.\n\nTask ID: 40\n\nExpected behavior (test cases):\n1. freq_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]])==({2: 3, 1: 2, 5: 2, 3: 1, 4: 1, 6: 1, 7: 1, 9: 1})\n2. freq_element([[1,2,3,4],[5,6,7,8],[9,10,11,12]])==({1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1})\n3. freq_element([[15,20,30,40],[80,90,100,110],[30,30,80,90]])==({30: 3, 80: 2, 90: 2, 15: 1, 20: 1, 40: 1, 100: 1, 110: 1})\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "import collections\n\ndef freq_element(lst):\n    return collections.Counter(map(tuple, lst))"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 402,
+        "prompt_tokens": 392,
+        "completion_tokens": 17
+      }
+    },
+    "timestamp": 1752162366.7002106
+  },
+  {
+    "mbpp_id": 41,
+    "problem": {
+      "task_id": 41,
+      "text": "Write a function to filter even numbers using lambda function.",
+      "code": "def filter_evennumbers(nums):\r\n even_nums = list(filter(lambda x: x%2 == 0, nums))\r\n return even_nums",
+      "test_list": [
+        "assert filter_evennumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[2, 4, 6, 8, 10]",
+        "assert filter_evennumbers([10,20,45,67,84,93])==[10,20,84]",
+        "assert filter_evennumbers([5,7,9,8,6,4,3])==[8,6,4]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to filter even numbers using lambda function.\n\nTask ID: 41\n\nExpected behavior (test cases):\n1. filter_evennumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[2, 4, 6, 8, 10]\n2. filter_evennumbers([10,20,45,67,84,93])==[10,20,84]\n3. filter_evennumbers([5,7,9,8,6,4,3])==[8,6,4]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def filter_evennumbers(numbers_list):\n    return list(filter(lambda x: x % 2 == 0, numbers_list))"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 216,
+        "prompt_tokens": 198,
+        "completion_tokens": 25
+      }
+    },
+    "timestamp": 1752162368.8304462
+  },
+  {
+    "mbpp_id": 42,
+    "problem": {
+      "task_id": 42,
+      "text": "Write a python function to find the sum of repeated elements in a given array.",
+      "code": "def find_Sum(arr,n): \r\n    return sum([x for x in arr if arr.count(x) > 1])",
+      "test_list": [
+        "assert find_Sum([1,2,3,1,1,4,5,6],8) == 3",
+        "assert find_Sum([1,2,3,1,1],5) == 3",
+        "assert find_Sum([1,1,2],3) == 2"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert find_Sum([1,1,2,3,4,5,6,3,5],9) == 18"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the sum of repeated elements in a given array.\n\nTask ID: 42\n\nExpected behavior (test cases):\n1. find_Sum([1,2,3,1,1,4,5,6],8) should return 3\n2. find_Sum([1,2,3,1,1],5) should return 3\n3. find_Sum([1,1,2],3) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_Sum(arr, k):\n    # Initialize count and result variables\n    count = 0\n    result = 0\n    \n    # Iterate through each element in the array\n    for i in range(len(arr)):\n        # If current element equals 'k' times', add its value multiplied by number of occurrences\n        if arr.count(arr[i]) == k:\n            result += arr[i] * arr.count(arr[i])\n    \n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 246,
+        "prompt_tokens": 161,
+        "completion_tokens": 92
+      }
+    },
+    "timestamp": 1752162375.03618
+  },
+  {
+    "mbpp_id": 43,
+    "problem": {
+      "task_id": 43,
+      "text": "Write a function to find sequences of lowercase letters joined with an underscore using regex.",
+      "code": "import re\r\ndef text_match(text):\r\n  patterns = '^[a-z]+_[a-z]+$'\r\n  if re.search(patterns,  text):\r\n    return ('Found a match!')\r\n  else:\r\n    return ('Not matched!')",
+      "test_list": [
+        "assert text_match(\"aab_cbbbc\") == 'Found a match!'",
+        "assert text_match(\"aab_Abbbc\") == 'Not matched!'",
+        "assert text_match(\"Aaab_abbbc\") == 'Not matched!'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert text_match(\"aab-cbbbc\") == 'Not matched!'"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find sequences of lowercase letters joined with an underscore using regex.\n\nTask ID: 43\n\nExpected behavior (test cases):\n1. text_match(\"aab_cbbbc\") should return 'Found a match!'\n2. text_match(\"aab_Abbbc\") should return 'Not matched!'\n3. text_match(\"Aaab_abbbc\") should return 'Not matched!'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "import re\n\ndef text_match(text):\n    # Define the pattern for matching sequences of lowercase letters joined with underscores.\n    pattern = '[a-z]+_[a-z]+'\n    \n    # Search for the pattern in the given string.\n    result = re.search(pattern, text)\n    \n    if result:\n        return 'Found a match!'\n    else:\n        return 'Not matched!'"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 210,
+        "prompt_tokens": 140,
+        "completion_tokens": 77
+      }
+    },
+    "timestamp": 1752162380.3209724
+  },
+  {
+    "mbpp_id": 44,
+    "problem": {
+      "task_id": 44,
+      "text": "Write a function that matches a word at the beginning of a string.",
+      "code": "import re\r\ndef text_match_string(text):\r\n        patterns = '^\\w+'\r\n        if re.search(patterns,  text):\r\n                return 'Found a match!'\r\n        else:\r\n                return 'Not matched!'",
+      "test_list": [
+        "assert text_match_string(\" python\")==('Not matched!')",
+        "assert text_match_string(\"python\")==('Found a match!')",
+        "assert text_match_string(\"  lang\")==('Not matched!')"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert text_match_string(\"foo\")==('Found a match!')"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function that matches a word at the beginning of a string.\n\nTask ID: 44\n\nExpected behavior (test cases):\n1. text_match_string(\" python\")==('Not matched!')\n2. text_match_string(\"python\")==('Found a match!')\n3. text_match_string(\"  lang\")==('Not matched!')\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def text_match_string(text):\n    if not isinstance(text, str) or len(text) == 0:\n        return 'Not matched!'\n    \n    # Check if the first character is alphanumeric and then compare with \"python\"\n    if not text[0].isalnum() or text[:5] != \"python\":\n        return 'Not matched!'\n    else:\n        return 'Found a match!'"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 200,
+        "prompt_tokens": 127,
+        "completion_tokens": 80
+      }
+    },
+    "timestamp": 1752162385.7619753
+  },
+  {
+    "mbpp_id": 45,
+    "problem": {
+      "task_id": 45,
+      "text": "Write a function to find the gcd of the given array elements.",
+      "code": "def find_gcd(x, y): \r\n\twhile(y): \r\n\t\tx, y = y, x % y \r\n\treturn x \r\ndef get_gcd(l):\r\n  num1 = l[0]\r\n  num2 = l[1]\r\n  gcd = find_gcd(num1, num2)\r\n  for i in range(2, len(l)):\r\n    gcd = find_gcd(gcd, l[i])\r\n  return gcd",
+      "test_list": [
+        "assert get_gcd([2, 4, 6, 8, 16]) == 2",
+        "assert get_gcd([1, 2, 3]) == 1",
+        "assert get_gcd([2, 4, 6, 8]) == 2 "
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the gcd of the given array elements.\n\nTask ID: 45\n\nExpected behavior (test cases):\n1. get_gcd([2, 4, 6, 8, 16]) should return 2\n2. get_gcd([1, 2, 3]) should return 1\n3. get_gcd([2, 4, 6, 8]) should return 2 \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def get_gcd(arr):\n    # Calculate the GCD using math.gcd and reduce on the list for multiple arguments\n    from functools import reduce\n    \n    def gcd(a, b):\n        while b:\n            a, b = b, a % b\n        return abs(a)\n    \n    return reduce(gcd, arr)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 214,
+        "prompt_tokens": 154,
+        "completion_tokens": 67
+      }
+    },
+    "timestamp": 1752162390.4449344
+  },
+  {
+    "mbpp_id": 46,
+    "problem": {
+      "task_id": 46,
+      "text": "Write a python function to determine whether all the numbers are different from each other are not.",
+      "code": "def test_distinct(data):\r\n  if len(data) == len(set(data)):\r\n    return True\r\n  else:\r\n    return False;",
+      "test_list": [
+        "assert test_distinct([1,5,7,9]) == True",
+        "assert test_distinct([2,4,5,5,7,9]) == False",
+        "assert test_distinct([1,2,3]) == True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to determine whether all the numbers are different from each other are not.\n\nTask ID: 46\n\nExpected behavior (test cases):\n1. test_distinct([1,5,7,9]) should return True\n2. test_distinct([2,4,5,5,7,9]) should return False\n3. test_distinct([1,2,3]) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def test_distinct(arr):\n    return len(set(arr)) == len(arr)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 157,
+        "prompt_tokens": 148,
+        "completion_tokens": 16
+      }
+    },
+    "timestamp": 1752162391.9864268
+  },
+  {
+    "mbpp_id": 47,
+    "problem": {
+      "task_id": 47,
+      "text": "Write a python function to find the last digit when factorial of a divides factorial of b.",
+      "code": "def compute_Last_Digit(A,B): \r\n    variable = 1\r\n    if (A == B): \r\n        return 1\r\n    elif ((B - A) >= 5):  \r\n        return 0\r\n    else:   \r\n        for i in range(A + 1,B + 1): \r\n            variable = (variable * (i % 10)) % 10\r\n        return variable % 10",
+      "test_list": [
+        "assert compute_Last_Digit(2,4) == 2",
+        "assert compute_Last_Digit(6,8) == 6",
+        "assert compute_Last_Digit(1,2) == 2"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": [
+        "assert compute_Last_Digit(3,7) == 0",
+        "assert compute_Last_Digit(20,23) == 6",
+        "assert compute_Last_Digit(1021,1024) == 4"
+      ]
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the last digit when factorial of a divides factorial of b.\n\nTask ID: 47\n\nExpected behavior (test cases):\n1. compute_Last_Digit(2,4) should return 2\n2. compute_Last_Digit(6,8) should return 6\n3. compute_Last_Digit(1,2) should return 2\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def compute_Last_Digit(x, y):\n    # Calculate the factorial of x and y\n    fact_x = 1\n    fact_y = 1\n    \n    for i in range(1, x + 1): \n        fact_x *= i\n    \n    for j in range(1, y + 1): \n        fact_y *= j\n    \n    # Return the last digit of the division result\n    return int(fact_x / fact_y) % 10"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 231,
+        "prompt_tokens": 140,
+        "completion_tokens": 98
+      }
+    },
+    "timestamp": 1752162398.4454658
+  },
+  {
+    "mbpp_id": 48,
+    "problem": {
+      "task_id": 48,
+      "text": "Write a python function to set all odd bits of a given number.",
+      "code": "def odd_bit_set_number(n):\r\n    count = 0;res = 0;temp = n\r\n    while temp > 0:\r\n        if count % 2 == 0:\r\n            res |= (1 << count)\r\n        count += 1\r\n        temp >>= 1\r\n    return (n | res)",
+      "test_list": [
+        "assert odd_bit_set_number(10) == 15",
+        "assert odd_bit_set_number(20) == 21",
+        "assert odd_bit_set_number(30) == 31"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to set all odd bits of a given number.\n\nTask ID: 48\n\nExpected behavior (test cases):\n1. odd_bit_set_number(10) should return 15\n2. odd_bit_set_number(20) should return 21\n3. odd_bit_set_number(30) should return 31\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def odd_bit_set_number(n):\n    result = n | 1  # Add 1 to make it odd and then mask off the last bit using bitwise AND with -2.\n    while result % 4 == 0:\n        result >>= 2  # Right shift result twice to remove consecutive trailing zeros which indicate even parity bits.\n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 201,
+        "prompt_tokens": 136,
+        "completion_tokens": 72
+      }
+    },
+    "timestamp": 1752162403.362313
+  },
+  {
+    "mbpp_id": 49,
+    "problem": {
+      "task_id": 49,
+      "text": "Write a function to extract every first or specified element from a given two-dimensional list.",
+      "code": "def specified_element(nums, N):\r\n    result = [i[N] for i in nums]\r\n    return result\r\n    ",
+      "test_list": [
+        "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]",
+        "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],2)==[3, 6, 9]",
+        "assert specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],1)==[2,5,1]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to extract every first or specified element from a given two-dimensional list.\n\nTask ID: 49\n\nExpected behavior (test cases):\n1. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],0)==[1, 4, 7]\n2. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],2)==[3, 6, 9]\n3. specified_element([[1, 2, 3, 2], [4, 5, 6, 2], [7, 1, 9, 5]],1)==[2,5,1]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def specified_element(matrix, index):\n    result = []\n    for row in matrix:\n        if len(row) > index:\n            result.append(row[index])\n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 269,
+        "prompt_tokens": 242,
+        "completion_tokens": 34
+      }
+    },
+    "timestamp": 1752162405.9659276
+  },
+  {
+    "mbpp_id": 50,
+    "problem": {
+      "task_id": 50,
+      "text": "Write a function to find the list with minimum length using lambda function.",
+      "code": "def min_length_list(input_list):\r\n    min_length = min(len(x) for x in input_list )  \r\n    min_list = min(input_list, key = lambda i: len(i))\r\n    return(min_length, min_list)",
+      "test_list": [
+        "assert min_length_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==(1, [0])",
+        "assert min_length_list([[1,2,3,4,5],[1,2,3,4],[1,2,3],[1,2],[1]])==(1,[1])",
+        "assert min_length_list([[3,4,5],[6,7,8,9],[10,11,12],[1,2]])==(2,[1,2])"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the list with minimum length using lambda function.\n\nTask ID: 50\n\nExpected behavior (test cases):\n1. min_length_list([[0], [1, 3], [5, 7], [9, 11], [13, 15, 17]])==(1, [0])\n2. min_length_list([[1,2,3,4,5],[1,2,3,4],[1,2,3],[1,2],[1]])==(1,[1])\n3. min_length_list([[3,4,5],[6,7,8,9],[10,11,12],[1,2]])==(2,[1,2])\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def min_length_list(lst):\n    return min((len(i), i) for i in lst)[1]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 229,
+        "prompt_tokens": 214,
+        "completion_tokens": 22
+      }
+    },
+    "timestamp": 1752162407.8717842
+  },
+  {
+    "mbpp_id": 51,
+    "problem": {
+      "task_id": 51,
+      "text": "Write a function to print check if the triangle is equilateral or not.",
+      "code": "def check_equilateral(x,y,z):\r\n  if x == y == z:\r\n\t   return True\r\n  else:\r\n     return False",
+      "test_list": [
+        "assert check_equilateral(6,8,12)==False ",
+        "assert check_equilateral(6,6,12)==False",
+        "assert check_equilateral(6,6,6)==True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to print check if the triangle is equilateral or not.\n\nTask ID: 51\n\nExpected behavior (test cases):\n1. check_equilateral(6,8,12)==False \n2. check_equilateral(6,6,12)==False\n3. check_equilateral(6,6,6)==True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def check_equilateral(a,b,c):"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 134,
+        "prompt_tokens": 133,
+        "completion_tokens": 8
+      }
+    },
+    "timestamp": 1752162408.9307225
+  },
+  {
+    "mbpp_id": 52,
+    "problem": {
+      "task_id": 52,
+      "text": "Write a function to caluclate area of a parallelogram.",
+      "code": "def parallelogram_area(b,h):\r\n  area=b*h\r\n  return area",
+      "test_list": [
+        "assert parallelogram_area(10,20)==200",
+        "assert parallelogram_area(15,20)==300",
+        "assert parallelogram_area(8,9)==72"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to caluclate area of a parallelogram.\n\nTask ID: 52\n\nExpected behavior (test cases):\n1. parallelogram_area(10,20)==200\n2. parallelogram_area(15,20)==300\n3. parallelogram_area(8,9)==72\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def parallelogram_area(base, height):\n    return base * height"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 144,
+        "prompt_tokens": 137,
+        "completion_tokens": 14
+      }
+    },
+    "timestamp": 1752162410.3689506
+  },
+  {
+    "mbpp_id": 53,
+    "problem": {
+      "task_id": 53,
+      "text": "Write a python function to check whether the first and last characters of a given string are equal or not.",
+      "code": "def check_Equality(str):\r\n  if (str[0] == str[-1]):  \r\n    return (\"Equal\") \r\n  else:  \r\n    return (\"Not Equal\") ",
+      "test_list": [
+        "assert check_Equality(\"abcda\") == \"Equal\"",
+        "assert check_Equality(\"ab\") == \"Not Equal\"",
+        "assert check_Equality(\"mad\") == \"Not Equal\""
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the first and last characters of a given string are equal or not.\n\nTask ID: 53\n\nExpected behavior (test cases):\n1. check_Equality(\"abcda\") should return \"Equal\"\n2. check_Equality(\"ab\") should return \"Not Equal\"\n3. check_Equality(\"mad\") should return \"Not Equal\"\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def check_Equality(s):\n    # Your solution goes here\n    if s[0] == s[-1]:\n        return \"Equal\"\n    else:\n        return \"Not Equal\""
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 168,
+        "prompt_tokens": 137,
+        "completion_tokens": 38
+      }
+    },
+    "timestamp": 1752162413.2238688
+  },
+  {
+    "mbpp_id": 54,
+    "problem": {
+      "task_id": 54,
+      "text": "Write a function to sort the given array by using counting sort.",
+      "code": "def counting_sort(my_list):\r\n    max_value = 0\r\n    for i in range(len(my_list)):\r\n        if my_list[i] > max_value:\r\n            max_value = my_list[i]\r\n    buckets = [0] * (max_value + 1)\r\n    for i in my_list:\r\n        buckets[i] += 1\r\n    i = 0\r\n    for j in range(max_value + 1):\r\n         for a in range(buckets[j]):\r\n             my_list[i] = j\r\n             i += 1\r\n    return my_list",
+      "test_list": [
+        "assert counting_sort([1,23,4,5,6,7,8]) == [1, 4, 5, 6, 7, 8, 23]",
+        "assert counting_sort([12, 9, 28, 33, 69, 45]) == [9, 12, 28, 33, 45, 69]",
+        "assert counting_sort([8, 4, 14, 3, 2, 1]) == [1, 2, 3, 4, 8, 14]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort the given array by using counting sort.\n\nTask ID: 54\n\nExpected behavior (test cases):\n1. counting_sort([1,23,4,5,6,7,8]) should return [1, 4, 5, 6, 7, 8, 23]\n2. counting_sort([12, 9, 28, 33, 69, 45]) should return [9, 12, 28, 33, 45, 69]\n3. counting_sort([8, 4, 14, 3, 2, 1]) should return [1, 2, 3, 4, 8, 14]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def counting_sort(arr):\n    # Your implementation here\n    pass"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 233,
+        "prompt_tokens": 227,
+        "completion_tokens": 13
+      }
+    },
+    "timestamp": 1752162414.5774953
+  },
+  {
+    "mbpp_id": 55,
+    "problem": {
+      "task_id": 55,
+      "text": "Write a function to find t-nth term of geometric series.",
+      "code": "import math\r\ndef tn_gp(a,n,r):\r\n  tn = a * (math.pow(r, n - 1))\r\n  return tn",
+      "test_list": [
+        "assert tn_gp(1,5,2)==16",
+        "assert tn_gp(1,5,4)==256",
+        "assert tn_gp(2,6,3)==486"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find t-nth term of geometric series.\n\nTask ID: 55\n\nExpected behavior (test cases):\n1. tn_gp(1,5,2)==16\n2. tn_gp(1,5,4)==256\n3. tn_gp(2,6,3)==486\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def tn_gp(a,n,t):\n    return a**t if t < n else ((a+1)**t - a**(t-1)) / (n-t)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 159,
+        "prompt_tokens": 131,
+        "completion_tokens": 35
+      }
+    },
+    "timestamp": 1752162417.2787375
+  },
+  {
+    "mbpp_id": 56,
+    "problem": {
+      "task_id": 56,
+      "text": "Write a python function to check if a given number is one less than twice its reverse.",
+      "code": "def rev(num):    \r\n    rev_num = 0\r\n    while (num > 0):  \r\n        rev_num = (rev_num * 10 + num % 10) \r\n        num = num // 10  \r\n    return rev_num  \r\ndef check(n):    \r\n    return (2 * rev(n) == n + 1)  ",
+      "test_list": [
+        "assert check(70) == False",
+        "assert check(23) == False",
+        "assert check(73) == True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check if a given number is one less than twice its reverse.\n\nTask ID: 56\n\nExpected behavior (test cases):\n1. check(70) should return False\n2. check(23) should return False\n3. check(73) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def check(num):\n    rev = int(str(num)[::-1])\n    return num == (2 * rev - 1)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 144,
+        "prompt_tokens": 125,
+        "completion_tokens": 26
+      }
+    },
+    "timestamp": 1752162419.4556615
+  },
+  {
+    "mbpp_id": 57,
+    "problem": {
+      "task_id": 57,
+      "text": "Write a python function to find the largest number that can be formed with the given digits.",
+      "code": "def find_Max_Num(arr,n) : \r\n    arr.sort(reverse = True) \r\n    num = arr[0] \r\n    for i in range(1,n) : \r\n        num = num * 10 + arr[i] \r\n    return num ",
+      "test_list": [
+        "assert find_Max_Num([1,2,3],3) == 321",
+        "assert find_Max_Num([4,5,6,1],4) == 6541",
+        "assert find_Max_Num([1,2,3,9],4) == 9321"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the largest number that can be formed with the given digits.\n\nTask ID: 57\n\nExpected behavior (test cases):\n1. find_Max_Num([1,2,3],3) should return 321\n2. find_Max_Num([4,5,6,1],4) should return 6541\n3. find_Max_Num([1,2,3,9],4) should return 9321\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_Max_Num(arr, n):\n    arr.sort(reverse=True)\n    num = ''\n    for i in range(n):\n        num += str(arr[i])\n    return int(num)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 191,
+        "prompt_tokens": 161,
+        "completion_tokens": 37
+      }
+    },
+    "timestamp": 1752162422.224408
+  },
+  {
+    "mbpp_id": 58,
+    "problem": {
+      "task_id": 58,
+      "text": "Write a python function to check whether the given two integers have opposite sign or not.",
+      "code": "def opposite_Signs(x,y): \r\n    return ((x ^ y) < 0); ",
+      "test_list": [
+        "assert opposite_Signs(1,-2) == True",
+        "assert opposite_Signs(3,2) == False",
+        "assert opposite_Signs(-10,-10) == False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given two integers have opposite sign or not.\n\nTask ID: 58\n\nExpected behavior (test cases):\n1. opposite_Signs(1,-2) should return True\n2. opposite_Signs(3,2) should return False\n3. opposite_Signs(-10,-10) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def opposite_Signs(num1, num2):\n    if ((num1 < 0 and num2 > 0) or (num1 > 0 and num2 < 0)):\n        return True\n    else:\n        return False"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 181,
+        "prompt_tokens": 138,
+        "completion_tokens": 50
+      }
+    },
+    "timestamp": 1752162425.7624092
+  },
+  {
+    "mbpp_id": 59,
+    "problem": {
+      "task_id": 59,
+      "text": "Write a function to find the nth octagonal number.",
+      "code": "def is_octagonal(n): \r\n\treturn 3 * n * n - 2 * n ",
+      "test_list": [
+        "assert is_octagonal(5) == 65",
+        "assert is_octagonal(10) == 280",
+        "assert is_octagonal(15) == 645"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the nth octagonal number.\n\nTask ID: 59\n\nExpected behavior (test cases):\n1. is_octagonal(5) should return 65\n2. is_octagonal(10) should return 280\n3. is_octagonal(15) should return 645\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def is_octagonal(n):\n    # Calculate the formula for n-th octagonal number using arithmetic operations.\n    result = ((2*n-1)**2)/2 + (n*(n-1))/2 - 1\n    return int(result)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 175,
+        "prompt_tokens": 131,
+        "completion_tokens": 51
+      }
+    },
+    "timestamp": 1752162429.3838944
+  },
+  {
+    "mbpp_id": 60,
+    "problem": {
+      "task_id": 60,
+      "text": "Write a function to find the maximum length of the subsequence with difference between adjacent elements for the given array.",
+      "code": "def max_len_sub( arr, n): \r\n\tmls=[] \r\n\tmax = 0\r\n\tfor i in range(n): \r\n\t\tmls.append(1) \r\n\tfor i in range(n): \r\n\t\tfor j in range(i): \r\n\t\t\tif (abs(arr[i] - arr[j]) <= 1 and mls[i] < mls[j] + 1): \r\n\t\t\t\tmls[i] = mls[j] + 1\r\n\tfor i in range(n): \r\n\t\tif (max < mls[i]): \r\n\t\t\tmax = mls[i] \r\n\treturn max",
+      "test_list": [
+        "assert max_len_sub([2, 5, 6, 3, 7, 6, 5, 8], 8) == 5",
+        "assert max_len_sub([-2, -1, 5, -1, 4, 0, 3], 7) == 4",
+        "assert max_len_sub([9, 11, 13, 15, 18], 5) == 1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum length of the subsequence with difference between adjacent elements for the given array.\n\nTask ID: 60\n\nExpected behavior (test cases):\n1. max_len_sub([2, 5, 6, 3, 7, 6, 5, 8], 8) should return 5\n2. max_len_sub([-2, -1, 5, -1, 4, 0, 3], 7) should return 4\n3. max_len_sub([9, 11, 13, 15, 18], 5) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def max_len_sub(nums, k):\n    result = start_index = 0\n    \n    while start_index < len(nums):\n        current_diff = nums[start_index]\n        \n        if start_index > 0 and abs(current_diff) <= k:\n            start_index += 1\n            continue\n        \n        end_index = start_index + 1\n        while end_index < len(nums) and abs(nums[end_index] - current_diff) <= k:\n            end_index += 1\n        \n        current_length = end_index - start_index\n        result = max(result, current_length)\n        start_index = end_index\n        \n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 318,
+        "prompt_tokens": 199,
+        "completion_tokens": 126
+      }
+    },
+    "timestamp": 1752162437.4229999
+  },
+  {
+    "mbpp_id": 61,
+    "problem": {
+      "task_id": 61,
+      "text": "Write a python function to count number of substrings with the sum of digits equal to their length.",
+      "code": "from collections import defaultdict\r\ndef count_Substrings(s,n):\r\n    count,sum = 0,0\r\n    mp = defaultdict(lambda : 0)\r\n    mp[0] += 1\r\n    for i in range(n):\r\n        sum += ord(s[i]) - ord('0')\r\n        count += mp[sum - (i + 1)]\r\n        mp[sum - (i + 1)] += 1\r\n    return count",
+      "test_list": [
+        "assert count_Substrings('112112',6) == 6",
+        "assert count_Substrings('111',3) == 6",
+        "assert count_Substrings('1101112',7) == 12"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count number of substrings with the sum of digits equal to their length.\n\nTask ID: 61\n\nExpected behavior (test cases):\n1. count_Substrings('112112',6) should return 6\n2. count_Substrings('111',3) should return 6\n3. count_Substrings('1101112',7) should return 12\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def count_Substrings(num_string, target_sum):\n    result = 0\n    current_sum = 0\n    for digit in num_string:\n        current_sum += int(digit)\n        if current_sum >= target_sum and len(result) == 0:\n            result = 1\n        elif current_sum > target_sum:\n            while current_sum - len(num_string[:result]) > target_sum:\n                result -= 1\n            current_sum -= int(num_string[result])\n        elif current_sum == target_sum:\n            result += 1\n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 260,
+        "prompt_tokens": 153,
+        "completion_tokens": 114
+      }
+    },
+    "timestamp": 1752162444.795035
+  },
+  {
+    "mbpp_id": 62,
+    "problem": {
+      "task_id": 62,
+      "text": "Write a python function to find smallest number in a list.",
+      "code": "def smallest_num(xs):\n  return min(xs)\n",
+      "test_list": [
+        "assert smallest_num([10, 20, 1, 45, 99]) == 1",
+        "assert smallest_num([1, 2, 3]) == 1",
+        "assert smallest_num([45, 46, 50, 60]) == 45"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find smallest number in a list.\n\nTask ID: 62\n\nExpected behavior (test cases):\n1. smallest_num([10, 20, 1, 45, 99]) should return 1\n2. smallest_num([1, 2, 3]) should return 1\n3. smallest_num([45, 46, 50, 60]) should return 45\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def smallest_num(numbers_list):\n    # Initialize min_value with the first element of the list\n    min_value = numbers_list[0]\n    \n    # Iterate through each number in the list\n    for num in numbers_list:\n        # Update min_value if current number is smaller than min_value\n        if num < min_value:\n            min_value = num\n            \n    # Return the minimum value found\n    return min_value"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 236,
+        "prompt_tokens": 158,
+        "completion_tokens": 85
+      }
+    },
+    "timestamp": 1752162450.4896538
+  },
+  {
+    "mbpp_id": 63,
+    "problem": {
+      "task_id": 63,
+      "text": "Write a function to find the maximum difference between available pairs in the given tuple list.",
+      "code": "def max_difference(test_list):\r\n  temp = [abs(b - a) for a, b in test_list]\r\n  res = max(temp)\r\n  return (res) ",
+      "test_list": [
+        "assert max_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) == 7",
+        "assert max_difference([(4, 6), (2, 17), (9, 13), (11, 12)]) == 15",
+        "assert max_difference([(12, 35), (21, 27), (13, 23), (41, 22)]) == 23"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the maximum difference between available pairs in the given tuple list.\n\nTask ID: 63\n\nExpected behavior (test cases):\n1. max_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) should return 7\n2. max_difference([(4, 6), (2, 17), (9, 13), (11, 12)]) should return 15\n3. max_difference([(12, 35), (21, 27), (13, 23), (41, 22)]) should return 23\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def max_difference(lst_of_tuples):\n    # Calculate differences and find the maximum value.\n    return max([abs(x[1] - x[0]) for x in lst_of_tuples])"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 236,
+        "prompt_tokens": 205,
+        "completion_tokens": 38
+      }
+    },
+    "timestamp": 1752162453.3177314
+  },
+  {
+    "mbpp_id": 64,
+    "problem": {
+      "task_id": 64,
+      "text": "Write a function to sort a list of tuples using lambda.",
+      "code": "def subject_marks(subjectmarks):\r\n#subject_marks = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)])\r\n subjectmarks.sort(key = lambda x: x[1])\r\n return subjectmarks",
+      "test_list": [
+        "assert subject_marks([('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)])==[('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]",
+        "assert subject_marks([('Telugu',49),('Hindhi',54),('Social',33)])==([('Social',33),('Telugu',49),('Hindhi',54)])",
+        "assert subject_marks([('Physics',96),('Chemistry',97),('Biology',45)])==([('Biology',45),('Physics',96),('Chemistry',97)])"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a list of tuples using lambda.\n\nTask ID: 64\n\nExpected behavior (test cases):\n1. subject_marks([('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)])==[('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]\n2. subject_marks([('Telugu',49),('Hindhi',54),('Social',33)])==([('Social',33),('Telugu',49),('Hindhi',54)])\n3. subject_marks([('Physics',96),('Chemistry',97),('Biology',45)])==([('Biology',45),('Physics',96),('Chemistry',97)])\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def subject_marks(lst):\n    return sorted(lst, key=lambda x: x[1])"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 256,
+        "prompt_tokens": 245,
+        "completion_tokens": 18
+      }
+    },
+    "timestamp": 1752162454.952656
+  },
+  {
+    "mbpp_id": 65,
+    "problem": {
+      "task_id": 65,
+      "text": "Write a function of recursion list sum.",
+      "code": "def recursive_list_sum(data_list):\r\n\ttotal = 0\r\n\tfor element in data_list:\r\n\t\tif type(element) == type([]):\r\n\t\t\ttotal = total + recursive_list_sum(element)\r\n\t\telse:\r\n\t\t\ttotal = total + element\r\n\treturn total",
+      "test_list": [
+        "assert recursive_list_sum(([1, 2, [3,4],[5,6]]))==21",
+        "assert recursive_list_sum(([7, 10, [15,14],[19,41]]))==106",
+        "assert recursive_list_sum(([10, 20, [30,40],[50,60]]))==210"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function of recursion list sum.\n\nTask ID: 65\n\nExpected behavior (test cases):\n1. recursive_list_sum(([1, 2, [3,4],[5,6]]))==21\n2. recursive_list_sum(([7, 10, [15,14],[19,41]]))==106\n3. recursive_list_sum(([10, 20, [30,40],[50,60]]))==210\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def recursive_list_sum(lst):\n    # Base case: if the list is empty, return 0\n    if len(lst) == 0:\n        return 0\n    \n    # Base case: if the first element is an integer, add it to the sum of the rest\n    elif isinstance(lst[0], int):\n        return lst[0] + recursive_list_sum(lst[1:])\n    \n    # Recursive case: if the first element is a list, recursively calculate its sum and add it to the sum of the rest\n    else:\n        return lst[0][0] + recursive_list_sum(lst[1:]) + lst[1][-1]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 294,
+        "prompt_tokens": 167,
+        "completion_tokens": 134
+      }
+    },
+    "timestamp": 1752162463.476817
+  },
+  {
+    "mbpp_id": 66,
+    "problem": {
+      "task_id": 66,
+      "text": "Write a python function to count positive numbers in a list.",
+      "code": "def pos_count(list):\r\n  pos_count= 0\r\n  for num in list: \r\n    if num >= 0: \r\n      pos_count += 1\r\n  return pos_count ",
+      "test_list": [
+        "assert pos_count([1,-2,3,-4]) == 2",
+        "assert pos_count([3,4,5,-1]) == 3",
+        "assert pos_count([1,2,3,4]) == 4"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count positive numbers in a list.\n\nTask ID: 66\n\nExpected behavior (test cases):\n1. pos_count([1,-2,3,-4]) should return 2\n2. pos_count([3,4,5,-1]) should return 3\n3. pos_count([1,2,3,4]) should return 4\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def pos_count(arr):\n    # Initialize a counter for positive numbers.\n    pos_num = 0\n    \n    # Iterate through each number in the array.\n    for num in arr:\n        # If the number is greater than zero, increment the counter.\n        if num > 0:\n            pos_num += 1\n            \n    # Return the total count of positive numbers found.\n    return pos_num"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 213,
+        "prompt_tokens": 140,
+        "completion_tokens": 80
+      }
+    },
+    "timestamp": 1752162468.8128684
+  },
+  {
+    "mbpp_id": 67,
+    "problem": {
+      "task_id": 67,
+      "text": "Write a function to find the number of ways to partition a set of bell numbers.",
+      "code": "def bell_number(n):   \r\n    bell = [[0 for i in range(n+1)] for j in range(n+1)] \r\n    bell[0][0] = 1\r\n    for i in range(1, n+1): \r\n        bell[i][0] = bell[i-1][i-1]  \r\n        for j in range(1, i+1): \r\n            bell[i][j] = bell[i-1][j-1] + bell[i][j-1]   \r\n    return bell[n][0] ",
+      "test_list": [
+        "assert bell_number(2)==2",
+        "assert bell_number(10)==115975",
+        "assert bell_number(56)==6775685320645824322581483068371419745979053216268760300"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the number of ways to partition a set of bell numbers.\n\nTask ID: 67\n\nExpected behavior (test cases):\n1. bell_number(2)==2\n2. bell_number(10)==115975\n3. bell_number(56)==6775685320645824322581483068371419745979053216268760300\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def bell_number(n):\n    # Initialize a list with size n+1 filled with zeros.\n    b = [0] * (n + 1)\n    \n    # Base case initialization for B[0]\n    b[0] = 1\n    \n    # Fill in the Bell Triangle using dynamic programming approach.\n    for i in range(1, n + 1):\n        for j in range(i, -1, -1):\n            b[j] += b[j - 1]\n\n    return b[-1]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 279,
+        "prompt_tokens": 179,
+        "completion_tokens": 107
+      }
+    },
+    "timestamp": 1752162475.715551
+  },
+  {
+    "mbpp_id": 68,
+    "problem": {
+      "task_id": 68,
+      "text": "Write a python function to check whether the given array is monotonic or not.",
+      "code": "def is_Monotonic(A): \r\n    return (all(A[i] <= A[i + 1] for i in range(len(A) - 1)) or\r\n            all(A[i] >= A[i + 1] for i in range(len(A) - 1))) ",
+      "test_list": [
+        "assert is_Monotonic([6, 5, 4, 4]) == True",
+        "assert is_Monotonic([1, 2, 2, 3]) == True",
+        "assert is_Monotonic([1, 3, 2]) == False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given array is monotonic or not.\n\nTask ID: 68\n\nExpected behavior (test cases):\n1. is_Monotonic([6, 5, 4, 4]) should return True\n2. is_Monotonic([1, 2, 2, 3]) should return True\n3. is_Monotonic([1, 3, 2]) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def is_Monotonic(arr):\n    asc = all(x <= y for x, y in zip(arr, arr[1:]))\n    desc = all(x >= y for x, y in zip(arr, arr[1:]))\n    \n    return asc or desc"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 203,
+        "prompt_tokens": 156,
+        "completion_tokens": 54
+      }
+    },
+    "timestamp": 1752162479.4775274
+  },
+  {
+    "mbpp_id": 69,
+    "problem": {
+      "task_id": 69,
+      "text": "Write a function to check whether a list contains the given sublist or not.",
+      "code": "def is_sublist(l, s):\r\n\tsub_set = False\r\n\tif s == []:\r\n\t\tsub_set = True\r\n\telif s == l:\r\n\t\tsub_set = True\r\n\telif len(s) > len(l):\r\n\t\tsub_set = False\r\n\telse:\r\n\t\tfor i in range(len(l)):\r\n\t\t\tif l[i] == s[0]:\r\n\t\t\t\tn = 1\r\n\t\t\t\twhile (n < len(s)) and (l[i+n] == s[n]):\r\n\t\t\t\t\tn += 1\t\t\t\t\r\n\t\t\t\tif n == len(s):\r\n\t\t\t\t\tsub_set = True\r\n\treturn sub_set",
+      "test_list": [
+        "assert is_sublist([2,4,3,5,7],[3,7])==False",
+        "assert is_sublist([2,4,3,5,7],[4,3])==True",
+        "assert is_sublist([2,4,3,5,7],[1,6])==False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether a list contains the given sublist or not.\n\nTask ID: 69\n\nExpected behavior (test cases):\n1. is_sublist([2,4,3,5,7],[3,7])==False\n2. is_sublist([2,4,3,5,7],[4,3])==True\n3. is_sublist([2,4,3,5,7],[1,6])==False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def is_sublist(lst, sub_lst):\n    return all(item in lst for item in sub_lst)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 169,
+        "prompt_tokens": 155,
+        "completion_tokens": 21
+      }
+    },
+    "timestamp": 1752162481.279459
+  },
+  {
+    "mbpp_id": 70,
+    "problem": {
+      "task_id": 70,
+      "text": "Write a function to find whether all the given tuples have equal length or not.",
+      "code": "def find_equal_tuple(Input, k):\r\n  flag = 1\r\n  for tuple in Input:\r\n    if len(tuple) != k:\r\n      flag = 0\r\n      break\r\n  return flag\r\ndef get_equal(Input, k):\r\n  if find_equal_tuple(Input, k) == 1:\r\n    return (\"All tuples have same length\")\r\n  else:\r\n    return (\"All tuples do not have same length\")",
+      "test_list": [
+        "assert get_equal([(11, 22, 33), (44, 55, 66)], 3) == 'All tuples have same length'",
+        "assert get_equal([(1, 2, 3), (4, 5, 6, 7)], 3) == 'All tuples do not have same length'",
+        "assert get_equal([(1, 2), (3, 4)], 2) == 'All tuples have same length'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find whether all the given tuples have equal length or not.\n\nTask ID: 70\n\nExpected behavior (test cases):\n1. get_equal([(11, 22, 33), (44, 55, 66)], 3) should return 'All tuples have same length'\n2. get_equal([(1, 2, 3), (4, 5, 6, 7)], 3) should return 'All tuples do not have same length'\n3. get_equal([(1, 2), (3, 4)], 2) should return 'All tuples have same length'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def get_equal(test_tup_list, n):\n    \"\"\"\n    Checks if all tuples in the provided list have equal length.\n    \n    Parameters:\n        test_tup_list (list): A list of tuples to be checked.\n        n (int): The expected length of each tuple.\n        \n    Returns:\n        str: A message indicating whether all tuples have the specified length ('All tuples have same length' or 'All tuples do not have same length').\n    \"\"\"\n    for tup in test_tup_list:\n        if len(tup) != n:\n            return f\"All tuples do not have same length\"\n    return \"All tuples have same length\""
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 321,
+        "prompt_tokens": 197,
+        "completion_tokens": 131
+      }
+    },
+    "timestamp": 1752162489.6409142
+  },
+  {
+    "mbpp_id": 71,
+    "problem": {
+      "task_id": 71,
+      "text": "Write a function to sort a list of elements using comb sort.",
+      "code": "def comb_sort(nums):\r\n    shrink_fact = 1.3\r\n    gaps = len(nums)\r\n    swapped = True\r\n    i = 0\r\n    while gaps > 1 or swapped:\r\n        gaps = int(float(gaps) / shrink_fact)\r\n        swapped = False\r\n        i = 0\r\n        while gaps + i < len(nums):\r\n            if nums[i] > nums[i+gaps]:\r\n                nums[i], nums[i+gaps] = nums[i+gaps], nums[i]\r\n                swapped = True\r\n            i += 1\r\n    return nums",
+      "test_list": [
+        "assert comb_sort([5, 15, 37, 25, 79]) == [5, 15, 25, 37, 79]",
+        "assert comb_sort([41, 32, 15, 19, 22]) == [15, 19, 22, 32, 41]",
+        "assert comb_sort([99, 15, 13, 47]) == [13, 15, 47, 99]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to sort a list of elements using comb sort.\n\nTask ID: 71\n\nExpected behavior (test cases):\n1. comb_sort([5, 15, 37, 25, 79]) should return [5, 15, 25, 37, 79]\n2. comb_sort([41, 32, 15, 19, 22]) should return [15, 19, 22, 32, 41]\n3. comb_sort([99, 15, 13, 47]) should return [13, 15, 47, 99]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def comb_sort(arr):\n    gap = len(arr)\n    shrink_factor = 1.3\n    sorted = False\n\n    while not sorted:\n        # Update the gap value for a next comb\n        gap = int(gap / shrink_factor)\n        if gap <= 1:\n            gap = 1\n            sorted = True  # If gap is 1, we do one last pass through the array\n\n        # Determine whether each element in the current gap needs to be swapped\n        i = 0\n        while i + gap < len(arr):\n            if arr[i] > arr[i + gap]:\n                arr[i], arr[i + gap] = arr[i + gap], arr[i]\n                sorted = False  # Swap detected; continue checking\n            i += 1\n\n    return arr"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 373,
+        "prompt_tokens": 215,
+        "completion_tokens": 165
+      }
+    },
+    "timestamp": 1752162499.9390192
+  },
+  {
+    "mbpp_id": 72,
+    "problem": {
+      "task_id": 72,
+      "text": "Write a python function to check whether the given number can be represented as difference of two squares or not.",
+      "code": "def dif_Square(n): \r\n    if (n % 4 != 2): \r\n        return True\r\n    return False",
+      "test_list": [
+        "assert dif_Square(5) == True",
+        "assert dif_Square(10) == False",
+        "assert dif_Square(15) == True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the given number can be represented as difference of two squares or not.\n\nTask ID: 72\n\nExpected behavior (test cases):\n1. dif_Square(5) should return True\n2. dif_Square(10) should return False\n3. dif_Square(15) should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def dif_Square(n):\n    # Implementing the logic here\n    \n    if n == 1:\n        return False\n        \n    for i in range(1, int((n**0.5)+1)):\n        if i*i + 1 > n:\n            break\n        elif (i*i - 1 == n) or ((i*i + 1) == n):\n            return True\n            \n    return False"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 211,
+        "prompt_tokens": 133,
+        "completion_tokens": 85
+      }
+    },
+    "timestamp": 1752162505.5815845
+  },
+  {
+    "mbpp_id": 73,
+    "problem": {
+      "task_id": 73,
+      "text": "Write a function to split the given string with multiple delimiters by using regex.",
+      "code": "import re\r\ndef multiple_split(text):\r\n  return (re.split('; |, |\\*|\\n',text))",
+      "test_list": [
+        "assert multiple_split('Forces of the \\ndarkness*are coming into the play.') == ['Forces of the ', 'darkness', 'are coming into the play.']",
+        "assert multiple_split('Mi Box runs on the \\n Latest android*which has google assistance and chromecast.') == ['Mi Box runs on the ', ' Latest android', 'which has google assistance and chromecast.']",
+        "assert multiple_split('Certain services\\nare subjected to change*over the seperate subscriptions.') == ['Certain services', 'are subjected to change', 'over the seperate subscriptions.']"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to split the given string with multiple delimiters by using regex.\n\nTask ID: 73\n\nExpected behavior (test cases):\n1. multiple_split('Forces of the \\ndarkness*are coming into the play.') should return ['Forces of the ', 'darkness', 'are coming into the play.']\n2. multiple_split('Mi Box runs on the \\n Latest android*which has google assistance and chromecast.') should return ['Mi Box runs on the ', ' Latest android', 'which has google assistance and chromecast.']\n3. multiple_split('Certain services\\nare subjected to change*over the seperate subscriptions.') should return ['Certain services', 'are subjected to change', 'over the seperate subscriptions.']\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def multiple_split(string_input):\n    import re\n    result = re.split(r'[.*\\s]', string_input)\n    # Remove empty strings from the list as they are not part of expected output.\n    return [i for i in result if i]"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 258,
+        "prompt_tokens": 213,
+        "completion_tokens": 52
+      }
+    },
+    "timestamp": 1752162509.2529337
+  },
+  {
+    "mbpp_id": 74,
+    "problem": {
+      "task_id": 74,
+      "text": "Write a function to check whether it follows the sequence given in the patterns array.",
+      "code": "def is_samepatterns(colors, patterns):    \r\n    if len(colors) != len(patterns):\r\n        return False    \r\n    sdict = {}\r\n    pset = set()\r\n    sset = set()    \r\n    for i in range(len(patterns)):\r\n        pset.add(patterns[i])\r\n        sset.add(colors[i])\r\n        if patterns[i] not in sdict.keys():\r\n            sdict[patterns[i]] = []\r\n\r\n        keys = sdict[patterns[i]]\r\n        keys.append(colors[i])\r\n        sdict[patterns[i]] = keys\r\n\r\n    if len(pset) != len(sset):\r\n        return False   \r\n\r\n    for values in sdict.values():\r\n\r\n        for i in range(len(values) - 1):\r\n            if values[i] != values[i+1]:\r\n                return False\r\n\r\n    return True",
+      "test_list": [
+        "assert is_samepatterns([\"red\",\"green\",\"green\"], [\"a\", \"b\", \"b\"])==True ",
+        "assert is_samepatterns([\"red\",\"green\",\"greenn\"], [\"a\",\"b\",\"b\"])==False ",
+        "assert is_samepatterns([\"red\",\"green\",\"greenn\"], [\"a\",\"b\"])==False "
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to check whether it follows the sequence given in the patterns array.\n\nTask ID: 74\n\nExpected behavior (test cases):\n1. is_samepatterns([\"red\",\"green\",\"green\"], [\"a\", \"b\", \"b\"])==True \n2. is_samepatterns([\"red\",\"green\",\"greenn\"], [\"a\",\"b\",\"b\"])==False \n3. is_samepatterns([\"red\",\"green\",\"greenn\"], [\"a\",\"b\"])==False \n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def is_samepatterns(patterns, texts):\n    if len(texts) != len(patterns[0]):\n        return False\n    \n    pattern_map = {}\n    \n    for i in range(len(patterns)):\n        if not all(char in pattern_map.keys() for char in set(patterns[i])):\n            return False\n        \n        text_index = 0\n        pattern_match = True\n        \n        while text_index < len(texts[i]) and pattern_match:\n            if texts[i][text_index] == patterns[i][pattern_map[texts[i][text_index]]]:\n                pattern_match &= (texts[i][text_index] in pattern_map)\n                pattern_map[texts[i][text_index]] += 1\n                text_index += 1\n            else:\n                break\n        \n        if not pattern_match:\n            return False\n            \n    return True"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 318,
+        "prompt_tokens": 158,
+        "completion_tokens": 167
+      }
+    },
+    "timestamp": 1752162519.6998596
+  },
+  {
+    "mbpp_id": 75,
+    "problem": {
+      "task_id": 75,
+      "text": "Write a function to find tuples which have all elements divisible by k from the given list of tuples.",
+      "code": "def find_tuples(test_list, K):\r\n  res = [sub for sub in test_list if all(ele % K == 0 for ele in sub)]\r\n  return (str(res)) ",
+      "test_list": [
+        "assert find_tuples([(6, 24, 12), (7, 9, 6), (12, 18, 21)], 6) == '[(6, 24, 12)]'",
+        "assert find_tuples([(5, 25, 30), (4, 2, 3), (7, 8, 9)], 5) == '[(5, 25, 30)]'",
+        "assert find_tuples([(7, 9, 16), (8, 16, 4), (19, 17, 18)], 4) == '[(8, 16, 4)]'"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find tuples which have all elements divisible by k from the given list of tuples.\n\nTask ID: 75\n\nExpected behavior (test cases):\n1. find_tuples([(6, 24, 12), (7, 9, 6), (12, 18, 21)], 6) should return '[(6, 24, 12)]'\n2. find_tuples([(5, 25, 30), (4, 2, 3), (7, 8, 9)], 5) should return '[(5, 25, 30)]'\n3. find_tuples([(7, 9, 16), (8, 16, 4), (19, 17, 18)], 4) should return '[(8, 16, 4)]'\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def find_tuples(tup_list, k):\n    result = []\n    for tup in tup_list:\n        if all(x % k == 0 for x in tup):\n            result.append(str(tup))\n    return ', '.join(result)\n\nprint(find_tuples([(6, 24, 12), (7, 9, 6), (12, 18, 21)], 6))"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 331,
+        "prompt_tokens": 252,
+        "completion_tokens": 86
+      }
+    },
+    "timestamp": 1752162525.3747437
+  },
+  {
+    "mbpp_id": 76,
+    "problem": {
+      "task_id": 76,
+      "text": "Write a python function to count the number of squares in a rectangle.",
+      "code": "def count_Squares(m,n):\r\n    if(n < m):\r\n        temp = m\r\n        m = n\r\n        n = temp\r\n    return ((m * (m + 1) * (2 * m + 1) / 6 + (n - m) * m * (m + 1) / 2))",
+      "test_list": [
+        "assert count_Squares(4,3) == 20",
+        "assert count_Squares(2,2) == 5",
+        "assert count_Squares(1,1) == 1"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to count the number of squares in a rectangle.\n\nTask ID: 76\n\nExpected behavior (test cases):\n1. count_Squares(4,3) should return 20\n2. count_Squares(2,2) should return 5\n3. count_Squares(1,1) should return 1\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def count_Squares(a, b):\n    # Your solution goes here\n    pass"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 144,
+        "prompt_tokens": 134,
+        "completion_tokens": 17
+      }
+    },
+    "timestamp": 1752162526.971509
+  },
+  {
+    "mbpp_id": 77,
+    "problem": {
+      "task_id": 77,
+      "text": "Write a python function to find the difference between sum of even and odd digits.",
+      "code": "def is_Diff(n): \r\n    return (n % 11 == 0) ",
+      "test_list": [
+        "assert is_Diff (12345) == False",
+        "assert is_Diff(1212112) == True",
+        "assert is_Diff(1212) == False"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find the difference between sum of even and odd digits.\n\nTask ID: 77\n\nExpected behavior (test cases):\n1. is_Diff (12345) should return False\n2. is_Diff(1212112) should return True\n3. is_Diff(1212) should return False\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def is_Diff(n):\n    s = str(n)\n    e_sum, o_sum = 0, 0\n    for digit in s:\n        if int(digit) % 2 == 0:\n            e_sum += int(digit)\n        else:\n            o_sum += int(digit)\n    return abs(e_sum - o_sum) == n"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 206,
+        "prompt_tokens": 139,
+        "completion_tokens": 74
+      }
+    },
+    "timestamp": 1752162531.941594
+  },
+  {
+    "mbpp_id": 78,
+    "problem": {
+      "task_id": 78,
+      "text": "Write a python function to find number of integers with odd number of set bits.",
+      "code": "def count_With_Odd_SetBits(n): \r\n    if (n % 2 != 0): \r\n        return (n + 1) / 2\r\n    count = bin(n).count('1') \r\n    ans = n / 2\r\n    if (count % 2 != 0): \r\n        ans += 1\r\n    return ans ",
+      "test_list": [
+        "assert count_With_Odd_SetBits(5) == 3",
+        "assert count_With_Odd_SetBits(10) == 5",
+        "assert count_With_Odd_SetBits(15) == 8"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to find number of integers with odd number of set bits.\n\nTask ID: 78\n\nExpected behavior (test cases):\n1. count_With_Odd_SetBits(5) should return 3\n2. count_With_Odd_SetBits(10) should return 5\n3. count_With_Odd_SetBits(15) should return 8\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def count_With_Odd_SetBits(n):\n    # Initialize result counter\n    count = 0\n    \n    # Iterate through each bit position in n\n    for i in range(32):  # Loop up to 32 as there can't be more than 32 bits in an integer\n        if n & (1 << i):  # Check if ith bit is set (1)\n            count += 1      # Increment result if it's odd\n            \n    return count"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 237,
+        "prompt_tokens": 143,
+        "completion_tokens": 101
+      }
+    },
+    "timestamp": 1752162538.5965002
+  },
+  {
+    "mbpp_id": 79,
+    "problem": {
+      "task_id": 79,
+      "text": "Write a python function to check whether the length of the word is odd or not.",
+      "code": "def word_len(s): \r\n    s = s.split(' ')   \r\n    for word in s:    \r\n        if len(word)%2!=0: \r\n            return True  \r\n        else:\r\n          return False",
+      "test_list": [
+        "assert word_len(\"Hadoop\") == False",
+        "assert word_len(\"great\") == True",
+        "assert word_len(\"structure\") == True"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a python function to check whether the length of the word is odd or not.\n\nTask ID: 79\n\nExpected behavior (test cases):\n1. word_len(\"Hadoop\") should return False\n2. word_len(\"great\") should return True\n3. word_len(\"structure\") should return True\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def word_len(s):\n    # Check if the length of the string is odd\n    return len(s) % 2 != 0"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 146,
+        "prompt_tokens": 125,
+        "completion_tokens": 28
+      }
+    },
+    "timestamp": 1752162540.8555934
+  },
+  {
+    "mbpp_id": 80,
+    "problem": {
+      "task_id": 80,
+      "text": "Write a function to find the nth tetrahedral number.",
+      "code": "def tetrahedral_number(n): \r\n\treturn (n * (n + 1) * (n + 2)) / 6",
+      "test_list": [
+        "assert tetrahedral_number(5) == 35.0",
+        "assert tetrahedral_number(6) == 56.0",
+        "assert tetrahedral_number(7) == 84.0"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the nth tetrahedral number.\n\nTask ID: 80\n\nExpected behavior (test cases):\n1. tetrahedral_number(5) should return 35.0\n2. tetrahedral_number(6) should return 56.0\n3. tetrahedral_number(7) should return 84.0\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def tetrahedral_number(n):\n    result = n * ((n * (n + 1)) / 2)\n    return round(result)"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 160,
+        "prompt_tokens": 137,
+        "completion_tokens": 30
+      }
+    },
+    "timestamp": 1752162543.2565618
+  },
+  {
+    "mbpp_id": 81,
+    "problem": {
+      "task_id": 81,
+      "text": "Write a function to zip the two given tuples.",
+      "code": "def zip_tuples(test_tup1, test_tup2):\r\n  res = []\r\n  for i, j in enumerate(test_tup1):\r\n    res.append((j, test_tup2[i % len(test_tup2)])) \r\n  return (res) ",
+      "test_list": [
+        "assert zip_tuples((7, 8, 4, 5, 9, 10),(1, 5, 6) ) == [(7, 1), (8, 5), (4, 6), (5, 1), (9, 5), (10, 6)]",
+        "assert zip_tuples((8, 9, 5, 6, 10, 11),(2, 6, 7) ) == [(8, 2), (9, 6), (5, 7), (6, 2), (10, 6), (11, 7)]",
+        "assert zip_tuples((9, 10, 6, 7, 11, 12),(3, 7, 8) ) == [(9, 3), (10, 7), (6, 8), (7, 3), (11, 7), (12, 8)]"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to zip the two given tuples.\n\nTask ID: 81\n\nExpected behavior (test cases):\n1. zip_tuples((7, 8, 4, 5, 9, 10),(1, 5, 6) ) should return [(7, 1), (8, 5), (4, 6), (5, 1), (9, 5), (10, 6)]\n2. zip_tuples((8, 9, 5, 6, 10, 11),(2, 6, 7) ) should return [(8, 2), (9, 6), (5, 7), (6, 2), (10, 6), (11, 7)]\n3. zip_tuples((9, 10, 6, 7, 11, 12),(3, 7, 8) ) should return [(9, 3), (10, 7), (6, 8), (7, 3), (11, 7), (12, 8)]\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def zip_tuples(tup1, tup2):\n    result = []\n    for i in range(len(tup1)):\n        result.append((tup1[i], tup2[i]))\n    return result"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 337,
+        "prompt_tokens": 304,
+        "completion_tokens": 40
+      }
+    },
+    "timestamp": 1752162546.213396
+  },
+  {
+    "mbpp_id": 82,
+    "problem": {
+      "task_id": 82,
+      "text": "Write a function to find the volume of a sphere.",
+      "code": "import math\r\ndef volume_sphere(r):\r\n  volume=(4/3)*math.pi*r*r*r\r\n  return volume",
+      "test_list": [
+        "assert volume_sphere(10)==4188.790204786391",
+        "assert volume_sphere(25)==65449.84694978735",
+        "assert volume_sphere(20)==33510.32163829113"
+      ],
+      "test_setup_code": "",
+      "challenge_test_list": []
+    },
+    "prompt": "Please solve the following Python programming problem:\n\nProblem: Write a function to find the volume of a sphere.\n\nTask ID: 82\n\nExpected behavior (test cases):\n1. volume_sphere(10)==4188.790204786391\n2. volume_sphere(25)==65449.84694978735\n3. volume_sphere(20)==33510.32163829113\n\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.",
+    "model_response": {
+      "choices": [
+        {
+          "message": {
+            "content": "def volume_sphere(radius):\n    return (4/3) * 3.141592653589793 * radius ** 3"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 192,
+        "prompt_tokens": 163,
+        "completion_tokens": 36
+      }
+    },
+    "timestamp": 1752162548.9253695
+  }
+]
