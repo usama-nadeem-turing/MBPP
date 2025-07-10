@@ -25,5 +25,23 @@ swift sft \
   --warmup_ratio 0.05 \
   --dataloader_num_workers 4
 
+  
+  swift sft \
+  --model Qwen/Qwen2.5-1.5B-Instruct \
+  --dataset path/to/new_train.jsonl \
+  --train_type lora \
+  --num_train_epochs 3 \
+  --per_device_train_batch_size 2 \
+  --gradient_accumulation_steps 8 \
+  --learning_rate 5e-5 \
+  --max_length 2048 \
+  --torch_dtype bfloat16 \
+  --output_dir output/qwen2.5-lora \
+  --save_strategy epoch \
+  --save_total_limit 2 \
+  --eval_steps 50 \
+  --warmup_ratio 0.05 \
+  --dataloader_num_workers 4
+
 
 """
