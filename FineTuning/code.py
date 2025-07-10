@@ -28,7 +28,8 @@ swift sft \
   
   swift sft \
   --model Qwen/Qwen2.5-1.5B-Instruct \
-  --dataset path/to/new_train.jsonl \
+  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_hard_heavy.jsonl \
+  --output_dir FineTunedModels/LoRA_Finetuned/qwen2.5-hard-heavy \
   --train_type lora \
   --num_train_epochs 3 \
   --per_device_train_batch_size 2 \
@@ -36,7 +37,6 @@ swift sft \
   --learning_rate 5e-5 \
   --max_length 2048 \
   --torch_dtype bfloat16 \
-  --output_dir output/qwen2.5-lora \
   --save_strategy epoch \
   --save_total_limit 2 \
   --eval_steps 50 \
