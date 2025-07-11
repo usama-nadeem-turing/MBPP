@@ -3,18 +3,6 @@ import json
 import os
 from collections import defaultdict
 
-# New: Load MBPP reference code for all mbpp_ids
-def load_mbpp_reference_codes(mbpp_json_path):
-    """Load MBPP reference code for each mbpp_id from the MBPP dataset file."""
-    with open(mbpp_json_path, 'r', encoding='utf-8') as f:
-        mbpp_data = json.load(f)
-    mbpp_code_map = {}
-    for entry in mbpp_data:
-        mbpp_id = entry['mbpp_id']
-        code = entry['problem']['code']
-        mbpp_code_map[mbpp_id] = code
-    return mbpp_code_map
-
 def load_evaluation_results(run_dir):
     """Load evaluation results from a run directory"""
     eval_file = os.path.join(run_dir, 'evaluations', 'evaluation_results_all.json')
@@ -59,8 +47,8 @@ def find_best_run_for_mbpp_id(mbpp_id, all_runs_data):
     
     return best_run, best_run_id, best_score
 
-def create_jsonl_for_dataset(dataset_csv_path, all_runs_data, output_jsonl_path, mbpp_code_map):
-    """Create JSONL file for a specific dataset, using MBPP reference code as output."""
+def create_jsonl_for_dataset(dataset_csv_path, all_runs_data, output_jsonl_path):
+    """Create JSONL file for a specific dataset"""
     # Read the dataset CSV
     df = pd.read_csv(dataset_csv_path)
     
@@ -68,19 +56,15 @@ def create_jsonl_for_dataset(dataset_csv_path, all_runs_data, output_jsonl_path,
     
     for _, row in df.iterrows():
         mbpp_id = row['mbpp_id']
-        # Find the best run for this mbpp_id (for prompt/instruction only)
+        
+        # Find the best run for this mbpp_id
         best_result, run_id, score = find_best_run_for_mbpp_id(mbpp_id, all_runs_data)
         
         if best_result:
-            # Use MBPP reference code as output
-            reference_code = mbpp_code_map.get(mbpp_id, None)
-            if reference_code is None:
-                print(f"Warning: No reference code found for MBPP {mbpp_id}")
-                continue
             # Create JSONL entry
             entry = {
-                "instruction": f"""Please solve the following Python programming problem:\n\nProblem: {best_result['problem_statement']}\n\nTask ID: {best_result['mbpp_id']}\n\nExpected behavior (test cases):\n{chr(10).join(f"{i+1}. {test.replace('assert ', '').replace(' == ', ' should return ')}" for i, test in enumerate(best_result['test_cases']))}\n\nPlease provide a complete Python function that solves this problem. Write only the function code without any explanations or comments.""",
-                "output": reference_code
+                "instruction": best_result['problem_statement'],
+                "output": best_result['generated_code']
             }
             jsonl_data.append(entry)
             print(f"MBPP {mbpp_id}: Run {run_id}, Score: {score}")
@@ -114,10 +98,6 @@ def main():
         else:
             print(f"  No results found")
     
-    # Load MBPP reference code map (from run 01 train split)
-    mbpp_json_path = f"{base_dir}/01/mbpp_results_final_train.json"
-    mbpp_code_map = load_mbpp_reference_codes(mbpp_json_path)
-    
     # Dataset files to process
     datasets = [
         'dataset_easy_heavy.csv',
@@ -131,7 +111,7 @@ def main():
         if os.path.exists(dataset_csv):
             output_jsonl = dataset_csv.replace('.csv', '.jsonl')
             print(f"\nProcessing {dataset_csv}...")
-            count = create_jsonl_for_dataset(dataset_csv, all_runs_data, output_jsonl, mbpp_code_map)
+            count = create_jsonl_for_dataset(dataset_csv, all_runs_data, output_jsonl)
             print(f"Created {output_jsonl} with {count} entries")
         else:
             print(f"Warning: {dataset_csv} not found")
