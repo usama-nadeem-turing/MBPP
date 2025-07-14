@@ -171,7 +171,7 @@ def generate_pivot_statistics(df: pd.DataFrame):
 def main():
     """Main function to create pivot table from all Model Runs."""
     #model_runs_dir = 'Model Runs'
-    model_runs_dir = 'FineTuning\ModelRuns\LoRA_Finetuned'
+    model_runs_dir = 'FineTuning\ModelRuns\DoRA_Finetuned'
     
     try:
         # Check if Model Runs directory exists
