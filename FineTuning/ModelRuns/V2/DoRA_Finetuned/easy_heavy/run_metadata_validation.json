@@ -1,0 +1,17 @@
+{
+  "timestamp": "20250723_182607",
+  "run_config": {
+    "demo_mode": false,
+    "split": "validation",
+    "max_problems": null,
+    "model_path": "/home/jupyter/FineTunedModels/V2/DoRA_Finetuned/qwen2.5-easy-heavy/v0-20250723-182356/checkpoint-10",
+    "temperature": 1.0,
+    "max_tokens": 512,
+    "debug": false
+  },
+  "dataset_info": {
+    "total_problems_loaded": 90,
+    "problems_to_process": 90
+  },
+  "results_directory": "results_20250723_182607"
+}
