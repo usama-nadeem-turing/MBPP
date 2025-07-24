@@ -33,8 +33,8 @@ swift sft \
 
   swift sft \
   --model Qwen/Qwen2.5-1.5B-Instruct \
-  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_hard_heavy.jsonl \
-  --output_dir FineTunedModels/DoRA_Finetuned/qwen2.5-hard-heavy \
+  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_easy_heavy.jsonl \
+  --output_dir FineTunedModels/DoRA_Finetuned/qwen2.5-easy-heavy \
   --train_type dora \
   --num_train_epochs 3 \
   --per_device_train_batch_size 2 \
@@ -52,8 +52,8 @@ V1
 
 swift sft \
   --model Qwen/Qwen2.5-1.5B-Instruct \
-  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_balanced.jsonl \
-  --output_dir FineTunedModels/DoRA_Finetuned_V1/qwen2.5-balanced \
+  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_easy_heavy.jsonl \
+  --output_dir FineTunedModels/V2/DoRA_Finetuned/qwen2.5-easy-heavy \
   --train_type dora \
   --lora_rank 16 \
   --num_train_epochs 5 \
