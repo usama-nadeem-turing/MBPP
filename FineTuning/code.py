@@ -50,10 +50,12 @@ swift sft \
 
 V1
 
+source qwen-env/bin/activate  # activate the environment
+
 swift sft \
   --model Qwen/Qwen2.5-1.5B-Instruct \
-  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_easy_heavy.jsonl \
-  --output_dir FineTunedModels/V2/DoRA_Finetuned/qwen2.5-easy-heavy \
+  --dataset MBPP/ModelRuns/datasets_for_FT/dataset_balanced.jsonl \
+  --output_dir FineTunedModels/V3/DoRA_Finetuned/qwen2.5-balanced \
   --train_type dora \
   --lora_rank 16 \
   --num_train_epochs 5 \
@@ -69,4 +71,5 @@ swift sft \
   --warmup_ratio 0.05 \
   --dataloader_num_workers 4
 
+rm -rf ~/.cache/modelscope
 """
